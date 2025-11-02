@@ -1,641 +1,269 @@
-<style>
-    body {
-    background-color: #f6f6f6 !important;
-  }
-
-  .mt-10 {
-    margin-top:10px;
-  }
-
-  .ml-10 {
-    margin-left:10px;
-  }
-  
-  .portfolio-section {
-    background-color: #f4f4f4;
-    display: flex;
-    padding-bottom: 60px;
-    flex-direction: column;
-  }
-  
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 20px 120px;
-    font: 500 20px Otterco, sans-serif;
-  }
-  
-  .logo {
-    aspect-ratio: 1.79;
-    object-fit: contain;
-    width: 34px;
-  }
-  
-  .nav-links {
-    display: flex;
-    min-width: 240px;
-    min-height: 60px;
-    align-items: center;
-    gap: 60px;
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    color: #000;
-  }
-  
-  .contact-btn {
-    border-radius: 39px;
-    border-bottom: 2px solid #531371;
-    color: #fff;
-    padding: 17px 20px;
-    text-decoration: none;
-    background: rgb(245, 128, 255);
-    background: linear-gradient(90deg, rgba(245, 128, 255, 1) 0%, rgba(142, 34, 249, 1) 100%);
-  }
-  
-  .hero-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 80px 0 60px 0;
-    text-align: center;
-  
-    margin: 0 0 60px 0;
-  }
-  
-  .hero-title {
-    font: 28px Otterco, sans-serif;
-    margin: 0;
-  }
-  
-  .hero-subtitle {
-    font: 500 60px/71px Otterco, sans-serif;
-    margin: 5px 0 60px 0;
-  }
-  
-  .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    padding: 0 20px;
-    font: 400 20px/22px Otterco, -apple-system, Roboto, Helvetica, sans-serif;
-  }
-  
-  .projects-title {
-    font: 500 48px Otterco, sans-serif;
-    color: #000;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-
-  li a {
-    font: 500 24px Otterco, sans-serif;
-    color: #000;
-    text-decoration: none!important;
-  }
-  
-  .project-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .project-card {
-    background-color: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-    width: 980px;
-    border-radius: 40px;
-  }
-  
-  .project-image {
-    width: 466px;
-    height: 100%;
-    flex: 1;
-  }
-
-  .project-thumb {
-    width: 100%;
-    height: auto;
-    border-radius: 40px 0 0 40px;
-  }
-  
-  .project-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 300px;
-    padding: 20px;
-  }
-  
-  .project-name {
-    color: #000;
-    font: 500 28px Otterco, sans-serif;
-    margin: 0px;
-  }
-  
-  .project-description {
-    color: #757575;
-    margin-top: 10px;
-    font: 400 20px Otterco, sans-serif;
-  }
-
-  h1 {
-  text-align: center;
-  margin: 3rem 0;
-}
-
-li {
-  list-style: none;
-}
-body {
-  box-sizing: border-box;
-}
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.wiper-track {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  column-gap: 1.5rem;
-  margin: 0 auto;
-  transition: transform 0.4s ease-in;
-  padding: 0 0;
-}
-.wiper-item {
-  width: 200px;
-  height: 300px;
-  position: relative;
-  transition: scale 0.2s linear;
-    transform: scale(1);
-    height: 445px;
-    width: 350px;
-    /* background-color: rgb(0, 0, 0); */
-    border-radius: 30px;
-
-
-}
-
-.a {
-    text-decoration: none;
-}
-
-.wiper-button img {
-  height: 100%;
-  width: 100%;
-  object-fit:cover;
-}
-.wiper {
-  max-width: 980px;
-  position: relative;
-  margin: 0 auto;
-}
-.active-swipe {
-  transform: scale(1);
-}
-.wiper-button {
-  margin: 0 -5rem;
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  top: 50%;
-  background: transparent;
-  border: none;
-  transform: translateY(-50%);
-  z-index: 1;
-}
-.wiper-button__left {
-  right: 0;
-  transform: translateY(-50%) rotate(180deg);
-}
-.wiper__image-button {
-  right: 50%;
-  top: 50%;
-  position: absolute;
-  padding: 0.8rem 1rem;
-  border-radius: 3px;
-  background-color: white;
-  border: none;
-  font-size: 1.4rem;
-  transform: translateY(-50%) translateX(50%);
-  cursor: pointer;
-}
-.wiper-wrapper {
-  max-width: 980px;
-  overflow: hidden;
-  padding: 0 0;
-  margin: 0 auto;
-  height: 520px;
-}
-.swiper__image-button {
-  right: 50%;
-  top: 50%;
-  position: absolute;
-  padding: 0.8rem 1rem;
-  border-radius: 3px;
-  background-color: white;
-  border: none;
-  font-size: 1rem;
-  transform: translateY(-50%) translateX(50%);
-  cursor: pointer;
-}
-.swiper__image-button:hover {
-  color: red;
-}
-.wiper__image{
-  height:100%;
-  width:100%;
-  object-fit: cover;
-  border-radius:30px;
-}
-.is-hidden{
-  display:none;
-}
-  
-  .contact-section {
-    text-align: center;
-    max-width: 980px;
-    align-items: center;
-    margin: 80px auto;
-    background: #fff;
-    padding: 40px;
-    border-radius: 40px;
-  }
-  
-  .contact-title {
-    font: 500 48px Otterco, sans-serif;
-    color: #000;
-    margin: 20px 0;
-  }
-  
-  .contact-info {
-    font: 400 28px Otterco, sans-serif;
-    color: #000;
-    line-height: 40px;
-  }
-  
-  a.mail {
-    color: #000;
-    cursor: pointer;
-    text-decoration: none;
-    font: 500 28px Otterco, sans-serif;
-    color: #000;
-  }
-  
-  a.social-link {
-    color: #000;
-    cursor: pointer;
-    text-decoration: none;
-    font: 400 28px Otterco, sans-serif;
-    color: #000;
-  }
-  
-  .social-links {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 80px 0;
-    font: 400 28px Otterco, sans-serif;
-    color: #000;
-  }
-  
-  .social-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: #000;
-    font: 400 28px Otterco, sans-serif;
-    color: #000;
-  }
-  
-  .social-icon {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-  
-  @media (max-width: 991px) {
-    .header {
-      padding: 0 20px;
-    }
-  
-    .hero-subtitle {
-      font-size: 40px;
-      line-height: 53px;
-    }
-  
-    .project-container {
-      padding: 0 20px;
-    }
-  
-    .project-card {
-      margin-bottom: 100px;
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-    }
-  
-    .projects-title,
-    .contact-title {
-      font-size: 40px;
-    }
-  
-    .project-image {
-      background-color: #f6cece;
-      width: 100%;
-      height: auto;
-      flex: 1 1 400px;
-    }
-    
-  }
-  
-  
-  /* New style */
-  
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-  
-  
-  .wrapper {
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(8, 120px);
-    grid-template-rows: repeat(2, 70px);
-    grid-gap: 1.5rem;
-  
-  
-  }
-  
-  .item {
-    background-color: #fff;
-    padding: 10px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    text-align: left;
-    font: 400 18px Otterco, sans-serif;
-    color: #000;
-    line-height: 24px;
-  }
-  
-  .item:hover {
-    background: rgb(245, 128, 255);
-    background: linear-gradient(90deg, rgba(245, 128, 255, 1) 0%, rgba(142, 34, 249, 1) 100%);
-    color: #fff;
-  }
-  
-  </style>
-
-<header class="header">
-    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d27955eaaa8c3b02ba73f5825fb6d3384878db869a5b6ea810fdf6a5a244711?placeholderIfAbsent=true&apiKey=1692bd56b858498daa73f13f85febba1" alt="Portfolio Logo" class="logo">
-    <nav class="nav-links">
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#cv" class="nav-link">CV</a>
-        <a href="#contact" class="nav-link contact-btn">Contact</a>
-    </nav>
-</header>
-
-<main>
-    <section class="hero-section">
-        <h1 class="hero-title">Abdul Hasib</h1>
-        <p class="hero-subtitle">Crafting digital products <br> and experience</p>
-        <div class="wrapper">
-	
-            <div class="item">UX & UI</div>
-            <div class="item">Mobile & web</div>
-            <div class="item">Research & analysis</div>
-            <div class="item">Wireframe design</div>
-            <div class="item">Requirement gathering</div>
-            <div class="item">UX consulting</div>
-            <div class="item">UX review</div>
-            <div class="item">Design system</div>
-            <div class="item">Prototype design</div>
-            <div class="item">User journey</div>
-            <div class="item">Usability testing</div>
-            <div class="item">Information architecture</div>
-            <div class="item">Figma</div>
-            <div class="item">XD</div>
-            <div class="item">HTML, CSS & JS</div>
-            <div class="item">Framer</div>
-        </div>
-
-    </section>
-
-    <section class="projects-section" id="projects">
-        <h2 class="projects-title">My Selected Projects</h2>
-        <div class="project-container">
-            <article class="project-card">
-                <div class="project-image" aria-label="Project Sanatan visual"><img class="project-thumb" src="sanatan-thumb.png"></div>
-                <div class="project-details">
-                    <h3 class="project-name">Sanatan</h3>
-                    <p class="project-description">Description about the project</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Hasib - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/globals.css">
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex gap-8 p-5 min-h-screen bg-white flex-col lg:flex-row">
+        <!-- Sidebar -->
+        <aside class="portfolio-sidebar w-full lg:w-[351px] bg-[#f5fdff] rounded-[24px] border border-[rgba(37,140,229,0.12)] shadow-[3px_3px_0px_0px_#000000] lg:sticky lg:top-5 h-auto lg:h-[calc(100vh-40px)] flex-shrink-0">
+            <div class="p-4 h-full min-h-[400px] lg:min-h-0 flex flex-col justify-between">
+                <div class="flex flex-col gap-4">
+                    <p class="text-[20px] font-semibold text-black text-left">Abdul Hasib</p>
+                    <div class="flex flex-col gap-2">
+                        <p class="text-[14px] text-black/70">10 years of experience</p>
+                        <p class="text-[14px] text-black/70">Design leadership</p>
+                        <p class="text-[14px] text-black/70">Well versed in front end technologies</p>
+                    </div>
                 </div>
-            </article>
-            <article class="project-card">
-                <div class="project-image" aria-label="Project Sanatan visual"><img class="project-thumb" src="https://images.resumgo.com/2020/03/OEDIPUS-Free-Smart-Modern-Resume-Template-ResumGO.png"></div>
-                <div class="project-details">
-                    <h3 class="project-name">Sanatan</h3>
-                    <p class="project-description">Description about the project</p>
+                
+                <div class="flex flex-col gap-8">
+                    <div class="flex flex-col gap-6">
+                        <h1 class="text-[25px] font-medium text-black">Crafting digital products</h1>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-white border border-[#c7c7c7] rounded-[7px] px-2 py-1.5 text-[14px] text-black">UX Research</span>
+                            <span class="bg-white border border-[#c7c7c7] rounded-[7px] px-2 py-1.5 text-[14px] text-black">Wireframe</span>
+                            <span class="bg-white border border-[#c7c7c7] rounded-[7px] px-2 py-1.5 text-[14px] text-black">UI Design</span>
+                            <span class="bg-white border border-[#c7c7c7] rounded-[7px] px-2 py-1.5 text-[14px] text-black">Prototype</span>
+                            <span class="bg-white border border-[#c7c7c7] rounded-[7px] px-2 py-1.5 text-[14px] text-black">Figma</span>
+                            <span class="bg-white border border-[#c7c7c7] rounded-[7px] px-2 py-1.5 text-[14px] text-black">ProtoPie</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-4 flex flex-col gap-3">
+                        <p class="text-[14px] text-[#222222] leading-[20.8px]">
+                            Something cooking in your mind? Lets start!
+                        </p>
+                        <button class="bg-[#91ed92] rounded-[40px] shadow-[2px_3px_0px_0px_#000000] px-4 py-3.5 border-none cursor-pointer flex items-center gap-2 text-[16px] text-black w-fit">
+                            Lets Connect
+                            <svg class="w-4 h-4 rotate-180" viewBox="0 0 11 11" fill="none">
+                                <path d="M9.59194 0.75L1.41232 8.9321" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.75 5.65665V9.7477H4.83981" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-            </article>
-        
-            <div class="wiper">
-              <button class="wiper-button wiper-button__right">
-                <img src="arrow.svg" alt="left" />
-              </button>
-              <div class="wiper-wrapper">
-                <ul class="wiper-track">
-                  <li class="wiper-item">
-                    <a href="cakes.html">
-                    <img
-                      class="wiper__image"
-                      src="sanatan-thumb.png"
-                      alt="background-image"
-                    />
-                    <h4 class="sub-title mt-10 ml-10">Sanatan</h4>
-                  </a>
-                  </li>
-
-                  <li class="wiper-item active-swipe">
-                    <a href="cakes.html">
-                    <img
-                      class="wiper__image"
-                      src="https://images.pexels.com/photos/17617625/pexels-photo-17617625/free-photo-of-pink-chrysanthemum-flowers.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
-                      alt="background-image"
-                    />
-                    <h4 class="sub-title mt-10 ml-10">Title Goes Here</h4>
-                    </a>
-                  </li>
-
-                  <li class="wiper-item">
-                    <a href="cakes.html">
-                    <img
-                      class="wiper__image"
-                      src="https://images.pexels.com/photos/19598202/pexels-photo-19598202/free-photo-of-pink-hyndrangea-flowers.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
-                      alt="background-image"
-                    />
-                    <h4 class="sub-title mt-10 ml-10">Title Goes Here</h4>
-                    </a>
-
-                  </li>
-
-                  <li class="wiper-item">
-                    <a href="cakes.html">
-                    <img
-                      class="wiper__image"
-                      src="https://images.pexels.com/photos/17024197/pexels-photo-17024197/free-photo-of-a-pink-anemone-on-a-white-background.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
-                      alt="background-image"
-                    />
-                    <h4 class="sub-title mt-10 ml-10">Title Goes Here</h4>
-                    </a>
-                  </li>
-
-                  <li class="wiper-item">
-                    <a href="cakes.html">
-                    <img
-                      class="wiper__image"
-                      src="https://images.pexels.com/photos/19682307/pexels-photo-19682307/free-photo-of-pink-flowers-on-a-shrub.jpeg"
-                      alt="background-image"
-                    />
-                    <h4 class="sub-title mt-10 ml-10">Title Goes Here</h4>
-                    </a>
-                  </li>
-
-                  <li class="wiper-item">
-                    <a href="cakes.html">
-                    <img
-                      class="wiper__image"
-                      src="https://images.pexels.com/photos/17617625/pexels-photo-17617625/free-photo-of-pink-chrysanthemum-flowers.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
-                      alt="background-image"
-                    />
-                    <h4 class="sub-title mt-10 ml-10">Title Goes Here</h4>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <button class="wiper-button wiper-button__left">
-                <img src="arrow.svg" alt="right" />
-              </button>
             </div>
-          </body>
+        </aside>
         
-        
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col gap-[120px] lg:gap-[60px] overflow-y-auto">
+            <!-- Projects Section -->
+            <div class="flex flex-col gap-10 lg:gap-8">
+                <!-- Project 1 -->
+                <div class="portfolio-project flex flex-col lg:flex-row gap-0 relative w-full">
+                    <div class="portfolio-preview bg-[#f6f6f6] rounded-[24px] p-5 lg:p-10 w-full lg:w-[620px] h-auto lg:h-[620px] flex flex-col items-center justify-center gap-5 lg:gap-10 flex-shrink-0 z-[2]">
+                        <div class="portfolio-preview-image w-full lg:w-[540px] h-auto lg:h-[383px] overflow-hidden max-w-[540px]">
+                            <img id="project1-main" src="https://images.unsplash.com/photo-1758957530781-4ff54e09bee2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkZXNpZ24lMjBwb3J0Zm9saW98ZW58MXx8fHwxNzYyMDM0NzcyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Main preview" class="w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                        <div class="portfolio-carousel flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center" id="project1-carousel"></div>
+                    </div>
+                    
+                    <div class="flex-1 px-0 lg:px-8 py-8 lg:py-0 flex flex-col gap-6 justify-center z-[1]">
+                        <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px] xl:pt-0 lg:pt-10">Pot Creation</h2>
+                        <p class="text-[14px] lg:text-[16px] text-[#222222] leading-6">
+                            Acting as an extension of their team, we used Webflow to launch high-performing marketing sites and landing pages in days, providing the speed to test ideas faster and the freedom to create any layout.
+                        </p>
+                        <div class="portfolio-project-links flex flex-row gap-3 lg:gap-5">
+                            <a href="#" class="border-[1.25px] border-[#180b3f] rounded-[55px] px-4 py-2 pb-2.5 flex items-center gap-2 text-[14px] lg:text-[16px] text-black no-underline transition-all hover:bg-[#180b3f] hover:text-white">
+                                Case Study
+                                <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
+                                    <path d="M11.4096 0.6L1.40957 10.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M0.6 6.6V11.6H5.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="border-[1.25px] border-[#180b3f] rounded-[55px] px-4 py-2 pb-2.5 flex items-center gap-2 text-[14px] lg:text-[16px] text-black no-underline transition-all hover:bg-[#180b3f] hover:text-white">
+                                Prototype
+                                <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
+                                    <path d="M11.4096 0.6L1.40957 10.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M0.6 6.6V11.6H5.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Project 2 -->
+                <div class="portfolio-project flex flex-col lg:flex-row gap-0 relative w-full">
+                    <div class="portfolio-preview bg-[#f6f6f6] rounded-[24px] p-5 lg:p-10 w-full lg:w-[620px] h-auto lg:h-[620px] flex flex-col items-center justify-center gap-5 lg:gap-10 flex-shrink-0 z-[2]">
+                        <div class="portfolio-preview-image w-full lg:w-[540px] h-auto lg:h-[383px] overflow-hidden max-w-[540px]">
+                            <img id="project2-main" src="https://images.unsplash.com/photo-1758957530781-4ff54e09bee2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkZXNpZ24lMjBwb3J0Zm9saW98ZW58MXx8fHwxNzYyMDM0NzcyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Main preview" class="w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                        <div class="portfolio-carousel flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center" id="project2-carousel"></div>
+                    </div>
+                    
+                    <div class="flex-1 px-0 lg:px-8 py-8 lg:py-0 flex flex-col gap-6 justify-center z-[1]">
+                        <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px] xl:pt-0 lg:pt-10">Airport Shopping</h2>
+                        <p class="text-[14px] lg:text-[16px] text-[#222222] leading-6">
+                            Acting as an extension of their team, we used Webflow to launch high-performing marketing sites and landing pages in days, providing the speed to test ideas faster and the freedom to create any layout.
+                        </p>
+                        <div class="portfolio-project-links flex flex-row gap-3 lg:gap-5">
+                            <a href="#" class="border-[1.25px] border-[#180b3f] rounded-[55px] px-4 py-2 pb-2.5 flex items-center gap-2 text-[14px] lg:text-[16px] text-black no-underline transition-all hover:bg-[#180b3f] hover:text-white">
+                                View Details
+                                <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
+                                    <path d="M11.4096 0.6L1.40957 10.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M0.6 6.6V11.6H5.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="border-[1.25px] border-[#180b3f] rounded-[55px] px-4 py-2 pb-2.5 flex items-center gap-2 text-[14px] lg:text-[16px] text-black no-underline transition-all hover:bg-[#180b3f] hover:text-white">
+                                Prototype
+                                <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
+                                    <path d="M11.4096 0.6L1.40957 10.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M0.6 6.6V11.6H5.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Section -->
+            <div class="flex flex-col gap-6">
+                <h2 class="text-[22px] lg:text-[25.922px] font-medium text-[#0c0c0c] leading-[36.4px]">Gallery</h2>
+                <div class="portfolio-gallery grid grid-cols-1 lg:grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5" id="gallery-grid"></div>
+            </div>
+            
+            <!-- Footer -->
+            <footer class="bg-[#0c0c0c] rounded-[24px] p-6 lg:p-8">
+                <div class="flex flex-col gap-12 lg:gap-16">
+                    <div class="flex flex-col gap-6">
+                        <div class="flex flex-col gap-4">
+                            <p class="text-[16px] lg:text-[19.766px] font-medium text-white leading-[26.4px]">
+                                The website that will save your team<br>time and money is just a few clicks away.
+                            </p>
+                            <p class="text-[16px] lg:text-[19.766px] font-medium text-white/50 leading-[26.4px]">
+                                Ready to get started?
+                            </p>
+                        </div>
+                        <div class="portfolio-footer-buttons flex flex-col lg:flex-row gap-6">
+                            <div class="bg-white rounded-2xl h-[200px] lg:h-[260px] flex-1 p-6 flex flex-col justify-between cursor-pointer transition-transform hover:-translate-y-1">
+                                <svg class="w-8 h-8 text-[#0c0c0c]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                <div class="flex items-end justify-between">
+                                    <p class="text-[24px] lg:text-[28px] font-medium text-[#0c0c0c] leading-[27px]">Download resume</p>
+                                    <div class="w-8 h-8 bg-[#91ed92] rounded-[40px] shadow-[2px_3px_0px_0px_#000000] flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-3 h-3 rotate-180" viewBox="0 0 13 13" fill="none">
+                                            <path d="M11.5596 0.75L1.55957 10.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M0.75 6.75V11.75H5.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white/15 rounded-2xl h-[200px] lg:h-[260px] flex-1 p-6 flex flex-col justify-between cursor-pointer transition-transform hover:-translate-y-1">
+                                <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <div class="flex items-end justify-between">
+                                    <p class="text-[24px] lg:text-[28px] font-medium text-white leading-[27px]">Book a consultation</p>
+                                    <div class="w-8 h-8 bg-[#91ed92] rounded-[40px] shadow-[2px_3px_0px_0px_#000000] flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-3 h-3 rotate-180" viewBox="0 0 13 13" fill="none">
+                                            <path d="M11.5596 0.75L1.55957 10.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M0.75 6.75V11.75H5.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-footer-bottom flex flex-col lg:flex-row justify-between items-start lg:items-end pt-8 gap-6">
+                        <div class="flex flex-col gap-4">
+                            <a href="mailto:ux.abdul@gmail.com" class="text-[14.375px] text-white leading-[20.8px] hover:opacity-70 transition-opacity no-underline">ux.abdul@gmail.com</a>
+                            <p class="text-[12.25px] text-white/60 leading-[21px]">2025 Abdul Hasib. All rights reserved</p>
+                        </div>
+                        <div class="flex flex-col gap-4 items-start lg:items-end w-full lg:w-auto">
+                            <div class="flex flex-wrap gap-3 lg:gap-5">
+                                <a href="#" class="text-[16px] text-white no-underline leading-6 hover:opacity-70 transition-opacity">behance</a>
+                                <a href="#" class="text-[16px] text-white no-underline leading-6 hover:opacity-70 transition-opacity">instagram</a>
+                                <a href="#" class="text-[16px] text-white no-underline leading-6 hover:opacity-70 transition-opacity">linkedin</a>
+                                <a href="#" class="text-[16px] text-white no-underline leading-6 hover:opacity-70 transition-opacity">whatsapp</a>
+                            </div>
+                            <p class="text-[12.578px] text-white/60 leading-[21px]">Privacy Policy</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
 
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="hidden fixed inset-0 z-[1000] bg-black/80 items-center justify-center">
+        <div class="bg-white border border-gray-200 rounded-lg w-[95vw] lg:w-[90vw] xl:w-[1200px] h-[90vh] flex flex-col relative">
+            <!-- Accessible title - visually hidden -->
+            <h2 class="sr-only">Gallery Image Viewer</h2>
+            <p class="sr-only" id="modal-description">Viewing image <span id="modal-current">1</span> of <span id="modal-total">6</span>. Use arrow buttons or thumbnails to navigate.</p>
+            
+            <!-- Close button - positioned differently on mobile vs desktop -->
+            <button class="absolute top-4 right-4 lg:block hidden z-50 rounded-full bg-gray-100 p-2 text-gray-700 hover:bg-gray-200 transition-colors" id="close-modal-desktop" aria-label="Close">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <!-- Main image container -->
+            <div class="flex-1 flex items-center justify-center p-4 lg:p-8 relative bg-gray-50">
+                <!-- Navigation arrows -->
+                <button class="absolute left-2 lg:left-4 z-10 rounded-full bg-white shadow-lg p-2 lg:p-3 text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200" id="modal-prev" aria-label="Previous image">
+                    <svg class="h-5 w-5 lg:h-6 lg:w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+
+                <div class="max-w-full max-h-full flex items-center justify-center">
+                    <img id="modal-image" src="" alt="Gallery image" class="max-w-full max-h-[calc(90vh-180px)] lg:max-h-[calc(90vh-220px)] object-contain rounded-lg shadow-md">
+                </div>
+
+                <button class="absolute right-2 lg:right-4 z-10 rounded-full bg-white shadow-lg p-2 lg:p-3 text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200" id="modal-next" aria-label="Next image">
+                    <svg class="h-5 w-5 lg:h-6 lg:w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Thumbnail carousel -->
+            <div class="bg-white p-4 lg:p-6 pt-6 lg:pt-8 border-t border-gray-200">
+                <div class="flex gap-2 lg:gap-3 overflow-x-auto pb-2 justify-center items-center" id="modal-thumbnails"></div>
+            </div>
+
+            <!-- Close button for mobile - at bottom -->
+            <div class="lg:hidden p-4 bg-white border-t border-gray-200">
+                <button class="w-full rounded-full bg-gray-100 py-3 text-gray-700 hover:bg-gray-200 transition-colors flex items-center justify-center gap-2" id="close-modal-mobile">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                    <span>Close</span>
+                </button>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <section class="contact-section" id="contact">
-        <h2 class="contact-title">Like to get in touch?</h2>
-        <p class="contact-info">
-            Drop me a line at <a class="mail" href="mailto:ux.abdul@gmail.com">ux.abdul@gmail.com</a><br>
-            and I'll get back to you asap.
-        </p>
-        <div class="social-links">
-            <a href="#" class="social-link">
-                <span>Behance</span>
-                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f0b6a6e0593445aa0d5a8a35ae52efcb4ed45167b701527cd116086f00262200?placeholderIfAbsent=true&apiKey=1692bd56b858498daa73f13f85febba1" alt="" class="social-icon">
-            </a>
-            <a href="#" class="social-link">
-                <span>Instagram</span>
-                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f0b6a6e0593445aa0d5a8a35ae52efcb4ed45167b701527cd116086f00262200?placeholderIfAbsent=true&apiKey=1692bd56b858498daa73f13f85febba1" alt="" class="social-icon">
-            </a>
-            <a href="#" class="social-link">
-                <span>Linkedin</span>
-                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f0b6a6e0593445aa0d5a8a35ae52efcb4ed45167b701527cd116086f00262200?placeholderIfAbsent=true&apiKey=1692bd56b858498daa73f13f85febba1" alt="" class="social-icon">
-            </a>
-        </div>
-    </section>
-</main>
-
-<script>
-    document.addEventListener('mousemove', (e) => {	
-	const sqrs = document.querySelectorAll('.item');
-		
-	const mouseX = e.pageX;
-	const mouseY = e.pageY;
-	
-	sqrs.forEach(sqr => {
-		const sqrX = sqr.offsetLeft + 20;
-		const sqrY = sqr.offsetTop + 20;
-
-		const diffX = mouseX - sqrX;
-		const diffY = mouseY - sqrY;
-		
-		const radians = Math.atan2(diffY, diffX);
-				
-		const angle = radians * 180 / Math.PI;
-		
-		sqr.style.transform = `rotate(${angle}deg)`;
-	})
-	
-})
-
-
-const wiperTrack = document.querySelector(".wiper-track");
-const wipes = Array.from(wiperTrack.children);
-const wipePrevBtn = document.querySelector(".wiper-button__right");
-const wipeNextBtn = document.querySelector(".wiper-button__left");
-const wipeWidth = wipes[0].getBoundingClientRect().width;
-
-const arrowsBehaviour = (wipePrevBtn, wipeNextBtn, index) => {
-  if (index === 0) {
-    wipePrevBtn.classList.add("is-hidden");
-    wipeNextBtn.classList.remove("is-hidden");
-  } else if (index === wipes.length-1) {
-    wipePrevBtn.classList.remove("is-hidden");
-    wipeNextBtn.classList.add("is-hidden");
-  } else {
-    wipePrevBtn.classList.remove("is-hidden");
-    wipeNextBtn.classList.remove("is-hidden");
-  }
-};
-
-const wipeSlide = (wiperTrack, activeSlide, nextSlide, targetIndex) => {
-  wiperTrack.style.transform =
-    "translateX(-" + (wipeWidth + 24) * (targetIndex - 1) + "px)";
-  activeSlide.classList.remove("active-swipe");
-  activeSlide.style.transform = "scale(1)";
-  nextSlide.classList.add("active-swipe");
-  nextSlide.style.transform = "scale(1)";
-};
-
-wipeNextBtn.addEventListener("click", (e) => {
-  const activeSlide = wiperTrack.querySelector(".active-swipe");
-  const nextSlide = activeSlide.nextElementSibling;
-  const targetIndex = wipes.findIndex((slide) => slide === nextSlide);
-  wipeSlide(wiperTrack, activeSlide, nextSlide, targetIndex);
-  arrowsBehaviour(wipePrevBtn, wipeNextBtn, targetIndex);
-});
-wipePrevBtn.addEventListener("click", (e) => {
-  const activeSlide = wiperTrack.querySelector(".active-swipe");
-  const nextSlide = activeSlide.previousElementSibling;
-  const targetIndex = wipes.findIndex((slide) => slide === nextSlide);
-  wipeSlide(wiperTrack, activeSlide, nextSlide, targetIndex);
-  arrowsBehaviour(wipePrevBtn, wipeNextBtn, targetIndex);
-});
-
-</script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+/* Portfolio Responsive Styles - These override Tailwind at specific breakpoints */
+
+@media (max-width: 1400px) {
+  .portfolio-preview {
+    width: 500px !important;
+    height: 500px !important;
+    padding: 30px !important;
+  }
+  
+  .portfolio-preview-image {
+    width: 440px !important;
+    height: 313px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .portfolio-project {
+    flex-direction: column !important;
+  }
+  
+  .portfolio-preview {
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  .portfolio-preview-image {
+    width: 100% !important;
+    max-width: 540px !important;
+    height: auto !important;
+    aspect-ratio: 540 / 383 !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .portfolio-sidebar {
+    width: 100% !important;
+    position: relative !important;
+    top: 0 !important;
+    height: auto !important;
+  }
+  
+  .portfolio-footer-buttons {
+    flex-direction: column !important;
+  }
+  
+  .portfolio-footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-carousel {
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  
+  .portfolio-gallery {
+    grid-template-columns: 1fr !important;
+  }
+}
