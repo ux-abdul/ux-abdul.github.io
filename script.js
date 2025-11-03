@@ -19,12 +19,18 @@ const galleryImages = [
 // Project carousel state
 const projectState = {
     project1: 0,
-    project2: 0
+    project2: 0,
+    project3: 0,
+    project4: 0
 };
 
 // Initialize project carousels
 function initProjectCarousel(projectId, carouselId, mainImageId) {
     const carousel = document.getElementById(carouselId);
+    const mainImage = document.getElementById(mainImageId);
+    
+    // Set initial main image
+    mainImage.src = projectImages[0];
     
     projectImages.forEach((img, index) => {
         const button = document.createElement('button');
@@ -46,7 +52,12 @@ function selectProjectImage(projectId, index, mainImageId, carouselId) {
     
     // Update main image
     const mainImage = document.getElementById(mainImageId);
-    mainImage.src = projectImages[index];
+    mainImage.style.opacity = '0';
+    
+    setTimeout(() => {
+        mainImage.src = projectImages[index];
+        mainImage.style.opacity = '1';
+    }, 150);
     
     // Update active state on thumbnails
     const carousel = document.getElementById(carouselId);
@@ -143,7 +154,7 @@ function updateModalThumbnails() {
     
     galleryImages.forEach((img, index) => {
         const button = document.createElement('button');
-        button.className = `flex-shrink-0 w-16 h-16 lg:w-20 lg:h-20 rounded-lg overflow-hidden border-2 transition-all ${
+        button.className = `flex-shrink-0 w-20 h-20 lg:w-20 lg:h-20 rounded-lg overflow-hidden border-2 transition-all ${
             currentGalleryIndex === index
                 ? 'border-black scale-110'
                 : 'border-gray-300 hover:border-gray-500'
@@ -170,6 +181,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize project carousels
     initProjectCarousel('project1', 'project1-carousel', 'project1-main');
     initProjectCarousel('project2', 'project2-carousel', 'project2-main');
+    initProjectCarousel('project3', 'project3-carousel', 'project3-main');
+    initProjectCarousel('project4', 'project4-carousel', 'project4-main');
     
     // Initialize gallery
     initGallery();

@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles/globals.css">
     <style>
+        /* Screen reader only class */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -18,6 +19,30 @@
             white-space: nowrap;
             border-width: 0;
         }
+        
+        /* Seamless Marquee Animation */
+        .marquee-container {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            display: flex;
+            flex-shrink: 0;
+            white-space: nowrap;
+            animation: marquee-scroll 24s linear infinite;
+            padding-right: 2rem;
+        }
+
+        @keyframes marquee-scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
     </style>
 </head>
 <body>
@@ -26,17 +51,53 @@
         <aside class="portfolio-sidebar w-full lg:w-[351px] bg-[#f5fdff] rounded-[24px] border border-[rgba(37,140,229,0.12)] shadow-[3px_3px_0px_0px_#000000] lg:sticky lg:top-5 h-auto lg:h-[calc(100vh-40px)] flex-shrink-0">
             <div class="p-4 h-full min-h-[400px] lg:min-h-0 flex flex-col justify-between">
                 <div class="flex flex-col gap-4">
-                    <p class="text-[20px] font-semibold text-black text-left">Abdul Hasib</p>
-                    <div class="flex flex-col gap-2">
-                        <p class="text-[14px] text-black/70">10 years of experience</p>
-                        <p class="text-[14px] text-black/70">Design leadership</p>
-                        <p class="text-[14px] text-black/70">Well versed in front end technologies</p>
+                    <!-- Marquee Section -->
+                    <div class="h-[30px] w-full overflow-hidden relative">
+                        <div class="marquee-container">
+                            <div class="marquee-content">
+                                <p class="font-semibold leading-[30px] text-[20px] text-black inline-flex items-center tracking-[-0.4492px]">
+                                    Abdul Hasib 
+                                    <svg class="inline-block w-4 h-4 mx-1" fill="black" preserveAspectRatio="none" viewBox="0 0 512 512">
+                                        <path d="M461.812 347.531L303.995 256.416L462.172 165.094C473.656 158.469 477.578 143.797 470.953 132.312C464.328 120.812 449.641 116.891 438.172 123.531L279.625 215.067V32C279.625 18.7499 268.875 8 255.625 8C242.375 8 231.625 18.7501 231.625 32V214.634L73.8282 123.531C62.375 116.891 47.6718 120.812 41.0469 132.312C34.4219 143.797 38.3437 158.469 49.8282 165.094L208.005 256.416L50.1875 347.531C38.7032 354.156 34.7813 368.828 41.4062 380.312C45.8437 388.016 53.9219 392.312 62.203 392.312C66.2811 392.312 70.4062 391.281 74.1874 389.094L231.625 298.198V480C231.625 493.25 242.375 504 255.625 504C268.875 504 279.625 493.25 279.625 480V297.766L437.812 389.094C441.594 391.281 445.719 392.312 449.797 392.312C458.078 392.312 466.156 388.016 470.593 380.312C477.219 368.828 473.297 354.156 461.812 347.531Z"/>
+                                    </svg>
+                                    Lead UX Designer 
+                                    <svg class="inline-block w-4 h-4 mx-1" fill="black" preserveAspectRatio="none" viewBox="0 0 512 512">
+                                        <path d="M461.812 347.531L303.995 256.416L462.172 165.094C473.656 158.469 477.578 143.797 470.953 132.312C464.328 120.812 449.641 116.891 438.172 123.531L279.625 215.067V32C279.625 18.7499 268.875 8 255.625 8C242.375 8 231.625 18.7501 231.625 32V214.634L73.8282 123.531C62.375 116.891 47.6718 120.812 41.0469 132.312C34.4219 143.797 38.3437 158.469 49.8282 165.094L208.005 256.416L50.1875 347.531C38.7032 354.156 34.7813 368.828 41.4062 380.312C45.8437 388.016 53.9219 392.312 62.203 392.312C66.2811 392.312 70.4062 391.281 74.1874 389.094L231.625 298.198V480C231.625 493.25 242.375 504 255.625 504C268.875 504 279.625 493.25 279.625 480V297.766L437.812 389.094C441.594 391.281 445.719 392.312 449.797 392.312C458.078 392.312 466.156 388.016 470.593 380.312C477.219 368.828 473.297 354.156 461.812 347.531Z"/>
+                                    </svg>
+                                    10+ Years Of Industry Experience 
+                                    <svg class="inline-block w-4 h-4 mx-1" fill="black" preserveAspectRatio="none" viewBox="0 0 512 512">
+                                        <path d="M461.812 347.531L303.995 256.416L462.172 165.094C473.656 158.469 477.578 143.797 470.953 132.312C464.328 120.812 449.641 116.891 438.172 123.531L279.625 215.067V32C279.625 18.7499 268.875 8 255.625 8C242.375 8 231.625 18.7501 231.625 32V214.634L73.8282 123.531C62.375 116.891 47.6718 120.812 41.0469 132.312C34.4219 143.797 38.3437 158.469 49.8282 165.094L208.005 256.416L50.1875 347.531C38.7032 354.156 34.7813 368.828 41.4062 380.312C45.8437 388.016 53.9219 392.312 62.203 392.312C66.2811 392.312 70.4062 391.281 74.1874 389.094L231.625 298.198V480C231.625 493.25 242.375 504 255.625 504C268.875 504 279.625 493.25 279.625 480V297.766L437.812 389.094C441.594 391.281 445.719 392.312 449.797 392.312C458.078 392.312 466.156 388.016 470.593 380.312C477.219 368.828 473.297 354.156 461.812 347.531Z"/>
+                                    </svg>
+                                </p>
+                            </div>
+                            <div class="marquee-content">
+                                <p class="font-semibold leading-[30px] text-[20px] text-black inline-flex items-center tracking-[-0.4492px]">
+                                    Abdul Hasib 
+                                    <svg class="inline-block w-4 h-4 mx-1" fill="black" preserveAspectRatio="none" viewBox="0 0 512 512">
+                                        <path d="M461.812 347.531L303.995 256.416L462.172 165.094C473.656 158.469 477.578 143.797 470.953 132.312C464.328 120.812 449.641 116.891 438.172 123.531L279.625 215.067V32C279.625 18.7499 268.875 8 255.625 8C242.375 8 231.625 18.7501 231.625 32V214.634L73.8282 123.531C62.375 116.891 47.6718 120.812 41.0469 132.312C34.4219 143.797 38.3437 158.469 49.8282 165.094L208.005 256.416L50.1875 347.531C38.7032 354.156 34.7813 368.828 41.4062 380.312C45.8437 388.016 53.9219 392.312 62.203 392.312C66.2811 392.312 70.4062 391.281 74.1874 389.094L231.625 298.198V480C231.625 493.25 242.375 504 255.625 504C268.875 504 279.625 493.25 279.625 480V297.766L437.812 389.094C441.594 391.281 445.719 392.312 449.797 392.312C458.078 392.312 466.156 388.016 470.593 380.312C477.219 368.828 473.297 354.156 461.812 347.531Z"/>
+                                    </svg>
+                                    Lead UX Designer 
+                                    <svg class="inline-block w-4 h-4 mx-1" fill="black" preserveAspectRatio="none" viewBox="0 0 512 512">
+                                        <path d="M461.812 347.531L303.995 256.416L462.172 165.094C473.656 158.469 477.578 143.797 470.953 132.312C464.328 120.812 449.641 116.891 438.172 123.531L279.625 215.067V32C279.625 18.7499 268.875 8 255.625 8C242.375 8 231.625 18.7501 231.625 32V214.634L73.8282 123.531C62.375 116.891 47.6718 120.812 41.0469 132.312C34.4219 143.797 38.3437 158.469 49.8282 165.094L208.005 256.416L50.1875 347.531C38.7032 354.156 34.7813 368.828 41.4062 380.312C45.8437 388.016 53.9219 392.312 62.203 392.312C66.2811 392.312 70.4062 391.281 74.1874 389.094L231.625 298.198V480C231.625 493.25 242.375 504 255.625 504C268.875 504 279.625 493.25 279.625 480V297.766L437.812 389.094C441.594 391.281 445.719 392.312 449.797 392.312C458.078 392.312 466.156 388.016 470.593 380.312C477.219 368.828 473.297 354.156 461.812 347.531Z"/>
+                                    </svg>
+                                    10+ Years Of Industry Experience 
+                                    <svg class="inline-block w-4 h-4 mx-1" fill="black" preserveAspectRatio="none" viewBox="0 0 512 512">
+                                        <path d="M461.812 347.531L303.995 256.416L462.172 165.094C473.656 158.469 477.578 143.797 470.953 132.312C464.328 120.812 449.641 116.891 438.172 123.531L279.625 215.067V32C279.625 18.7499 268.875 8 255.625 8C242.375 8 231.625 18.7501 231.625 32V214.634L73.8282 123.531C62.375 116.891 47.6718 120.812 41.0469 132.312C34.4219 143.797 38.3437 158.469 49.8282 165.094L208.005 256.416L50.1875 347.531C38.7032 354.156 34.7813 368.828 41.4062 380.312C45.8437 388.016 53.9219 392.312 62.203 392.312C66.2811 392.312 70.4062 391.281 74.1874 389.094L231.625 298.198V480C231.625 493.25 242.375 504 255.625 504C268.875 504 279.625 493.25 279.625 480V297.766L437.812 389.094C441.594 391.281 445.719 392.312 449.797 392.312C458.078 392.312 466.156 388.016 470.593 380.312C477.219 368.828 473.297 354.156 461.812 347.531Z"/>
+                                    </svg>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="flex flex-col gap-8">
                     <div class="flex flex-col gap-6">
-                        <h1 class="text-[25px] font-medium text-black">Crafting digital products</h1>
+                        <h1 class="text-[25px] font-medium text-black pt-[200px] lg:pt-0">Crafting digital products</h1>
+                        <div class="flex flex-col gap-2">
+                            <p class="text-[14px] text-black/70">10+ Years of Industry Experience</p>
+                            <p class="text-[14px] text-black/70">Design Leadership</p>
+                            <p class="text-[14px] text-black/70">Well Versed in Front End Technologies</p>
+                        </div>
                         <div class="flex flex-wrap gap-3">
                             <span class="bg-white border border-[#c7c7c7] rounded-[7px] px-2 py-1.5 text-[14px] text-black">UX Research</span>
                             <span class="bg-white border border-[#c7c7c7] rounded-[7px] px-2 py-1.5 text-[14px] text-black">Wireframe</span>
@@ -70,8 +131,8 @@
                 <!-- Project 1 -->
                 <div class="portfolio-project flex flex-col lg:flex-row gap-0 relative w-full">
                     <div class="portfolio-preview bg-[#f6f6f6] rounded-[24px] p-5 lg:p-10 w-full lg:w-[620px] h-auto lg:h-[620px] flex flex-col items-center justify-center gap-5 lg:gap-10 flex-shrink-0 z-[2]">
-                        <div class="portfolio-preview-image w-full lg:w-[540px] h-auto lg:h-[383px] overflow-hidden max-w-[540px]">
-                            <img id="project1-main" src="https://images.unsplash.com/photo-1758957530781-4ff54e09bee2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkZXNpZ24lMjBwb3J0Zm9saW98ZW58MXx8fHwxNzYyMDM0NzcyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Main preview" class="w-full h-full object-cover transition-opacity duration-300">
+                        <div class="portfolio-preview-image w-full lg:w-[540px] h-auto lg:h-[383px] overflow-hidden max-w-[540px] rounded-2xl">
+                            <img id="project1-main" src="" alt="Main preview" class="w-full h-full object-cover transition-opacity duration-300 rounded-2xl">
                         </div>
                         <div class="portfolio-carousel flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center" id="project1-carousel"></div>
                     </div>
@@ -103,14 +164,80 @@
                 <!-- Project 2 -->
                 <div class="portfolio-project flex flex-col lg:flex-row gap-0 relative w-full">
                     <div class="portfolio-preview bg-[#f6f6f6] rounded-[24px] p-5 lg:p-10 w-full lg:w-[620px] h-auto lg:h-[620px] flex flex-col items-center justify-center gap-5 lg:gap-10 flex-shrink-0 z-[2]">
-                        <div class="portfolio-preview-image w-full lg:w-[540px] h-auto lg:h-[383px] overflow-hidden max-w-[540px]">
-                            <img id="project2-main" src="https://images.unsplash.com/photo-1758957530781-4ff54e09bee2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkZXNpZ24lMjBwb3J0Zm9saW98ZW58MXx8fHwxNzYyMDM0NzcyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Main preview" class="w-full h-full object-cover transition-opacity duration-300">
+                        <div class="portfolio-preview-image w-full lg:w-[540px] h-auto lg:h-[383px] overflow-hidden max-w-[540px] rounded-2xl">
+                            <img id="project2-main" src="" alt="Main preview" class="w-full h-full object-cover transition-opacity duration-300 rounded-2xl">
                         </div>
                         <div class="portfolio-carousel flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center" id="project2-carousel"></div>
                     </div>
                     
                     <div class="flex-1 px-0 lg:px-8 py-8 lg:py-0 flex flex-col gap-6 justify-center z-[1]">
                         <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px] xl:pt-0 lg:pt-10">Airport Shopping</h2>
+                        <p class="text-[14px] lg:text-[16px] text-[#222222] leading-6">
+                            Acting as an extension of their team, we used Webflow to launch high-performing marketing sites and landing pages in days, providing the speed to test ideas faster and the freedom to create any layout.
+                        </p>
+                        <div class="portfolio-project-links flex flex-row gap-3 lg:gap-5">
+                            <a href="#" class="border-[1.25px] border-[#180b3f] rounded-[55px] px-4 py-2 pb-2.5 flex items-center gap-2 text-[14px] lg:text-[16px] text-black no-underline transition-all hover:bg-[#180b3f] hover:text-white">
+                                View Details
+                                <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
+                                    <path d="M11.4096 0.6L1.40957 10.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M0.6 6.6V11.6H5.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="border-[1.25px] border-[#180b3f] rounded-[55px] px-4 py-2 pb-2.5 flex items-center gap-2 text-[14px] lg:text-[16px] text-black no-underline transition-all hover:bg-[#180b3f] hover:text-white">
+                                Prototype
+                                <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
+                                    <path d="M11.4096 0.6L1.40957 10.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M0.6 6.6V11.6H5.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-project flex flex-col lg:flex-row gap-0 relative w-full">
+                    <div class="portfolio-preview bg-[#f6f6f6] rounded-[24px] p-5 lg:p-10 w-full lg:w-[620px] h-auto lg:h-[620px] flex flex-col items-center justify-center gap-5 lg:gap-10 flex-shrink-0 z-[2]">
+                        <div class="portfolio-preview-image w-full lg:w-[540px] h-auto lg:h-[383px] overflow-hidden max-w-[540px] rounded-2xl">
+                            <img id="project3-main" src="" alt="Main preview" class="w-full h-full object-cover transition-opacity duration-300 rounded-2xl">
+                        </div>
+                        <div class="portfolio-carousel flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center" id="project3-carousel"></div>
+                    </div>
+                    
+                    <div class="flex-1 px-0 lg:px-8 py-8 lg:py-0 flex flex-col gap-6 justify-center z-[1]">
+                        <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px] xl:pt-0 lg:pt-10">Mobile Experience</h2>
+                        <p class="text-[14px] lg:text-[16px] text-[#222222] leading-6">
+                            Acting as an extension of their team, we used Webflow to launch high-performing marketing sites and landing pages in days, providing the speed to test ideas faster and the freedom to create any layout.
+                        </p>
+                        <div class="portfolio-project-links flex flex-row gap-3 lg:gap-5">
+                            <a href="#" class="border-[1.25px] border-[#180b3f] rounded-[55px] px-4 py-2 pb-2.5 flex items-center gap-2 text-[14px] lg:text-[16px] text-black no-underline transition-all hover:bg-[#180b3f] hover:text-white">
+                                View Details
+                                <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
+                                    <path d="M11.4096 0.6L1.40957 10.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M0.6 6.6V11.6H5.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="border-[1.25px] border-[#180b3f] rounded-[55px] px-4 py-2 pb-2.5 flex items-center gap-2 text-[14px] lg:text-[16px] text-black no-underline transition-all hover:bg-[#180b3f] hover:text-white">
+                                Prototype
+                                <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
+                                    <path d="M11.4096 0.6L1.40957 10.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M0.6 6.6V11.6H5.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-project flex flex-col lg:flex-row gap-0 relative w-full">
+                    <div class="portfolio-preview bg-[#f6f6f6] rounded-[24px] p-5 lg:p-10 w-full lg:w-[620px] h-auto lg:h-[620px] flex flex-col items-center justify-center gap-5 lg:gap-10 flex-shrink-0 z-[2]">
+                        <div class="portfolio-preview-image w-full lg:w-[540px] h-auto lg:h-[383px] overflow-hidden max-w-[540px] rounded-2xl">
+                            <img id="project4-main" src="" alt="Main preview" class="w-full h-full object-cover transition-opacity duration-300 rounded-2xl">
+                        </div>
+                        <div class="portfolio-carousel flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center" id="project4-carousel"></div>
+                    </div>
+                    
+                    <div class="flex-1 px-0 lg:px-8 py-8 lg:py-0 flex flex-col gap-6 justify-center z-[1]">
+                        <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px] xl:pt-0 lg:pt-10">Digital Products</h2>
                         <p class="text-[14px] lg:text-[16px] text-[#222222] leading-6">
                             Acting as an extension of their team, we used Webflow to launch high-performing marketing sites and landing pages in days, providing the speed to test ideas faster and the freedom to create any layout.
                         </p>
@@ -227,7 +354,7 @@
             </button>
 
             <!-- Main image container -->
-            <div class="flex-1 flex items-center justify-center p-4 lg:p-8 relative bg-gray-50">
+            <div class="flex-1 flex items-center justify-center p-4 lg:p-8 relative">
                 <!-- Navigation arrows -->
                 <button class="absolute left-2 lg:left-4 z-10 rounded-full bg-white shadow-lg p-2 lg:p-3 text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200" id="modal-prev" aria-label="Previous image">
                     <svg class="h-5 w-5 lg:h-6 lg:w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -247,8 +374,8 @@
             </div>
 
             <!-- Thumbnail carousel -->
-            <div class="bg-white p-4 lg:p-6 pt-6 lg:pt-8 border-t border-gray-200">
-                <div class="flex gap-2 lg:gap-3 overflow-x-auto pb-2 justify-center items-center" id="modal-thumbnails"></div>
+            <div class="bg-white p-4 lg:p-6 pt-10 lg:pt-10 pb-10 lg:pb-10 border-t border-gray-200">
+                <div class="flex gap-2 lg:gap-3 overflow-x-auto pb-2 justify-start lg:justify-center items-center -mx-4 px-4 lg:mx-0 lg:px-0" id="modal-thumbnails"></div>
             </div>
 
             <!-- Close button for mobile - at bottom -->
