@@ -102,10 +102,6 @@ function openGalleryModal(index) {
     modal.classList.add('flex');
     modalImage.src = galleryImages[index];
     
-    // Update counter
-    document.getElementById('modal-current').textContent = index + 1;
-    document.getElementById('modal-total').textContent = galleryImages.length;
-    
     // Prevent body scroll
     document.body.style.overflow = 'hidden';
     
@@ -141,9 +137,6 @@ function goToNextImage() {
 function updateModalImage() {
     const modalImage = document.getElementById('modal-image');
     modalImage.src = galleryImages[currentGalleryIndex];
-    
-    // Update counter
-    document.getElementById('modal-current').textContent = currentGalleryIndex + 1;
     
     updateModalThumbnails();
 }

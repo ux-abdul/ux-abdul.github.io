@@ -1,71 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdul Hasib - Lead UX Designer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles/globals.css">
-    <style>
-        /* Custom animations */
-        .hover-card {
-            transition: all 0.3s ease;
-        }
-        .hover-card:hover {
-            border-color: #000;
-        }
-        
-        /* Smooth transitions */
-        a {
-            transition: all 0.2s ease;
-        }
-        
-        /* Seamless Marquee Animation */
-        .marquee-wrapper {
-            display: flex;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .marquee-content {
-            display: flex;
-            flex-shrink: 0;
-            white-space: nowrap;
-            animation: marquee 12s linear infinite;
-            padding-right: 2rem;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%);
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                        '2xl': '1400px',
+                    }
+                }
             }
         }
-    </style>
+    </script>
 </head>
-<body>
-    <div class="flex gap-8 p-5 min-h-screen bg-white flex-col lg:flex-row">
-        <!-- Sidebar -->
-        <aside class="w-full lg:w-[351px] bg-[#f5fdff] rounded-[24px] border border-[rgba(37,140,229,0.12)] shadow-[3px_3px_0px_0px_#000000] lg:sticky lg:top-5 h-auto lg:h-[calc(100vh-40px)] flex-shrink-0">
-            <div class="p-5 lg:p-6 h-full min-h-[400px] lg:min-h-0 flex flex-col justify-between">
+<body class="bg-white">
+    <!-- Portfolio Container -->
+    <div class="portfolio-container flex gap-5 lg:gap-8 p-5 min-h-screen bg-white flex-col lg:block max-w-full">
+        <!-- Profile Sidebar -->
+        <aside class="portfolio-sidebar w-full lg:w-[351px] bg-[#f5fdff] rounded-[24px] border border-[rgba(37,140,229,0.12)] shadow-[2px_2px_0px_0px_#000000] lg:fixed lg:left-5 lg:top-5 h-auto lg:h-[calc(100vh-40px)] flex-shrink-0 overflow-hidden">
+            <div class="p-5 lg:p-6 h-full flex flex-col gap-6 lg:gap-8">
                 <!-- Top Section - Identity -->
-                <div class="flex flex-col gap-5 pt-[200px] lg:pt-0">
+                <div class="flex flex-col gap-4">
                     <!-- Name & Title -->
                     <div class="flex flex-col gap-1">
-                        <p class="text-[14px] text-black/60">
-                            Hi, I am
-                        </p>
-                        <h1 class="text-[28px] lg:text-[32px] text-black leading-tight -mt-0.5">
-                            Abdul Hasib
-                        </h1>
-                        <p class="text-[15px] lg:text-[16px] text-black/80 mt-0.5">
-                            — Lead UX Designer
-                        </p>
+                        <p class="text-[14px] text-black/60">Hi, I am</p>
+                        <h1 class="text-[28px] lg:text-[32px] text-black leading-tight -mt-0.5">Abdul Hasib</h1>
+                        <p class="text-[15px] lg:text-[16px] text-black/80 mt-0.5">— Lead UX Designer</p>
                     </div>
 
-                    <!-- Marquee Section -->
+                    <!-- Marquee -->
                     <div class="h-[30px] w-full overflow-hidden relative">
                         <div class="marquee-wrapper">
                             <div class="marquee-content">
@@ -80,7 +48,7 @@
                                     </svg>
                                 </p>
                             </div>
-                            <div class="marquee-content">
+                            <div class="marquee-content" aria-hidden="true">
                                 <p class="font-semibold leading-[30px] text-[20px] text-black inline-flex items-center tracking-[-0.4492px]">
                                     Lead UX Designer 
                                     <svg class="inline-block w-4 h-4 mx-1" fill="black" preserveAspectRatio="none" viewBox="0 0 512 512">
@@ -94,7 +62,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
+                <!-- Middle Section - Value Proposition & Expertise -->
+                <div class="flex flex-col gap-5">
                     <!-- Value Proposition -->
                     <div class="flex flex-col gap-2">
                         <p class="text-[15px] lg:text-[16px] text-black/90 leading-relaxed">
@@ -114,7 +85,7 @@
                 </div>
                 
                 <!-- Bottom Section - Skills & CTA -->
-                <div class="flex flex-col gap-5">
+                <div class="flex flex-col gap-5 mt-auto">
                     <!-- Core Skills -->
                     <div class="flex flex-col gap-2.5">
                         <p class="text-[11px] text-black/50 uppercase tracking-wider">Core Skills</p>
@@ -146,24 +117,24 @@
         </aside>
         
         <!-- Main Content -->
-        <main class="flex-1 flex flex-col gap-[120px] lg:gap-[60px] overflow-y-auto">
+        <main class="flex-1 flex flex-col gap-[120px] lg:gap-[60px] min-w-0 lg:ml-[383px]">
             <!-- Projects Section -->
-            <div class="flex flex-col gap-10 lg:gap-8">
-                <!-- Project 1 -->
-                <div class="flex flex-col lg:flex-row gap-0 relative w-full">
-                    <div class="bg-[#f6f6f6] rounded-[24px] p-5 lg:p-10 w-full lg:w-[620px] h-auto lg:h-[620px] flex flex-col items-center justify-center gap-5 lg:gap-10 flex-shrink-0 z-[2]">
-                        <div class="w-full lg:w-[540px] h-auto lg:h-[383px] overflow-hidden max-w-[540px] rounded-2xl">
-                            <img id="project1-main" alt="Main preview" class="w-full h-full object-cover transition-opacity duration-300 rounded-2xl" style="opacity: 1;">
+            <div class="flex flex-col gap-10 lg:gap-12">
+                <!-- Project 1: Hotel Onboarding App -->
+                <div class="portfolio-project flex flex-col xl:flex-row gap-6 lg:gap-0 relative w-full max-w-full overflow-hidden" data-project="0">
+                    <div class="portfolio-preview bg-[#f6f6f6] rounded-[24px] p-5 lg:p-8 xl:p-6 2xl:p-10 w-full xl:w-[480px] 2xl:w-[620px] h-auto flex flex-col items-center justify-center gap-4 lg:gap-6 2xl:gap-10 flex-shrink-0 z-[2]">
+                        <div class="portfolio-preview-image w-full lg:w-[500px] xl:w-[400px] 2xl:w-[540px] h-auto lg:h-[355px] xl:h-[284px] 2xl:h-[383px] overflow-hidden max-w-full rounded-2xl">
+                            <img id="project1-main" class="project-main-image w-full h-full object-cover transition-opacity duration-300 rounded-2xl" alt="Main preview">
                         </div>
-                        <div id="project1-carousel" class="flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center"></div>
+                        <div id="project1-carousel" class="project-carousel flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center"></div>
                     </div>
                     
-                    <div class="flex-1 px-0 lg:px-8 py-8 lg:py-0 flex flex-col gap-6 justify-center z-[1]">
-                        <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px] xl:pt-0 lg:pt-10">Hotel Onboarding App</h2>
+                    <div class="flex-1 px-0 xl:px-6 2xl:px-8 py-0 lg:py-6 xl:py-0 flex flex-col gap-4 lg:gap-5 xl:gap-6 justify-center z-[1] min-w-0">
+                        <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px]">Hotel Onboarding App</h2>
                         <p class="text-[14px] lg:text-[16px] text-[#222222] leading-6">
                             Acting as an extension of their team, we used Webflow to launch high-performing marketing sites and landing pages in days, providing the speed to test ideas faster and the freedom to create any layout.
                         </p>
-                        <div class="flex flex-row gap-3 lg:gap-5">
+                        <div class="portfolio-project-links flex flex-row gap-3 lg:gap-5">
                             <a href="hotel-onboarding-application.html" class="border-[1.25px] border-[#180b3f] rounded-[55px] px-4 py-2 pb-2.5 flex items-center gap-2 text-[14px] lg:text-[16px] text-black no-underline transition-all hover:bg-[#180b3f] hover:text-white">
                                 Case Study
                                 <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
@@ -182,21 +153,21 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="flex flex-col lg:flex-row gap-0 relative w-full">
-                    <div class="bg-[#f6f6f6] rounded-[24px] p-5 lg:p-10 w-full lg:w-[620px] h-auto lg:h-[620px] flex flex-col items-center justify-center gap-5 lg:gap-10 flex-shrink-0 z-[2]">
-                        <div class="w-full lg:w-[540px] h-auto lg:h-[383px] overflow-hidden max-w-[540px] rounded-2xl">
-                            <img id="project2-main" alt="Main preview" class="w-full h-full object-cover transition-opacity duration-300 rounded-2xl" style="opacity: 1;">
+                <!-- Project 2: Airport Shopping -->
+                <div class="portfolio-project flex flex-col xl:flex-row gap-6 lg:gap-0 relative w-full max-w-full overflow-hidden" data-project="1">
+                    <div class="portfolio-preview bg-[#f6f6f6] rounded-[24px] p-5 lg:p-8 xl:p-6 2xl:p-10 w-full xl:w-[480px] 2xl:w-[620px] h-auto flex flex-col items-center justify-center gap-4 lg:gap-6 2xl:gap-10 flex-shrink-0 z-[2]">
+                        <div class="portfolio-preview-image w-full lg:w-[500px] xl:w-[400px] 2xl:w-[540px] h-auto lg:h-[355px] xl:h-[284px] 2xl:h-[383px] overflow-hidden max-w-full rounded-2xl">
+                            <img id="project2-main" class="project-main-image w-full h-full object-cover transition-opacity duration-300 rounded-2xl" alt="Main preview">
                         </div>
-                        <div id="project2-carousel" class="flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center"></div>
+                        <div id="project2-carousel" class="project-carousel flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center"></div>
                     </div>
                     
-                    <div class="flex-1 px-0 lg:px-8 py-8 lg:py-0 flex flex-col gap-6 justify-center z-[1]">
-                        <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px] xl:pt-0 lg:pt-10">Airport Shopping</h2>
+                    <div class="flex-1 px-0 xl:px-6 2xl:px-8 py-0 lg:py-6 xl:py-0 flex flex-col gap-4 lg:gap-5 xl:gap-6 justify-center z-[1] min-w-0">
+                        <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px]">Airport Shopping</h2>
                         <p class="text-[14px] lg:text-[16px] text-[#222222] leading-6">
                             Acting as an extension of their team, we used Webflow to launch high-performing marketing sites and landing pages in days, providing the speed to test ideas faster and the freedom to create any layout.
                         </p>
-                        <div class="flex flex-row gap-3 lg:gap-5">
+                        <div class="portfolio-project-links flex flex-row gap-3 lg:gap-5">
                             <a href="#" class="border-[1.25px] border-[#180b3f] rounded-[55px] px-4 py-2 pb-2.5 flex items-center gap-2 text-[14px] lg:text-[16px] text-black no-underline transition-all hover:bg-[#180b3f] hover:text-white">
                                 View Details
                                 <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
@@ -215,21 +186,21 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="flex flex-col lg:flex-row gap-0 relative w-full">
-                    <div class="bg-[#f6f6f6] rounded-[24px] p-5 lg:p-10 w-full lg:w-[620px] h-auto lg:h-[620px] flex flex-col items-center justify-center gap-5 lg:gap-10 flex-shrink-0 z-[2]">
-                        <div class="w-full lg:w-[540px] h-auto lg:h-[383px] overflow-hidden max-w-[540px] rounded-2xl">
-                            <img id="project3-main" alt="Main preview" class="w-full h-full object-cover transition-opacity duration-300 rounded-2xl" style="opacity: 1;">
+                <!-- Project 3: Smart Home Dashboard -->
+                <div class="portfolio-project flex flex-col xl:flex-row gap-6 lg:gap-0 relative w-full max-w-full overflow-hidden" data-project="2">
+                    <div class="portfolio-preview bg-[#f6f6f6] rounded-[24px] p-5 lg:p-8 xl:p-6 2xl:p-10 w-full xl:w-[480px] 2xl:w-[620px] h-auto flex flex-col items-center justify-center gap-4 lg:gap-6 2xl:gap-10 flex-shrink-0 z-[2]">
+                        <div class="portfolio-preview-image w-full lg:w-[500px] xl:w-[400px] 2xl:w-[540px] h-auto lg:h-[355px] xl:h-[284px] 2xl:h-[383px] overflow-hidden max-w-full rounded-2xl">
+                            <img id="project3-main" class="project-main-image w-full h-full object-cover transition-opacity duration-300 rounded-2xl" alt="Main preview">
                         </div>
-                        <div id="project3-carousel" class="flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center"></div>
+                        <div id="project3-carousel" class="project-carousel flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center"></div>
                     </div>
                     
-                    <div class="flex-1 px-0 lg:px-8 py-8 lg:py-0 flex flex-col gap-6 justify-center z-[1]">
-                        <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px] xl:pt-0 lg:pt-10">Smart Home Dashboard</h2>
+                    <div class="flex-1 px-0 xl:px-6 2xl:px-8 py-0 lg:py-6 xl:py-0 flex flex-col gap-4 lg:gap-5 xl:gap-6 justify-center z-[1] min-w-0">
+                        <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px]">Smart Home Dashboard</h2>
                         <p class="text-[14px] lg:text-[16px] text-[#222222] leading-6">
                             Acting as an extension of their team, we used Webflow to launch high-performing marketing sites and landing pages in days, providing the speed to test ideas faster and the freedom to create any layout.
                         </p>
-                        <div class="flex flex-row gap-3 lg:gap-5">
+                        <div class="portfolio-project-links flex flex-row gap-3 lg:gap-5">
                             <a href="#" class="border-[1.25px] border-[#180b3f] rounded-[55px] px-4 py-2 pb-2.5 flex items-center gap-2 text-[14px] lg:text-[16px] text-black no-underline transition-all hover:bg-[#180b3f] hover:text-white">
                                 View Details
                                 <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
@@ -248,21 +219,21 @@
                     </div>
                 </div>
 
-                <!-- Project 4 -->
-                <div class="flex flex-col lg:flex-row gap-0 relative w-full">
-                    <div class="bg-[#f6f6f6] rounded-[24px] p-5 lg:p-10 w-full lg:w-[620px] h-auto lg:h-[620px] flex flex-col items-center justify-center gap-5 lg:gap-10 flex-shrink-0 z-[2]">
-                        <div class="w-full lg:w-[540px] h-auto lg:h-[383px] overflow-hidden max-w-[540px] rounded-2xl">
-                            <img id="project4-main" alt="Main preview" class="w-full h-full object-cover transition-opacity duration-300 rounded-2xl" style="opacity: 1;">
+                <!-- Project 4: E-Commerce Platform -->
+                <div class="portfolio-project flex flex-col xl:flex-row gap-6 lg:gap-0 relative w-full max-w-full overflow-hidden" data-project="3">
+                    <div class="portfolio-preview bg-[#f6f6f6] rounded-[24px] p-5 lg:p-8 xl:p-6 2xl:p-10 w-full xl:w-[480px] 2xl:w-[620px] h-auto flex flex-col items-center justify-center gap-4 lg:gap-6 2xl:gap-10 flex-shrink-0 z-[2]">
+                        <div class="portfolio-preview-image w-full lg:w-[500px] xl:w-[400px] 2xl:w-[540px] h-auto lg:h-[355px] xl:h-[284px] 2xl:h-[383px] overflow-hidden max-w-full rounded-2xl">
+                            <img id="project4-main" class="project-main-image w-full h-full object-cover transition-opacity duration-300 rounded-2xl" alt="Main preview">
                         </div>
-                        <div id="project4-carousel" class="flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center"></div>
+                        <div id="project4-carousel" class="project-carousel flex gap-2 lg:gap-[13px] items-center flex-wrap justify-center"></div>
                     </div>
                     
-                    <div class="flex-1 px-0 lg:px-8 py-8 lg:py-0 flex flex-col gap-6 justify-center z-[1]">
-                        <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px] xl:pt-0 lg:pt-10">E-Commerce Platform</h2>
+                    <div class="flex-1 px-0 xl:px-6 2xl:px-8 py-0 lg:py-6 xl:py-0 flex flex-col gap-4 lg:gap-5 xl:gap-6 justify-center z-[1] min-w-0">
+                        <h2 class="text-[18px] lg:text-[20px] font-semibold text-[#222222] leading-[20.8px]">E-Commerce Platform</h2>
                         <p class="text-[14px] lg:text-[16px] text-[#222222] leading-6">
                             Acting as an extension of their team, we used Webflow to launch high-performing marketing sites and landing pages in days, providing the speed to test ideas faster and the freedom to create any layout.
                         </p>
-                        <div class="flex flex-row gap-3 lg:gap-5">
+                        <div class="portfolio-project-links flex flex-row gap-3 lg:gap-5">
                             <a href="#" class="border-[1.25px] border-[#180b3f] rounded-[55px] px-4 py-2 pb-2.5 flex items-center gap-2 text-[14px] lg:text-[16px] text-black no-underline transition-all hover:bg-[#180b3f] hover:text-white">
                                 View Details
                                 <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
@@ -285,7 +256,7 @@
             <!-- Gallery Section -->
             <div class="flex flex-col gap-6">
                 <h2 class="text-[22px] lg:text-[25.922px] font-medium text-[#0c0c0c] leading-[36.4px]">Gallery</h2>
-                <div id="gallery-grid" class="grid grid-cols-1 lg:grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5"></div>
+                <div class="portfolio-gallery grid grid-cols-1 lg:grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5" id="gallery-grid"></div>
             </div>
             
             <!-- Footer -->
@@ -300,15 +271,34 @@
                                 Ready to get started?
                             </p>
                         </div>
-                        <div class="flex flex-col lg:flex-row gap-6">
+                        <div class="portfolio-footer-buttons flex flex-col lg:flex-row gap-6">
+                            <!-- Resume Download Card -->
                             <div class="bg-white rounded-2xl h-[200px] flex-1 p-6 flex flex-col justify-between cursor-pointer transition-transform hover:-translate-y-1">
-                                <div class="w-14 h-14">
-                                    <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="56" height="56" rx="12" fill="#0C0C0C"/>
-                                        <path d="M19 20C19 19.4477 19.4477 19 20 19H36C36.5523 19 37 19.4477 37 20V36C37 36.5523 36.5523 37 36 37H20C19.4477 37 19 36.5523 19 36V20Z" stroke="white" stroke-width="2"/>
-                                        <path d="M23 25H33M23 28H33M23 31H29" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                                    </svg>
-                                </div>
+                                <!-- Resume Icon -->
+                                <svg class="w-14 h-14" fill="none" preserveAspectRatio="none" viewBox="0 0 513 513">
+                                    <path d="M254 496C379 496 489 381 489 255C489 129 379 20 254 20C129 20 15 129 15 255C15 381 129 496 254 496Z" fill="#FFE5E5"/>
+                                    <path d="M383.27 348.85L333.43 377.15C333.13 377.37 332.81 377.55 332.47 377.7L194.03 437.45C173.88 446.13 151.19 440.5 137.36 422.86C123.49 405.17 123.37 380.98 137.05 363.15L170.72 319.94L216.35 259.19L201.84 246.98L113.21 223.88C91.66 218.85 76.12 201.13 74.47 179.27C72.83 157.41 85.39 137.2 105.72 129.18L331.07 39.15C349.84 31.66 371.5 37.18 384.79 52.96C398.07 68.74 400.05 91.04 390.27 108.98L383.27 348.85Z" fill="url(#paint0_linear_resume)"/>
+                                    <path d="M383.68 222.86L331.19 197.86C327.85 196.27 323.99 196.42 320.79 198.26L246.38 239.82C243.18 241.66 241.2 245.01 241.2 248.63V313.58C241.2 317.2 243.18 320.55 246.38 322.39L320.79 363.95C323.99 365.79 327.85 365.94 331.19 364.35L383.68 339.35C387.91 337.43 390.65 333.17 390.65 328.49V233.72C390.65 229.04 387.91 224.78 383.68 222.86Z" fill="url(#paint1_linear_resume)"/>
+                                    <path d="M343.7 300.63C343.7 302.95 342.49 305.1 340.51 306.31L288.63 335.16C286.65 336.37 284.14 336.37 282.16 335.16L230.28 306.31C228.3 305.1 227.09 302.95 227.09 300.63V242.93C227.09 240.61 228.3 238.46 230.28 237.25L282.16 208.4C284.14 207.19 286.65 207.19 288.63 208.4L340.51 237.25C342.49 238.46 343.7 240.61 343.7 242.93V300.63Z" fill="url(#paint2_linear_resume)"/>
+                                    <defs>
+                                        <linearGradient id="paint0_linear_resume" x1="378.045" x2="106.975" y1="404.95" y2="133.89" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#EF3739"/>
+                                            <stop offset="0.54" stop-color="#EF3739"/>
+                                            <stop offset="1" stop-color="#FF8C8B"/>
+                                        </linearGradient>
+                                        <linearGradient id="paint1_linear_resume" x1="385.505" x2="261.385" y1="224.81" y2="100.69" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#34344F"/>
+                                            <stop offset="0.26" stop-color="#3B3B57"/>
+                                            <stop offset="0.66" stop-color="#50506D"/>
+                                            <stop offset="1" stop-color="#666684"/>
+                                        </linearGradient>
+                                        <linearGradient id="paint2_linear_resume" x1="300.255" x2="180.935" y1="373.73" y2="254.41" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FFD2D2"/>
+                                            <stop offset="0.57" stop-color="white"/>
+                                            <stop offset="1" stop-color="white"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
                                 <div class="flex items-end justify-between gap-3">
                                     <p class="text-[22px] lg:text-[26px] font-medium text-[#0c0c0c] leading-tight">Download Resume</p>
                                     <div class="w-10 h-10 bg-[#91ed92] rounded-[40px] shadow-[2px_3px_0px_0px_#000000] flex items-center justify-center flex-shrink-0">
@@ -319,14 +309,29 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Schedule Consultation Card -->
                             <div class="bg-white/15 rounded-2xl h-[200px] flex-1 p-6 flex flex-col justify-between cursor-pointer transition-transform hover:-translate-y-1">
-                                <div class="w-14 h-14">
-                                    <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="56" height="56" rx="12" fill="white"/>
-                                        <path d="M20 23H36M20 28H36M20 33H28" stroke="#0C0C0C" stroke-width="2" stroke-linecap="round"/>
-                                        <rect x="19" y="18" width="18" height="20" rx="2" stroke="#0C0C0C" stroke-width="2"/>
-                                    </svg>
-                                </div>
+                                <!-- Schedule Icon -->
+                                <svg class="w-14 h-14" fill="none" preserveAspectRatio="none" viewBox="0 0 513 513">
+                                    <path d="M254 496C379 496 489 381 489 255C489 129 379 20 254 20C129 20 15 129 15 255C15 381 129 496 254 496Z" fill="#EAF7FE"/>
+                                    <path d="M388 141H122C108.19 141 97 152.19 97 166V347C97 360.81 108.19 372 122 372H388C401.81 372 413 360.81 413 347V166C413 152.19 401.81 141 388 141Z" stroke="url(#paint0_linear_schedule)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                    <path d="M325 115V167" stroke="url(#paint0_linear_schedule)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M185 115V167" stroke="url(#paint0_linear_schedule)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M97 218H413" stroke="url(#paint0_linear_schedule)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M198 269H198.04" stroke="url(#paint0_linear_schedule)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M255 269H255.04" stroke="url(#paint0_linear_schedule)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M312 269H312.04" stroke="url(#paint0_linear_schedule)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M198 320H198.04" stroke="url(#paint0_linear_schedule)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M255 320H255.04" stroke="url(#paint0_linear_schedule)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M312 320H312.04" stroke="url(#paint0_linear_schedule)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <defs>
+                                        <linearGradient id="paint0_linear_schedule" x1="97.9935" x2="414" y1="255.997" y2="255.997" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#0080DE"/>
+                                            <stop offset="0.6" stop-color="#49BCFF"/>
+                                            <stop offset="1" stop-color="#61CAFF"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
                                 <div class="flex items-end justify-between gap-3">
                                     <p class="text-[22px] lg:text-[26px] font-medium text-white leading-tight">Book a Consultation</p>
                                     <div class="w-10 h-10 bg-[#91ed92] rounded-[40px] shadow-[2px_3px_0px_0px_#000000] flex items-center justify-center flex-shrink-0">
@@ -340,7 +345,7 @@
                         </div>
                     </div>
                     
-                    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end pt-8 gap-6">
+                    <div class="portfolio-footer-bottom flex flex-col lg:flex-row justify-between items-start lg:items-end pt-8 gap-6">
                         <div class="flex flex-col gap-4">
                             <a href="mailto:ux.abdul@gmail.com" class="text-[14.375px] text-white leading-[20.8px] hover:opacity-70 transition-opacity no-underline">ux.abdul@gmail.com</a>
                             <p class="text-[12.25px] text-white/60 leading-[21px]">2025 Abdul Hasib. All rights reserved</p>
@@ -361,50 +366,48 @@
     </div>
 
     <!-- Gallery Modal -->
-    <div id="gallery-modal" class="hidden fixed inset-0 bg-black bg-opacity-90 z-50 items-center justify-center p-4">
-        <div class="relative w-full h-full flex flex-col">
+    <div id="gallery-modal" class="hidden fixed inset-0 z-[1000] bg-black/80 flex items-center justify-center p-4">
+        <div class="bg-white border border-gray-200 rounded-lg w-full max-w-[95vw] lg:max-w-[90vw] xl:max-w-[1200px] h-[90vh] flex flex-col relative overflow-hidden shadow-lg">
             <!-- Close button - desktop -->
-            <button id="close-modal-desktop" class="hidden lg:block absolute top-4 right-4 z-50 rounded-full bg-gray-100 p-2 text-gray-700 hover:bg-gray-200 transition-colors">
-                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            <button id="close-modal-desktop" class="absolute top-4 right-4 hidden lg:block z-50 rounded-full bg-gray-100 p-2 text-gray-700 hover:bg-gray-200 transition-colors" aria-label="Close">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
             </button>
 
             <!-- Main image container -->
-            <div class="flex-1 flex items-center justify-center relative">
-                <!-- Navigation arrows -->
-                <button id="modal-prev" class="absolute left-2 lg:left-4 z-10 rounded-full bg-white shadow-lg p-2 lg:p-3 text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200">
-                    <svg class="h-5 w-5 lg:h-6 lg:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            <div class="flex-1 flex items-center justify-center p-4 lg:p-8 relative overflow-hidden">
+                <!-- Previous button -->
+                <button id="modal-prev" class="absolute left-2 lg:left-4 z-10 rounded-full bg-white shadow-sm p-2 lg:p-3 text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200" aria-label="Previous image">
+                    <svg class="h-5 w-5 lg:h-6 lg:w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
                     </svg>
                 </button>
 
                 <div class="max-w-full max-h-full flex items-center justify-center">
-                    <img id="modal-image" class="max-w-full max-h-[calc(90vh-180px)] lg:max-h-[calc(90vh-220px)] object-contain rounded-lg shadow-md">
+                    <img id="modal-image" src="" alt="Gallery image" class="max-w-full max-h-[calc(90vh-180px)] lg:max-h-[calc(90vh-220px)] w-auto h-auto object-contain rounded-lg">
                 </div>
 
-                <button id="modal-next" class="absolute right-2 lg:right-4 z-10 rounded-full bg-white shadow-lg p-2 lg:p-3 text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200">
-                    <svg class="h-5 w-5 lg:h-6 lg:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                <!-- Next button -->
+                <button id="modal-next" class="absolute right-2 lg:right-4 z-10 rounded-full bg-white shadow-sm p-2 lg:p-3 text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200" aria-label="Next image">
+                    <svg class="h-5 w-5 lg:h-6 lg:w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
                     </svg>
                 </button>
-
-                <!-- Image counter -->
-                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-full px-4 py-2 text-sm">
-                    <span id="modal-current">1</span> / <span id="modal-total">6</span>
-                </div>
             </div>
 
             <!-- Thumbnail carousel -->
-            <div class="bg-white p-4 lg:p-6 pt-8 lg:pt-8 pb-6 lg:pb-2 border-t border-gray-200 rounded-t-2xl mt-4">
+            <div class="bg-white p-4 lg:p-6 pt-8 lg:pt-8 pb-6 lg:pb-2 border-t border-gray-200">
                 <div id="modal-thumbnails" class="flex gap-2 lg:gap-3 overflow-x-auto pb-2 justify-start lg:justify-center items-center -mx-4 px-4 lg:mx-0 lg:px-0"></div>
             </div>
 
-            <!-- Close button for mobile - at bottom -->
+            <!-- Close button - mobile -->
             <div class="lg:hidden p-4 bg-white border-t border-gray-200">
                 <button id="close-modal-mobile" class="w-full rounded-full bg-gray-100 py-3 text-gray-700 hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
-                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
                     <span>Close</span>
                 </button>
