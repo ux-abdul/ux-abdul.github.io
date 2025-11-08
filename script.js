@@ -1,19 +1,40 @@
-// Project images
-const projectImages = [
-    'https://images.unsplash.com/photo-1758957530781-4ff54e09bee2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkZXNpZ24lMjBwb3J0Zm9saW98ZW58MXx8fHwxNzYyMDM0NzcyfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/photo-1629494893504-d41e26a02631?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1aSUyMGRlc2lnbiUyMG1vY2t1cHxlbnwxfHx8fDE3NjIwOTM5MDd8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzYyMTA2NzE5fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/photo-1683818051102-dd1199d163b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwcHJvZHVjdCUyMGRlc2lnbnxlbnwxfHx8fDE3NjIwNjc0NTB8MA&ixlib=rb-4.1.0&q=80&w=1080',
-];
+// Project images by project ID
+const projectImagesById = {
+    0: [ // Hotel Onboarding App
+        'https://framerusercontent.com/assets/d628d30ce07c162926d5e39d9d4272257a93c29b.png',
+        'https://framerusercontent.com/assets/014f8b8c589973bd9562c4fd6b83c93d5e1a908c.png',
+        'https://framerusercontent.com/assets/6bceb058ac77120ea0e2341ab10a491061ce37dc.png',
+        'https://framerusercontent.com/assets/bf99c5037a174c88d6df7ad271c8c0aaf9cef1c6.png',
+    ],
+    1: [ // Airport Shopping
+        'https://framerusercontent.com/assets/3aa919e9d6c8d5194031a982cced55e99d3d7cec.png',
+        'https://framerusercontent.com/assets/9defdf003610155af4ce588b36327ba43cdd51d5.png',
+        'https://framerusercontent.com/assets/957bc6031ddad8c3a429ee35d288c7a16d19f623.png',
+        'https://framerusercontent.com/assets/7c4b9b14f61e82bb0254132cc4cddf1e74dc6dcc.png',
+    ],
+    2: [ // Smart Home Dashboard
+        'https://framerusercontent.com/assets/d19edbf8b2a8bc05bc5685b43d1db7f9783dd7ea.png',
+        'https://framerusercontent.com/assets/fbc5c7d3774654c34d0f015ebebfd8d27c9b3521.png',
+        'https://framerusercontent.com/assets/03bf4c9ea1b0beb1d45a78b73bf1bfe47b31ac9a.png',
+        'https://framerusercontent.com/assets/48af282c86422ca231786ac7f6c0b1f90023e3eb.png',
+        'https://images.unsplash.com/photo-1683818051102-dd1199d163b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwcHJvZHVjdCUyMGRlc2lnbnxlbnwxfHx8fDE3NjIwNjc0NTB8MA&ixlib=rb-4.1.0&q=80&w=1080',
+        'https://images.unsplash.com/photo-1760548425425-e42e77fa38f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBpbnRlcmZhY2UlMjBkZXNpZ258ZW58MXx8fHwxNzYyMDc3MDkwfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    ],
+    3: [ // E-Commerce Platform
+        'https://framerusercontent.com/assets/233aa75caa27d9d13111c343c02851e5e606c3dc.png',
+        'https://framerusercontent.com/assets/234206e2a9fb03d918ca6dc7dc0bc63a8db6c177.png',
+        'https://framerusercontent.com/assets/c7764fe70fc0489adf732e266d740826de492ac7.png',
+        'https://framerusercontent.com/assets/96d45c6dbf7d4cff2c9a38606dcba35ca638037d.png',
+    ],
+};
 
 // Gallery images
 const galleryImages = [
-    'https://images.unsplash.com/photo-1758957530781-4ff54e09bee2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkZXNpZ24lMjBwb3J0Zm9saW98ZW58MXx8fHwxNzYyMDM0NzcyfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/photo-1510873660878-bdf8de0ed851?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHdvcmtzcGFjZSUyMG1pbmltYWx8ZW58MXx8fHwxNzYyMDY5NDgzfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/photo-1629494893504-d41e26a02631?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1aSUyMGRlc2lnbiUyMG1vY2t1cHxlbnwxfHx8fDE3NjIwOTM5MDd8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzYyMTA2NzE5fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/photo-1683818051102-dd1199d163b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwcHJvZHVjdCUyMGRlc2lnbnxlbnwxfHx8fDE3NjIwNjc0NTB8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/photo-1760548425425-e42e77fa38f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBpbnRlcmZhY2UlMjBkZXNpZ258ZW58MXx8fHwxNzYyMDc3MDkwfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    'https://framerusercontent.com/assets/c79187e0e48190df400f1f0688dad01629ff1cd6.png',
+    'https://framerusercontent.com/assets/5494e96b5fae8f1e7dff8d4c77777adc7f5f85b3.png',
+    'https://framerusercontent.com/assets/55126b685b1ef2454759916c6de4efeb0ac5e9d9.png',
+    'https://framerusercontent.com/assets/d42aa198da941433eadce3c4df10a4ce86b354a6.png',
+    'https://framerusercontent.com/assets/730696846f64744ad6d1d88296fc49873e737d34.png',
 ];
 
 // Project carousel state
@@ -25,9 +46,11 @@ const projectState = {
 };
 
 // Initialize project carousels
-function initProjectCarousel(projectId, carouselId, mainImageId) {
+function initProjectCarousel(projectNum, carouselId, mainImageId) {
     const carousel = document.getElementById(carouselId);
     const mainImage = document.getElementById(mainImageId);
+    const projectId = projectNum - 1; // Convert project1 -> 0, project2 -> 1, etc.
+    const projectImages = projectImagesById[projectId] || [];
     
     // Set initial main image
     mainImage.src = projectImages[0];
@@ -35,7 +58,7 @@ function initProjectCarousel(projectId, carouselId, mainImageId) {
     projectImages.forEach((img, index) => {
         const button = document.createElement('button');
         button.className = `bg-white border ${index === 0 ? 'border-black' : 'border-[#ebebeb]'} rounded p-0.5 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] cursor-pointer transition-all hover:scale-105`;
-        button.onclick = () => selectProjectImage(projectId, index, mainImageId, carouselId);
+        button.onclick = () => selectProjectImage(`project${projectNum}`, projectId, index, mainImageId, carouselId);
         
         const imgElement = document.createElement('img');
         imgElement.src = img;
@@ -47,8 +70,9 @@ function initProjectCarousel(projectId, carouselId, mainImageId) {
     });
 }
 
-function selectProjectImage(projectId, index, mainImageId, carouselId) {
-    projectState[projectId] = index;
+function selectProjectImage(projectStateKey, projectId, index, mainImageId, carouselId) {
+    projectState[projectStateKey] = index;
+    const projectImages = projectImagesById[projectId] || [];
     
     // Update main image
     const mainImage = document.getElementById(mainImageId);
@@ -77,7 +101,7 @@ function initGallery() {
     
     galleryImages.forEach((img, index) => {
         const div = document.createElement('div');
-        div.className = 'w-full overflow-hidden rounded-lg cursor-pointer transition-transform hover:scale-[1.02]';
+        div.className = 'overflow-hidden rounded-lg cursor-pointer transition-transform hover:scale-[1.02]';
         div.onclick = () => openGalleryModal(index);
         
         const imgElement = document.createElement('img');
@@ -172,10 +196,10 @@ function selectGalleryImage(index) {
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize project carousels
-    initProjectCarousel('project1', 'project1-carousel', 'project1-main');
-    initProjectCarousel('project2', 'project2-carousel', 'project2-main');
-    initProjectCarousel('project3', 'project3-carousel', 'project3-main');
-    initProjectCarousel('project4', 'project4-carousel', 'project4-main');
+    initProjectCarousel(1, 'project1-carousel', 'project1-main');
+    initProjectCarousel(2, 'project2-carousel', 'project2-main');
+    initProjectCarousel(3, 'project3-carousel', 'project3-main');
+    initProjectCarousel(4, 'project4-carousel', 'project4-main');
     
     // Initialize gallery
     initGallery();
