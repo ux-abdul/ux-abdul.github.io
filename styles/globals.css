@@ -322,8 +322,30 @@ body {
     width: 50px !important;
     height: 50px !important;
   }
-  
-  .portfolio-gallery {
-    grid-template-columns: 1fr !important;
+}
+
+/* Masonry Grid Styles */
+.masonry-grid {
+  column-count: 4;
+  column-gap: 20px;
+}
+
+.masonry-grid > div {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Responsive columns */
+@media (max-width: 1023px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 639px) {
+  .masonry-grid {
+    column-count: 2;
   }
 }
