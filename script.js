@@ -1,10 +1,10 @@
 // Project images by project ID
 const projectImagesById = {
     0: [ // Hotel Onboarding App
-        'https://framerusercontent.com/assets/d628d30ce07c162926d5e39d9d4272257a93c29b.png',
-        'https://framerusercontent.com/assets/014f8b8c589973bd9562c4fd6b83c93d5e1a908c.png',
-        'https://framerusercontent.com/assets/6bceb058ac77120ea0e2341ab10a491061ce37dc.png',
-        'https://framerusercontent.com/assets/bf99c5037a174c88d6df7ad271c8c0aaf9cef1c6.png',
+        'assets/1a.png',
+        'assets/1b.png',
+        'assets/1c.png',
+        'assets/1d.png',
     ],
     1: [ // Airport Shopping
         'https://framerusercontent.com/assets/3aa919e9d6c8d5194031a982cced55e99d3d7cec.png',
