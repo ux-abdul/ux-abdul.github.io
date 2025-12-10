@@ -1,42 +1,4 @@
-// Project images by project ID
-const projectImagesById = {
-    0: [ // Hotel Onboarding App
-        'assets/1a.png',
-        'assets/1b.png',
-        'assets/1c.png',
-        'assets/1d.png',
-    ],
-    1: [ // Airport Shopping
-        'https://framerusercontent.com/assets/3aa919e9d6c8d5194031a982cced55e99d3d7cec.png',
-        'https://framerusercontent.com/assets/9defdf003610155af4ce588b36327ba43cdd51d5.png',
-        'https://framerusercontent.com/assets/957bc6031ddad8c3a429ee35d288c7a16d19f623.png',
-        'https://framerusercontent.com/assets/7c4b9b14f61e82bb0254132cc4cddf1e74dc6dcc.png',
-    ],
-    2: [ // Smart Home Dashboard
-        'https://framerusercontent.com/assets/d19edbf8b2a8bc05bc5685b43d1db7f9783dd7ea.png',
-        'https://framerusercontent.com/assets/fbc5c7d3774654c34d0f015ebebfd8d27c9b3521.png',
-        'https://framerusercontent.com/assets/03bf4c9ea1b0beb1d45a78b73bf1bfe47b31ac9a.png',
-        'https://framerusercontent.com/assets/48af282c86422ca231786ac7f6c0b1f90023e3eb.png',
-        'https://images.unsplash.com/photo-1683818051102-dd1199d163b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwcHJvZHVjdCUyMGRlc2lnbnxlbnwxfHx8fDE3NjIwNjc0NTB8MA&ixlib=rb-4.1.0&q=80&w=1080',
-        'https://images.unsplash.com/photo-1760548425425-e42e77fa38f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBpbnRlcmZhY2UlMjBkZXNpZ258ZW58MXx8fHwxNzYyMDc3MDkwfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    ],
-    3: [ // E-Commerce Platform
-        'https://framerusercontent.com/assets/233aa75caa27d9d13111c343c02851e5e606c3dc.png',
-        'https://framerusercontent.com/assets/234206e2a9fb03d918ca6dc7dc0bc63a8db6c177.png',
-        'https://framerusercontent.com/assets/c7764fe70fc0489adf732e266d740826de492ac7.png',
-        'https://framerusercontent.com/assets/96d45c6dbf7d4cff2c9a38606dcba35ca638037d.png',
-    ],
-};
-
-// Gallery images
-const galleryImages = [
-    'https://framerusercontent.com/assets/c79187e0e48190df400f1f0688dad01629ff1cd6.png',
-    'https://framerusercontent.com/assets/5494e96b5fae8f1e7dff8d4c77777adc7f5f85b3.png',
-    'https://framerusercontent.com/assets/55126b685b1ef2454759916c6de4efeb0ac5e9d9.png',
-    'https://framerusercontent.com/assets/d42aa198da941433eadce3c4df10a4ce86b354a6.png',
-    'https://framerusercontent.com/assets/730696846f64744ad6d1d88296fc49873e737d34.png',
-];
-
+// Images are loaded from assets/images.js
 // Project carousel state
 const projectState = {
     project1: 0,
@@ -93,6 +55,29 @@ function selectProjectImage(projectStateKey, projectId, index, mainImageId, caro
             thumb.className = 'bg-white border border-[#ebebeb] rounded p-0.5 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] cursor-pointer transition-all hover:scale-105';
         }
     });
+}
+
+// Navigate project images with arrows
+function navigateProject(projectNum, direction) {
+    const projectStateKey = `project${projectNum}`;
+    const projectId = projectNum - 1;
+    const projectImages = projectImagesById[projectId] || [];
+    const currentIndex = projectState[projectStateKey];
+    
+    let newIndex;
+    if (direction === 'prev') {
+        newIndex = currentIndex === 0 ? projectImages.length - 1 : currentIndex - 1;
+    } else {
+        newIndex = currentIndex === projectImages.length - 1 ? 0 : currentIndex + 1;
+    }
+    
+    selectProjectImage(
+        projectStateKey, 
+        projectId, 
+        newIndex, 
+        `project${projectNum}-main`, 
+        `project${projectNum}-carousel`
+    );
 }
 
 // Initialize gallery

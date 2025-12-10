@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Dashboard - Case Study | Abdul Hasib</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/globals.css">
+    <style>
+        /* Glassmorphism Label */
+        .glass-label {
+            position: relative;
+            display: inline-block;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 1rem;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .glass-label:hover {
+            box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen">
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24 py-5">
+            <a href="index.html" class="inline-flex items-center gap-2 text-gray-700 hover:text-black transition-colors group">
+                <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                <span class="text-sm font-medium">Back to home</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-gray-50 to-white pt-16 lg:pt-24 pb-12 lg:pb-20">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24">
+            <div class="max-w-[900px]">
+                <!-- Category -->
+                <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full mb-6">
+                    <span class="text-sm font-medium">Case Study</span>
+                </div>
+                
+                <!-- Title -->
+                <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-[1.1] tracking-tight">
+                    Smart Home Dashboard
+                </h1>
+                
+                <!-- Subtitle -->
+                <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed mb-12">
+                    Creating an intuitive control center for smart home automation that simplifies device management and energy monitoring
+                </p>
+                
+                <!-- Meta Info -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                    <div>
+                        <p class="text-sm text-gray-500 mb-1 uppercase tracking-wide">Role</p>
+                        <p class="text-base font-medium text-gray-900">Lead UX Designer</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500 mb-1 uppercase tracking-wide">Duration</p>
+                        <p class="text-base font-medium text-gray-900">8 months</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500 mb-1 uppercase tracking-wide">Platform</p>
+                        <p class="text-base font-medium text-gray-900">Web, iOS, Android</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500 mb-1 uppercase tracking-wide">Team</p>
+                        <p class="text-base font-medium text-gray-900">6 members</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Image -->
+    <section class="py-0 lg:py-8">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24">
+            <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-50 to-cyan-50 shadow-2xl">
+                <img 
+                    src="https://images.unsplash.com/photo-1558002038-1055907df827?w=1200&h=600&fit=crop" 
+                    alt="Smart Home Dashboard Hero" 
+                    class="w-full h-auto object-cover"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                <div class="lg:col-span-5">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Overview</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Smart Home Dashboard provides homeowners with a unified interface to control all their smart devices, monitor energy usage, and automate daily routines.
+                    </p>
+                </div>
+                
+                <div class="lg:col-span-7">
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">The Challenge</h3>
+                            <p class="text-base text-gray-600 leading-relaxed">
+                                Most smart home users struggle with fragmented ecosystems, requiring multiple apps to control different devices. This creates confusion, reduces adoption, and prevents users from maximizing the potential of their smart home investments.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">The Solution</h3>
+                            <p class="text-base text-gray-600 leading-relaxed">
+                                A comprehensive dashboard that unifies device control, provides intelligent automation suggestions, and offers actionable insights into energy consumption - all through an intuitive, visually appealing interface.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">Impact</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-4">
+                                <div class="bg-indigo-50 rounded-xl p-4">
+                                    <p class="text-3xl font-bold text-indigo-600 mb-1">78%</p>
+                                    <p class="text-sm text-gray-600">User engagement increase</p>
+                                </div>
+                                <div class="bg-cyan-50 rounded-xl p-4">
+                                    <p class="text-3xl font-bold text-cyan-600 mb-1">34%</p>
+                                    <p class="text-sm text-gray-600">Energy savings avg.</p>
+                                </div>
+                                <div class="bg-green-50 rounded-xl p-4">
+                                    <p class="text-3xl font-bold text-green-600 mb-1">4.8/5</p>
+                                    <p class="text-sm text-gray-600">App store rating</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Insights -->
+    <section class="py-16 lg:py-24 bg-gray-50">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24">
+            <div class="mb-10">
+                <div class="glass-label">
+                    <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Research & Insights</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Key Findings</h3>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3">
+                            <span class="text-indigo-600 mt-1">●</span>
+                            <span class="text-base text-gray-700">65% of users own devices from 3+ different brands</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-indigo-600 mt-1">●</span>
+                            <span class="text-base text-gray-700">App switching is the #1 frustration point for smart home users</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-indigo-600 mt-1">●</span>
+                            <span class="text-base text-gray-700">Energy monitoring features drive purchasing decisions</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-indigo-600 mt-1">●</span>
+                            <span class="text-base text-gray-700">Users want automation but struggle to set it up</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">User Pain Points</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-red-500 pl-4">
+                            <h4 class="font-semibold text-gray-900 mb-1">Fragmentation</h4>
+                            <p class="text-sm text-gray-600">Multiple apps required to control different devices</p>
+                        </div>
+                        <div class="border-l-4 border-orange-500 pl-4">
+                            <h4 class="font-semibold text-gray-900 mb-1">Complex Setup</h4>
+                            <p class="text-sm text-gray-600">Difficult to configure automation rules and schedules</p>
+                        </div>
+                        <div class="border-l-4 border-yellow-500 pl-4">
+                            <h4 class="font-semibold text-gray-900 mb-1">Lack of Insights</h4>
+                            <p class="text-sm text-gray-600">No visibility into energy usage and cost savings</p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold text-gray-900 mb-1">Poor Organization</h4>
+                            <p class="text-sm text-gray-600">Devices not grouped by room or function</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24">
+            <div class="bg-[#f8fbfe] rounded-2xl px-4 py-10 md:px-6 md:py-12 lg:px-16 lg:py-16">
+                <div class="mb-10">
+                    <div class="glass-label">
+                        <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Design Process</h2>
+                    </div>
+                </div>
+
+                <div class="mb-10 lg:mb-12 max-w-full lg:max-w-[520px]">
+                    <h3 class="text-xl md:text-2xl lg:text-[36px] font-bold text-[#101828] leading-[1.25] mb-6">
+                        User-centered design methodology
+                    </h3>
+                    <p class="text-base lg:text-lg text-[#364153] leading-relaxed">
+                        We interviewed 50+ smart home users to understand their pain points and ideal control experience.
+                    </p>
+                </div>
+
+                <!-- Mobile Layout -->
+                <div class="flex flex-col gap-6 lg:hidden">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-14 h-14 rounded-[14px] border border-indigo-100 flex items-center justify-center">
+                                <span class="text-[30px]">🔍</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h4 class="text-[24px] font-bold text-[#101828]">Discover</h4>
+                                <p class="text-base text-[#4a5565]">Conducted user interviews and competitive analysis of existing smart home platforms</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-14 h-14 rounded-[14px] border border-indigo-100 flex items-center justify-center">
+                                <span class="text-[30px]">📊</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h4 class="text-[24px] font-bold text-[#101828]">Define</h4>
+                                <p class="text-base text-[#4a5565]">Created user personas and mapped out device control workflows</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-14 h-14 rounded-[14px] border border-indigo-100 flex items-center justify-center">
+                                <span class="text-[30px]">💡</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h4 class="text-[24px] font-bold text-[#101828]">Ideate</h4>
+                                <p class="text-base text-[#4a5565]">Explored different dashboard layouts and navigation patterns</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-14 h-14 rounded-[14px] border border-indigo-100 flex items-center justify-center">
+                                <span class="text-[30px]">✏️</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h4 class="text-[24px] font-bold text-[#101828]">Design</h4>
+                                <p class="text-base text-[#4a5565]">Developed high-fidelity prototypes and conducted usability testing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Layout -->
+                <div class="hidden lg:flex gap-12">
+                    <div class="relative flex-shrink-0 pt-2">
+                        <div class="absolute left-[23px] top-[29px] w-[2px] h-[430px] bg-gradient-to-b from-[#bedbff] via-[#a2f4fd] to-[#bedbff]"></div>
+                        <div class="relative flex flex-col gap-[94.33px] pt-1">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-full flex items-center justify-center shadow-lg">
+                                <span class="text-base font-bold text-white">01</span>
+                            </div>
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-full flex items-center justify-center shadow-lg">
+                                <span class="text-base font-bold text-white">02</span>
+                            </div>
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-full flex items-center justify-center shadow-lg">
+                                <span class="text-base font-bold text-white">03</span>
+                            </div>
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-full flex items-center justify-center shadow-lg">
+                                <span class="text-base font-bold text-white">04</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 flex flex-col gap-6">
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 rounded-[14px] border border-indigo-100 flex items-center justify-center">
+                                    <span class="text-[30px]">🔍</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-2xl font-bold text-[#101828] mb-2">Discover</h4>
+                                    <p class="text-base text-[#4a5565]">Conducted user interviews and competitive analysis of existing smart home platforms</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 rounded-[14px] border border-indigo-100 flex items-center justify-center">
+                                    <span class="text-[30px]">📊</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-2xl font-bold text-[#101828] mb-2">Define</h4>
+                                    <p class="text-base text-[#4a5565]">Created user personas and mapped out device control workflows</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 rounded-[14px] border border-indigo-100 flex items-center justify-center">
+                                    <span class="text-[30px]">💡</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-2xl font-bold text-[#101828] mb-2">Ideate</h4>
+                                    <p class="text-base text-[#4a5565]">Explored different dashboard layouts and navigation patterns</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-14 h-14 rounded-[14px] border border-indigo-100 flex items-center justify-center">
+                                    <span class="text-[30px]">✏️</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-2xl font-bold text-[#101828] mb-2">Design</h4>
+                                    <p class="text-base text-[#4a5565]">Developed high-fidelity prototypes and conducted usability testing</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24">
+            <div class="bg-[#f8fbfe] rounded-2xl px-4 py-10 md:px-6 md:py-12 lg:px-16 lg:py-16">
+                <div class="mb-10">
+                    <div class="glass-label">
+                        <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">The Solution</h2>
+                    </div>
+                </div>
+
+                <div class="mb-10 lg:mb-12 max-w-full lg:max-w-[520px]">
+                    <h3 class="text-xl md:text-2xl lg:text-[36px] font-bold text-[#101828] leading-[1.25] mb-6">
+                        All-in-one smart home control
+                    </h3>
+                    <p class="text-base lg:text-lg text-[#364153] leading-relaxed">
+                        We created a platform that brings together all smart devices in one beautifully designed interface.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-full flex items-center justify-center shadow-lg">
+                                <span class="text-base font-bold text-white">01</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-2xl font-bold text-[#101828] mb-2">Unified Control</h4>
+                                <p class="text-base text-[#4a5565]">Single dashboard for all devices regardless of brand or ecosystem</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-full flex items-center justify-center shadow-lg">
+                                <span class="text-base font-bold text-white">02</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-2xl font-bold text-[#101828] mb-2">Room Organization</h4>
+                                <p class="text-base text-[#4a5565]">Devices automatically grouped by room with customizable layouts</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-full flex items-center justify-center shadow-lg">
+                                <span class="text-base font-bold text-white">03</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-2xl font-bold text-[#101828] mb-2">Smart Automation</h4>
+                                <p class="text-base text-[#4a5565]">AI-powered suggestions for routines based on usage patterns</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-full flex items-center justify-center shadow-lg">
+                                <span class="text-base font-bold text-white">04</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-2xl font-bold text-[#101828] mb-2">Energy Insights</h4>
+                                <p class="text-base text-[#4a5565]">Real-time monitoring with cost breakdowns and optimization tips</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Showcase -->
+    <section class="py-16 lg:py-24 bg-gray-50">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-12">Design Highlights</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Dashboard Overview</h3>
+                    <p class="text-base text-gray-600 mb-6">
+                        At-a-glance view of all devices, energy usage, and quick access to frequently used controls.
+                    </p>
+                    <div class="bg-gradient-to-br from-indigo-100 to-cyan-100 rounded-xl overflow-hidden h-[400px] flex items-center justify-center">
+                        <img 
+                            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" 
+                            alt="Dashboard Overview" 
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Room Controls</h3>
+                    <p class="text-base text-gray-600 mb-6">
+                        Organize devices by room with customizable scenes and quick actions.
+                    </p>
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl overflow-hidden h-[400px] flex items-center justify-center">
+                        <img 
+                            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop" 
+                            alt="Room Controls" 
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Automation Builder</h3>
+                    <p class="text-base text-gray-600 mb-6">
+                        Visual workflow builder for creating complex automation with triggers and conditions.
+                    </p>
+                    <div class="bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl overflow-hidden h-[400px] flex items-center justify-center">
+                        <img 
+                            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" 
+                            alt="Automation Builder" 
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Energy Analytics</h3>
+                    <p class="text-base text-gray-600 mb-6">
+                        Detailed energy consumption reports with cost estimates and saving opportunities.
+                    </p>
+                    <div class="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-xl overflow-hidden h-[400px] flex items-center justify-center">
+                        <img 
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" 
+                            alt="Energy Analytics" 
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcomes -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24">
+            <div class="bg-gradient-to-br from-indigo-600 to-cyan-600 rounded-2xl p-8 lg:p-12 text-white">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-8">Project Outcomes</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div>
+                        <p class="text-5xl font-bold mb-2">78%</p>
+                        <p class="text-lg opacity-90">Engagement increase</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl font-bold mb-2">50K+</p>
+                        <p class="text-lg opacity-90">Active installations</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl font-bold mb-2">34%</p>
+                        <p class="text-lg opacity-90">Average energy savings</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl font-bold mb-2">4.8/5</p>
+                        <p class="text-lg opacity-90">App store rating</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-white/20">
+                    <h3 class="text-2xl font-bold mb-4">Key Learnings</h3>
+                    <ul class="space-y-3">
+                        <li class="flex gap-3">
+                            <span>✓</span>
+                            <span>Cross-platform compatibility is essential for smart home adoption</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span>✓</span>
+                            <span>Visual automation tools are more intuitive than code-based alternatives</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span>✓</span>
+                            <span>Energy insights motivate users to optimize device usage</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span>✓</span>
+                            <span>Room-based organization matches user mental models</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Case Study -->
+    <section class="py-16 lg:py-24 bg-gray-50">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24">
+            <div class="text-center mb-8 flex flex-col items-center gap-3">
+                <p class="text-sm text-gray-500 uppercase tracking-wide">Next Case Study</p>
+                <h2 class="text-3xl lg:text-[40px] font-bold text-gray-900 leading-tight">E-Commerce Platform</h2>
+            </div>
+            
+            <div class="bg-violet-50 rounded-2xl overflow-hidden mb-8 cursor-pointer hover:scale-[1.01] transition-transform">
+                <img 
+                    src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&h=600&fit=crop" 
+                    alt="E-Commerce Platform Preview" 
+                    class="w-full h-auto object-cover"
+                />
+            </div>
+            
+            <div class="flex justify-center">
+                <a href="e-commerce-platform.html" class="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors no-underline">
+                    <span class="text-base font-medium">View Case Study</span>
+                    <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
+                        <path d="M11.4096 0.6L1.40957 10.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M0.6 6.6V11.6H5.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0c0c0c] py-12 lg:py-16">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24">
+            <div class="flex flex-col gap-12 lg:gap-16">
+                <div class="flex flex-col gap-6">
+                    <div class="flex flex-col gap-4">
+                        <p class="text-[16px] lg:text-[19.766px] font-medium text-white leading-[26.4px]">
+                            The website that will save your team<br>time and money is just a few clicks away.
+                        </p>
+                        <p class="text-[16px] lg:text-[19.766px] font-medium text-white/50 leading-[26.4px]">
+                            Ready to get started?
+                        </p>
+                    </div>
+                    <div class="flex flex-col lg:flex-row gap-6">
+                        <div class="bg-white rounded-2xl h-[200px] flex-1 p-6 flex flex-col justify-between cursor-pointer transition-transform hover:-translate-y-1">
+                            <svg class="w-14 h-14" fill="none" preserveAspectRatio="none" viewBox="0 0 513 513">
+                                <path d="M254 496C379 496 489 381 489 255C489 129 379 20 254 20C129 20 15 129 15 255C15 381 129 496 254 496Z" fill="#FFE5E5"/>
+                            </svg>
+                            <div class="flex items-end justify-between gap-3">
+                                <p class="text-[22px] lg:text-[26px] font-medium text-[#0c0c0c] leading-tight">Download Resume</p>
+                                <div class="w-10 h-10 bg-[#91ed92] rounded-[40px] shadow-[2px_3px_0px_0px_#000000] flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-3.5 h-3.5 rotate-180" viewBox="0 0 13 13" fill="none">
+                                        <path d="M11.5596 0.75L1.55957 10.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M0.75 6.75V11.75H5.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white/15 rounded-2xl h-[200px] flex-1 p-6 flex flex-col justify-between cursor-pointer transition-transform hover:-translate-y-1">
+                            <svg class="w-14 h-14" fill="none" preserveAspectRatio="none" viewBox="0 0 513 513">
+                                <path d="M254 496C379 496 489 381 489 255C489 129 379 20 254 20C129 20 15 129 15 255C15 381 129 496 254 496Z" fill="#EAF7FE"/>
+                            </svg>
+                            <div class="flex items-end justify-between gap-3">
+                                <p class="text-[22px] lg:text-[26px] font-medium text-white leading-tight">Book a Consultation</p>
+                                <div class="w-10 h-10 bg-[#91ed92] rounded-[40px] shadow-[2px_3px_0px_0px_#000000] flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-3.5 h-3.5 rotate-180" viewBox="0 0 13 13" fill="none">
+                                        <path d="M11.5596 0.75L1.55957 10.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M0.75 6.75V11.75H5.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end pt-8 gap-6">
+                    <div class="flex flex-col gap-4">
+                        <a href="mailto:ux.abdul@gmail.com" class="text-[14.375px] text-white leading-[20.8px] hover:opacity-70 transition-opacity no-underline">ux.abdul@gmail.com</a>
+                        <p class="text-[12.25px] text-white/60 leading-[21px]">2025 Abdul Hasib. All rights reserved</p>
+                    </div>
+                    <div class="flex flex-col gap-4 items-start lg:items-end w-full lg:w-auto">
+                        <div class="flex flex-wrap gap-3 lg:gap-5">
+                            <a href="#" class="text-[16px] text-white no-underline leading-6 hover:opacity-70 transition-opacity">behance</a>
+                            <a href="#" class="text-[16px] text-white no-underline leading-6 hover:opacity-70 transition-opacity">instagram</a>
+                            <a href="#" class="text-[16px] text-white no-underline leading-6 hover:opacity-70 transition-opacity">linkedin</a>
+                            <a href="#" class="text-[16px] text-white no-underline leading-6 hover:opacity-70 transition-opacity">whatsapp</a>
+                        </div>
+                        <p class="text-[12.578px] text-white/60 leading-[21px]">Privacy Policy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+        });
+    </script>
+</body>
+</html>
