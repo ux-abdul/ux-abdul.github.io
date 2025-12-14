@@ -11,11 +11,25 @@ const projectState = {
 function initProjectCarousel(projectNum, carouselId, mainImageId) {
     const carousel = document.getElementById(carouselId);
     const mainImage = document.getElementById(mainImageId);
+    
+    // Check if elements exist before initializing
+    if (!carousel || !mainImage) {
+        return; // Exit early if elements don't exist
+    }
+    
+    // Check if projectImagesById is defined
+    if (typeof projectImagesById === 'undefined') {
+        console.error('projectImagesById is not defined. Make sure assets/images.js is loaded before script.js');
+        return; // Exit early if variable doesn't exist
+    }
+    
     const projectId = projectNum - 1; // Convert project1 -> 0, project2 -> 1, etc.
     const projectImages = projectImagesById[projectId] || [];
     
     // Set initial main image
-    mainImage.src = projectImages[0];
+    if (projectImages.length > 0 && mainImage) {
+        mainImage.src = projectImages[0];
+    }
     
     projectImages.forEach((img, index) => {
         const button = document.createElement('button');
@@ -33,11 +47,21 @@ function initProjectCarousel(projectNum, carouselId, mainImageId) {
 }
 
 function selectProjectImage(projectStateKey, projectId, index, mainImageId, carouselId) {
+    // Check if projectImagesById is defined
+    if (typeof projectImagesById === 'undefined') {
+        console.error('projectImagesById is not defined');
+        return;
+    }
+    
     projectState[projectStateKey] = index;
     const projectImages = projectImagesById[projectId] || [];
     
     // Update main image
     const mainImage = document.getElementById(mainImageId);
+    if (!mainImage || !projectImages[index]) {
+        return; // Exit early if elements don't exist
+    }
+    
     mainImage.style.opacity = '0';
     
     setTimeout(() => {
@@ -47,6 +71,10 @@ function selectProjectImage(projectStateKey, projectId, index, mainImageId, caro
     
     // Update active state on thumbnails
     const carousel = document.getElementById(carouselId);
+    if (!carousel) {
+        return; // Exit early if carousel doesn't exist
+    }
+    
     const thumbnails = carousel.querySelectorAll('button');
     thumbnails.forEach((thumb, i) => {
         if (i === index) {
@@ -59,9 +87,21 @@ function selectProjectImage(projectStateKey, projectId, index, mainImageId, caro
 
 // Navigate project images with arrows
 function navigateProject(projectNum, direction) {
+    // Check if projectImagesById is defined
+    if (typeof projectImagesById === 'undefined') {
+        console.error('projectImagesById is not defined');
+        return;
+    }
+    
     const projectStateKey = `project${projectNum}`;
     const projectId = projectNum - 1;
     const projectImages = projectImagesById[projectId] || [];
+    
+    // Check if project images exist
+    if (projectImages.length === 0) {
+        return; // Exit early if no images for this project
+    }
+    
     const currentIndex = projectState[projectStateKey];
     
     let newIndex;
@@ -84,6 +124,25 @@ function navigateProject(projectNum, direction) {
 function initGallery() {
     const galleryGrid = document.getElementById('gallery-grid');
     
+    // Check if gallery grid exists
+    if (!galleryGrid) {
+        console.error('Gallery grid element not found');
+        return; // Exit early if element doesn't exist
+    }
+    
+    // Check if gallery images are available
+    if (typeof galleryImages === 'undefined') {
+        console.error('galleryImages variable is not defined. Make sure assets/images.js is loaded before script.js');
+        return; // Exit early if variable doesn't exist
+    }
+    
+    if (!galleryImages || galleryImages.length === 0) {
+        console.warn('No gallery images available');
+        return; // Exit early if no images
+    }
+    
+    console.log('Initializing gallery with', galleryImages.length, 'images');
+    
     galleryImages.forEach((img, index) => {
         const div = document.createElement('div');
         div.className = 'overflow-hidden rounded-lg cursor-pointer transition-transform hover:scale-[1.02]';
@@ -93,19 +152,38 @@ function initGallery() {
         imgElement.src = img;
         imgElement.alt = `Gallery ${index + 1}`;
         imgElement.className = 'w-full h-auto block';
+        imgElement.loading = 'lazy'; // Add lazy loading
+        
+        // Add error handling for image loading
+        imgElement.onerror = function() {
+            console.error('Failed to load gallery image:', img);
+            this.style.display = 'none';
+        };
         
         div.appendChild(imgElement);
         galleryGrid.appendChild(div);
     });
+    
+    console.log('Gallery initialized successfully');
 }
 
 // Gallery modal state
 let currentGalleryIndex = 0;
 
 function openGalleryModal(index) {
+    if (typeof galleryImages === 'undefined' || !galleryImages[index]) {
+        console.error('Gallery image not found at index:', index);
+        return;
+    }
+    
     currentGalleryIndex = index;
     const modal = document.getElementById('gallery-modal');
     const modalImage = document.getElementById('modal-image');
+    
+    if (!modal || !modalImage) {
+        console.error('Gallery modal elements not found');
+        return;
+    }
     
     modal.classList.remove('hidden');
     modal.classList.add('flex');
@@ -144,14 +222,34 @@ function goToNextImage() {
 }
 
 function updateModalImage() {
+    if (typeof galleryImages === 'undefined' || !galleryImages[currentGalleryIndex]) {
+        console.error('Gallery image not found at index:', currentGalleryIndex);
+        return;
+    }
+    
     const modalImage = document.getElementById('modal-image');
+    if (!modalImage) {
+        console.error('Modal image element not found');
+        return;
+    }
+    
     modalImage.src = galleryImages[currentGalleryIndex];
     
     updateModalThumbnails();
 }
 
 function updateModalThumbnails() {
+    if (typeof galleryImages === 'undefined') {
+        console.error('galleryImages is not defined');
+        return;
+    }
+    
     const thumbnailsContainer = document.getElementById('modal-thumbnails');
+    if (!thumbnailsContainer) {
+        console.error('Modal thumbnails container not found');
+        return;
+    }
+    
     thumbnailsContainer.innerHTML = '';
     
     galleryImages.forEach((img, index) => {
@@ -180,34 +278,82 @@ function selectGalleryImage(index) {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize project carousels
-    initProjectCarousel(1, 'project1-carousel', 'project1-main');
-    initProjectCarousel(2, 'project2-carousel', 'project2-main');
-    initProjectCarousel(3, 'project3-carousel', 'project3-main');
-    initProjectCarousel(4, 'project4-carousel', 'project4-main');
+    console.log('DOM Content Loaded - Initializing portfolio');
     
-    // Initialize gallery
-    initGallery();
+    // Check if required variables are available
+    if (typeof projectImagesById === 'undefined') {
+        console.error('projectImagesById is not defined. Make sure assets/images.js is loaded before script.js');
+    }
+    if (typeof galleryImages === 'undefined') {
+        console.error('galleryImages is not defined. Make sure assets/images.js is loaded before script.js');
+    }
     
-    // Modal close buttons
-    document.getElementById('close-modal-desktop').onclick = closeGalleryModal;
-    document.getElementById('close-modal-mobile').onclick = closeGalleryModal;
+    // Initialize project carousels - wrapped in try-catch to prevent errors from stopping gallery initialization
+    try {
+        initProjectCarousel(1, 'project1-carousel', 'project1-main');
+    } catch (error) {
+        console.error('Error initializing project 1:', error);
+    }
     
-    // Modal navigation buttons
-    document.getElementById('modal-prev').onclick = goToPreviousImage;
-    document.getElementById('modal-next').onclick = goToNextImage;
+    try {
+        initProjectCarousel(2, 'project2-carousel', 'project2-main');
+    } catch (error) {
+        console.error('Error initializing project 2:', error);
+    }
+    
+    try {
+        initProjectCarousel(3, 'project3-carousel', 'project3-main');
+    } catch (error) {
+        console.error('Error initializing project 3:', error);
+    }
+    
+    try {
+        initProjectCarousel(4, 'project4-carousel', 'project4-main');
+    } catch (error) {
+        console.error('Error initializing project 4:', error);
+    }
+    
+    // Initialize gallery - this should always run, even if projects fail
+    try {
+        initGallery();
+    } catch (error) {
+        console.error('Error initializing gallery:', error);
+    }
+    
+    // Modal close buttons - with safety checks
+    const closeModalDesktop = document.getElementById('close-modal-desktop');
+    const closeModalMobile = document.getElementById('close-modal-mobile');
+    if (closeModalDesktop) {
+        closeModalDesktop.onclick = closeGalleryModal;
+    }
+    if (closeModalMobile) {
+        closeModalMobile.onclick = closeGalleryModal;
+    }
+    
+    // Modal navigation buttons - with safety checks
+    const modalPrev = document.getElementById('modal-prev');
+    const modalNext = document.getElementById('modal-next');
+    if (modalPrev) {
+        modalPrev.onclick = goToPreviousImage;
+    }
+    if (modalNext) {
+        modalNext.onclick = goToNextImage;
+    }
     
     // Close modal when clicking outside
-    document.getElementById('gallery-modal').onclick = function(e) {
-        if (e.target.id === 'gallery-modal') {
-            closeGalleryModal();
-        }
-    };
+    const galleryModal = document.getElementById('gallery-modal');
+    if (galleryModal) {
+        galleryModal.onclick = function(e) {
+            if (e.target.id === 'gallery-modal') {
+                closeGalleryModal();
+            }
+        };
+    }
     
     // Keyboard navigation for modal
     document.addEventListener('keydown', function(e) {
         const modal = document.getElementById('gallery-modal');
-        if (!modal.classList.contains('hidden')) {
+        if (modal && !modal.classList.contains('hidden')) {
             if (e.key === 'Escape') {
                 closeGalleryModal();
             } else if (e.key === 'ArrowLeft') {
@@ -217,4 +363,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    
+    console.log('Portfolio initialization complete');
 });

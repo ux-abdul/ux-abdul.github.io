@@ -125,7 +125,7 @@
             <!-- Hero Image -->
             <div class="w-full rounded-3xl overflow-hidden border border-gray-200">
                 <img 
-                    src="https://images.unsplash.com/photo-1566073771259-6a8506099945?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200" 
+                    src="assets/img/hotel-thumb.png" 
                     alt="Hotel Onboarding App interface" 
                     class="w-full h-auto object-cover"
                 />
@@ -400,14 +400,14 @@
                                     <div class="relative w-[160px] h-[160px] flex-shrink-0">
                                         <img 
                                             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400" 
-                                            alt="John Doe"
+                                            alt="James Smith"
                                             class="w-full h-full object-cover rounded-full"
                                         />
                                     </div>
 
                                     <!-- Name and Role -->
                                     <div class="flex flex-col gap-2 items-center text-center px-0 py-[9px]">
-                                        <p class="text-[40px] font-bold text-black">John Doe</p>
+                                        <p class="text-[40px] font-bold text-black">James Smith</p>
                                         <p class="text-[20px] font-medium text-[#282d46]">
                                             Corporate Employee Male , 28
                                         </p>
@@ -789,15 +789,16 @@
                             </p>
                         </div>
                         
-                        <!-- Before/After Slider -->
+                        <!-- Horizontal Before/After Slider -->
                         <div class="w-full bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-4 md:p-6 lg:p-8">
                             <div class="relative w-full aspect-[16/9] overflow-hidden rounded-xl select-none cursor-ew-resize bg-gray-100 before-after-slider">
                                 <!-- Before Image (Bottom layer - full width) -->
                                 <div class="absolute inset-0">
+                                    <!-- class="w-full h-full object-cover" -->
                                     <img
-                                        src="https://images.unsplash.com/photo-1554224311-beee415c201f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200"
+                                        src="assets/img/before.png"
                                         alt="Before"
-                                        class="w-full h-full object-cover"
+                                        class="w-full object-cover"
                                         draggable="false"
                                     />
                                     <!-- Before Label - moved to top right -->
@@ -808,13 +809,14 @@
 
                                 <!-- After Image (Top layer - clipped by slider) -->
                                 <div class="absolute inset-0 overflow-hidden slider-overlay" style="width: 50%;">
-                                    <div class="relative w-full h-full">
+                                    <div class="relative w-full">
+                                        <!-- <div class="relative w-full h-full"> -->
                                         <img
-                                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200"
+                                            src="assets/img/after.png"
                                             alt="After"
                                             class="absolute inset-0 object-cover slider-image"
                                             draggable="false"
-                                            style="width: 100%; max-width: none;"
+                                            style="max-width: none;"
                                         />
                                         <!-- After Label - at top left -->
                                         <div class="absolute top-4 left-4 bg-white rounded-lg px-4 py-2 shadow-md z-10">
@@ -824,7 +826,7 @@
                                 </div>
 
                                 <!-- Slider Line and Handle -->
-                                <div class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-20 slider-line" style="left: 50%; transform: translateX(-50%);">
+                                <div class="absolute top-0 bottom-0 w-1 bg-gray-100 cursor-ew-resize z-20 slider-line" style="left: 50%; transform: translateX(-50%);">
                                     <!-- Slider Handle - left-right arrows -->
                                     <div class="absolute top-1/2 left-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center" style="transform: translate(-50%, -50%);">
                                         <svg 
@@ -845,39 +847,7 @@
                             </div>
                         </div>
                         
-                        <!-- Original Before/After Comparison -->
-                        <div class="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-4 lg:p-8">
-                            <!-- Before/After Comparison -->
-                            <div class="flex flex-col gap-[40px] items-start">
-                                <!-- Before Section -->
-                                <div class="flex flex-col gap-[20px] items-start w-full">
-                                    <div class="flex items-center justify-center px-[16px] py-[8px] rounded-[20px] border-2 border-black">
-                                        <p class="font-medium text-[16px] text-black">Before</p>
-                                    </div>
-                                    <div class="w-full aspect-[1616/510]">
-                                        <img 
-                                            src="https://images.unsplash.com/photo-1554224311-beee415c201f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200" 
-                                            alt="Guest Information Before"
-                                            class="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                </div>
-                                
-                                <!-- After Section -->
-                                <div class="flex flex-col gap-[20px] items-start w-full">
-                                    <div class="bg-black flex items-center justify-center px-[16px] py-[8px] rounded-[20px]">
-                                        <p class="font-medium text-[16px] text-white">After</p>
-                                    </div>
-                                    <div class="w-full aspect-[1200/478]">
-                                        <img 
-                                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200" 
-                                            alt="Guest Information After"
-                                            class="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     
                     <!-- Component 1: Booking Card -->
@@ -894,13 +864,47 @@
                             </div>
                         </div>
                         
-                        <div class="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-8 lg:p-12 border border-gray-200">
-                            <div class="bg-white rounded-xl overflow-hidden border border-gray-200">
+                        <!-- <div class="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-8 lg:p-12 border border-gray-200">
+                            <div class="bg-white overflow-hidden border-gray-200">
                                 <img 
-                                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800" 
+                                    src="assets/img/booking-card.png" 
                                     alt="Booking Card"
                                     class="w-full h-auto"
                                 />
+                            </div>
+                        </div> -->
+
+                        <!-- Vertical Before/After Comparison -->
+                        <div class="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-4 lg:p-8">
+                            <!-- Before/After Comparison -->
+                            <div class="flex flex-col gap-[40px] items-start">
+                                <!-- Before Section -->
+                                <div class="flex flex-col gap-[20px] items-start w-full">
+                                    <div class="flex items-center justify-center px-[16px] py-[8px] rounded-[20px] border-2 border-black">
+                                        <p class="font-medium text-[16px] text-black">Before</p>
+                                    </div>
+                                    <div class="w-full">
+                                        <img 
+                                            src="assets/img/booking-card-old.png" 
+                                            alt="Guest Information Before"
+                                            class="w-full object-cover"
+                                        />
+                                    </div>
+                                </div>
+                                
+                                <!-- After Section -->
+                                <div class="flex flex-col gap-[20px] items-start w-full">
+                                    <div class="bg-black flex items-center justify-center px-[16px] py-[8px] rounded-[20px]">
+                                        <p class="font-medium text-[16px] text-white">After</p>
+                                    </div>
+                                    <div class="w-full">
+                                        <img 
+                                            src="assets/img/booking-card-new.png" 
+                                            alt="Guest Information After"
+                                            class="w-full object-cover"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -908,7 +912,7 @@
                     <!-- Component 2: Guest Information & Enrollment -->
                     <div class="space-y-6">
                         <div>
-                            <h4 class="text-2xl font-bold text-gray-900 mb-3">Guest Information & Enrollment</h4>
+                            <h4 class="text-2xl font-bold text-gray-900 mb-3">Combined Guest Information & Enrollment Form</h4>
                             <p class="text-base text-gray-600 leading-relaxed mb-4">Consolidated form combining guest data collection with membership program enrollment, reducing form fields by 60%.</p>
                             
                             <div class="flex flex-wrap gap-2">
@@ -922,7 +926,7 @@
                         <div class="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-8 lg:p-12 border border-gray-200">
                             <div class="bg-white rounded-xl overflow-hidden border border-gray-200">
                                 <img 
-                                    src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800" 
+                                    src="assets/img/guest-information-nrollment.png" 
                                     alt="Guest Information Form"
                                     class="w-full h-auto"
                                 />
@@ -931,7 +935,7 @@
                     </div>
 
                     <!-- Component 3: Advanced Search -->
-                    <div class="space-y-6">
+                    <!-- <div class="space-y-6">
                         <div>
                             <h4 class="text-2xl font-bold text-gray-900 mb-3">Advanced Search</h4>
                             <p class="text-base text-gray-600 leading-relaxed mb-4">Multi-parameter search interface enabling front desk staff to find bookings instantly using various criteria.</p>
@@ -953,7 +957,7 @@
                                 />
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -965,7 +969,8 @@
             <div class="flex flex-col gap-[40px] md:gap-[60px] items-start w-full">
                 <!-- Advanced Search Header -->
                 <div class="flex flex-col gap-[32px] items-start w-full">
-                    <p class="font-bold leading-tight text-3xl md:text-4xl lg:text-5xl text-black w-full">Advanced Search</p>
+                    <!-- <p class="font-bold leading-tight text-3xl md:text-4xl lg:text-5xl text-black w-full">Advanced Search</p> -->
+                    <p class="text-2xl font-bold text-gray-900 mb-3">Advanced Search</p>
                     
                     <div class="flex flex-col gap-[40px] items-start w-full">
                         <p class="font-normal leading-relaxed text-[#434345] text-base md:text-lg lg:text-xl w-full">
@@ -1003,7 +1008,7 @@
                                 <img 
                                     alt="Before search interface" 
                                     class="w-full h-auto rounded-[4px]" 
-                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200"
+                                    src="assets/img/advanced-search-old.png"
                                 />
                                 <div class="absolute border-[0.5px] border-gray-200 border-solid inset-0 rounded-[4px]"></div>
                             </div>
@@ -1020,7 +1025,7 @@
                                 <img 
                                     alt="After search interface" 
                                     class="w-full h-auto rounded-[4px]" 
-                                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200"
+                                    src="assets/img/advanced-search-new.png"
                                 />
                                 <div class="absolute border-[0.5px] border-gray-200 border-solid inset-0 rounded-[4px]"></div>
                             </div>
@@ -1115,13 +1120,13 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Project Navigation -->
-    <div class="border-t border-gray-200 bg-white">
+    <!-- <div class="border-t border-gray-200 bg-white">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24 py-8">
-            <div class="flex items-center justify-between gap-8">
+            <div class="flex items-center justify-between gap-8"> -->
                 <!-- Previous Project - Inactive -->
-                <button disabled class="flex items-center gap-3 text-gray-400 cursor-not-allowed opacity-50">
+                <!-- <button disabled class="flex items-center gap-3 text-gray-400 cursor-not-allowed opacity-50">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                     </svg>
@@ -1129,10 +1134,10 @@
                         <p class="text-xs font-medium uppercase tracking-wide mb-1">Previous</p>
                         <p class="text-sm">No previous project</p>
                     </div>
-                </button>
+                </button> -->
                 
                 <!-- Next Project - Active -->
-                <a href="index.html" class="flex items-center gap-3 text-gray-900 hover:text-blue-600 transition-colors group">
+                <!-- <a href="index.html" class="flex items-center gap-3 text-gray-900 hover:text-blue-600 transition-colors group">
                     <div class="text-right">
                         <p class="text-xs font-medium uppercase tracking-wide mb-1 text-gray-500">Next</p>
                         <p class="text-sm font-medium">View next project</p>
@@ -1143,10 +1148,10 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Next Case Study -->
-    <section class="py-16 lg:py-24 bg-gray-50">
+    <section class="py-16 lg:py-24">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24">
             <div class="text-center mb-8 flex flex-col items-center gap-3">
                 <p class="text-sm text-gray-500 uppercase tracking-wide">Next Case Study</p>
