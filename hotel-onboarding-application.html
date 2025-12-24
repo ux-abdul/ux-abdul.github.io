@@ -788,17 +788,16 @@
                                 Merged the guest details form with a visual progress bar and integrated guest preferences in a single, streamlined interface. This redesign eliminated redundant steps and provided clear visibility into profile completion status, encouraging Front desk associate (FDA) to add complete information of guests.
                             </p>
                         </div>
-                        
-                        <!-- Horizontal Before/After Slider -->
-                        <div class="w-full bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-4 md:p-6 lg:p-8">
-                            <div class="relative w-full aspect-[16/9] overflow-hidden rounded-xl select-none cursor-ew-resize bg-gray-100 before-after-slider">
+
+                         <!-- 1 Horizontal Before/After Slider -->
+                         <div class="w-full bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-4 md:p-6 lg:p-8">
+                            <div class="relative w-full overflow-hidden rounded-xl select-none cursor-ew-resize bg-gray-100 before-after-slider">
                                 <!-- Before Image (Bottom layer - full width) -->
-                                <div class="absolute inset-0">
-                                    <!-- class="w-full h-full object-cover" -->
+                                <div class="relative w-full">
                                     <img
                                         src="assets/img/before.png"
                                         alt="Before"
-                                        class="w-full object-cover"
+                                        class="w-full h-auto block"
                                         draggable="false"
                                     />
                                     <!-- Before Label - moved to top right -->
@@ -808,25 +807,22 @@
                                 </div>
 
                                 <!-- After Image (Top layer - clipped by slider) -->
-                                <div class="absolute inset-0 overflow-hidden slider-overlay" style="width: 50%;">
-                                    <div class="relative w-full">
-                                        <!-- <div class="relative w-full h-full"> -->
-                                        <img
-                                            src="assets/img/after.png"
-                                            alt="After"
-                                            class="absolute inset-0 object-cover slider-image"
-                                            draggable="false"
-                                            style="max-width: none;"
-                                        />
-                                        <!-- After Label - at top left -->
-                                        <div class="absolute top-4 left-4 bg-white rounded-lg px-4 py-2 shadow-md z-10">
-                                            <span class="text-sm font-medium text-gray-900">After</span>
-                                        </div>
+                                <div class="absolute top-0 left-0 bottom-0 overflow-hidden slider-overlay" style="width: 50%;">
+                                    <img
+                                        src="assets/img/after.png"
+                                        alt="After"
+                                        class="w-full h-auto block slider-image"
+                                        draggable="false"
+                                        style="width: 100%; max-width: none;"
+                                    />
+                                    <!-- After Label - at top left -->
+                                    <div class="absolute top-4 left-4 bg-white rounded-lg px-4 py-2 shadow-md z-10">
+                                        <span class="text-sm font-medium text-gray-900">After</span>
                                     </div>
                                 </div>
 
                                 <!-- Slider Line and Handle -->
-                                <div class="absolute top-0 bottom-0 w-1 bg-gray-100 cursor-ew-resize z-20 slider-line" style="left: 50%; transform: translateX(-50%);">
+                                <div class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-20 slider-line" style="left: 50%; transform: translateX(-50%);">
                                     <!-- Slider Handle - left-right arrows -->
                                     <div class="absolute top-1/2 left-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center" style="transform: translate(-50%, -50%);">
                                         <svg 
@@ -846,8 +842,6 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        
                     </div>
                     
                     <!-- Component 1: Booking Card -->
@@ -1266,6 +1260,12 @@
                 const sliderLine = slider.querySelector('.slider-line');
                 const sliderImage = slider.querySelector('.slider-image');
                 
+                // Set initial image width once to prevent zooming during drag
+                const rect = slider.getBoundingClientRect();
+                if (sliderImage) {
+                    sliderImage.style.width = rect.width + 'px';
+                }
+                
                 function updateSlider(clientX) {
                     const rect = slider.getBoundingClientRect();
                     const x = clientX - rect.left;
@@ -1274,11 +1274,16 @@
                     overlay.style.width = percentage + '%';
                     sliderLine.style.left = percentage + '%';
                     
-                    // Set image to match container width (no scaling/zoom)
+                    // Don't recalculate image width during drag to prevent zoom
+                }
+                
+                // Update image width on window resize
+                window.addEventListener('resize', function() {
+                    const rect = slider.getBoundingClientRect();
                     if (sliderImage) {
                         sliderImage.style.width = rect.width + 'px';
                     }
-                }
+                });
                 
                 // Mouse events
                 slider.addEventListener('mousedown', function() {

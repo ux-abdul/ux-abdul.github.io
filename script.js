@@ -28,7 +28,7 @@ function initProjectCarousel(projectNum, carouselId, mainImageId) {
     
     // Set initial main image
     if (projectImages.length > 0 && mainImage) {
-        mainImage.src = projectImages[0];
+    mainImage.src = projectImages[0];
     }
     
     projectImages.forEach((img, index) => {
@@ -290,32 +290,32 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize project carousels - wrapped in try-catch to prevent errors from stopping gallery initialization
     try {
-        initProjectCarousel(1, 'project1-carousel', 'project1-main');
+    initProjectCarousel(1, 'project1-carousel', 'project1-main');
     } catch (error) {
         console.error('Error initializing project 1:', error);
     }
     
     try {
-        initProjectCarousel(2, 'project2-carousel', 'project2-main');
+    initProjectCarousel(2, 'project2-carousel', 'project2-main');
     } catch (error) {
         console.error('Error initializing project 2:', error);
     }
     
     try {
-        initProjectCarousel(3, 'project3-carousel', 'project3-main');
+    initProjectCarousel(3, 'project3-carousel', 'project3-main');
     } catch (error) {
         console.error('Error initializing project 3:', error);
     }
     
     try {
-        initProjectCarousel(4, 'project4-carousel', 'project4-main');
+    initProjectCarousel(4, 'project4-carousel', 'project4-main');
     } catch (error) {
         console.error('Error initializing project 4:', error);
     }
     
     // Initialize gallery - this should always run, even if projects fail
     try {
-        initGallery();
+    initGallery();
     } catch (error) {
         console.error('Error initializing gallery:', error);
     }
@@ -344,10 +344,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryModal = document.getElementById('gallery-modal');
     if (galleryModal) {
         galleryModal.onclick = function(e) {
-            if (e.target.id === 'gallery-modal') {
-                closeGalleryModal();
-            }
-        };
+        if (e.target.id === 'gallery-modal') {
+            closeGalleryModal();
+        }
+    };
     }
     
     // Keyboard navigation for modal
