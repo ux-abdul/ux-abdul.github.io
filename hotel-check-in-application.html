@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Onboarding App - Case Study | Abdul Hasib</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/globals.css">
+    <style>
+        /* Override Tailwind defaults for smooth transitions */
+        * {
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Glassmorphism Label */
+        .glass-label {
+            position: relative;
+            display: inline-block;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 1rem;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .glass-label:hover {
+            box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        .glass-label::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3), transparent);
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .glass-label h2 {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Timeline line styling */
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(to bottom, #bfdbfe, #a5f3fc, #bfdbfe);
+        }
+
+        /* Sticky positioning for labels */
+        @media (min-width: 1024px) {
+            .sticky-label {
+                position: sticky;
+                top: 6rem;
+                align-self: start;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white min-h-screen">
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-24 xl:px-40 py-5">
+            <a href="index.html"
+                class="inline-flex items-center gap-2 text-gray-700 hover:text-black transition-colors group">
+                <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                <span class="text-sm font-medium">Back to home</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-gray-50 to-white pt-16 lg:pt-24 pb-12 lg:pb-20">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-24 xl:px-40">
+            <div class="max-w-[900px]">
+                <!-- Category -->
+                <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full mb-6">
+                    <span class="text-sm font-medium">Case Study</span>
+                </div>
+
+                <!-- Title -->
+                <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-[1.1] tracking-tight">
+                    Hotel Onboarding App
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed mb-12">
+                    Streamlining hotel guest check-in and membership enrollment to reduce wait times and improve
+                    operational efficiency
+                </p>
+
+                <!-- Meta Info Grid -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">Role</p>
+                        <p class="text-base text-gray-900">Lead UX Designer</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">Timeline</p>
+                        <p class="text-base text-gray-900">8 weeks</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">Platform</p>
+                        <p class="text-base text-gray-900">Salesforce</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">Industry</p>
+                        <p class="text-base text-gray-900">Hospitality</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="w-full rounded-3xl overflow-hidden border border-gray-200">
+                <img src="assets/img/hotel-thumb.png" alt="Hotel Onboarding App interface"
+                    class="w-full h-auto object-cover" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-24 xl:px-40">
+            <!-- Section Label at Top -->
+            <div class="mb-12">
+                <div class="glass-label">
+                    <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Overview</h2>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="space-y-12 w-full">
+                <!-- Project Summary -->
+                <div>
+                    <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                        Reimagining the hotel guest experience
+                    </h3>
+                    <div class="prose prose-lg max-w-none">
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            A leading hotel chain in the USA was struggling with a complex, time-consuming guest
+                            onboarding process that frustrated both front desk staff and guests. The existing system
+                            required staff to navigate multiple platforms, resulting in longer wait times and reduced
+                            guest satisfaction.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            I led the end-to-end redesign of their hotel management application, focusing on
+                            streamlining workflows, consolidating features, and creating an intuitive interface that
+                            enhanced both employee efficiency and guest experience.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">Services Provided</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">UX
+                            Audit</span>
+                        <span
+                            class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">User
+                            Research</span>
+                        <span
+                            class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">Information
+                            Architecture</span>
+                        <span
+                            class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">UI
+                            Design</span>
+                        <span
+                            class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">Prototyping</span>
+                        <span
+                            class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">Development
+                            Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="py-16 lg:py-24 bg-gray-50">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-24 xl:px-40">
+            <!-- Section Label at Top -->
+            <div class="mb-12">
+                <div class="glass-label">
+                    <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">The Problem</h2>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="w-full">
+                <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 leading-tight">
+                    Inefficient systems were slowing down operations
+                </h3>
+
+                <div class="grid gap-6 w-full">
+                    <!-- Problem 1 -->
+                    <div
+                        class="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-2xl">
+                                ⚠️
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Complex onboarding flow</h4>
+                                <p class="text-base text-gray-600 leading-relaxed">Multi-step guest check-in process
+                                    caused confusion and delays during peak hours</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Problem 2 -->
+                    <div
+                        class="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-2xl">
+                                🔄
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Redundant data entry</h4>
+                                <p class="text-base text-gray-600 leading-relaxed">Guest information and membership
+                                    enrollment required separate forms with duplicate fields</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Problem 3 -->
+                    <div
+                        class="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-2xl">
+                                🔌
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Third-party dependency</h4>
+                                <p class="text-base text-gray-600 leading-relaxed">Guest requests were handled through
+                                    an external application, creating workflow disruption</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Problem 4 -->
+                    <div
+                        class="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-2xl">
+                                🔍
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Limited search capability</h4>
+                                <p class="text-base text-gray-600 leading-relaxed">Basic name-only search made it
+                                    difficult to quickly locate bookings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Research & Discovery -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-24 xl:px-40">
+            <!-- Section Label -->
+            <div class="mb-12">
+                <div class="glass-label">
+                    <h2 class="text-sm font-semibold text-[#364153] uppercase tracking-wide">Research & Discovery</h2>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="flex flex-col gap-10 w-full">
+                <!-- Heading and Description -->
+                <div class="flex flex-col gap-6">
+                    <h3 class="text-3xl lg:text-[36px] font-bold text-[#101828] leading-[45px]"
+                        style="letter-spacing: 0.3691px;">
+                        Understanding the current pain points
+                    </h3>
+                    <p class="text-base lg:text-lg text-[#364153] leading-[29.25px]" style="letter-spacing: -0.4395px;">
+                        I conducted a comprehensive UX audit and user research study with front desk associates across
+                        multiple hotel locations to understand their daily workflows, pain points, and needs.
+                    </p>
+                </div>
+
+                <!-- Stats Grid - 4 columns on desktop, 2 on tablet, 1 on mobile -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-[#f0f9ff] rounded-2xl p-6 border border-blue-100">
+                        <div class="flex flex-col gap-3">
+                            <div class="h-[60px] relative">
+                                <p class="font-bold text-[40px] text-[#155dfc] leading-[60px]"
+                                    style="letter-spacing: 0.2637px;">100%</p>
+                            </div>
+                            <p class="text-base text-[#364153] leading-[26px]" style="letter-spacing: -0.3125px;">Staff
+                                rely on the current system daily</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#f0f9ff] rounded-2xl p-6 border border-blue-100">
+                        <div class="flex flex-col gap-3">
+                            <div class="h-[60px] relative">
+                                <p class="font-bold text-[40px] text-[#155dfc] leading-[60px]"
+                                    style="letter-spacing: 0.2637px;">70%</p>
+                            </div>
+                            <p class="text-base text-[#364153] leading-[26px]" style="letter-spacing: -0.3125px;">Unable
+                                to complete tasks within expected timeframe</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#f0f9ff] rounded-2xl p-6 border border-blue-100">
+                        <div class="flex flex-col gap-3">
+                            <div class="h-[60px] relative">
+                                <p class="font-bold text-[40px] text-[#155dfc] leading-[60px]"
+                                    style="letter-spacing: 0.2637px;">80%</p>
+                            </div>
+                            <p class="text-base text-[#364153] leading-[26px]" style="letter-spacing: -0.3125px;">
+                                Struggled to find relevant information quickly</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#f0f9ff] rounded-2xl p-6 border border-blue-100">
+                        <div class="flex flex-col gap-3">
+                            <div class="h-[60px] relative">
+                                <p class="font-bold text-[40px] text-[#155dfc] leading-[60px]"
+                                    style="letter-spacing: 0.2637px;">60%</p>
+                            </div>
+                            <p class="text-base text-[#364153] leading-[26px]" style="letter-spacing: -0.3125px;">
+                                Believed the system had significant room for improvement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Personas -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-24 xl:px-40">
+            <!-- Section Label at Top -->
+            <div class="mb-12">
+                <div class="glass-label">
+                    <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">User Personas</h2>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="flex flex-col gap-10 w-full">
+                <!-- Persona 1 -->
+                <div class="bg-[#f8fbfe] rounded-2xl px-6 py-10 lg:px-20 lg:py-[60px]">
+                    <!-- Persona Title -->
+                    <div class="flex items-center gap-2 mb-10">
+                        <p class="text-[40px] lg:text-[48px] font-medium text-black">Persona 1</p>
+                    </div>
+
+                    <!-- Desktop Layout: Image left, Content right -->
+                    <div class="flex flex-col lg:flex-row gap-8 lg:gap-[60px]">
+                        <!-- Image Card -->
+                        <div class="flex-shrink-0">
+                            <div
+                                class="bg-gradient-to-b from-[#c3eaea] to-[#f8fbfe] rounded-tl-[40px] rounded-tr-[40px] px-8 lg:px-[100px] pt-[60px] pb-[40px] flex flex-col items-center gap-[30px]">
+                                <!-- Profile Image -->
+                                <div class="relative w-[160px] h-[160px] flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400"
+                                        alt="Alice Johnson" class="w-full h-full object-cover rounded-full" />
+                                </div>
+
+                                <!-- Name and Role -->
+                                <div class="flex flex-col gap-2 items-center text-center px-0 py-[9px]">
+                                    <p class="text-[40px] font-bold text-black">Alice Johnson</p>
+                                    <p class="text-[20px] font-medium text-[#282d46]">
+                                        Front Desk Associate , 32
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text Content -->
+                        <div class="flex-1 flex flex-col gap-7">
+                            <!-- Bio Description -->
+                            <p class="text-base text-[#434345] leading-[26px]">
+                                Experienced hotel staff member managing 50+ daily check-ins at a busy downtown property.
+                                Values efficiency and delivering excellent guest service.
+                            </p>
+
+                            <!-- A day in their life -->
+                            <div class="flex flex-col gap-5">
+                                <p class="text-[24px] font-medium text-black">A day in their life</p>
+                                <ul class="space-y-0 list-disc pl-6 text-base text-[#434345]">
+                                    <li class="leading-[32px]">Handles check-in for 50+ guests daily during peak hours
+                                    </li>
+                                    <li class="leading-[32px]">Manages membership enrollments and profile updates</li>
+                                    <li class="leading-[32px]">Coordinates with housekeeping and maintenance teams for
+                                        guest requests</li>
+                                </ul>
+                            </div>
+
+                            <!-- Pain points -->
+                            <div class="flex flex-col gap-5">
+                                <p class="text-[24px] font-medium text-black">Pain points</p>
+                                <ul class="space-y-0 list-disc pl-6 text-base text-[#434345]">
+                                    <li class="leading-[32px]">Switching between multiple systems disrupts workflow and
+                                        slows down check-in process</li>
+                                    <li class="leading-[32px]">Guests become impatient during lengthy enrollment and
+                                        data entry procedures</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Persona 2 -->
+                <div class="bg-[#f8fbfe] rounded-2xl px-6 py-10 lg:px-20 lg:py-[60px]">
+                    <!-- Persona Title -->
+                    <div class="flex items-center gap-2 mb-10">
+                        <p class="text-[40px] lg:text-[48px] font-medium text-black">Persona 2</p>
+                    </div>
+
+                    <!-- Desktop Layout: Image right, Content left (reversed) -->
+                    <div class="flex flex-col lg:flex-row-reverse gap-8 lg:gap-[60px]">
+                        <!-- Image Card -->
+                        <div class="flex-shrink-0">
+                            <div
+                                class="bg-gradient-to-b from-[#c3eaea] to-[#f8fbfe] rounded-tl-[40px] rounded-tr-[40px] px-8 lg:px-[100px] pt-[60px] pb-[40px] flex flex-col items-center gap-[30px]">
+                                <!-- Profile Image -->
+                                <div class="relative w-[160px] h-[160px] flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400"
+                                        alt="James Smith" class="w-full h-full object-cover rounded-full" />
+                                </div>
+
+                                <!-- Name and Role -->
+                                <div class="flex flex-col gap-2 items-center text-center px-0 py-[9px]">
+                                    <p class="text-[40px] font-bold text-black">James Smith</p>
+                                    <p class="text-[20px] font-medium text-[#282d46]">
+                                        Corporate Employee Male , 28
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text Content -->
+                        <div class="flex-1 flex flex-col gap-7">
+                            <!-- Bio Description -->
+                            <p class="text-base text-[#434345] leading-[26px]">
+                                Frequent business traveler who values quick, seamless check-in experiences. Travels 2-3
+                                times monthly and expects consistent service quality.
+                            </p>
+
+                            <!-- A day in their life -->
+                            <div class="flex flex-col gap-5">
+                                <p class="text-[24px] font-medium text-black">A day in their life</p>
+                                <ul class="space-y-0 list-disc pl-6 text-base text-[#434345]">
+                                    <li class="leading-[32px]">Arrives at hotels late evening after long business
+                                        meetings</li>
+                                    <li class="leading-[32px]">Needs quick access to room and amenities without delays
+                                    </li>
+                                    <li class="leading-[32px]">Expects membership benefits to be automatically
+                                        recognized and applied</li>
+                                </ul>
+                            </div>
+
+                            <!-- Pain points -->
+                            <div class="flex flex-col gap-5">
+                                <p class="text-[24px] font-medium text-black">Pain points</p>
+                                <ul class="space-y-0 list-disc pl-6 text-base text-[#434345]">
+                                    <li class="leading-[32px]">Repetitive information requests at each hotel visit
+                                        despite being a loyalty member</li>
+                                    <li class="leading-[32px]">Long wait times at front desk during peak check-in hours
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Design Process -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-24 xl:px-40">
+            <!-- Background Container with light blue -->
+            <div class="bg-[#f8fbfe] rounded-2xl px-4 py-10 md:px-6 md:py-12 lg:px-16 lg:py-16">
+                <!-- Section Label -->
+                <div class="mb-10">
+                    <div class="glass-label">
+                        <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Design Process</h2>
+                    </div>
+                </div>
+
+                <!-- Heading and Description -->
+                <div class="mb-10 lg:mb-12 max-w-full lg:max-w-[520px]">
+                    <h3 class="text-xl md:text-2xl lg:text-[36px] font-bold text-[#101828] mb-6"
+                        style="line-height: 1.25;">
+                        A structured approach to problem-solving
+                    </h3>
+                    <p class="text-base lg:text-lg text-[#364153] leading-relaxed">
+                        I followed a human-centered design process, collaborating closely with stakeholders and
+                        end-users throughout each phase.
+                    </p>
+                </div>
+
+                <!-- Mobile/Tablet Layout (< lg) - Vertical Stack -->
+                <div class="flex flex-col gap-6 lg:hidden">
+                    <!-- Step 1 - Mobile -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                        <div class="flex flex-col gap-4">
+                            <div
+                                class="w-14 h-14 rounded-[14px] border border-blue-100 flex items-center justify-center">
+                                <span class="text-[30px]">🔍</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h4 class="text-[24px] font-bold text-[#101828] leading-[32px]"
+                                    style="letter-spacing: 0.0703px;">Discover</h4>
+                                <p class="text-base text-[#4a5565] leading-[26px]" style="letter-spacing: -0.3125px;">
+                                    Conducted UX audit, stakeholder interviews, and contextual inquiry with hotel staff
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 - Mobile -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                        <div class="flex flex-col gap-4">
+                            <div
+                                class="w-14 h-14 rounded-[14px] border border-blue-100 flex items-center justify-center">
+                                <span class="text-[30px]">📊</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h4 class="text-[24px] font-bold text-[#101828] leading-[32px]"
+                                    style="letter-spacing: 0.0703px;">Define</h4>
+                                <p class="text-base text-[#4a5565] leading-[26px]" style="letter-spacing: -0.3125px;">
+                                    Analyzed research data, identified key pain points, and defined success metrics</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 - Mobile -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                        <div class="flex flex-col gap-4">
+                            <div
+                                class="w-14 h-14 rounded-[14px] border border-blue-100 flex items-center justify-center">
+                                <span class="text-[30px]">💡</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h4 class="text-[24px] font-bold text-[#101828] leading-[32px]"
+                                    style="letter-spacing: 0.0703px;">Ideate</h4>
+                                <p class="text-base text-[#4a5565] leading-[26px]" style="letter-spacing: -0.3125px;">
+                                    Facilitated design workshops, sketched solutions, and created information
+                                    architecture</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 - Mobile -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                        <div class="flex flex-col gap-4">
+                            <div
+                                class="w-14 h-14 rounded-[14px] border border-blue-100 flex items-center justify-center">
+                                <span class="text-[30px]">✏️</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h4 class="text-[24px] font-bold text-[#101828] leading-[32px]"
+                                    style="letter-spacing: 0.0703px;">Design</h4>
+                                <p class="text-base text-[#4a5565] leading-[26px]" style="letter-spacing: -0.3125px;">
+                                    Developed wireframes, high-fidelity mockups, and interactive prototypes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Layout (>= lg) - Timeline and Cards Layout -->
+                <div class="hidden lg:flex gap-12">
+                    <!-- Vertical Timeline -->
+                    <div class="relative flex-shrink-0 pt-2">
+                        <!-- Gradient Line -->
+                        <div class="absolute left-[23px] top-[29px] w-[2px] h-[430px]"
+                            style="background: linear-gradient(180deg, #bedbff 0%, #a2f4fd 50%, #bedbff 100%);"></div>
+
+                        <!-- Number Circles -->
+                        <div class="relative flex flex-col pt-1" style="gap: 94.33px;">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center"
+                                style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);">
+                                <span class="text-base font-bold text-white">01</span>
+                            </div>
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center"
+                                style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);">
+                                <span class="text-base font-bold text-white">02</span>
+                            </div>
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center"
+                                style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);">
+                                <span class="text-base font-bold text-white">03</span>
+                            </div>
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center"
+                                style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);">
+                                <span class="text-base font-bold text-white">04</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cards Column -->
+                    <div class="flex-1 flex flex-col gap-6">
+                        <!-- Step 1 -->
+                        <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                            style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                            <div class="flex gap-4">
+                                <div
+                                    class="flex-shrink-0 w-14 h-14 rounded-[14px] border border-blue-100 flex items-center justify-center">
+                                    <span class="text-[30px]">🔍</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-2xl font-bold text-[#101828] mb-2">Discover</h4>
+                                    <p class="text-base text-[#4a5565] leading-relaxed">Conducted UX audit, stakeholder
+                                        interviews, and contextual inquiry with hotel staff</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                            style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                            <div class="flex gap-4">
+                                <div
+                                    class="flex-shrink-0 w-14 h-14 rounded-[14px] border border-blue-100 flex items-center justify-center">
+                                    <span class="text-[30px]">📊</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-2xl font-bold text-[#101828] mb-2">Define</h4>
+                                    <p class="text-base text-[#4a5565] leading-relaxed">Analyzed research data,
+                                        identified key pain points, and defined success metrics</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                            style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                            <div class="flex gap-4">
+                                <div
+                                    class="flex-shrink-0 w-14 h-14 rounded-[14px] border border-blue-100 flex items-center justify-center">
+                                    <span class="text-[30px]">💡</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-2xl font-bold text-[#101828] mb-2">Ideate</h4>
+                                    <p class="text-base text-[#4a5565] leading-relaxed">Facilitated design workshops,
+                                        sketched solutions, and created information architecture</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                            style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                            <div class="flex gap-4">
+                                <div
+                                    class="flex-shrink-0 w-14 h-14 rounded-[14px] border border-blue-100 flex items-center justify-center">
+                                    <span class="text-[30px]">✏️</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-2xl font-bold text-[#101828] mb-2">Design</h4>
+                                    <p class="text-base text-[#4a5565] leading-relaxed">Developed wireframes,
+                                        high-fidelity mockups, and interactive prototypes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-24 xl:px-40">
+            <!-- Background Container with light blue -->
+            <div class="bg-[#f8fbfe] rounded-2xl px-4 py-10 md:px-6 md:py-12 lg:px-16 lg:py-16">
+                <!-- Section Label -->
+                <div class="mb-10">
+                    <div class="glass-label">
+                        <h2 class="text-sm font-semibold text-[#364153] uppercase tracking-wide">The Solution</h2>
+                    </div>
+                </div>
+
+                <!-- Heading and Description -->
+                <div class="mb-10 max-w-full lg:max-w-[520px]">
+                    <h3 class="text-xl md:text-2xl lg:text-[36px] font-bold text-[#101828] mb-6"
+                        style="line-height: 1.25;">
+                        Four key improvements that transformed the experience
+                    </h3>
+                    <p class="text-base lg:text-lg text-[#364153] leading-relaxed">
+                        Based on research insights, I designed solutions that addressed each major pain point while
+                        maintaining system flexibility.
+                    </p>
+                </div>
+
+                <!-- Solutions Cards -->
+                <div class="flex flex-col gap-5">
+                    <!-- Solution 1 -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                        <!-- Mobile/Tablet Layout (< lg) -->
+                        <div class="flex flex-col gap-5 lg:hidden">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center"
+                                style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);">
+                                <span class="text-lg font-bold text-white">01</span>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <h4 class="text-lg font-bold text-[#101828] leading-[32px]"
+                                    style="letter-spacing: 0.0703px;">Streamlined Onboarding</h4>
+                                <div class="bg-green-50 rounded-full px-3 py-1 inline-flex self-start">
+                                    <span class="text-xs font-medium text-[#008236] whitespace-nowrap">Faster
+                                        check-ins</span>
+                                </div>
+                                <p class="text-base text-[#4a5565] leading-[26px]" style="letter-spacing: -0.3125px;">
+                                    Consolidated multi-step check-in process into a single, intuitive flow that reduces
+                                    processing time by 40%</p>
+                            </div>
+                        </div>
+
+                        <!-- Desktop Layout (>= lg) -->
+                        <div class="hidden lg:flex gap-6">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center"
+                                style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);">
+                                <span class="text-lg font-bold text-white">01</span>
+                            </div>
+                            <div class="flex-1 flex flex-col gap-3">
+                                <div class="flex items-start justify-between gap-4">
+                                    <h4 class="text-2xl font-bold text-[#101828]">Streamlined Onboarding</h4>
+                                    <div class="flex-shrink-0 bg-green-50 rounded-full px-3 py-1">
+                                        <span class="text-xs font-medium text-[#008236] whitespace-nowrap">Faster
+                                            check-ins</span>
+                                    </div>
+                                </div>
+                                <p class="text-base text-[#4a5565] leading-relaxed">Consolidated multi-step check-in
+                                    process into a single, intuitive flow that reduces processing time by 40%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Solution 2 -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                        <div class="flex flex-col gap-5 lg:hidden">
+                            <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-teal-400 rounded-2xl flex items-center justify-center"
+                                style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);">
+                                <span class="text-lg font-bold text-white">02</span>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <h4 class="text-lg font-bold text-[#101828] leading-[32px]"
+                                    style="letter-spacing: 0.0703px;">Unified Enrollment</h4>
+                                <div class="bg-green-50 rounded-full px-3 py-1 inline-flex self-start">
+                                    <span class="text-xs font-medium text-[#008236] whitespace-nowrap">Reduced
+                                        errors</span>
+                                </div>
+                                <p class="text-base text-[#4a5565] leading-[26px]" style="letter-spacing: -0.3125px;">
+                                    Merged guest information update and membership enrollment into one form, eliminating
+                                    redundant data entry</p>
+                            </div>
+                        </div>
+                        <div class="hidden lg:flex gap-6">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-cyan-500 to-teal-400 rounded-2xl flex items-center justify-center"
+                                style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);">
+                                <span class="text-lg font-bold text-white">02</span>
+                            </div>
+                            <div class="flex-1 flex flex-col gap-3">
+                                <div class="flex items-start justify-between gap-4">
+                                    <h4 class="text-2xl font-bold text-[#101828]">Unified Enrollment</h4>
+                                    <div class="flex-shrink-0 bg-green-50 rounded-full px-3 py-1">
+                                        <span class="text-xs font-medium text-[#008236] whitespace-nowrap">Reduced
+                                            errors</span>
+                                    </div>
+                                </div>
+                                <p class="text-base text-[#4a5565] leading-relaxed">Merged guest information update and
+                                    membership enrollment into one form, eliminating redundant data entry</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Solution 3 -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                        <div class="flex flex-col gap-5 lg:hidden">
+                            <div class="w-16 h-16 bg-gradient-to-br from-teal-500 to-green-400 rounded-2xl flex items-center justify-center"
+                                style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);">
+                                <span class="text-lg font-bold text-white">03</span>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <h4 class="text-lg font-bold text-[#101828] leading-[32px]"
+                                    style="letter-spacing: 0.0703px;">Integrated Request Management</h4>
+                                <div class="bg-green-50 rounded-full px-3 py-1 inline-flex self-start">
+                                    <span class="text-xs font-medium text-[#008236] whitespace-nowrap">Better
+                                        tracking</span>
+                                </div>
+                                <p class="text-base text-[#4a5565] leading-[26px]" style="letter-spacing: -0.3125px;">
+                                    Built in-app guest request handling system, eliminating third-party tool dependency
+                                    and improving response time</p>
+                            </div>
+                        </div>
+                        <div class="hidden lg:flex gap-6">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-teal-500 to-green-400 rounded-2xl flex items-center justify-center"
+                                style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);">
+                                <span class="text-lg font-bold text-white">03</span>
+                            </div>
+                            <div class="flex-1 flex flex-col gap-3">
+                                <div class="flex items-start justify-between gap-4">
+                                    <h4 class="text-2xl font-bold text-[#101828]">Integrated Request Management</h4>
+                                    <div class="flex-shrink-0 bg-green-50 rounded-full px-3 py-1">
+                                        <span class="text-xs font-medium text-[#008236] whitespace-nowrap">Better
+                                            tracking</span>
+                                    </div>
+                                </div>
+                                <p class="text-base text-[#4a5565] leading-relaxed">Built in-app guest request handling
+                                    system, eliminating third-party tool dependency and improving response time</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Solution 4 -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                        <div class="flex flex-col gap-5 lg:hidden">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-400 rounded-2xl flex items-center justify-center"
+                                style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);">
+                                <span class="text-lg font-bold text-white">04</span>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <h4 class="text-lg font-bold text-[#101828] leading-[32px]"
+                                    style="letter-spacing: 0.0703px;">Advanced Search</h4>
+                                <div class="bg-green-50 rounded-full px-3 py-1 inline-flex self-start">
+                                    <span class="text-xs font-medium text-[#008236] whitespace-nowrap">Quick
+                                        access</span>
+                                </div>
+                                <p class="text-base text-[#4a5565] leading-[26px]" style="letter-spacing: -0.3125px;">
+                                    Enhanced search with filters for arrival date, booking status, and guest details for
+                                    instant booking retrieval</p>
+                            </div>
+                        </div>
+                        <div class="hidden lg:flex gap-6">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-400 rounded-2xl flex items-center justify-center"
+                                style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);">
+                                <span class="text-lg font-bold text-white">04</span>
+                            </div>
+                            <div class="flex-1 flex flex-col gap-3">
+                                <div class="flex items-start justify-between gap-4">
+                                    <h4 class="text-2xl font-bold text-[#101828]">Advanced Search</h4>
+                                    <div class="flex-shrink-0 bg-green-50 rounded-full px-3 py-1">
+                                        <span class="text-xs font-medium text-[#008236] whitespace-nowrap">Quick
+                                            access</span>
+                                    </div>
+                                </div>
+                                <p class="text-base text-[#4a5565] leading-relaxed">Enhanced search with filters for
+                                    arrival date, booking status, and guest details for instant booking retrieval</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Components -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-24 xl:px-40">
+            <!-- Section Label at Top -->
+            <div class="mb-12">
+                <div class="glass-label">
+                    <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Key Components</h2>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="space-y-16 w-full">
+                <div>
+                    <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                        Designing for efficiency and clarity
+                    </h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Each component was carefully crafted to support the user's workflow while maintaining visual
+                        consistency and accessibility standards.
+                    </p>
+                </div>
+
+                <!-- Guest Information Section with Before/After -->
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Guest Information</h4>
+                        <p class="text-base text-gray-600 leading-relaxed mb-4">
+                            Merged the guest details form with a visual progress bar and integrated guest preferences in
+                            a single, streamlined interface. This redesign eliminated redundant steps and provided clear
+                            visibility into profile completion status, encouraging Front desk associate (FDA) to add
+                            complete information of guests.
+                        </p>
+                    </div>
+
+                    <!-- 1 Horizontal Before/After Slider -->
+                    <div class="w-full bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-4 md:p-6 lg:p-8">
+                        <div
+                            class="relative w-full overflow-hidden rounded-xl select-none cursor-ew-resize bg-gray-100 before-after-slider">
+                            <!-- Before Image (Bottom layer - full width) -->
+                            <div class="relative w-full">
+                                <img src="assets/img/before-guest-info.png" alt="Before" class="w-full h-auto block"
+                                    draggable="false" />
+                                <!-- Before Label - moved to top right -->
+                                <div class="absolute top-4 right-4 bg-white rounded-lg px-4 py-2 shadow-md z-10">
+                                    <span class="text-sm font-medium text-gray-900">Before</span>
+                                </div>
+                            </div>
+
+                            <!-- After Image (Top layer - clipped by slider) -->
+                            <div class="absolute top-0 left-0 bottom-0 overflow-hidden slider-overlay"
+                                style="width: 50%;">
+                                <img src="assets/img/after-guest-info.png" alt="After"
+                                    class="w-full h-auto block slider-image" draggable="false"
+                                    style="width: 100%; max-width: none;" />
+                                <!-- After Label - at top left -->
+                                <div class="absolute top-4 left-4 bg-white rounded-lg px-4 py-2 shadow-md z-10">
+                                    <span class="text-sm font-medium text-gray-900">After</span>
+                                </div>
+                            </div>
+
+                            <!-- Slider Line and Handle -->
+                            <div class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-20 slider-line"
+                                style="left: 50%; transform: translateX(-50%);">
+                                <!-- Slider Handle - left-right arrows -->
+                                <div class="absolute top-1/2 left-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center"
+                                    style="transform: translate(-50%, -50%);">
+                                    <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7l-5 5 5 5M16 7l5 5-5 5" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Component 1: Booking Card -->
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Booking Card</h4>
+                        <p class="text-base text-gray-600 leading-relaxed mb-4">Quick-access card displaying essential
+                            reservation details with real-time status updates and guest information at a glance.</p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm">Guest
+                                name & contact</span>
+                            <span
+                                class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm">Room
+                                assignment</span>
+                            <span
+                                class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm">Check-in/out
+                                dates</span>
+                            <span
+                                class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm">Payment
+                                status</span>
+                        </div>
+                    </div>
+
+                    <!-- <div class="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-8 lg:p-12 border border-gray-200">
+                            <div class="bg-white overflow-hidden border-gray-200">
+                                <img 
+                                    src="assets/img/booking-card.png" 
+                                    alt="Booking Card"
+                                    class="w-full h-auto"
+                                />
+                            </div>
+                        </div> -->
+
+                    <!-- Vertical Before/After Comparison -->
+                    <div class="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-4 lg:p-8">
+                        <!-- Before/After Comparison -->
+                        <div class="flex flex-col gap-[40px] items-start">
+                            <!-- Before Section -->
+                            <div class="flex flex-col gap-[20px] items-start w-full">
+                                <div
+                                    class="flex items-center justify-center px-[16px] py-[6px] rounded-[20px] border-2 border-black">
+                                    <p class="font-medium text-[16px] text-black">Before</p>
+                                </div>
+                                <div class="w-full">
+                                    <img src="assets/img/booking-card-old.png" alt="Guest Information Before"
+                                        class="w-full object-cover" />
+                                </div>
+                            </div>
+
+                            <!-- After Section -->
+                            <div class="flex flex-col gap-[20px] items-start w-full">
+                                <div
+                                    class="bg-black flex items-center justify-center px-[24px] py-[8px] rounded-[20px]">
+                                    <p class="font-medium text-[16px] text-white">After</p>
+                                </div>
+                                <div class="w-full">
+                                    <img src="assets/img/booking-card-new.png" alt="Guest Information After"
+                                        class="w-full object-cover" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Component 2: Guest Information & Enrollment -->
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Combined Guest Information & Enrollment Form
+                        </h4>
+                        <p class="text-base text-gray-600 leading-relaxed mb-4">Consolidated form combining guest data
+                            collection with membership program enrollment, reducing form fields by 60%.</p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm">Smart
+                                field pre-population</span>
+                            <span
+                                class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm">Inline
+                                validation</span>
+                            <span
+                                class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm">Progress
+                                indicators</span>
+                            <span
+                                class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm">One-tap
+                                enrollment</span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-8 lg:p-12 border border-gray-200">
+                        <div class="bg-white rounded-xl overflow-hidden border border-gray-200">
+                            <img src="assets/img/guest-information-nrollment.png" alt="Guest Information Form"
+                                class="w-full h-auto" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Component 3: Advanced Search -->
+                <!-- <div class="space-y-6">
+                        <div>
+                            <h4 class="text-2xl font-bold text-gray-900 mb-3">Advanced Search</h4>
+                            <p class="text-base text-gray-600 leading-relaxed mb-4">Multi-parameter search interface enabling front desk staff to find bookings instantly using various criteria.</p>
+                            
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm">Name search</span>
+                                <span class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm">Date range filtering</span>
+                                <span class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm">Status filters</span>
+                                <span class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm">Quick actions</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-8 lg:p-12 border border-gray-200">
+                            <div class="bg-white rounded-xl overflow-hidden border border-gray-200">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800" 
+                                    alt="Advanced Search Interface"
+                                    class="w-full h-auto"
+                                />
+                            </div>
+                        </div>
+                    </div> -->
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Advanced Search Detailed Section -->
+    <section class="bg-white py-10 md:py-16 lg:py-24">
+        <div class="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-24 xl:px-40">
+            <div class="flex flex-col gap-[40px] md:gap-[60px] items-start w-full">
+                <!-- Advanced Search Header -->
+                <div class="flex flex-col gap-[32px] items-start w-full">
+                    <!-- <p class="font-bold leading-tight text-3xl md:text-4xl lg:text-5xl text-black w-full">Advanced Search</p> -->
+                    <p class="text-2xl font-bold text-gray-900 mb-3">Advanced Search</p>
+
+                    <div class="flex flex-col gap-[40px] items-start w-full">
+                        <p class="font-normal leading-relaxed text-[#434345] text-base md:text-lg lg:text-xl w-full">
+                            <span>To enhance the user experience and reduce friction in finding guest details, I
+                                redesigned the search functionality from a generic keyword-based approach to a
+                                context-aware Advanced Search. The new design empowers users to quickly locate bookings
+                                using specific filters such as </span>
+                            <span class="font-bold">first name, last name, member ID, room number, confirmation number,
+                                reservation status, and a custom date range</span>.
+                        </p>
+
+                        <!-- Improvements -->
+                        <div class="flex flex-col gap-[16px] items-start text-[#434345] w-full">
+                            <p class="font-semibold leading-normal text-lg md:text-xl lg:text-2xl w-full">This
+                                improvement delivers:</p>
+                            <p class="font-normal leading-relaxed text-base md:text-lg lg:text-xl w-full">
+                                <span class="font-bold">Precision </span>– Eliminates irrelevant results by narrowing
+                                the scope to meaningful attributes.
+                            </p>
+                            <p class="font-normal leading-relaxed text-base md:text-lg lg:text-xl w-full">
+                                <span class="font-bold">Speed </span>– Reduces time spent scanning large datasets,
+                                enabling faster decision-making.
+                            </p>
+                            <p class="font-normal leading-relaxed text-base md:text-lg lg:text-xl w-full">
+                                <span class="font-bold">Usability </span>– Provides a clear, intuitive interface for
+                                complex queries without overwhelming the user.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="font-normal leading-relaxed text-[#434345] text-base md:text-lg lg:text-xl w-full">The
+                        result is a streamlined, efficient search experience that supports hotel staff in managing guest
+                        onboarding with confidence and ease.</p>
+                </div>
+
+                <!-- Before/After Comparison -->
+                <div class="flex flex-col gap-[40px] items-start w-full">
+                    <!-- Before Section -->
+                    <div class="flex flex-col gap-[20px] items-start w-full">
+                        <div
+                            class="flex items-center justify-center px-[12px] py-[6px] rounded-[20px] border border-black">
+                            <p class="font-medium leading-normal text-sm text-black">Before</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-4 md:p-6 lg:p-8">
+                            <div class="relative rounded-[4px] w-full overflow-hidden">
+                                <img alt="Before search interface" class="w-full h-auto rounded-[4px]"
+                                    src="assets/img/advanced-search-old.png" />
+                                <div class="absolute border-[0.5px] border-gray-200 border-solid inset-0 rounded-[4px]">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- After Section -->
+                    <div class="flex flex-col gap-[20px] items-start w-full">
+                        <div class="bg-black flex items-center justify-center px-[12px] py-[6px] rounded-[20px]">
+                            <p class="font-medium leading-normal text-sm text-white">After</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl p-4 md:p-6 lg:p-8">
+                            <div class="relative rounded-[4px] w-full overflow-hidden">
+                                <img alt="After search interface" class="w-full h-auto rounded-[4px]"
+                                    src="assets/img/advanced-search-new.png" />
+                                <div class="absolute border-[0.5px] border-gray-200 border-solid inset-0 rounded-[4px]">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact & Results -->
+    <section class="py-16 lg:py-24" style="background: linear-gradient(135deg, #e0f7fa 0%, #e1f5fe 50%, #f0f9ff 100%);">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-24 xl:px-40">
+            <!-- Section Label -->
+            <div class="mb-12">
+                <div class="glass-label">
+                    <h2 class="text-sm font-semibold text-[#364153] uppercase tracking-wide">Impact & Results</h2>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="flex flex-col gap-12 w-full">
+                <!-- Heading and Description -->
+                <div class="flex flex-col gap-6">
+                    <h3 class="text-3xl lg:text-[36px] font-bold text-[#101828] leading-[45px]"
+                        style="letter-spacing: 0.3691px;">
+                        Measurable improvements across all metrics
+                    </h3>
+                    <p class="text-base lg:text-lg text-[#364153] leading-[29.25px]" style="letter-spacing: -0.4395px;">
+                        The redesigned system delivered significant improvements in operational efficiency, staff
+                        satisfaction, and guest experience within the first month of deployment.
+                    </p>
+                </div>
+
+                <!-- Metrics Grid - 4 columns on desktop, 2 on tablet, 1 on mobile -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                        <div class="flex flex-col gap-4">
+                            <div class="h-[60px]">
+                                <p class="font-bold text-[60px] leading-[60px]"
+                                    style="letter-spacing: 0.2637px; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; background-image: linear-gradient(90deg, rgb(21, 93, 252) 0%, rgb(0, 146, 184) 100%);">
+                                    40%
+                                </p>
+                            </div>
+                            <p class="text-[18px] font-semibold text-[#101828] leading-[28px]"
+                                style="letter-spacing: -0.4395px;">Reduction in check-in time</p>
+                            <p class="text-[14px] text-[#4a5565] leading-[22.75px]" style="letter-spacing: -0.1504px;">
+                                Average guest processing time decreased from 8 to 5 minutes</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                        <div class="flex flex-col gap-4">
+                            <div class="h-[60px]">
+                                <p class="font-bold text-[60px] leading-[60px]"
+                                    style="letter-spacing: 0.2637px; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; background-image: linear-gradient(90deg, rgb(21, 93, 252) 0%, rgb(0, 146, 184) 100%);">
+                                    60%
+                                </p>
+                            </div>
+                            <p class="text-[18px] font-semibold text-[#101828] leading-[28px]"
+                                style="letter-spacing: -0.4395px;">Fewer form fields</p>
+                            <p class="text-[14px] text-[#4a5565] leading-[22.75px]" style="letter-spacing: -0.1504px;">
+                                Consolidated forms reduced data entry by more than half</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                        <div class="flex flex-col gap-4">
+                            <div class="h-[60px]">
+                                <p class="font-bold text-[60px] leading-[60px]"
+                                    style="letter-spacing: 0.2637px; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; background-image: linear-gradient(90deg, rgb(21, 93, 252) 0%, rgb(0, 146, 184) 100%);">
+                                    3x
+                                </p>
+                            </div>
+                            <p class="text-[18px] font-semibold text-[#101828] leading-[28px]"
+                                style="letter-spacing: -0.4395px;">Faster booking retrieval</p>
+                            <p class="text-[14px] text-[#4a5565] leading-[22.75px]" style="letter-spacing: -0.1504px;">
+                                Advanced search reduced lookup time from 90 to 30 seconds</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200"
+                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);">
+                        <div class="flex flex-col gap-4">
+                            <div class="h-[60px]">
+                                <p class="font-bold text-[60px] leading-[60px]"
+                                    style="letter-spacing: 0.2637px; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; background-image: linear-gradient(90deg, rgb(21, 93, 252) 0%, rgb(0, 146, 184) 100%);">
+                                    95%
+                                </p>
+                            </div>
+                            <p class="text-[18px] font-semibold text-[#101828] leading-[28px]"
+                                style="letter-spacing: -0.4395px;">Staff satisfaction</p>
+                            <p class="text-[14px] text-[#4a5565] leading-[22.75px]" style="letter-spacing: -0.1504px;">
+                                Front desk associates rated the new system as "much easier to use"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Impact Card -->
+                <div class="relative bg-white rounded-[16px]">
+                    <!-- Blue gradient border -->
+                    <div aria-hidden="true" class="absolute border border-[#145df9] border-solid rounded-[17px]"
+                        style="inset: -1px; pointer-events: none;"></div>
+                    <div class="flex flex-col gap-[24px] p-[24px]">
+                        <h4 class="text-[36px] font-bold text-[#101828] leading-[45px]"
+                            style="letter-spacing: 0.3691px;">Business Impact</h4>
+                        <p class="text-[16px] text-[#364153] leading-[26px]" style="letter-spacing: -0.3125px;">
+                            By streamlining workflows and consolidating features, the hotel chain reduced operational
+                            costs, improved staff productivity, and enhanced guest satisfaction scores. The integrated
+                            request management system alone saved an estimated $50,000 annually in third-party software
+                            costs while improving response times by 65%.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Navigation -->
+    <!-- <div class="border-t border-gray-200 bg-white">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-16 xl:px-24 py-8">
+            <div class="flex items-center justify-between gap-8"> -->
+    <!-- Previous Project - Inactive -->
+    <!-- <button disabled class="flex items-center gap-3 text-gray-400 cursor-not-allowed opacity-50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                    </svg>
+                    <div class="text-left">
+                        <p class="text-xs font-medium uppercase tracking-wide mb-1">Previous</p>
+                        <p class="text-sm">No previous project</p>
+                    </div>
+                </button> -->
+
+    <!-- Next Project - Active -->
+    <!-- <a href="index.html" class="flex items-center gap-3 text-gray-900 hover:text-blue-600 transition-colors group">
+                    <div class="text-right">
+                        <p class="text-xs font-medium uppercase tracking-wide mb-1 text-gray-500">Next</p>
+                        <p class="text-sm font-medium">View next project</p>
+                    </div>
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Next Case Study -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-24 xl:px-40">
+            <div class="text-center mb-8 flex flex-col items-center gap-3">
+                <p class="text-sm text-gray-500 uppercase tracking-wide">Next Case Study</p>
+                <h2 class="text-3xl lg:text-[40px] font-bold text-gray-900 leading-tight">Online Shopping</h2>
+            </div>
+
+            <div
+                class="bg-purple-50 rounded-2xl overflow-hidden mb-8 cursor-pointer hover:scale-[1.01] transition-transform">
+                <img src="assets/img/airport-online-shopping-link.png" alt="Airport Shopping Preview"
+                    class="w-full h-auto object-cover" />
+            </div>
+
+            <div class="flex justify-center">
+                <a href="online-shopping-at-airport.html"
+                    class="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors no-underline">
+                    <span class="text-base font-medium">View Case Study</span>
+                    <svg class="w-4 h-4 rotate-180" viewBox="0 0 12 13" fill="none">
+                        <path d="M11.4096 0.6L1.40957 10.6" stroke="currentColor" stroke-width="1.2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M0.6 6.6V11.6H5.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0c0c0c] rounded-[24px] p-5 lg:p-8 mx-5 lg:mx-12 mb-8">
+        <div class="max-w-[1400px] mx-auto lg:px-24 xl:px-40">
+            <div class="flex flex-col gap-12 lg:gap-16">
+                <div class="flex flex-col gap-6">
+                    <div class="flex flex-col gap-4">
+                            <p class="text-[16px] lg:text-[19.766px] font-medium text-white leading-[26.4px]">
+                                Something cooking in mind?
+                            </p>
+                            <p class="text-[16px] lg:text-[19.766px] font-medium text-white/50 leading-[26.4px]">
+                                Ready to get started?
+                            </p>
+                        </div>
+                        <div class="portfolio-footer-buttons flex flex-col lg:flex-row gap-6">
+                            <!-- Resume Download Card -->
+                            <a href="resume.html" target="_blank" class="flex-1">
+                                <div
+                                    class="bg-white rounded-2xl h-[200px] flex-1 p-6 flex flex-col justify-between cursor-pointer transition-transform hover:-translate-y-1">
+                                    <!-- Resume Icon -->
+                                    <svg class="w-14 h-14" fill="none" preserveAspectRatio="none" viewBox="0 0 513 513">
+                                        <g clip-path="url(#clip0_534_164)">
+                                            <mask id="mask0_534_164" style="mask-type:luminance"
+                                                maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512">
+                                                <path d="M512 0H0V512H512V0Z" fill="white" />
+                                            </mask>
+                                            <g mask="url(#mask0_534_164)">
+                                                <path
+                                                    d="M496.52 129.86C483.09 80.38 431.63 28.92 382.15 15.49C351.82 7.92 311.17 0.13 256 0C200.84 0.14 160.19 7.92 129.86 15.49C80.38 28.93 28.92 80.38 15.49 129.86C7.92 160.19 0.14 200.84 0 256C0.14 311.17 7.92 351.82 15.49 382.15C28.92 431.63 80.38 483.08 129.86 496.52C160.19 504.09 200.86 511.87 256 512.01C311.17 511.87 351.82 504.09 382.15 496.52C431.63 483.08 483.09 431.63 496.52 382.15C504.09 351.82 511.87 311.15 512.01 256C511.87 200.84 504.09 160.19 496.52 129.86Z"
+                                                    fill="#FFE5E5" />
+                                                <path
+                                                    d="M310.615 98.3499C300.53 90.8506 288.387 86.6271 275.825 86.2499C239.232 85.3556 202.62 86.8622 166.225 90.7599C141.915 93.5799 118.605 116.89 115.785 141.2C109.405 200.85 109.405 311.61 115.785 371.25C118.605 395.56 141.915 418.88 166.225 421.7C225.721 428.073 285.729 428.073 345.225 421.7C369.535 418.88 392.845 395.57 395.665 371.25C400.015 330.63 401.395 266.25 399.815 210.55V210.32C399.707 198.304 395.808 186.63 388.675 176.96C366.691 147.036 340.384 120.543 310.615 98.3499Z"
+                                                    fill="url(#paint0_linear_534_164)" />
+                                                <path
+                                                    d="M278.169 85C277.581 108.436 278.529 131.887 281.006 155.198C281.001 155.253 281.001 155.307 281.006 155.361C282.291 166.571 287.811 177.578 296.543 186.359C305.275 195.14 316.201 200.692 327.319 201.983H327.482C346.145 203.988 364.899 204.995 383.668 205C388.077 205 392.524 204.923 396.962 204.817L397 204.614"
+                                                    stroke="#FFE5E5" stroke-width="20" stroke-linecap="round" />
+                                                <path
+                                                    d="M187.055 385.37C180.743 385.354 174.694 382.837 170.235 378.37C167.655 375.788 165.705 372.645 164.536 369.187C163.367 365.729 163.01 362.048 163.494 358.43C163.977 354.812 165.288 351.354 167.324 348.324C169.36 345.294 172.067 342.774 175.235 340.96C191.503 331.661 208.467 323.637 225.975 316.96C227.035 314.96 228.088 312.907 229.135 310.8C235.642 297.807 241.099 284.314 245.455 270.45C236.596 256.547 229.985 241.333 225.865 225.37C224.63 220.419 225.066 215.198 227.106 210.52C229.145 205.842 232.674 201.97 237.143 199.506C241.612 197.041 246.77 196.123 251.814 196.895C256.859 197.666 261.507 200.083 265.035 203.77C267.323 206.164 269.074 209.019 270.169 212.144C271.264 215.269 271.679 218.592 271.385 221.89C269.974 237.452 267.132 252.85 262.895 267.89C270.973 279.401 280.453 289.861 291.115 299.03C302.401 297.074 313.789 295.769 325.225 295.12C328.601 294.944 331.972 295.557 335.071 296.91C338.169 298.264 340.909 300.321 343.074 302.918C345.239 305.515 346.769 308.58 347.542 311.872C348.316 315.163 348.312 318.589 347.53 321.879C346.749 325.168 345.212 328.23 343.041 330.822C340.87 333.414 338.125 335.465 335.024 336.811C331.923 338.157 328.55 338.762 325.174 338.578C321.798 338.394 318.512 337.426 315.575 335.75C305.435 329.947 295.759 323.367 286.635 316.07C269.843 319.366 253.331 323.953 237.245 329.79C228.064 346.348 217.415 362.048 205.425 376.7C203.322 379.259 200.708 381.351 197.749 382.84C194.79 384.33 191.553 385.185 188.245 385.35C187.825 385.37 187.445 385.37 187.055 385.37ZM212.535 339.83C202.945 344.17 193.115 349.15 183.125 354.83C182.089 355.415 181.203 356.234 180.54 357.222C179.877 358.21 179.454 359.339 179.305 360.52C179.083 362.2 179.414 363.907 180.248 365.383C181.082 366.858 182.373 368.023 183.926 368.7C185.48 369.377 187.212 369.531 188.86 369.138C190.509 368.745 191.985 367.826 193.065 366.52C200.046 357.992 206.546 349.081 212.535 339.83ZM308.675 312.59C313.315 315.77 318.245 318.89 323.515 321.92C324.267 322.357 325.11 322.614 325.977 322.669C326.845 322.725 327.714 322.578 328.515 322.24C329.351 321.899 330.096 321.368 330.691 320.689C331.286 320.01 331.714 319.202 331.942 318.328C332.17 317.455 332.192 316.54 332.005 315.657C331.818 314.774 331.428 313.946 330.865 313.24C330.298 312.523 329.567 311.953 328.733 311.578C327.899 311.204 326.987 311.037 326.075 311.09C321.115 311.33 315.285 311.8 308.675 312.59ZM256.915 286.59C254.025 294.59 250.845 302.3 247.505 309.59C255.985 306.96 264.105 304.79 271.785 303.01C266.5 297.823 261.531 292.323 256.905 286.54L256.915 286.59ZM247.985 212.67C246.914 212.713 245.867 212.995 244.92 213.497C243.973 213.999 243.151 214.708 242.515 215.57C241.875 216.415 241.436 217.394 241.23 218.433C241.024 219.473 241.056 220.545 241.325 221.57C243.692 230.786 247.02 239.729 251.255 248.25C253.212 239.083 254.614 229.806 255.455 220.47C255.553 219.438 255.425 218.397 255.08 217.419C254.734 216.442 254.18 215.551 253.455 214.81C252.755 214.064 251.899 213.48 250.949 213.1C249.999 212.719 248.977 212.552 247.955 212.61L247.985 212.67Z"
+                                                    fill="url(#paint1_linear_534_164)" />
+                                            </g>
+                                        </g>
+                                        <defs>
+                                            <linearGradient id="paint0_linear_534_164" x1="378.045" y1="404.95"
+                                                x2="106.975" y2="133.89" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#EF3739" />
+                                                <stop offset="0.54" stop-color="#EF3739" />
+                                                <stop offset="1" stop-color="#FF8C8B" />
+                                            </linearGradient>
+                                            <linearGradient id="paint1_linear_534_164" x1="300.255" y1="373.73"
+                                                x2="180.935" y2="254.41" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#FFD2D2" />
+                                                <stop offset="0.57" stop-color="white" />
+                                                <stop offset="1" stop-color="white" />
+                                            </linearGradient>
+                                            <clipPath id="clip0_534_164">
+                                                <rect width="512" height="512" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <div class="flex items-end justify-between gap-3">
+                                        <p class="text-[22px] lg:text-[26px] font-medium text-[#0c0c0c] leading-tight">
+                                            Download Resume</p>
+                                        <div
+                                            class="w-10 h-10 bg-[#91ed92] rounded-[40px] shadow-[2px_3px_0px_0px_#000000] flex items-center justify-center flex-shrink-0">
+                                            <svg class="w-3.5 h-3.5 rotate-180" viewBox="0 0 13 13" fill="none">
+                                                <path d="M11.5596 0.75L1.55957 10.75" stroke="black" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M0.75 6.75V11.75H5.75" stroke="black" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Schedule DEMO/Consultation Card -->
+                            <a href="https://calendly.com/ux-abdul/30min" target="_blank" class="flex-1">
+                                <div
+                                    class="bg-white/15 rounded-2xl h-[200px] flex-1 p-6 flex flex-col justify-between cursor-pointer transition-transform hover:-translate-y-1">
+                                    <!-- Schedule Icon -->
+                                    <svg class="w-14 h-14" fill="none" preserveAspectRatio="none" viewBox="0 0 513 513">
+                                        <g clip-path="url(#clip0_534_157)">
+                                            <mask id="mask0_534_157" style="mask-type:luminance"
+                                                maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512">
+                                                <path d="M512 0H0V512H512V0Z" fill="white" />
+                                            </mask>
+                                            <g mask="url(#mask0_534_157)">
+                                                <path
+                                                    d="M496.52 129.86C483.09 80.38 431.63 28.92 382.15 15.49C351.82 7.92 311.17 0.13 256 0C200.84 0.14 160.19 7.92 129.86 15.49C80.38 28.93 28.92 80.38 15.49 129.86C7.92 160.19 0.14 200.84 0 256C0.14 311.17 7.92 351.82 15.49 382.15C28.92 431.63 80.38 483.08 129.86 496.52C160.19 504.09 200.86 511.87 256 512.01C311.17 511.87 351.82 504.09 382.15 496.52C431.63 483.08 483.09 431.63 496.52 382.15C504.09 351.82 511.87 311.15 512.01 256C511.87 200.84 504.09 160.19 496.52 129.86Z"
+                                                    fill="#EAF7FE" />
+                                                <path
+                                                    d="M102.964 187.728C103.316 185.34 103.682 183.05 104.047 180.858C109.389 150.615 136.479 123.118 166.615 117.012V104.761C166.615 96.0585 173.673 89 182.375 89C191.077 89 198.135 96.0585 198.135 104.761V112.831C207.939 111.911 218.93 111.206 231.252 110.867V104.767C231.252 96.065 238.31 89.0065 247.011 89.0065C255.713 89.0065 262.771 96.065 262.771 104.767V110.867C275.093 111.206 286.078 111.917 295.888 112.831V104.761C295.888 96.0585 302.946 89 311.648 89C320.349 89 327.407 96.0585 327.407 104.761V117.012C357.543 123.118 384.627 150.615 389.976 180.858C390.335 183.018 390.693 185.275 391.039 187.623C267.604 179.012 146.355 185.001 102.964 187.728ZM279.979 407.722C270.044 408.315 259.092 408.681 247.011 408.694C212.302 408.655 186.889 405.745 168.214 402.64C137.445 397.199 109.487 369.252 104.053 338.474C100.948 319.797 98.0391 294.375 98 259.663C98.0196 241.156 98.8545 225.297 100.107 211.689C138.86 209.145 265.771 202.295 393.922 211.617C395.175 225.245 396.016 241.13 396.036 259.663C396.023 269.331 395.788 278.268 395.39 286.553C381.405 276.937 364.862 271.758 347.524 271.758C324.889 271.758 303.605 280.571 287.597 296.58C271.59 312.589 262.777 333.875 262.777 356.512C262.777 375.254 268.824 393.063 279.985 407.722H279.979ZM199.335 322.87C199.335 318.369 198.95 315.068 198.552 312.641C197.848 308.648 194.221 305.021 190.229 304.317C187.802 303.912 184.508 303.534 180.001 303.534C175.5 303.534 172.199 303.919 169.779 304.317C165.787 305.021 162.16 308.648 161.456 312.641C161.051 315.061 160.673 318.362 160.673 322.87C160.673 327.371 161.058 330.672 161.456 333.099C162.16 337.091 165.787 340.718 169.779 341.423C172.206 341.827 175.5 342.206 180.001 342.206C184.501 342.206 187.802 341.821 190.229 341.423C194.221 340.718 197.848 337.091 198.552 333.099C198.956 330.672 199.335 327.378 199.335 322.87ZM199.335 259.611C199.335 255.11 198.95 251.809 198.552 249.382C197.848 245.389 194.221 241.762 190.229 241.058C187.802 240.653 184.508 240.275 180.001 240.275C175.5 240.275 172.199 240.66 169.779 241.058C165.787 241.762 162.16 245.389 161.456 249.382C161.051 251.802 160.673 255.103 160.673 259.611C160.673 264.112 161.058 267.413 161.456 269.833C162.16 273.826 165.787 277.453 169.779 278.157C172.206 278.562 175.5 278.94 180.001 278.94C184.501 278.94 187.802 278.555 190.229 278.157C194.221 277.453 197.848 273.826 198.552 269.833C198.956 267.413 199.335 264.112 199.335 259.611ZM265.563 269.84C265.967 267.419 266.345 264.119 266.345 259.617C266.345 255.116 265.961 251.815 265.563 249.388C264.858 245.396 261.231 241.769 257.239 241.064C254.813 240.66 251.519 240.281 247.011 240.281C242.51 240.281 239.21 240.666 236.783 241.064C232.791 241.769 229.164 245.396 228.46 249.388C228.055 251.809 227.677 255.11 227.677 259.617C227.677 264.119 228.062 267.419 228.46 269.84C229.164 273.832 232.791 277.459 236.783 278.164C239.21 278.568 242.504 278.947 247.011 278.947C251.512 278.947 254.813 278.562 257.239 278.164C261.231 277.459 264.858 273.832 265.563 269.84ZM414 356.512C414 393.233 384.236 423 347.518 423C310.8 423 281.035 393.233 281.035 356.512C281.035 319.791 310.8 290.024 347.518 290.024C384.236 290.024 414 319.791 414 356.512ZM376.251 361.144L359.911 349.969V324.39C359.911 317.547 354.36 311.995 347.518 311.995C340.675 311.995 335.124 317.547 335.124 324.39V356.505C335.124 360.596 337.146 364.425 340.525 366.734L362.266 381.601C364.406 383.063 366.839 383.767 369.252 383.767C373.205 383.767 377.093 381.875 379.493 378.366C383.355 372.716 381.907 364.999 376.258 361.137L376.251 361.144Z"
+                                                    fill="url(#paint0_linear_534_157)" />
+                                            </g>
+                                        </g>
+                                        <defs>
+                                            <linearGradient id="paint0_linear_534_157" x1="97.9935" y1="255.997"
+                                                x2="414" y2="255.997" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#0080DE" />
+                                                <stop offset="0.6" stop-color="#49BCFF" />
+                                                <stop offset="1" stop-color="#61CAFF" />
+                                            </linearGradient>
+                                            <clipPath id="clip0_534_157">
+                                                <rect width="512" height="512" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <div class="flex items-end justify-between gap-3">
+                                        <p class="text-[22px] lg:text-[26px] font-medium text-white leading-tight">Book a Demo</p>
+                                            
+                                        <div
+                                            class="w-10 h-10 bg-[#91ed92] rounded-[40px] shadow-[2px_3px_0px_0px_#000000] flex items-center justify-center flex-shrink-0">
+                                            <svg class="w-3.5 h-3.5 rotate-180" viewBox="0 0 13 13" fill="none">
+                                                <path d="M11.5596 0.75L1.55957 10.75" stroke="black" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M0.75 6.75V11.75H5.75" stroke="black" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="portfolio-footer-bottom flex flex-col lg:flex-row justify-between items-start lg:items-end pt-8 gap-6">
+                        <div class="flex flex-col gap-4">
+                            <a href="mailto:ux.abdul@gmail.com"
+                                class="text-[14.375px] text-white leading-[20.8px] hover:opacity-70 transition-opacity no-underline">ux.abdul@gmail.com</a>
+                            <p class="text-[12.25px] text-white/60 leading-[21px]">2025 Abdul Hasib. All rights reserved
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-4 items-start lg:items-end w-full lg:w-auto">
+                            <div class="flex flex-wrap gap-3 lg:gap-5">
+                                <a href="#"
+                                    class="text-[16px] text-white no-underline leading-6 hover:opacity-70 transition-opacity">behance</a>
+                                <a href="#"
+                                    class="text-[16px] text-white no-underline leading-6 hover:opacity-70 transition-opacity">instagram</a>
+                                <a href="#"
+                                    class="text-[16px] text-white no-underline leading-6 hover:opacity-70 transition-opacity">linkedin</a>
+                                <a href="#"
+                                    class="text-[16px] text-white no-underline leading-6 hover:opacity-70 transition-opacity">whatsapp</a>
+                            </div>
+                            <p class="text-[12.578px] text-white/60 leading-[21px]">Privacy Policy</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+    </footer>
+
+    <script>
+        // Scroll to top on page load
+        window.addEventListener('DOMContentLoaded', function () {
+            window.scrollTo(0, 0);
+
+            // Initialize Before/After Sliders
+            initializeBeforeAfterSliders();
+        });
+
+        function initializeBeforeAfterSliders() {
+            const sliders = document.querySelectorAll('.before-after-slider');
+
+            sliders.forEach(slider => {
+                let isDragging = false;
+                const overlay = slider.querySelector('.slider-overlay');
+                const sliderLine = slider.querySelector('.slider-line');
+                const sliderImage = slider.querySelector('.slider-image');
+
+                // Set initial image width once to prevent zooming during drag
+                const rect = slider.getBoundingClientRect();
+                if (sliderImage) {
+                    sliderImage.style.width = rect.width + 'px';
+                }
+
+                function updateSlider(clientX) {
+                    const rect = slider.getBoundingClientRect();
+                    const x = clientX - rect.left;
+                    const percentage = Math.min(Math.max((x / rect.width) * 100, 0), 100);
+
+                    overlay.style.width = percentage + '%';
+                    sliderLine.style.left = percentage + '%';
+
+                    // Don't recalculate image width during drag to prevent zoom
+                }
+
+                // Update image width on window resize
+                window.addEventListener('resize', function () {
+                    const rect = slider.getBoundingClientRect();
+                    if (sliderImage) {
+                        sliderImage.style.width = rect.width + 'px';
+                    }
+                });
+
+                // Mouse events
+                slider.addEventListener('mousedown', function () {
+                    isDragging = true;
+                });
+
+                document.addEventListener('mousemove', function (e) {
+                    if (!isDragging) return;
+                    updateSlider(e.clientX);
+                });
+
+                document.addEventListener('mouseup', function () {
+                    isDragging = false;
+                });
+
+                // Touch events for mobile
+                slider.addEventListener('touchstart', function (e) {
+                    isDragging = true;
+                    e.preventDefault();
+                });
+
+                document.addEventListener('touchmove', function (e) {
+                    if (!isDragging) return;
+                    updateSlider(e.touches[0].clientX);
+                    e.preventDefault();
+                }, { passive: false });
+
+                document.addEventListener('touchend', function () {
+                    isDragging = false;
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
