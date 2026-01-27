@@ -5,17 +5,16 @@ const images = {
   // Project 1: Hotel Onboarding App
   project1: [
     "assets/img/hotel1.png",
-    "assets/img/review-suspense-usp.png",
-    "assets/img/credit-card-recon.png",
-    "assets/img/review-suspense-usp-details.png",
+    "assets/img/hotel-thumb2.png",
+    "assets/img/hotel-thumb3.png",
+    "assets/img/hotel-thumb5.png",
   ],
   
   // Project 2: Airport Shopping
   project2: [
     "assets/img/airport-shopping1.png",
-    "assets/img/review-suspense-usp.png",
-    "assets/img/credit-card-recon.png",
-    "assets/img/review-suspense-usp-details.png",
+    "assets/img/shopping-thumb2.png",
+    "assets/img/shopping-thumb3.png",
   ],
   
   // Project 3: Smart Home Dashboard
