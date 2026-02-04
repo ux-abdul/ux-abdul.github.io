@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdul Hasib - Lead Product UX/UI Designer based in India Hyderabad</title>
+    <title>Abdul Hasib - Lead Product Designer</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2316a34a%22 /><text x=%2250%22 y=%2250%22 font-family=%22Arial, sans-serif%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.35em%22>AH</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -58,11 +58,11 @@
                     <div class="relative min-h-[3rem] flex items-center justify-start transition-all duration-300" id="name-container">
                         <!-- Full Name -->
                         <h1 id="name-full" class="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 absolute left-0 origin-left whitespace-nowrap">
-                            <a href="index.html">Abdul Hasib</a>
+                            <a href="/">Abdul Hasib</a>
                         </h1>
                         <!-- Collapsed Name (AH) -->
                         <h1 id="name-collapsed" class="text-2xl font-bold tracking-tight absolute left-0 w-full text-center opacity-0 scale-90 pointer-events-none origin-center">
-                            <a href="index.html" class="bg-[linear-gradient(to_right,#16a34a_50%,#0f172a_50%)] bg-[length:200%_100%] bg-right text-transparent bg-clip-text transition-[background-position] duration-300 hover:bg-left">AH</a>
+                            <a href="/" class="bg-[linear-gradient(to_right,#16a34a_50%,#0f172a_50%)] bg-[length:200%_100%] bg-right text-transparent bg-clip-text transition-[background-position] duration-300 hover:bg-left">AH</a>
                         </h1>
                     </div>
                     
@@ -102,68 +102,36 @@
                 </div>
 
                 <div id="sidebar-footer" class="mt-12 lg:mt-0 reveal active" style="transition-delay: 0.6s">
-                    <div class="flex flex-col items-start gap-4 transition-all duration-300 overflow-visible relative z-[99999]" id="connect-container">
-                        <div class="flex flex-col items-start gap-4 transition-all duration-300 overflow-visible relative z-[99999]" id="connect-container">
-                        <div class="flex flex-wrap gap-3 overflow-visible relative z-[99999]" id="buttons-container">
-
+                    <div class="flex flex-col items-start gap-4 transition-all duration-300" id="connect-container">
+                        <div class="flex flex-wrap gap-3" id="buttons-container">
                             <!-- Connect Button -->
-                            <a href="mailto:ux.abdul@gmail.com?subject=Hi,"
-                            class="group relative z-10 hover:z-[999999] inline-flex items-center gap-2 rounded-full bg-[#4ade80] px-6 py-3 text-sm font-semibold text-slate-900 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/20"
-                            id="btn-connect">
-
-                            <i class="fa-solid fa-envelope h-4 w-4 shrink-0"></i>
-
-                            <div class="btn-text-wrapper overflow-hidden">
-                                <span class="ml-1">Let's Connect</span>
-                            </div>
-
-                            <!-- <span class="absolute left-1/2 top-full -translate-x-1/2 mt-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[999999]">
-                                Let's Connect
-                            </span> -->
+                            <a href="mailto:ux.abdul@gmail.com?subject=Hi," class="group relative inline-flex items-center gap-2 rounded-full bg-[#4ade80] px-6 py-3 text-sm font-semibold text-slate-900 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/20" id="btn-connect">
+                                <i class="fa-solid fa-envelope h-4 w-4 shrink-0"></i>
+                                <div class="btn-text-wrapper overflow-hidden">
+                                    <span class="ml-1">Let's Connect</span>
+                                </div>
                             </a>
-
                             <!-- Resume Button -->
-                            <a href="resume.html"
-                            class="group relative z-10 hover:z-[999999] inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 transition-all duration-300 hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm"
-                            id="btn-resume">
-
-                            <i class="fa-solid fa-file-alt h-4 w-4 shrink-0 text-slate-500 group-hover:text-slate-900 transition-colors"></i>
-
-                            <div class="btn-text-wrapper overflow-hidden">
-                                <span class="ml-1">View Resume</span>
-                            </div>
-
-                            <!-- <span class="absolute left-1/2 top-full -translate-x-1/2 mt-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[999999]">
-                                Download Resume
-                            </span> -->
+                            <a href="resume.html" class="group relative inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 transition-all duration-300 hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm" id="btn-resume">
+                                <i class="fa-solid fa-file-alt h-4 w-4 shrink-0 text-slate-500 group-hover:text-slate-900 transition-colors"></i>
+                                <div class="btn-text-wrapper overflow-hidden">
+                                    <span class="ml-1">View Resume</span>
+                                </div>
                             </a>
-
                         </div>
-                        </div>
-
-</div>
-
+                    </div>
                     
                     <!-- Socials -->
                     <div class="flex text-slate-400 gap-5 mt-8 transition-all duration-300" id="socials-container">
-                        <a href="https://www.linkedin.com/in/uxabdul" class="transition hover:text-slate-900 group relative" aria-label="LinkedIn"><i class="fa-brands fa-linkedin h-6 w-6 text-2xl"></i>
-                        <span class="absolute left-1/2 top-full -translate-x-1/2 mt-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[9999]">LinkedIn</span>
-
-                        </a>
-                        <a href="https://www.instagram.com/ux.abdul" class="transition hover:text-slate-900 group relative" aria-label="Instagram"><i class="fa-brands fa-square-instagram h-6 w-6 text-2xl"></i>
-                        <span class="absolute left-1/2 top-full -translate-x-1/2 mt-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[9999]">Instagram</span>
-
-                        </a>
-                        <a href="https://www.behance.net/ux_abdul" class="transition hover:text-slate-900 group relative" aria-label="Behance"><i class="fa-brands fa-behance-square h-6 w-6 text-2xl"></i>
-                        <span class="absolute left-1/2 top-full -translate-x-1/2 mt-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[9999]">Behance</span>
-                        </a>
+                        <a href="https://www.linkedin.com/in/uxabdul" class="transition hover:text-slate-900" aria-label="LinkedIn"><i class="fa-brands fa-linkedin h-6 w-6 text-2xl"></i></a>
+                        <a href="https://www.instagram.com/ux.abdul" class="transition hover:text-slate-900" aria-label="Instagram"><i class="fa-brands fa-instagram h-6 w-6 text-2xl"></i></a>
+                        <a href="https://www.behance.net/ux_abdul" class="transition hover:text-slate-900" aria-label="Behance"><i class="fa-brands fa-behance-square h-6 w-6 text-2xl"></i></a>
                     </div>
                 </div>
-
             </header>
 
             <!-- Main Content -->
-            <main id="main-content" data-expanded="false" class="pt-24 lg:w-1/2 lg:py-24">
+            <main id="main-content" class="pt-24 lg:w-1/2 lg:py-24">
                 
                 <!-- About Section -->
                 <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
@@ -187,7 +155,13 @@
                     <div class="mb-12 hidden lg:flex items-center reveal">
                         <button id="toggle-sidebar" class="group flex items-center gap-3 focus:outline-none">
                             <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-slate-200 transition-transform group-hover:scale-110 group-active:scale-95">
-                                <svg class="h-3 w-3 text-slate-900" fill="none" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" id="toggle-icon"></svg>
+                                <svg class="h-3 w-3 text-slate-900" fill="none" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" id="toggle-icon">
+                                    <!-- Initial: Collapse Icon (Arrows In) -->
+                                    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M6.14853 9.53275L2.46781 6.14863L5.85193 2.4679" />
+                                        <path d="M9.53265 5.85202L2.46781 6.14863" />
+                                    </g>
+                                </svg>
                             </div>
                             <span id="toggle-text" class="text-sm font-medium text-slate-900 transition-colors group-hover:text-green-600">Expand</span>
                         </button>
@@ -202,39 +176,6 @@
                             <!-- Thumbnail -->
                             <div class="z-10 sm:col-span-4">
                                 <div class="rounded-lg border-2 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
-                                    <img loading="lazy" src="assets/img/locked-black.png">
-                                </div>
-                            </div>
-
-                            <!-- Content -->
-                            <div class="z-10 sm:col-span-4">
-                                <ul class="mb-3 flex flex-wrap gap-2" aria-label="Technologies used">
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Industrial Tech</div></li>
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Enterprise software</div></li>
-                                </ul>
-
-                                <h3 class="font-bold leading-snug text-slate-900 text-lg">Industrial Work Order & Operations Management System</h3>
-                                <!-- <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-2">Redesigned a legacy enterprise application to unify fragmented workflows into a single scalable platform, with configurable modules supporting multiple facilities, operations, and customer-specific requirements.</p> -->
-                                <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-2">-open for discussion in 1:1</p>
-
-                                <!-- <div class="mt-6 flex flex-wrap gap-3 relative z-20">
-                                    <a href="hotel-check-in-app.html" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                        View Project <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-                                    </a>
-                                    <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                        Prototype <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-                                    </a>
-                                </div> -->
-                            </div>
-                        </div>
-
-                        <!-- Project 2 -->
-                        <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-8 mb-12 last:mb-0 items-start reveal">
-                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100"></div>
-                            
-                            <!-- Thumbnail -->
-                            <div class="z-10 sm:col-span-4">
-                                <div class="rounded-lg border-2 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
                                     <img loading="lazy" src="assets/img/hotel1.png">
                                 </div>
                             </div>
@@ -243,8 +184,9 @@
                             <div class="z-10 sm:col-span-4">
                                 <ul class="mb-3 flex flex-wrap gap-2" aria-label="Technologies used">
                                     <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Hospitality</div></li>
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">CRM</div></li>
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">SaaS</div></li>
+                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">E-Commerce</div></li>
+                                    <!-- <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Marketing</div></li>
+                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">UX Strategy</div></li> -->
                                 </ul>
 
                                 <h3 class="font-bold leading-snug text-slate-900 text-lg">Hotel Check-in App</h3>
@@ -252,16 +194,16 @@
 
                                 <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                     <a href="hotel-check-in-app.html" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                        View Project <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                        Case Study <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                     </a>
-                                    <!-- <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
+                                    <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
                                         Prototype <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-                                    </a> -->
+                                    </a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Project 3 -->
+                        <!-- Project 2 -->
                         <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-8 mb-12 last:mb-0 items-start reveal">
                             <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100"></div>
                             <div class="z-10 sm:col-span-4">
@@ -272,19 +214,20 @@
                             <div class="z-10 sm:col-span-4">
                                 <ul class="mb-3 flex flex-wrap gap-2">
                                     <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Mobile Commerce</div></li>
+                                    <!-- <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">E-Commerce</div></li> -->
                                     <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Shopping</div></li>
                                 </ul>
                                 <h3 class="font-bold leading-snug text-slate-900 text-lg">Online Shopping from Display Ad at Airport</h3>
                                 <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-2">Designed a seamless checkout experience triggered from an airport display ad, enabling first-time users to move from inspiration to purchase in moments. Focused on speed, clarity, and flexible delivery scheduling, the flow supports on-the-go shoppers and real-world travel contexts.</p>
                                 <div class="mt-6 flex flex-wrap gap-3 relative z-20">
-                                    <a href="online-shopping-at-airport.html" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
+                                    <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
                                         View Project <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Project 4 -->
+                        <!-- Project 3 -->
                         <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-8 mb-12 last:mb-0 items-start reveal">
                             <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100"></div>
                             <div class="z-10 sm:col-span-4">
@@ -296,27 +239,30 @@
                                 <ul class="mb-3 flex flex-wrap gap-2">
                                     <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">CRM</div></li>
                                     <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">MS 365</div></li>
+                                    <!-- <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Product Strategy</div></li> -->
+                                    <!-- <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Design Systems</div></li> -->
                                 </ul>
                                 <h3 class="font-bold leading-snug text-slate-900 text-lg">CRM Application For Hospitality Management Company</h3>
                                 <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-2">Designed a lightweight CRM layered on Microsoft 365 to streamline hospitality operations without relying on the core system. Optimized for small devices, it empowers waitstaff to access and update guest information in real time while serving, improving speed, autonomy, and on-floor efficiency.</p>
                                 <div class="mt-6 flex flex-wrap gap-3 relative z-20">
-                                    <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-gray px-3.5 py-1.5 text-xs font-semibold text-gray-500 ring-1 ring-slate-200 transition-all active:scale-95 shadow-sm">
-                                        Coming Soon.. 
+                                    <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
+                                        Read Article <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                     </a>
-                                    <!-- <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
+                                    <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
                                         Demo <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-                                    </a> -->
+                                    </a>
                                 </div>
                             </div>
                         </div>
 
                     </div>
                     
-                    <!-- Archive Button -->
                     <div class="mt-12 reveal">
                         <button id="btn-toggle-archive" class="inline-flex items-center font-medium leading-tight text-slate-900 group focus:outline-none" aria-label="View Full Project Archive">
                             <span id="btn-archive-text" class="border-b border-transparent pb-px transition group-hover:border-green-600">View Full Project Archive</span>
-                            <span id="archive-arrow" class="ml-2 text-xl leading-none">↓</span>
+                            <span class="whitespace-nowrap">
+                                <i id="btn-archive-icon" class="fa-solid fa-arrow-right ml-1 inline-block h-4 w-4 shrink-0 transition-transform group-hover:translate-x-2"></i>
+                            </span>
                         </button>
                     </div>
 
@@ -330,7 +276,7 @@
                             </div>
                             <div class="flex gap-4 items-start">
                                 <div class="shrink-0 w-20 h-20 bg-slate-200 rounded-lg overflow-hidden shadow-sm ring-1 ring-slate-900/5">
-                                    <img loading="lazy" src="https://images.unsplash.com/photo-1661246627162-feb0269e0c07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Pet Care App" class="w-full h-full object-cover">
+                                    <img loading="lazy" src="https://images.unsplash.com/photo-1661246627162-feb0269e0c07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjBjYXJlJTIwYXBwJTIwbW9iaWxlJTIwaW50ZXJmYWNlfGVufDF8fHx8MTc2OTk1MTI3Nnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Pet Care App" class="w-full h-full object-cover">
                                 </div>
                                 <div class="flex flex-col gap-1 w-full min-w-0">
                                     <h4 class="text-base font-bold text-slate-900">Pet Care</h4>
@@ -349,7 +295,7 @@
                             </div>
                             <div class="flex gap-4 items-start">
                                 <div class="shrink-0 w-20 h-20 bg-slate-200 rounded-lg overflow-hidden shadow-sm ring-1 ring-slate-900/5">
-                                    <img loading="lazy" src="https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Food Ordering App" class="w-full h-full object-cover">
+                                    <img loading="lazy" src="https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb29kJTIwZGVsaXZlcnklMjBhcHAlMjBtb2JpbGUlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzY5OTUxMjc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Food Ordering App" class="w-full h-full object-cover">
                                 </div>
                                 <div class="flex flex-col gap-1 w-full min-w-0">
                                     <h4 class="text-base font-bold text-slate-900">Food Ordering APP</h4>
@@ -368,7 +314,7 @@
                             </div>
                             <div class="flex gap-4 items-start">
                                 <div class="shrink-0 w-20 h-20 bg-slate-200 rounded-lg overflow-hidden shadow-sm ring-1 ring-slate-900/5">
-                                    <img loading="lazy" src="https://images.unsplash.com/photo-1663153204638-bfce85406499?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="AI Shopping Agent" class="w-full h-full object-cover">
+                                    <img loading="lazy" src="https://images.unsplash.com/photo-1663153204638-bfce85406499?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaG9wcGluZyUyMGFwcCUyMG1vYmlsZSUyMGludGVyZmFjZSUyMGZ1dHVyaXN0aWN8ZW58MXx8fHwxNzY5OTUxMjc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="AI Shopping Agent" class="w-full h-full object-cover">
                                 </div>
                                 <div class="flex flex-col gap-1 w-full min-w-0">
                                     <h4 class="text-base font-bold text-slate-900">AI Powered Shopping Agent</h4>
@@ -400,151 +346,154 @@
             cursorGradient.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(74, 222, 128, 0.15), transparent 80%)`;
         });
 
-        // ===== Main Expand/Collapse =====
+        // Sidebar Toggle
         const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('main-content');
-
         const toggleBtn = document.getElementById('toggle-sidebar');
         const toggleIcon = document.getElementById('toggle-icon');
         const toggleText = document.getElementById('toggle-text');
-
+        
         const nameFull = document.getElementById('name-full');
         const nameCollapsed = document.getElementById('name-collapsed');
         const nameContainer = document.getElementById('name-container');
+        
         const sidebarDetails = document.getElementById('sidebar-details');
-
+        const sidebarFooter = document.getElementById('sidebar-footer');
+        
+        // Items that change layout
+        const mainContent = document.getElementById('main-content');
         const buttonsContainer = document.getElementById('buttons-container');
         const connectContainer = document.getElementById('connect-container');
         const socialsContainer = document.getElementById('socials-container');
-
+        
         const btnConnect = document.getElementById('btn-connect');
         const btnResume = document.getElementById('btn-resume');
 
+        // Select all description elements
         const projectDescriptions = document.querySelectorAll('.project-description');
 
-        function isMainExpanded() {
-            return mainContent.dataset.expanded === "true";
-        }
-        function setMainExpanded(val) {
-            mainContent.dataset.expanded = val ? "true" : "false";
-        }
-
-        function renderMainToggleButton() {
-            if (isMainExpanded()) {
-                // Expanded => show Collapse + right arrow (in)
-                toggleText.innerText = "Collapse";
-                toggleIcon.innerHTML = `
-                    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5.83278 2.46842L9.53158 5.83278L6.16722 9.53158" />
-                        <path d="M2.46842 6.16722L9.53158 5.83278" />
-                    </g>`;
-            } else {
-                // Default => show Expand + left arrow (out)
-                toggleText.innerText = "Expand";
-                toggleIcon.innerHTML = `
-                    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6.14853 9.53275L2.46781 6.14863L5.85193 2.4679" />
-                        <path d="M9.53265 5.85202L2.46781 6.14863" />
-                    </g>`;
-            }
-        }
-
-        function expandMainContent() {
-            setMainExpanded(true);
-
-            // Sidebar collapses to accommodate
-            sidebar.classList.remove('lg:w-1/2');
-            sidebar.classList.add('lg:w-[120px]', 'items-center');
-
-            sidebarDetails.style.maxHeight = '0px';
-            sidebarDetails.style.marginTop = '0px';
-            sidebarDetails.style.opacity = '0';
-
-            nameFull.classList.add('opacity-0', 'scale-90', 'pointer-events-none');
-            nameCollapsed.classList.remove('opacity-0', 'scale-90', 'pointer-events-none');
-
-            nameContainer.classList.remove('justify-start');
-            nameContainer.classList.add('justify-center');
-
-            buttonsContainer.classList.remove('flex-wrap');
-            buttonsContainer.classList.add('flex-col', 'items-center', 'w-full');
-
-            connectContainer.classList.remove('items-start');
-            connectContainer.classList.add('items-center');
-
-            socialsContainer.classList.remove('gap-5', 'mt-8');
-            socialsContainer.classList.add('flex-col', 'gap-6', 'items-center', 'mt-6');
-
-            document.querySelectorAll('.btn-text-wrapper').forEach(el => el.classList.add('collapsed'));
-
-            btnConnect.classList.remove('px-6', 'py-3', 'gap-2');
-            btnConnect.classList.add('w-10', 'h-10', 'justify-center', 'p-0');
-
-            btnResume.classList.remove('px-6', 'py-3', 'gap-2');
-            btnResume.classList.add('w-10', 'h-10', 'justify-center', 'p-0');
-
-            // Main expands
-            mainContent.classList.remove('lg:w-1/2');
-            mainContent.classList.add('lg:flex-1', 'lg:pl-24');
-
-            projectDescriptions.forEach(el => el.classList.remove('line-clamp-2'));
-
-            renderMainToggleButton();
-        }
-
-        function collapseMainContent() {
-            setMainExpanded(false);
-
-            // Sidebar expands back
-            sidebar.classList.remove('lg:w-[120px]', 'items-center');
-            sidebar.classList.add('lg:w-1/2');
-
-            sidebarDetails.style.maxHeight = '1000px';
-            sidebarDetails.style.marginTop = '0px';
-            sidebarDetails.style.opacity = '1';
-
-            nameCollapsed.classList.add('opacity-0', 'scale-90', 'pointer-events-none');
-            nameFull.classList.remove('opacity-0', 'scale-90', 'pointer-events-none');
-
-            nameContainer.classList.remove('justify-center');
-            nameContainer.classList.add('justify-start');
-
-            buttonsContainer.classList.remove('flex-col', 'items-center', 'w-full');
-            buttonsContainer.classList.add('flex-wrap');
-
-            connectContainer.classList.remove('items-center');
-            connectContainer.classList.add('items-start');
-
-            socialsContainer.classList.remove('flex-col', 'gap-6', 'items-center', 'mt-6');
-            socialsContainer.classList.add('gap-5', 'mt-8');
-
-            document.querySelectorAll('.btn-text-wrapper').forEach(el => el.classList.remove('collapsed'));
-
-            btnConnect.classList.remove('w-10', 'h-10', 'justify-center', 'p-0');
-            btnConnect.classList.add('px-6', 'py-3', 'gap-2');
-
-            btnResume.classList.remove('w-10', 'h-10', 'justify-center', 'p-0');
-            btnResume.classList.add('px-6', 'py-3', 'gap-2');
-
-            // Main normal
-            mainContent.classList.remove('lg:flex-1', 'lg:pl-24');
-            mainContent.classList.add('lg:w-1/2');
-
-            projectDescriptions.forEach(el => el.classList.add('line-clamp-2'));
-
-            renderMainToggleButton();
-        }
+        let isCollapsed = false;
 
         toggleBtn.addEventListener('click', () => {
-            if (isMainExpanded()) {
-                collapseMainContent();
+            isCollapsed = !isCollapsed;
+            
+            if (isCollapsed) {
+                // COLLAPSE ACTION (Sidebar Collapses)
+                
+                // Sidebar Width & Layout -> Center aligned
+                sidebar.classList.remove('lg:w-1/2');
+                sidebar.classList.add('lg:w-[120px]', 'items-center'); 
+                
+                // Accordion Close
+                sidebarDetails.style.maxHeight = '0px';
+                sidebarDetails.style.marginTop = '0px'; 
+                sidebarDetails.style.opacity = '0';
+                
+                // Name Transition
+                nameFull.classList.add('opacity-0', 'scale-90', 'pointer-events-none');
+                nameCollapsed.classList.remove('opacity-0', 'scale-90', 'pointer-events-none');
+                
+                nameContainer.classList.remove('justify-start');
+                nameContainer.classList.add('justify-center'); // Center AH
+                
+                // Footer Changes
+                buttonsContainer.classList.remove('flex-wrap');
+                buttonsContainer.classList.add('flex-col', 'items-center', 'w-full'); // Center Buttons
+                
+                connectContainer.classList.remove('items-start');
+                connectContainer.classList.add('items-center');
+                
+                socialsContainer.classList.remove('gap-5', 'mt-8');
+                socialsContainer.classList.add('flex-col', 'gap-6', 'items-center', 'mt-6'); // Center Socials
+
+                // Buttons Icon Only mode logic
+                const btnTexts = document.querySelectorAll('.btn-text-wrapper');
+                btnTexts.forEach(el => el.classList.add('collapsed'));
+
+                // Padding and Shape Adjustment - Make them proper circles
+                // Connect
+                btnConnect.classList.remove('px-6', 'py-3', 'gap-2');
+                btnConnect.classList.add('w-10', 'h-10', 'justify-center', 'p-0'); 
+                
+                // Resume
+                btnResume.classList.remove('px-6', 'py-3', 'gap-2');
+                btnResume.classList.add('w-10', 'h-10', 'justify-center', 'p-0');
+
+                // Main Content expansion
+                mainContent.classList.remove('lg:w-1/2');
+                mainContent.classList.add('lg:flex-1', 'lg:pl-24');
+                
+                // SHOW FULL DESCRIPTION (Remove clamp)
+                projectDescriptions.forEach(el => el.classList.remove('line-clamp-2'));
+
+                // Toggle Button Text -> 'Expand'
+                toggleText.innerText = 'Expand';
+                
+                // Icon -> Expand Icon (Arrow Out)
+                toggleIcon.innerHTML = `
+                    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                         <path d="M5.83278 2.46842L9.53158 5.83278L6.16722 9.53158" />
+                         <path d="M2.46842 6.16722L9.53158 5.83278" />
+                    </g>`;
+
             } else {
-                expandMainContent();
+                // EXPAND ACTION (Sidebar Expands)
+                
+                // Sidebar Width
+                sidebar.classList.remove('lg:w-[120px]', 'items-center');
+                sidebar.classList.add('lg:w-1/2');
+                
+                // Accordion Open
+                sidebarDetails.style.maxHeight = '1000px';
+                sidebarDetails.style.marginTop = '3rem';
+                sidebarDetails.style.opacity = '1';
+                
+                // Name Transition
+                nameCollapsed.classList.add('opacity-0', 'scale-90', 'pointer-events-none');
+                nameFull.classList.remove('opacity-0', 'scale-90', 'pointer-events-none');
+
+                nameContainer.classList.remove('justify-center');
+                nameContainer.classList.add('justify-start');
+                
+                buttonsContainer.classList.remove('flex-col', 'items-center', 'w-full');
+                buttonsContainer.classList.add('flex-wrap');
+                
+                connectContainer.classList.remove('items-center');
+                connectContainer.classList.add('items-start');
+                
+                socialsContainer.classList.remove('flex-col', 'gap-6', 'items-center', 'mt-6');
+                socialsContainer.classList.add('gap-5', 'mt-8');
+                
+                // Show Button Text
+                const btnTexts = document.querySelectorAll('.btn-text-wrapper');
+                btnTexts.forEach(el => el.classList.remove('collapsed'));
+                
+                // Restore shape and padding
+                // Connect
+                btnConnect.classList.remove('w-10', 'h-10', 'justify-center', 'p-0');
+                btnConnect.classList.add('px-6', 'py-3', 'gap-2');
+                
+                // Resume
+                btnResume.classList.remove('w-10', 'h-10', 'justify-center', 'p-0');
+                btnResume.classList.add('px-6', 'py-3', 'gap-2');
+                
+                // Main Content shrinking
+                mainContent.classList.remove('lg:flex-1', 'lg:pl-24');
+                mainContent.classList.add('lg:w-1/2');
+
+                // CLAMP DESCRIPTION
+                projectDescriptions.forEach(el => el.classList.add('line-clamp-2'));
+
+                // Toggle Button Text -> 'Collapse'
+                toggleText.innerText = 'Collapse';
+                
+                // Icon -> Collapse Icon (Arrow In)
+                toggleIcon.innerHTML = `
+                   <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                       <path d="M6.14853 9.53275L2.46781 6.14863L5.85193 2.4679" />
+                       <path d="M9.53265 5.85202L2.46781 6.14863" />
+                   </g>`;
             }
         });
-
-        // init
-        renderMainToggleButton();
 
         // Scroll Reveal
         const observerOptions = {
@@ -562,12 +511,11 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // ===== Archive Toggle (Arrow chars) =====
+        // Archive Toggle
         const btnToggleArchive = document.getElementById('btn-toggle-archive');
         const btnArchiveText = document.getElementById('btn-archive-text');
-        const archiveArrow = document.getElementById('archive-arrow');
+        const btnArchiveIcon = document.getElementById('btn-archive-icon');
         const archiveList = document.getElementById('archive-list');
-
         let isArchiveVisible = false;
 
         btnToggleArchive.addEventListener('click', () => {
@@ -577,17 +525,23 @@
                 archiveList.style.maxHeight = archiveList.scrollHeight + "px";
                 archiveList.classList.remove('opacity-0');
                 archiveList.classList.add('opacity-100');
-
+                
                 btnArchiveText.innerText = 'Hide Full Project Archive';
-                archiveArrow.innerText = '↑';
+                btnArchiveIcon.classList.remove('fa-arrow-right');
+                btnArchiveIcon.classList.add('fa-arrow-up');
+                btnArchiveIcon.classList.remove('group-hover:translate-x-2');
+                btnArchiveIcon.classList.add('group-hover:-translate-y-1');
             } else {
                 // Hide Archive
                 archiveList.style.maxHeight = "0px";
                 archiveList.classList.remove('opacity-100');
                 archiveList.classList.add('opacity-0');
-
+                
                 btnArchiveText.innerText = 'View Full Project Archive';
-                archiveArrow.innerText = '↓';
+                btnArchiveIcon.classList.remove('fa-arrow-up');
+                btnArchiveIcon.classList.add('fa-arrow-right');
+                btnArchiveIcon.classList.remove('group-hover:-translate-y-1');
+                btnArchiveIcon.classList.add('group-hover:translate-x-2');
             }
         });
     </script>

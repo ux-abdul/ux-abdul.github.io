@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Check-in App - Abdul Hasib</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2316a34a%22 /><text x=%2250%22 y=%2250%22 font-family=%22Arial, sans-serif%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.35em%22>AH</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.5s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="relative min-h-screen bg-slate-50 selection:bg-green-300 selection:text-green-900">
+
+    <!-- Background Gradient -->
+    <div id="cursor-gradient" class="pointer-events-none fixed inset-0 z-30 transition duration-300"></div>
+
+    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+        
+        <!-- Mobile Header (Visible only on mobile) -->
+        <div class="lg:hidden mb-8 flex items-center justify-between w-full">
+            <!-- Logo -->
+            <div class="relative flex items-center justify-center">
+                <h1 class="text-2xl font-bold tracking-tight">
+                    <a href="index.html" class="bg-[linear-gradient(to_right,#16a34a_50%,#0f172a_50%)] bg-[length:200%_100%] bg-right text-transparent bg-clip-text transition-[background-position] duration-300 hover:bg-left">AH</a>
+                </h1>
+            </div>
+
+            <!-- Actions & Socials -->
+            <div class="flex items-center gap-5">
+                <!-- Action Buttons -->
+                <!-- Action Buttons -->
+                    <div class="flex items-center gap-4">
+                        <a href="mailto:ux.abdul@gmail.com?subject=Hi,"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-[#4ade80] text-slate-900 shadow-[0px_10px_15px_0px_rgba(0,201,80,0.2),0px_4px_6px_0px_rgba(0,201,80,0.2)] transition-transform hover:scale-105 active:scale-95">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                        </a>
+                        <a href="resume.html"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-white text-slate-500 shadow-[0px_0px_0px_0px_#e2e8f0,0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] ring-1 ring-slate-100 transition-all hover:scale-105 hover:bg-slate-50 hover:text-slate-900 active:scale-95">
+                            <i data-lucide="file-text" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                <!-- Separator / Socials -->
+                <div class="flex items-center gap-5 text-slate-400">
+                    <a href="https://www.linkedin.com/in/uxabdul" class="transition hover:text-slate-900" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in w-6 h-6 text-xl"></i></a>
+                    <a href="https://www.instagram.com/ux.abdul" class="transition hover:text-slate-900" aria-label="Instagram"><i class="fa-brands fa-instagram w-6 h-6 text-xl"></i></a>
+                    <a href="https://www.behance.net/ux_abdul" class="transition hover:text-slate-900" aria-label="Behance"><i class="fa-brands fa-behance w-6 h-6 text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:flex lg:justify-between lg:gap-4">
+            
+            <!-- Sidebar (Permanently Collapsed) -->
+            <header id="sidebar" class="hidden lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[120px] lg:flex-col lg:justify-between lg:py-24 z-50 items-center transition-all duration-500">
+                <div id="sidebar-content" class="w-full">
+                    <!-- Name Container -->
+                    <div class="relative min-h-[3rem] flex items-center justify-center transition-all duration-300" id="name-container">
+                        <!-- Collapsed Name (AH) - Visible by default -->
+                        <h1 class="text-2xl font-bold tracking-tight absolute left-0 w-full text-center origin-center">
+                            <a href="index.html" class="bg-[linear-gradient(to_right,#16a34a_50%,#0f172a_50%)] bg-[length:200%_100%] bg-right text-transparent bg-clip-text transition-[background-position] duration-300 hover:bg-left">AH</a>
+                        </h1>
+                    </div>
+                    
+                </div>
+
+                <div id="sidebar-footer" class="mt-12 lg:mt-0">
+                    <div class="flex flex-col items-center gap-4 w-full">
+                        <div class="flex flex-col gap-4 items-center w-full">
+                            <!-- Connect Button -->
+                            <a href="mailto:ux.abdul@gmail.com?subject=Hi,"
+                                class="group relative inline-flex items-center gap-2 rounded-full bg-[#4ade80] p-3 text-sm font-semibold text-slate-900 transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-green-500/20">
+                                <i data-lucide="mail" class="h-4 w-4"></i>
+                                <span
+                                    class="absolute left-full top-1/2 -translate-y-1/2 ml-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
+                                    Let's Connect
+                                </span>
+                            </a>
+                            <!-- Resume Button -->
+                            <a href="resume.html"
+                                class="group relative inline-flex items-center gap-2 rounded-full bg-white p-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
+                                <i data-lucide="file-text"
+                                    class="h-4 w-4 text-slate-500 group-hover:text-slate-900 transition-colors"></i>
+                                <span
+                                    class="absolute left-full top-1/2 -translate-y-1/2 ml-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
+                                    View Resume
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Socials (Center Aligned) -->
+                    <div class="flex text-slate-400 flex-col gap-6 items-center mt-6">
+                        <a href="https://www.linkedin.com/in/uxabdul"
+                            class="transition hover:text-slate-900 group relative"><i class="fa-brands fa-linkedin-in w-6 h-6 text-xl"></i>
+                            <span class="absolute left-full top-1/2 -translate-y-1/2 ml-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">LinkedIn</span>
+                        </a>
+                        <a href="https://www.instagram.com/ux.abdul"
+                            class="transition hover:text-slate-900 group relative"><i class="fa-brands fa-instagram w-6 h-6 text-xl"></i>
+                            <span class="absolute left-full top-1/2 -translate-y-1/2 ml-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">Instagram</span>
+                        </a>
+                        <a href="https://www.behance.net/ux_abdul"
+                            class="transition hover:text-slate-900 group relative"><i class="fa-brands fa-behance w-6 h-6 text-xl"></i>
+                            <span class="absolute left-full top-1/2 -translate-y-1/2 ml-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">Behance</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="lg:pt-24 lg:flex-1 lg:pl-24 lg:py-24 transition-all duration-500 ease-in-out">
+                
+                <!-- Back Link -->
+                <div class="mb-8 reveal active">
+                    <a href="index.html" class="group inline-flex items-center gap-2 text-sm font-semibold text-green-600 transition hover:text-green-700">
+                        <i class="fa-solid fa-arrow-left h-4 w-4 transition-transform group-hover:-translate-x-1"></i>
+                        Back to Home
+                    </a>
+                </div>
+
+                <article>
+                    <!-- Header -->
+                    <header class="mb-10 reveal">
+                        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-6">Hotel Check-in App</h1>
+                        <p class="text-xl leading-relaxed text-slate-600 max-w-2xl">Streamlining the guest arrival experience with a contactless, mobile-first web application.</p>
+
+                        <div class="mt-8 flex flex-wrap gap-2">
+                            <span class="flex items-center rounded-full bg-green-400/10 px-3 py-1 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Hospitality</span>
+                            <span class="flex items-center rounded-full bg-green-400/10 px-3 py-1 text-xs font-medium leading-5 text-green-700 border border-green-400/20">CRM</span>
+                            <span class="flex items-center rounded-full bg-green-400/10 px-3 py-1 text-xs font-medium leading-5 text-green-700 border border-green-400/20">SaaS</span>
+                            
+                        </div>
+                    </header>
+
+                    <!-- Hero Image -->
+                    <div class="mb-12 rounded-xl overflow-hidden border-2 border-slate-200/50 bg-white shadow-sm reveal">
+                        <img loading="lazy" src="assets/img/hotel-main-preview.png" alt="Hotel Check-in App Interface" class="w-full h-auto object-cover">
+                    </div>
+
+                    <!-- Metadata Grid -->
+                    <div class="mb-16 grid grid-cols-2 gap-8 sm:grid-cols-4 border-y border-slate-200 py-8 reveal">
+                        <div>
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Role</h3>
+                            <p class="text-sm font-medium text-slate-900">Lead Designer</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Timeline</h3>
+                            <p class="text-sm font-medium text-slate-900">Sprint-based (2-week cycles)</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Client</h3>
+                            <p class="text-sm font-medium text-slate-900">Luxury Stay</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Platform</h3>
+                            <p class="text-sm font-medium text-slate-900">Web / Desktop</p>
+                        </div>
+                    </div>
+
+                    <!-- Content Sections -->
+                    <div class="space-y-24 text-slate-600 leading-relaxed">
+                        
+                        <section class="reveal">
+                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
+                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">The Challenge</h2>
+                            </div>
+                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-4">The Challenge</h2>
+                            <p class="mb-4">During peak travel seasons, guests were experiencing check-in wait times exceeding 45 minutes. This bottleneck caused frustration, crowded lobbies, and significantly lower satisfaction scores (CSAT) upon arrival—a critical moment for setting the tone of the stay.</p>
+                            <p>The hotel needed a solution that could offload the administrative burden from front-desk staff while providing a seamless, premium experience for guests.</p>
+                            
+                            <div class="mt-8 space-y-6">
+                                <div class="pl-5 border-l-4 border-[#fb2c36]">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Complex onboarding flow</h3>
+                                    <p class="text-sm text-slate-600">Multi-step guest check-in process caused confusion and delays during peak hours</p>
+                                </div>
+                                <div class="pl-5 border-l-4 border-[#ff6900]">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Redundant data entry</h3>
+                                    <p class="text-sm text-slate-600">Guest information and membership enrollment required separate forms with duplicate fields</p>
+                                </div>
+                                <div class="pl-5 border-l-4 border-[#f0b100]">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Third-party dependency</h3>
+                                    <p class="text-sm text-slate-600">Guest requests were handled through an external application, creating workflow disruption</p>
+                                </div>
+                                <div class="pl-5 border-l-4 border-[#ad46ff]">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Limited search capability</h3>
+                                    <p class="text-sm text-slate-600">Basic name-only search made it difficult to quickly locate bookings</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="reveal">
+                            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3">
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight">100%</span>
+                                    <p class="text-sm text-slate-600 leading-snug">Staff rely on the current system daily</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3">
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight">70%</span>
+                                    <p class="text-sm text-slate-600 leading-snug">Unable to complete tasks within expected timeframe</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3">
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight">80%</span>
+                                    <p class="text-sm text-slate-600 leading-snug">Struggled to find relevant information quickly</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3">
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight">60%</span>
+                                    <p class="text-sm text-slate-600 leading-snug">Believed the system had significant room for improvement</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="reveal">
+                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
+                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">Personas</h2>
+                            </div>
+                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-8">Personas</h2>
+                            
+                            <div class="space-y-8">
+                                <!-- Persona 1 -->
+                                <div class="flex flex-col md:flex-row gap-8 bg-white p-8 rounded-2xl border border-slate-200">
+                                    <div class="md:w-1/3 bg-teal-50/50 rounded-xl p-6 flex flex-col items-center justify-center text-center shrink-0">
+                                        <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-white shadow-sm">
+                                            <img src="https://images.unsplash.com/photo-1765005204058-10418f5123c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGNvcnBvcmF0ZSUyMGhlYWRzaG90JTIwc21pbGluZ3xlbnwxfHx8fDE3Njk5NjYzMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Alice Johnson" class="w-full h-full object-cover">
+                                        </div>
+                                        <h3 class="text-lg font-bold text-slate-900">Alice Johnson</h3>
+                                        <p class="text-sm text-slate-500 font-medium">Front Desk Associate, 32</p>
+                                    </div>
+                                    <div class="md:w-2/3">
+                                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">Experienced hotel staff member managing 50+ daily check-ins at a busy downtown property. Values efficiency and delivering excellent guest service.</p>
+                                        <div class="grid sm:grid-cols-2 gap-6">
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 mb-2 text-sm">A day in their life</h4>
+                                                <ul class="list-disc pl-4 space-y-1.5 text-xs text-slate-600 marker:text-green-500">
+                                                    <li>Handles check-in for 50+ guests daily during peak hours</li>
+                                                    <li>Manages membership enrollments and profile updates</li>
+                                                    <li>Coordinates with housekeeping and maintenance teams for guest requests</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 mb-2 text-sm">Pain points</h4>
+                                                <ul class="list-disc pl-4 space-y-1.5 text-xs text-slate-600 marker:text-red-400">
+                                                    <li>Switching between multiple systems disrupts workflow and slows down check-in process</li>
+                                                    <li>Guests become impatient during lengthy enrollment and data entry procedures</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Persona 2 -->
+                                <div class="flex flex-col md:flex-row gap-8 bg-white p-8 rounded-2xl border border-slate-200">
+                                    <div class="md:w-1/3 bg-teal-50/50 rounded-xl p-6 flex flex-col items-center justify-center text-center shrink-0">
+                                        <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-white shadow-sm">
+                                            <img src="https://images.unsplash.com/photo-1764084051438-369ad6a09334?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBjYXN1YWwlMjBidXNpbmVzcyUyMGhlYWRzaG90JTIwc21pbGluZ3xlbnwxfHx8fDE3Njk5NjYzMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="James Smith" class="w-full h-full object-cover">
+                                        </div>
+                                        <h3 class="text-lg font-bold text-slate-900">James Smith</h3>
+                                        <p class="text-sm text-slate-500 font-medium">Corporate Employee Male, 42</p>
+                                    </div>
+                                    <div class="md:w-2/3">
+                                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">Frequent business traveler who values quick, seamless check-in experiences. Travels 2-3 times monthly and expects consistent service quality.</p>
+                                        <div class="grid sm:grid-cols-2 gap-6">
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 mb-2 text-sm">A day in their life</h4>
+                                                <ul class="list-disc pl-4 space-y-1.5 text-xs text-slate-600 marker:text-green-500">
+                                                    <li>Arrives at hotels late evening after long business meetings</li>
+                                                    <li>Needs quick access to room and amenities without delays</li>
+                                                    <li>Expects membership benefits to be automatically recognized and applied</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 mb-2 text-sm">Pain points</h4>
+                                                <ul class="list-disc pl-4 space-y-1.5 text-xs text-slate-600 marker:text-red-400">
+                                                    <li>Repetitive information requests at each hotel visit despite being a loyalty member</li>
+                                                    <li>Long wait times at front desk during peak check-in hours</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="reveal">
+                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
+                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">The Solution</h2>
+                            </div>
+                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-4">The Solution</h2>
+                            <p>We designed a mobile-first web application allowing guests to complete the entire check-in process before arrival. By integrating with the hotel's PMS (Property Management System), guests could verify their identity, authorize payments, and receive a digital room key directly to their device.</p>
+                        </section>
+
+                        <section class="reveal">
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold text-slate-900 mb-2">Four key improvements that transformed the experience</h3>
+                                <p class="text-slate-600">Based on research insights, I designed solutions that addressed each major pain point while maintaining system flexibility.</p>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <!-- Item 1 -->
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col sm:flex-row gap-6 items-start">
+                                    <div class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 text-white flex items-center justify-center font-bold text-lg">01</div>
+                                    <div class="flex-1 w-full">
+                                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                                            <h4 class="text-lg font-bold text-slate-900">Streamlined Onboarding</h4>
+                                            <span class="self-start sm:self-auto inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Faster check-ins</span>
+                                        </div>
+                                        <p class="text-slate-600 text-sm leading-relaxed">Consolidated multi-step check-in process into a single, intuitive flow that reduces processing time by 40%</p>
+                                    </div>
+                                </div>
+
+                                <!-- Item 2 -->
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col sm:flex-row gap-6 items-start">
+                                    <div class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-cyan-400 to-cyan-600 text-white flex items-center justify-center font-bold text-lg">02</div>
+                                    <div class="flex-1 w-full">
+                                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                                            <h4 class="text-lg font-bold text-slate-900">Unified Enrollment</h4>
+                                            <span class="self-start sm:self-auto inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Reduced errors</span>
+                                        </div>
+                                        <p class="text-slate-600 text-sm leading-relaxed">Merged guest information update and membership enrollment into one form, eliminating redundant data entry</p>
+                                    </div>
+                                </div>
+
+                                <!-- Item 3 -->
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col sm:flex-row gap-6 items-start">
+                                    <div class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-white flex items-center justify-center font-bold text-lg">03</div>
+                                    <div class="flex-1 w-full">
+                                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                                            <h4 class="text-lg font-bold text-slate-900">Integrated Request Management</h4>
+                                            <span class="self-start sm:self-auto inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Better tracking</span>
+                                        </div>
+                                        <p class="text-slate-600 text-sm leading-relaxed">Built in-app guest request handling system, eliminating third-party tool dependency and improving response time</p>
+                                    </div>
+                                </div>
+
+                                <!-- Item 4 -->
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col sm:flex-row gap-6 items-start">
+                                    <div class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-green-400 to-green-600 text-white flex items-center justify-center font-bold text-lg">04</div>
+                                    <div class="flex-1 w-full">
+                                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                                            <h4 class="text-lg font-bold text-slate-900">Advanced Search</h4>
+                                            <span class="self-start sm:self-auto inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Quick access</span>
+                                        </div>
+                                        <p class="text-slate-600 text-sm leading-relaxed">Enhanced search with filters for arrival date, booking status, and guest details for instant booking retrieval</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="reveal">
+                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
+                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">Key Components</h2>
+                            </div>
+                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-8">Key Components</h2>
+                            
+                            <div class="space-y-16">
+                                <!-- Component 1: Booking Card -->
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 group">
+                                    <div class="mb-4">
+                                        <h3 class="text-xl font-bold text-slate-900 mb-1">Booking Card</h3>
+                                        <p class="text-slate-600 max-w-3xl">Redesigning the guest information display to reduce cognitive load and improve processing speed.</p>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 pt-2 mb-6">
+                                        <span class="px-2 py-1 rounded bg-slate-100 text-slate-600 text-[10px] font-semibold uppercase tracking-wider">Guest Identity</span>
+                                        <span class="px-2 py-1 rounded bg-slate-100 text-slate-600 text-[10px] font-semibold uppercase tracking-wider">Room Status</span>
+                                        <span class="px-2 py-1 rounded bg-slate-100 text-slate-600 text-[10px] font-semibold uppercase tracking-wider">Payment</span>
+                                        <span class="px-2 py-1 rounded bg-slate-100 text-slate-600 text-[10px] font-semibold uppercase tracking-wider">VIP Tags</span>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 gap-12">
+                                        <!-- Before State -->
+                                        <div class="space-y-4">
+                                            <div class="flex items-center gap-2 mb-2">
+                                                <span class="px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wide">Before</span>
+                                                <!-- <h4 class="text-sm font-semibold text-slate-900">Fragmented Data</h4> -->
+                                            </div>
+                                            <div class="rounded-xl overflow-hidden border-2 border-slate-200 border-dashed bg-slate-100 relative h-auto group-hover:border-red-200 transition-colors">
+                                                <img loading="lazy" src="assets/img/booking-card-old.png" alt="Old fragmented interface" class="w-full h-auto object-cover opacity-70 grayscale">
+                                                
+                                            </div>
+                                            <!-- <p class="text-sm text-slate-600 leading-relaxed">
+                                                Staff previously toggled between legacy PMS software, email clients, and paper logs just to verify basic guest details, leading to 3-5 minute check-in times.
+                                            </p> -->
+                                        </div>
+
+                                        <!-- After State -->
+                                        <div class="space-y-4">
+                                            <div class="flex items-center gap-2 mb-2">
+                                                <span class="px-2.5 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wide">After</span>
+                                                <!-- <h4 class="text-sm font-semibold text-slate-900">Unified Dashboard</h4> -->
+                                            </div>
+                                            <div class="rounded-xl overflow-hidden border border-slate-200 border-dashed bg-white h-auto relative transition-all group-hover:border-green-200">
+                                                <img loading="lazy" src="assets/img/booking-card-new.png" alt="New Booking Card Component" class="w-full h-full object-cover object-top">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Component 2: Combined Guest Information Form-->
+                                <div class="bg-white p-6 rounded-lg border border-slate-200">
+                                   <div class="mb-6">
+                                      <h3 class="text-xl font-bold text-slate-900 mb-2">Combined Guest Information, Enrollment and Preference Form</h3>
+                                      <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-6">Merged the guest details form with a visual progress bar and integrated guest preferences in a single, streamlined interface. This redesign eliminated redundant steps and provided clear visibility into profile completion status, encouraging Front desk associate (FDA) to add complete information of guests.</p>
+                                   </div>
+                                   
+                                   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                      <!-- Before State -->
+                                      <div>
+                                         <div class="mb-4">
+                                            <span class="inline-block px-3 py-1 rounded-full bg-red-50 text-red-700 text-xs font-bold uppercase tracking-wide ring-1 ring-inset ring-red-600/20">Before</span>
+                                         </div>
+                                         
+                                         <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 relative">
+                                            <img src="assets/img/combined-ingo-before.png" alt="Fragmented legacy form interface" class="w-full h-full object-cover">
+                                         </div>
+                                         <p class="mt-4 text-slate-600 leading-relaxed text-sm">
+                                            Previously was using 3 different form to collect information
+                                         </p>
+                                      </div>
+
+                                      <!-- After State -->
+                                      <div>
+                                         <div class="mb-4">
+                                            <span class="inline-block px-3 py-1 rounded-full bg-green-50 text-green-700 text-xs font-bold uppercase tracking-wide ring-1 ring-inset ring-green-600/20">After</span>
+                                         </div>
+                                         
+                                         <div class="rounded-xl overflow-hidden border border-slate-200 bg-white">
+                                            <img src="assets/img/combined-ingo-after.png" alt="Unified guest profile interface" class="w-full h-full object-cover">
+                                         </div>
+                                         <p class="mt-4 text-slate-600 leading-relaxed text-sm">
+                                            Unified single form for all 3 forms previously used.
+                                         </p>
+                                      </div>
+                                   </div>
+                                </div>
+
+
+                                 <!-- Component 3: Guest Information Card -->
+                                <div class="bg-white p-6 rounded-lg border border-slate-200">
+                                   <div class="mb-6">
+                                      <h3 class="text-xl font-bold text-slate-900 mb-2">Guest Profile</h3>
+                                      <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-6">Merged the guest details form with a visual progress bar and integrated guest preferences in a single, streamlined interface.</p>
+                                   </div>
+                                   
+                                   <!-- Component 3: Guest Info Fixed version  -->
+                                <div class="mt-8 relative w-full rounded-xl overflow-hidden select-none cursor-ew-resize group bg-slate-100" id="slider-container">
+
+                                    <!-- After Image (sets container height) -->
+                                    <img src="assets/img/after-guest-info.png"
+                                        alt="New Design"
+                                        class="block w-full h-auto pointer-events-none"
+                                        draggable="false">
+
+                                    <!-- Overlay layer -->
+                                    <div class="absolute inset-0">
+
+                                        <div class="absolute top-4 left-4 bg-green-50/90 backdrop-blur text-green-700 text-xs font-bold px-3 py-1 rounded-full shadow-sm z-10 pointer-events-none ring-1 ring-inset ring-green-600/30">
+                                        After
+                                        </div>
+
+                                        <!-- Before Image (Clipped) -->
+                                        <div class="absolute inset-0 w-full h-full pointer-events-none"
+                                            id="slider-before-container"
+                                            style="clip-path: inset(0 0 0 50%);">
+                                        <img src="assets/img/before-guest-info.png"
+                                            alt="Legacy Interface"
+                                            class="w-full h-full object-cover"
+                                            draggable="false">
+                                        </div>
+
+                                        <div class="absolute top-4 right-4 bg-red-50/90 backdrop-blur text-red-700 text-xs font-bold px-3 py-1 rounded-full shadow-sm z-20 pointer-events-none ring-1 ring-inset ring-red-600/30 transition-opacity duration-200"
+                                            id="slider-before-label">
+                                        Before
+                                        </div>
+
+                                        <!-- Handle -->
+                                        <div class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-30 shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+                                            style="left: 50%"
+                                            id="slider-handle">
+                                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-slate-600 ring-4 ring-black/5">
+                                            <i class="fa-solid fa-arrows-left-right"></i>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                </div>
+
+                                <!-- Component 4: Advanced Search -->
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 group">
+                                    <div class="mb-4">
+                                        <h3 class="text-xl font-bold text-slate-900 mb-1">Advanced Search</h3>
+                                        <p class="text-slate-600 max-w-3xl">The new design empowers users to quickly locate bookings using specific filters such as first name, last name, member ID, room number, confirmation number, reservation status, and a custom date range.</p>
+                                    </div>
+                                    <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                                                This improvement delivers:<br>
+
+                                                Precision – Eliminates irrelevant results by narrowing the scope to meaningful attributes.<br>
+
+                                                Speed – Reduces time spent scanning large datasets, enabling faster decision-making.<br>
+
+                                                Usability – Provides a clear, intuitive interface for complex queries without overwhelming the user.<br>
+
+                                                The result is a streamlined, efficient search experience that supports hotel staff in managing guest onboarding with confidence and ease.
+                                    </p>
+
+                                    <div class="grid grid-cols-1 gap-12">
+                                        <!-- Before State -->
+                                        <div class="space-y-4">
+                                            <div class="flex items-center gap-2 mb-2">
+                                                <span class="px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wide">Before</span>
+                                                <!-- <h4 class="text-sm font-semibold text-slate-900">Fragmented Data</h4> -->
+                                            </div>
+                                            <div class="rounded-xl overflow-hidden border-2 border-slate-200 border-dashed bg-slate-100 relative h-auto group-hover:border-red-200 transition-colors">
+                                                <img loading="lazy" src="assets/img/advanced-search-old.png" alt="Old fragmented interface" class="w-full h-auto object-cover opacity-70 grayscale">
+                                                
+                                            </div>
+                                            
+                                        </div>
+
+                                        <!-- After State -->
+                                        <div class="space-y-4">
+                                            <div class="flex items-center gap-2 mb-2">
+                                                <span class="px-2.5 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wide">After</span>
+                                                <!-- <h4 class="text-sm font-semibold text-slate-900">Unified Dashboard</h4> -->
+                                            </div>
+                                            <div class="rounded-xl overflow-hidden border border-slate-200 border-dashed bg-white h-auto relative transition-all group-hover:border-green-200">
+                                                <img loading="lazy" src="assets/img/advanced-search-new.png" alt="New Booking Card Component" class="w-full h-full object-cover object-top">
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="reveal">
+                            <div class="grid gap-6 sm:grid-cols-2">
+                                <div class="bg-white p-6 rounded-lg border border-slate-200">
+                                    <h3 class="font-bold text-slate-900 mb-2">Speed</h3>
+                                    <p class="text-sm">Reduced average check-in time from 8 minutes to 45 seconds.</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-lg border border-slate-200">
+                                    <h3 class="font-bold text-slate-900 mb-2">Adoption</h3>
+                                    <p class="text-sm">75% of guests opted for mobile check-in within the first month.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- <section class="reveal">
+                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
+                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">Design Process</h2>
+                            </div>
+                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-4">Design Process</h2>
+                            <p class="mb-6">We adopted a rapid iterative approach, starting with low-fidelity wireframes to validate user flows with actual hotel guests. Key focus areas included:</p>
+                            <ul class="list-disc pl-5 space-y-2 marker:text-green-500">
+                                <li><strong>Simplification:</strong> Breaking complex forms into digestible steps.</li>
+                                <li><strong>Trust:</strong> Using clear visual cues for security during ID upload and payment.</li>
+                                <li><strong>Accessibility:</strong> Ensuring the app was usable for travelers of all ages and abilities.</li>
+                            </ul>
+                        </section> -->
+
+                        <section class="reveal">
+                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
+                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">Outcome</h2>
+                            </div>
+                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-4">Outcome</h2>
+                            <p class="mb-8">By streamlining workflows and consolidating features, the hotel chain reduced operational costs, improved staff productivity, and enhanced guest satisfaction scores. The integrated request management system alone saved an estimated $50,000 annually in third-party software costs while improving response times by 65%.</p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 p-8 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex flex-col gap-2">
+                                    <i class="fa-regular fa-clock w-5 h-5 text-slate-900 text-xl"></i>
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight">40%</span>
+                                    <span class="text-sm text-slate-500 leading-snug">Reduction in check-in time</span>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <i class="fa-solid fa-arrow-trend-down w-5 h-5 text-slate-900 text-xl"></i>
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight">60%</span>
+                                    <span class="text-sm text-slate-500 leading-snug">Fewer form fields</span>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <i class="fa-regular fa-rectangle-list w-5 h-5 text-slate-900 text-xl"></i>
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight">3x</span>
+                                    <span class="text-sm text-slate-500 leading-snug">faster booking retrieval</span>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <i class="fa-regular fa-address-card w-5 h-5 text-slate-900 text-xl"></i>
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight">95%</span>
+                                    <span class="text-sm text-slate-500 leading-snug">Staff satisfaction</span>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </article>
+
+                <!-- See more of my work -->
+                <!-- See More of my work -->
+                <section class="mt-24 pt-12 border-t border-slate-200">
+                    <div class="flex flex-col lg:flex-row gap-6 items-start">
+
+                        <!-- Left Column -->
+                        <div class="lg:w-auto lg:shrink-0 lg:pr-8 pt-4">
+                            <h3 class="text-[28px] font-bold text-slate-900 leading-[36px] mb-2">See more</h3>
+                            <p class="text-[18px] text-slate-500 leading-[28px] mb-6">of my work</p>
+                            <i data-lucide="arrow-right" class="h-6 w-6 text-slate-900 rotate-90 lg:rotate-0"></i>
+                        </div>
+
+                        <!-- Right Column (Cards) -->
+                        <div class="flex-1 grid gap-6 md:grid-cols-2 w-full">
+
+                            <!-- Card 1 -->
+                            <a href="online-shopping-at-airport.html"
+                                class="group relative block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-200 h-full p-5">
+                                <div class="flex flex-col gap-4 h-full">
+                                    <div
+                                        class="self-start inline-block px-2 py-0.5 rounded-full bg-slate-100 text-green-600 text-[10px] font-bold uppercase tracking-wider">
+                                        Mobile Commerce • Shopping
+                                    </div>
+
+                                    <div class="flex gap-4">
+                                        <div
+                                            class="w-[140px] h-fit shrink-0 bg-slate-200 rounded-lg overflow-hidden">
+                                            <img src="assets/img/airport-shopping1.png"
+                                                alt="Hotel App" class="w-full h-full object-cover">
+                                        </div>
+
+                                        <div class="flex flex-col justify-between py-1 min-w-0">
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 text-[16px] leading-tight mb-2">
+                                                    Online Shopping from Display</h4>
+                                                <p class="text-[12px] text-slate-500 leading-relaxed line-clamp-3">
+                                                    Designed a seamless checkout experience triggered from an airport display ad, enabling first-time users to move from inspiration to purchase in moments. Focused on speed, clarity, and flexible delivery scheduling, the flow supports on-the-go shoppers and real-world travel contexts.</p>
+                                            </div>
+                                            <div
+                                                class="mt-2 text-[14px] font-semibold text-green-600 flex items-center gap-1 group-hover:gap-2 transition-all">
+                                                View project <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Card 2 -->
+                            <a href="#"
+                                class="group relative block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-200 h-full p-5">
+                                <div class="flex flex-col gap-4 h-full">
+                                    <div
+                                        class="self-start inline-block px-2 py-0.5 rounded-full bg-slate-100 text-green-600 text-[10px] font-bold uppercase tracking-wider">
+                                        CRM • MS 365
+                                    </div>
+
+                                    <div class="flex gap-4">
+                                        <div
+                                            class="w-[140px] h-fit shrink-0 bg-slate-200 rounded-lg overflow-hidden">
+                                            <img src="assets/img/crm-thumb.png"
+                                                alt="Generative AI Suite" class="w-full h-full object-cover">
+                                        </div>
+
+                                        <div class="flex flex-col justify-between py-1 min-w-0">
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 text-[16px] leading-tight mb-2">CRM Application</h4>
+                                                <p class="text-[12px] text-slate-500 leading-relaxed line-clamp-3">
+                                                    Designed a lightweight CRM layered on Microsoft 365 to streamline hospitality operations without relying on the core system. Optimized for small devices, it empowers waitstaff to access and update guest information in real time while serving, improving speed, autonomy, and on-floor efficiency.</p>
+                                            </div>
+                                            <div
+                                                class="mt-2 text-[14px] font-semibold text-gray-500 flex items-center gap-1 group-hover:gap-2 transition-all">
+                                                Coming Soon <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="mt-12 w-full pb-16 text-sm text-slate-500 sm:pb-0 flex flex-col sm:flex-row justify-between items-start gap-6 reveal">
+                    <p class="max-w-md">Designed in <a href="#" class="font-medium text-slate-900 hover:text-green-600">Figma</a> and coded in <a href="#" class="font-medium text-slate-900 hover:text-green-600">VS Code</a> by me. Built with <a href="#" class="font-medium text-slate-900 hover:text-green-600">HTML, Tailwind CSS</a> and <a href="#" class="font-medium text-slate-900 hover:text-green-600">JS</a>.</p>
+                    <p class="whitespace-nowrap">&copy; 2026 Abdul Hasib.</p>
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+         // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mouse Spotlight Effect
+        const spotlight = document.getElementById('spotlight');
+        window.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            spotlight.style.background = `radial-gradient(600px at ${x}px ${y}px, rgba(59, 130, 246, 0.15), transparent 80%)`;
+        });
+        
+        // Mouse Gradient
+        const cursorGradient = document.getElementById('cursor-gradient');
+        window.addEventListener('mousemove', (e) => {
+            cursorGradient.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(74, 222, 128, 0.15), transparent 80%)`;
+        });
+
+        // Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Before/After Slider Logic
+        const sliderContainer = document.getElementById('slider-container');
+        if (sliderContainer) {
+            const sliderHandle = document.getElementById('slider-handle');
+            const sliderBeforeContainer = document.getElementById('slider-before-container');
+            const sliderBeforeLabel = document.getElementById('slider-before-label');
+            
+            let isDragging = false;
+            
+            const updateSlider = (clientX) => {
+                const rect = sliderContainer.getBoundingClientRect();
+                const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+                const percentage = (x / rect.width) * 100;
+                
+                sliderHandle.style.left = `${percentage}%`;
+                sliderBeforeContainer.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+                
+                if (percentage > 90) {
+                    sliderBeforeLabel.style.opacity = '0';
+                } else {
+                    sliderBeforeLabel.style.opacity = '1';
+                }
+            };
+            
+            const startDrag = (e) => {
+                isDragging = true;
+            };
+            
+            const stopDrag = () => {
+                isDragging = false;
+            };
+            
+            const moveDrag = (e) => {
+                if (!isDragging) return;
+                const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                updateSlider(clientX);
+            };
+            
+            sliderContainer.addEventListener('mousedown', startDrag);
+            sliderContainer.addEventListener('touchstart', startDrag, { passive: true });
+            
+            window.addEventListener('mouseup', stopDrag);
+            window.addEventListener('touchend', stopDrag);
+            
+            window.addEventListener('mousemove', moveDrag);
+            window.addEventListener('touchmove', moveDrag, { passive: false }); 
+        }
+    </script>
+</body>
+</html>

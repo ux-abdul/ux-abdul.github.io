@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Hasib - Lead Product Designer</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2316a34a%22 /><text x=%2250%22 y=%2250%22 font-family=%22Arial, sans-serif%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.35em%22>AH</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.5s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        #sidebar, #main-content {
+            transition-property: width, transform, opacity, padding, flex-grow, flex-basis;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 500ms;
+        }
+
+        #sidebar-details {
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-in-out;
+        }
+
+        .btn-text-wrapper {
+            transition: max-width 0.4s ease, opacity 0.3s ease;
+            max-width: 150px;
+            opacity: 1;
+            white-space: nowrap;
+        }
+        .btn-text-wrapper.collapsed {
+            max-width: 0px;
+            opacity: 0;
+        }
+
+        #name-full, #name-collapsed {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="relative min-h-screen bg-slate-50 selection:bg-green-300 selection:text-green-900">
+
+    <!-- Background Gradient -->
+    <div id="cursor-gradient" class="pointer-events-none fixed inset-0 z-30 transition duration-300"></div>
+
+    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+        <div class="lg:flex lg:justify-between lg:gap-4">
+            
+            <!-- Sidebar -->
+            <header id="sidebar" class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 z-50">
+                <div id="sidebar-content" class="w-full">
+
+                    <!-- Name Container -->
+                    <div class="relative min-h-[3rem] flex items-center justify-start transition-all duration-300" id="name-container">
+                        <h1 id="name-full" class="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 absolute left-0 origin-left whitespace-nowrap">
+                            <a href="/">Abdul Hasib</a>
+                        </h1>
+
+                        <h1 id="name-collapsed" class="text-2xl font-bold tracking-tight absolute left-0 w-full text-center opacity-0 scale-90 pointer-events-none origin-center">
+                            <a href="/" class="bg-[linear-gradient(to_right,#16a34a_50%,#0f172a_50%)] bg-[length:200%_100%] bg-right text-transparent bg-clip-text transition-[background-position] duration-300 hover:bg-left">AH</a>
+                        </h1>
+                    </div>
+
+                    <div id="sidebar-details" class="overflow-hidden max-h-[1000px] opacity-100 mt-0">
+                        <h2 class="mt-3 text-lg font-medium tracking-tight text-slate-900 sm:text-xl reveal active">Lead Product Designer</h2>
+
+                        <div class="mt-12 reveal active" style="transition-delay: 0.2s">
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Skills</h3>
+                            <div class="flex flex-wrap gap-2 pr-8">
+                                <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-500/10">UI/UX</span>
+                                <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-500/10">Product Thinking</span>
+                                <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-500/10">Rapid Prototyping</span>
+                                <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-500/10">Usability Testing</span>
+                                <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-500/10">Design Systems</span>
+                                <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-500/10">Human-AI Collaboration</span>
+                                <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-500/10">Conversational Design</span>
+                                <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-500/10">Responsible AI Design</span>
+                                <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-500/10">HTML</span>
+                                <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-500/10">CSS</span>
+                                <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-500/10">Bootstrap</span>
+                                <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-500/10">Tailwind</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 mb-8 reveal active" style="transition-delay: 0.3s">
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Tools</h3>
+                            <div class="flex flex-wrap gap-2 pr-8">
+                                <span class="inline-flex items-center rounded-md border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Figma</span>
+                                <span class="inline-flex items-center rounded-md border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Adobe CC</span>
+                                <span class="inline-flex items-center rounded-md border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Miro</span>
+                                <span class="inline-flex items-center rounded-md border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Axure</span>
+                                <span class="inline-flex items-center rounded-md border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">ProtoPie</span>
+                                <span class="inline-flex items-center rounded-md border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Jira</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sidebar-footer" class="mt-12 lg:mt-0 reveal active" style="transition-delay: 0.6s">
+                    <div class="flex flex-col items-start gap-4 transition-all duration-300" id="connect-container">
+                        <div class="flex flex-wrap gap-3" id="buttons-container">
+                            <a href="mailto:ux.abdul@gmail.com?subject=Hi," class="group relative inline-flex items-center gap-2 rounded-full bg-[#4ade80] px-6 py-3 text-sm font-semibold text-slate-900 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/20" id="btn-connect">
+                                <i class="fa-solid fa-envelope h-4 w-4 shrink-0"></i>
+                                <div class="btn-text-wrapper overflow-hidden">
+                                    <span class="ml-1">Let's Connect</span>
+                                </div>
+                            </a>
+
+                            <a href="resume.html" class="group relative inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 transition-all duration-300 hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm" id="btn-resume">
+                                <i class="fa-solid fa-file-alt h-4 w-4 shrink-0 text-slate-500 group-hover:text-slate-900 transition-colors"></i>
+                                <div class="btn-text-wrapper overflow-hidden">
+                                    <span class="ml-1">View Resume</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex text-slate-400 gap-5 mt-8 transition-all duration-300" id="socials-container">
+                        <a href="https://www.linkedin.com/in/uxabdul" class="transition hover:text-slate-900" aria-label="LinkedIn"><i class="fa-brands fa-linkedin h-6 w-6 text-2xl"></i></a>
+                        <a href="https://www.instagram.com/ux.abdul" class="transition hover:text-slate-900" aria-label="Instagram"><i class="fa-brands fa-instagram h-6 w-6 text-2xl"></i></a>
+                        <a href="https://www.behance.net/ux_abdul" class="transition hover:text-slate-900" aria-label="Behance"><i class="fa-brands fa-behance-square h-6 w-6 text-2xl"></i></a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main -->
+            <main id="main-content" data-expanded="false" class="pt-24 lg:w-1/2 lg:py-24">
+
+                <!-- About -->
+                <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
+                    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900 lg:sr-only">About</h2>
+                    </div>
+                    <div class="text-lg leading-relaxed text-slate-600 reveal">
+                        <p class="mb-4">I'm a Lead Product Designer with over a decade of experience driving end-to-end UX strategy, interaction design, and high-fidelity prototyping.</p>
+                        <p class="mb-4">My passion lies in bridging the gap between complex technology and human-centric design. I specialize in building design systems that scale and creating intuitive interfaces for data-heavy applications.</p>
+                        <p>Currently, I'm deep diving into shaping generative AI-powered experiences, exploring how Large Language Models can augment creative workflows while maintaining user agency and trust.</p>
+                    </div>
+                </section>
+
+                <!-- Projects -->
+                <section id="projects" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Selected projects">
+                    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900 lg:sr-only">Projects</h2>
+                    </div>
+
+                    <!-- Expand/collapse -->
+                    <div class="mb-12 hidden lg:flex items-center reveal">
+                        <button id="toggle-sidebar" class="group flex items-center gap-3 focus:outline-none">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-slate-200 transition-transform group-hover:scale-110 group-active:scale-95">
+                                <svg class="h-3 w-3 text-slate-900" fill="none" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" id="toggle-icon"></svg>
+                            </div>
+                            <span id="toggle-text" class="text-sm font-medium text-slate-900 transition-colors group-hover:text-green-600">Expand</span>
+                        </button>
+                    </div>
+
+                    <!-- SAME projects/archives as your earlier file -->
+                    <div class="mt-12 reveal">
+                        <button id="btn-toggle-archive" class="inline-flex items-center font-medium leading-tight text-slate-900 group focus:outline-none">
+                            <span id="btn-archive-text" class="border-b border-transparent pb-px transition group-hover:border-green-600">View Full Project Archive</span>
+                            <span id="archive-arrow" class="ml-2 text-xl leading-none">↓</span>
+                        </button>
+                    </div>
+
+                    <div id="archive-list" class="mt-8 flex-col border-t border-slate-200 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                        <!-- Archive Item 1 -->
+                        <div class="relative w-full bg-white border-b border-slate-200 p-5 transition hover:bg-slate-50">
+                            <div class="mb-3">
+                                <span class="inline-block rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-green-600">B2C • Mobile + Web</span>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="shrink-0 w-20 h-20 bg-slate-200 rounded-lg overflow-hidden shadow-sm ring-1 ring-slate-900/5">
+                                    <img loading="lazy" src="https://images.unsplash.com/photo-1661246627162-feb0269e0c07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex flex-col gap-1 w-full min-w-0">
+                                    <h4 class="text-base font-bold text-slate-900">Pet Care</h4>
+                                    <p class="text-xs leading-relaxed text-slate-500 line-clamp-2">Designed a seamless checkout experience triggered from an airport display ad...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="mt-12 w-full pb-16 text-sm text-slate-500 sm:pb-0 flex flex-col sm:flex-row justify-between items-start gap-6 reveal">
+                    <p class="max-w-md">Designed in <a href="#" class="font-medium text-slate-900 hover:text-green-600">Figma</a> and coded in <a href="#" class="font-medium text-slate-900 hover:text-green-600">VS Code</a> by me.</p>
+                    <p class="whitespace-nowrap">&copy; 2026 Abdul Hasib.</p>
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Mouse Gradient
+        const cursorGradient = document.getElementById('cursor-gradient');
+        window.addEventListener('mousemove', (e) => {
+            cursorGradient.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(74, 222, 128, 0.15), transparent 80%)`;
+        });
+
+        // Expand/collapse content
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+        const toggleBtn = document.getElementById('toggle-sidebar');
+        const toggleIcon = document.getElementById('toggle-icon');
+        const toggleText = document.getElementById('toggle-text');
+
+        const nameFull = document.getElementById('name-full');
+        const nameCollapsed = document.getElementById('name-collapsed');
+        const nameContainer = document.getElementById('name-container');
+        const sidebarDetails = document.getElementById('sidebar-details');
+
+        const buttonsContainer = document.getElementById('buttons-container');
+        const connectContainer = document.getElementById('connect-container');
+        const socialsContainer = document.getElementById('socials-container');
+        const btnConnect = document.getElementById('btn-connect');
+        const btnResume = document.getElementById('btn-resume');
+
+        const projectDescriptions = document.querySelectorAll('.project-description');
+
+        function isMainExpanded() {
+            return mainContent.dataset.expanded === "true";
+        }
+
+        function setMainExpanded(val) {
+            mainContent.dataset.expanded = val ? "true" : "false";
+        }
+
+        function renderToggleButton() {
+            if (isMainExpanded()) {
+                toggleText.innerText = "Collapse";
+                // right arrow
+                toggleIcon.innerHTML = `
+                    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5.83278 2.46842L9.53158 5.83278L6.16722 9.53158" />
+                        <path d="M2.46842 6.16722L9.53158 5.83278" />
+                    </g>`;
+            } else {
+                toggleText.innerText = "Expand";
+                // left arrow
+                toggleIcon.innerHTML = `
+                    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6.14853 9.53275L2.46781 6.14863L5.85193 2.4679" />
+                        <path d="M9.53265 5.85202L2.46781 6.14863" />
+                    </g>`;
+            }
+        }
+
+        renderToggleButton();
+
+        toggleBtn.addEventListener('click', () => {
+            setMainExpanded(!isMainExpanded());
+            renderToggleButton();
+        });
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ✅ Archive Toggle guaranteed arrow behavior
+        const btnToggleArchive = document.getElementById('btn-toggle-archive');
+        const btnArchiveText = document.getElementById('btn-archive-text');
+        const archiveArrow = document.getElementById('archive-arrow');
+        const archiveList = document.getElementById('archive-list');
+
+        let isArchiveVisible = false;
+
+        btnToggleArchive.addEventListener('click', () => {
+            isArchiveVisible = !isArchiveVisible;
+
+            if (isArchiveVisible) {
+                archiveList.style.maxHeight = archiveList.scrollHeight + "px";
+                archiveList.classList.remove('opacity-0');
+                archiveList.classList.add('opacity-100');
+
+                btnArchiveText.innerText = "Hide Full Project Archive";
+                archiveArrow.innerText = "↑";
+            } else {
+                archiveList.style.maxHeight = "0px";
+                archiveList.classList.remove('opacity-100');
+                archiveList.classList.add('opacity-0');
+
+                btnArchiveText.innerText = "View Full Project Archive";
+                archiveArrow.innerText = "↓";
+            }
+        });
+    </script>
+</body>
+</html>
