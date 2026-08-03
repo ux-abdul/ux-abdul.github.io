@@ -48,11 +48,11 @@
     <!-- Background Gradient -->
     <div id="cursor-gradient" class="pointer-events-none fixed inset-0 z-30 transition duration-300"></div>
 
-    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
-        <div class="lg:flex lg:justify-between lg:gap-4">
+    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-16 lg:py-0">
+        <div class="lg:flex lg:justify-between lg:gap-12">
             
             <!-- Sidebar -->
-            <header id="sidebar" class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 z-50">
+            <header id="sidebar" class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/3 lg:flex-col lg:justify-between lg:py-24 z-50">
                 <div id="sidebar-content" class="w-full">
                     <!-- Name Container -->
                     <div class="relative min-h-[3rem] flex items-center justify-start transition-all duration-300" id="name-container">
@@ -123,11 +123,8 @@
                             </a>
 
                             <!-- Resume Button -->
-                            <a href="resume.html" target="_blank"
-                            class="group relative z-10 hover:z-[999999] inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 transition-all duration-300 hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm"
-                            id="btn-resume">
-
-                            <i class="fa-solid fa-file-alt h-4 w-4 shrink-0 text-slate-500 group-hover:text-slate-900 transition-colors"></i>
+                            <a href="resume.html" target="_blank" class="group relative z-10 hover:z-[999999] inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-green-700 hover:text-slate-900 ring-1 ring-slate-200 transition-all duration-300 hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm"
+                            id="btn-resume"><i class="fa-solid fa-file-alt h-4 w-4 shrink-0 text-current transition-colors"></i>
 
                             <div class="btn-text-wrapper overflow-hidden">
                                 <span class="ml-1">View Resume</span>
@@ -137,6 +134,7 @@
                                 Download Resume
                             </span> -->
                             </a>
+                            
 
                         </div>
                         </div>
@@ -163,31 +161,31 @@
             </header>
 
             <!-- Main Content -->
-            <main id="main-content" data-expanded="false" class="pt-24 lg:w-1/2 lg:py-24">
+            <main id="main-content" data-expanded="false" class="pt-24 lg:w-2/3 lg:py-24">
                 
                 <!-- About Section -->
-                <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
+                <section id="about" class="mb-12 scroll-mt-16 md:mb-12 lg:mb-12 lg:scroll-mt-24" aria-label="About me">
                     <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                         <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900 lg:sr-only">About</h2>
                     </div>
                     <div class="text-lg leading-relaxed text-slate-600 reveal">
-                        <p class="mb-4">I'm a Lead Product Designer with over a decade of experience driving end-to-end UX strategy, interaction design, and high-fidelity prototyping.</p>
+                        <p class="mb-4">I'm a Lead Product Designer with <b>10 years of experience</b> driving end-to-end UX strategy, interaction design, and high-fidelity prototyping.</p>
                         <p class="mb-4">My passion lies in bridging the gap between complex technology and human-centric design. I specialize in building design systems that scale and creating intuitive interfaces for data-heavy applications.</p>
                         <p>Currently, I'm deep diving into shaping generative AI-powered experiences, exploring how Large Language Models can augment creative workflows while maintaining user agency and trust.</p>
                     </div>
                 </section>
 
                 <!-- Projects Section -->
-                <section id="projects" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Selected projects">
+                <section id="projects" class="mb-8 scroll-mt-16 md:mb-20 lg:mb-24 lg:scroll-mt-24" aria-label="Selected projects">
                     <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                         <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900 lg:sr-only">Projects</h2>
                     </div>
 
                     <!-- Expand/Collapse Button -->
-                    <div class="mb-12 hidden lg:flex items-center reveal">
+                    <div class="mb-8 hidden lg:flex items-center reveal">
                         <button id="toggle-sidebar" class="group flex items-center gap-3 focus:outline-none">
                             <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-slate-200 transition-transform group-hover:scale-110 group-active:scale-95">
-                                <svg class="h-3 w-3 text-slate-900" fill="none" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" id="toggle-icon"></svg>
+                                <svg class="h-6 w-6 text-slate-900" fill="none" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" id="toggle-icon"></svg>
                             </div>
                             <span id="toggle-text" class="text-sm font-medium text-slate-900 transition-colors group-hover:text-green-600">Expand</span>
                         </button>
@@ -202,15 +200,71 @@
                             <!-- Thumbnail -->
                             <div class="z-10 sm:col-span-4">
                                 <div class="rounded-lg border-2 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
+                                    <img loading="lazy" src="assets/img/hotel1.png">
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="z-10 sm:col-span-4">
+                                <ul class="mt-3 mb-3 flex flex-wrap gap-2" aria-label="Technologies used">
+                                    <li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">Hospitality</div></li>
+                                    <li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">CRM</div></li>
+                                    <li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">SaaS</div></li>
+                                </ul>
+
+                                <h3 class="font-bold leading-snug text-slate-900 text-lg">Hotel Check-in App</h3>
+                                <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">Streamlining hotel guest check-in and membership enrollment to reduce wait times and improve operational efficiency.</p>
+
+                                <div class="mt-6 flex flex-wrap gap-3 relative z-20">
+                                    <a href="hotel-check-in-app.html" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2.5 text-xs font-semibold text-green-700 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
+                                        View Project <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    </a>
+                                    <!-- <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
+                                        Prototype <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    </a> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-8 mb-12 last:mb-0 items-start reveal">
+                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100"></div>
+                            <div class="z-10 sm:col-span-4">
+                                <div class="rounded-lg border-2 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
+                                    <img loading="lazy" src="assets/img/airport-shopping1.png" alt="Online Shopping from Display Ad at Airport" class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
+                                </div>
+                            </div>
+                            <div class="z-10 sm:col-span-4">
+                                <ul class="mt-3 mb-3 flex flex-wrap gap-2">
+                                    <li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">Mobile Commerce</div></li>
+                                    <li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">Shopping</div></li>
+                                </ul>
+                                <h3 class="font-bold leading-snug text-slate-900 text-lg">Online Shopping from Display Ad at Airport</h3>
+                                <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">Designed a seamless checkout experience triggered from an airport display ad, enabling first-time users to move from inspiration to purchase in moments. Focused on speed, clarity, and flexible delivery scheduling, the flow supports on-the-go shoppers and real-world travel contexts.</p>
+                                <div class="mt-6 flex flex-wrap gap-3 relative z-20">
+                                    <a href="online-shopping-at-airport.html" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2.5 text-xs font-semibold text-green-700 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
+                                        View Project <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-8 mb-12 last:mb-0 items-start reveal">
+                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100"></div>
+                            
+                            <!-- Thumbnail -->
+                            <div class="z-10 sm:col-span-4">
+                                <div class="rounded-lg border-2 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
                                     <img loading="lazy" src="assets/img/locked-black.png">
                                 </div>
                             </div>
 
                             <!-- Content -->
                             <div class="z-10 sm:col-span-4">
-                                <ul class="mb-3 flex flex-wrap gap-2" aria-label="Technologies used">
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Industrial Tech</div></li>
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Enterprise software</div></li>
+                                <ul class="mt-3 mb-3 flex flex-wrap gap-2" aria-label="Technologies used">
+                                    <li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">Industrial Tech</div></li>
+                                    <li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">Enterprise software</div></li>
                                 </ul>
 
                                 <h3 class="font-bold leading-snug text-slate-900 text-lg">Industrial Work Order & Operations Management System</h3>
@@ -228,62 +282,6 @@
                             </div>
                         </div>
 
-                        <!-- Project 2 -->
-                        <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-8 mb-12 last:mb-0 items-start reveal">
-                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100"></div>
-                            
-                            <!-- Thumbnail -->
-                            <div class="z-10 sm:col-span-4">
-                                <div class="rounded-lg border-2 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
-                                    <img loading="lazy" src="assets/img/hotel1.png">
-                                </div>
-                            </div>
-
-                            <!-- Content -->
-                            <div class="z-10 sm:col-span-4">
-                                <ul class="mb-3 flex flex-wrap gap-2" aria-label="Technologies used">
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Hospitality</div></li>
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">CRM</div></li>
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">SaaS</div></li>
-                                </ul>
-
-                                <h3 class="font-bold leading-snug text-slate-900 text-lg">Hotel Check-in App</h3>
-                                <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-2">Streamlining hotel guest check-in and membership enrollment to reduce wait times and improve operational efficiency.</p>
-
-                                <div class="mt-6 flex flex-wrap gap-3 relative z-20">
-                                    <a href="hotel-check-in-app.html" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                        View Project <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-                                    </a>
-                                    <!-- <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                        Prototype <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-                                    </a> -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 3 -->
-                        <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-8 mb-12 last:mb-0 items-start reveal">
-                            <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100"></div>
-                            <div class="z-10 sm:col-span-4">
-                                <div class="rounded-lg border-2 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
-                                    <img loading="lazy" src="assets/img/airport-shopping1.png" alt="Online Shopping from Display Ad at Airport" class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
-                                </div>
-                            </div>
-                            <div class="z-10 sm:col-span-4">
-                                <ul class="mb-3 flex flex-wrap gap-2">
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Mobile Commerce</div></li>
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Shopping</div></li>
-                                </ul>
-                                <h3 class="font-bold leading-snug text-slate-900 text-lg">Online Shopping from Display Ad at Airport</h3>
-                                <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-2">Designed a seamless checkout experience triggered from an airport display ad, enabling first-time users to move from inspiration to purchase in moments. Focused on speed, clarity, and flexible delivery scheduling, the flow supports on-the-go shoppers and real-world travel contexts.</p>
-                                <div class="mt-6 flex flex-wrap gap-3 relative z-20">
-                                    <a href="online-shopping-at-airport.html" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                        View Project <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Project 4 -->
                         <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-8 mb-12 last:mb-0 items-start reveal">
                             <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100"></div>
@@ -293,12 +291,12 @@
                                 </div>
                             </div>
                             <div class="z-10 sm:col-span-4">
-                                <ul class="mb-3 flex flex-wrap gap-2">
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">CRM</div></li>
-                                    <li><div class="flex items-center rounded-full bg-green-400/10 px-2.5 py-0.5 text-xs font-medium leading-5 text-green-700 border border-green-400/20">MS 365</div></li>
+                                <ul class="mt-3 mb-3 flex flex-wrap gap-2">
+                                    <li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">CRM</div></li>
+                                    <li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">MS 365</div></li>
                                 </ul>
                                 <h3 class="font-bold leading-snug text-slate-900 text-lg">CRM Application For Hospitality Management Company</h3>
-                                <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-2">Designed a lightweight CRM layered on Microsoft 365 to streamline hospitality operations without relying on the core system. Optimized for small devices, it empowers waitstaff to access and update guest information in real time while serving, improving speed, autonomy, and on-floor efficiency.</p>
+                                <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">Designed a lightweight CRM layered on Microsoft 365 to streamline hospitality operations without relying on the core system. Optimized for small devices, it empowers waitstaff to access and update guest information in real time while serving, improving speed, autonomy, and on-floor efficiency.</p>
                                 <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                     <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-gray px-3.5 py-1.5 text-xs font-semibold text-gray-500 ring-1 ring-slate-200 transition-all active:scale-95 shadow-sm">
                                         Coming Soon.. 
@@ -334,7 +332,7 @@
                                 </div>
                                 <div class="flex flex-col gap-1 w-full min-w-0">
                                     <h4 class="text-base font-bold text-slate-900">Pet Care</h4>
-                                    <p class="text-xs leading-relaxed text-slate-500 line-clamp-2">Designed a seamless checkout experience triggered from an airport display ad, enabling first-time users to move from inspiration to purchase in moments.</p>
+                                    <p class="text-xs leading-relaxed text-slate-500 line-clamp-4">Designed a seamless checkout experience triggered from an airport display ad, enabling first-time users to move from inspiration to purchase in moments.</p>
                                     <a href="#" class="inline-flex items-center gap-1 text-sm font-semibold text-green-600 hover:text-green-700 mt-1 group/link">
                                         View project <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover/link:translate-x-1"></i>
                                     </a>
@@ -429,12 +427,12 @@
             mainContent.dataset.expanded = val ? "true" : "false";
         }
 
-        function renderMainToggleButton() {
+        function renderMainToggleButton() {            
             if (isMainExpanded()) {
                 // Expanded => show Collapse + right arrow (in)
                 toggleText.innerText = "Collapse";
                 toggleIcon.innerHTML = `
-                    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <g stroke="#15803d" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5.83278 2.46842L9.53158 5.83278L6.16722 9.53158" />
                         <path d="M2.46842 6.16722L9.53158 5.83278" />
                     </g>`;
@@ -442,7 +440,7 @@
                 // Default => show Expand + left arrow (out)
                 toggleText.innerText = "Expand";
                 toggleIcon.innerHTML = `
-                    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <g stroke="#15803d" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M6.14853 9.53275L2.46781 6.14863L5.85193 2.4679" />
                         <path d="M9.53265 5.85202L2.46781 6.14863" />
                     </g>`;
@@ -453,7 +451,7 @@
             setMainExpanded(true);
 
             // Sidebar collapses to accommodate
-            sidebar.classList.remove('lg:w-1/2');
+            sidebar.classList.remove('lg:w-1/3');
             sidebar.classList.add('lg:w-[120px]', 'items-center');
 
             sidebarDetails.style.maxHeight = '0px';
@@ -484,10 +482,10 @@
             btnResume.classList.add('w-10', 'h-10', 'justify-center', 'p-0');
 
             // Main expands
-            mainContent.classList.remove('lg:w-1/2');
+            mainContent.classList.remove('lg:w-1/3');
             mainContent.classList.add('lg:flex-1', 'lg:pl-24');
 
-            projectDescriptions.forEach(el => el.classList.remove('line-clamp-2'));
+            projectDescriptions.forEach(el => el.classList.remove('line-clamp-4'));
 
             renderMainToggleButton();
         }
@@ -497,7 +495,7 @@
 
             // Sidebar expands back
             sidebar.classList.remove('lg:w-[120px]', 'items-center');
-            sidebar.classList.add('lg:w-1/2');
+            sidebar.classList.add('lg:w-1/3');
 
             sidebarDetails.style.maxHeight = '1000px';
             sidebarDetails.style.marginTop = '0px';
@@ -528,9 +526,9 @@
 
             // Main normal
             mainContent.classList.remove('lg:flex-1', 'lg:pl-24');
-            mainContent.classList.add('lg:w-1/2');
+            mainContent.classList.add('lg:w-1/3');
 
-            projectDescriptions.forEach(el => el.classList.add('line-clamp-2'));
+            projectDescriptions.forEach(el => el.classList.add('line-clamp-4'));
 
             renderMainToggleButton();
         }
