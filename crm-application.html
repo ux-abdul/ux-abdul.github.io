@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Check-in App - Abdul Hasib</title>
+    <title>CRM - Application for Hospitality Management - Abdul Hasib</title>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2316a34a%22 /><text x=%2250%22 y=%2250%22 font-family=%22Arial, sans-serif%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.35em%22>AH</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -77,7 +77,7 @@
 
             <!-- Sidebar (Permanently Collapsed) -->
             <header id="sidebar"
-                class="hidden lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[120px] lg:flex-col lg:justify-between lg:py-24 z-50 items-center transition-all duration-500">
+                class="hidden lg:sticky lg:top-0 lg:self-start lg:flex lg:h-screen lg:max-h-screen lg:w-[120px] lg:flex-col lg:justify-between lg:py-24 z-50 items-center transition-all duration-500">
                 <div id="sidebar-content" class="w-full">
                     <!-- Name Container -->
                     <div class="relative min-h-[3rem] flex items-center justify-center transition-all duration-300"
@@ -155,7 +155,7 @@
                 <article>
                     <!-- Header -->
                     <header class="mb-10 reveal">
-                        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-6">ERP Solution
+                        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-6">CRM Application
                         </h1>
                         <p class="text-xl leading-relaxed text-slate-600 max-w-3xl">Designed a lightweight CRM layered on Microsoft 365 to streamline hospitality operations without relying on the core system. Optimized for small devices, it empowers waitstaff to access and update guest information in real time while serving, improving speed, autonomy and on-floor efficiency.   
                         </p>
@@ -171,10 +171,64 @@
                     </header>
 
                     <!-- Hero Image -->
-                    <div
+                    <!-- <div
                         class="mb-12 rounded-xl overflow-hidden border-2 border-slate-200/50 bg-white shadow-sm reveal">
                         <img loading="lazy" src="assets/img/hotel-main-preview.png" alt="Hotel Check-in App Interface"
                             class="w-full h-auto object-cover">
+                    </div> -->
+                    <!-- Hero Video -->
+                    <!-- Video Section -->
+                    <div class="grid grid-cols-1 gap-12 mb-12">
+                        <!-- 1 -->
+                        <div class="space-y-4">
+                            <div
+                                class="rounded-xl overflow-hidden border-1 border-slate-200 bg-slate-100 relative group transition-colors">
+
+                                <video
+                                    id="creditCardVideo"
+                                    class="w-full h-auto object-cover"
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                >
+                                    <source src="assets/img/crm-thumbnail.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+
+                                <!-- Play / Pause Button -->
+                                <button
+                                    id="videoToggle"
+                                    type="button"
+                                    aria-label="Pause video"
+                                    class="absolute bottom-4 right-4 w-10 h-10 rounded-full
+                                        bg-black/70 hover:bg-black/90 text-white
+                                        flex items-center justify-center
+                                        transition-all duration-200
+                                        backdrop-blur-sm">
+
+                                    <!-- Pause icon -->
+                                    <svg id="pauseIcon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                        class="w-5 h-5">
+                                        <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/>
+                                    </svg>
+
+                                    <!-- Play icon -->
+                                    <svg id="playIcon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                        class="w-5 h-5 hidden">
+                                        <path d="M8 5v14l11-7L8 5z"/>
+                                    </svg>
+                                </button>
+
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Metadata Grid -->
@@ -234,174 +288,18 @@
                             <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-4">The
                                 Challenge</h2>
                             <p class="mb-4">Transitioning from a comprehensive MS 365 application to a standalone vendor management app involves integrating API data, ensuring data consistency, security and user-friendly interfaces.</p>
-                            <p class="mb-4">I led the end-to-end redesign of their hotel management application,
-                                focusing on streamlining workflows, consolidating features and creating an intuitive
-                                interface that enhanced both employee efficiency and guest experience.</p>
-
-                            <!-- <div class="mt-8 space-y-6">
-                                <div class="pl-5 border-l-4 border-[#fb2c36]">
-                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Complex onboarding flow</h3>
-                                    <p class="text-sm text-slate-600">Multi-step guest check-in process caused confusion
-                                        and delays during peak hours</p>
-                                </div>
-                                <div class="pl-5 border-l-4 border-[#ff6900]">
-                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Redundant data entry</h3>
-                                    <p class="text-sm text-slate-600">Guest information and membership enrollment
-                                        required separate forms with duplicate fields</p>
-                                </div>
-                                <div class="pl-5 border-l-4 border-[#f0b100]">
-                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Third-party dependency</h3>
-                                    <p class="text-sm text-slate-600">Guest requests were handled through an external
-                                        application, creating workflow disruption</p>
-                                </div>
-                                <div class="pl-5 border-l-4 border-[#ad46ff]">
-                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Limited search capability
-                                    </h3>
-                                    <p class="text-sm text-slate-600">Basic name-only search made it difficult to
-                                        quickly locate bookings</p>
-                                </div>
-                            </div> -->
                         </section>
 
-                        <section class="reveal">
-                            <div class="flex flex-col gap-6 mb-16">
-                                <h3 class="text-base font-semibold text-slate-900 mb-1"
-                                    style="letter-spacing: 0.3691px;">
-                                    Understanding the current pain points
-                                </h3>
-                                <p class="text-sm text-slate-600" style="letter-spacing: -0.4395px;">
-                                    I conducted a comprehensive UX audit and user research study with front desk
-                                    associates across multiple venue locations to understand their daily workflows, pain points and
-                                    needs.
-                                </p>
-                            </div>
-                            <!-- <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                 
 
-                                <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3">
-                                    <span class="text-4xl font-bold text-slate-800 tracking-tight">100%</span>
-                                    <p class="text-sm text-slate-600 leading-snug">Staff rely on the current system
-                                        daily</p>
-                                </div>
-                                <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3">
-                                    <span class="text-4xl font-bold text-slate-800 tracking-tight">70%</span>
-                                    <p class="text-sm text-slate-600 leading-snug">Unable to complete tasks within
-                                        expected timeframe</p>
-                                </div>
-                                <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3">
-                                    <span class="text-4xl font-bold text-slate-800 tracking-tight">80%</span>
-                                    <p class="text-sm text-slate-600 leading-snug">Struggled to find relevant
-                                        information quickly</p>
-                                </div>
-                                <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3">
-                                    <span class="text-4xl font-bold text-slate-800 tracking-tight">60%</span>
-                                    <p class="text-sm text-slate-600 leading-snug">Believed the system had significant
-                                        room for improvement</p>
-                                </div>
-                            </div> -->
-                        </section>
-
-                        <section class="reveal">
-                            <div
-                                class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
-                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">Personas</h2>
-                            </div>
-                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-8">Personas
-                            </h2>
-
-                            <div class="space-y-8">
-                                <!-- Persona 1 -->
-                                <div
-                                    class="flex flex-col md:flex-row gap-8 bg-white p-8 rounded-2xl border border-slate-200">
-                                    <div
-                                        class="md:w-1/3 bg-teal-50/50 rounded-xl p-6 flex flex-col items-center justify-center text-center shrink-0">
-                                        <div
-                                            class="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-white shadow-sm">
-                                            <img src="https://images.unsplash.com/photo-1765005204058-10418f5123c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGNvcnBvcmF0ZSUyMGhlYWRzaG90JTIwc21pbGluZ3xlbnwxfHx8fDE3Njk5NjYzMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                                                alt="Alice Johnson" class="w-full h-full object-cover">
-                                        </div>
-                                        <h3 class="text-lg font-bold text-slate-900">Alice Johnson</h3>
-                                        <p class="text-sm text-slate-500 font-medium">Front Desk Associate, 32</p>
-                                    </div>
-                                    <div class="md:w-2/3">
-                                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">Experienced hotel staff
-                                            member managing 50+ daily check-ins at a busy downtown property. Values
-                                            efficiency and delivering excellent guest service.</p>
-                                        <div class="grid sm:grid-cols-2 gap-6">
-                                            <div>
-                                                <h4 class="font-bold text-slate-900 mb-2 text-sm">A day in their life
-                                                </h4>
-                                                <ul
-                                                    class="list-disc pl-4 space-y-1.5 text-xs text-slate-600 marker:text-green-500">
-                                                    <li>Handles check-in for 50+ guests daily during peak hours</li>
-                                                    <li>Manages membership enrollments and profile updates</li>
-                                                    <li>Coordinates with housekeeping and maintenance teams for guest
-                                                        requests</li>
-                                                </ul>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-slate-900 mb-2 text-sm">Pain points</h4>
-                                                <ul
-                                                    class="list-disc pl-4 space-y-1.5 text-xs text-slate-600 marker:text-red-400">
-                                                    <li>Switching between multiple systems disrupts workflow and slows
-                                                        down check-in process</li>
-                                                    <li>Guests become impatient during lengthy enrollment and data entry
-                                                        procedures</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Persona 2 -->
-                                <div
-                                    class="flex flex-col md:flex-row gap-8 bg-white p-8 rounded-2xl border border-slate-200">
-                                    <div
-                                        class="md:w-1/3 bg-teal-50/50 rounded-xl p-6 flex flex-col items-center justify-center text-center shrink-0">
-                                        <div
-                                            class="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-white shadow-sm">
-                                            <img src="https://images.unsplash.com/photo-1764084051438-369ad6a09334?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBjYXN1YWwlMjBidXNpbmVzcyUyMGhlYWRzaG90JTIwc21pbGluZ3xlbnwxfHx8fDE3Njk5NjYzMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                                                alt="James Smith" class="w-full h-full object-cover">
-                                        </div>
-                                        <h3 class="text-lg font-bold text-slate-900">James Smith</h3>
-                                        <p class="text-sm text-slate-500 font-medium">Corporate Employee Male, 42</p>
-                                    </div>
-                                    <div class="md:w-2/3">
-                                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">Frequent business
-                                            traveler who values quick, seamless check-in experiences. Travels 2-3 times
-                                            monthly and expects consistent service quality.</p>
-                                        <div class="grid sm:grid-cols-2 gap-6">
-                                            <div>
-                                                <h4 class="font-bold text-slate-900 mb-2 text-sm">A day in their life
-                                                </h4>
-                                                <ul
-                                                    class="list-disc pl-4 space-y-1.5 text-xs text-slate-600 marker:text-green-500">
-                                                    <li>Arrives at hotels late evening after long business meetings</li>
-                                                    <li>Needs quick access to room and amenities without delays</li>
-                                                    <li>Expects membership benefits to be automatically recognized and
-                                                        applied</li>
-                                                </ul>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-slate-900 mb-2 text-sm">Pain points</h4>
-                                                <ul
-                                                    class="list-disc pl-4 space-y-1.5 text-xs text-slate-600 marker:text-red-400">
-                                                    <li>Repetitive information requests at each hotel visit despite
-                                                        being a loyalty member</li>
-                                                    <li>Long wait times at front desk during peak check-in hours</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+                        
 
                         <section class="reveal">
                             <div
                                 class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
                                 <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">The Solution</h2>
                             </div>
-                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-8">The
+                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mt-16 mb-8">The
                                 Solution</h2>
                             <div class="mb-8">
                                 
@@ -421,11 +319,11 @@
                                     <div class="flex-1 w-full">
                                         <div
                                             class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                                            <h4 class="text-lg font-bold text-slate-900">Invoice Management</h4>
+                                            <h4 class="text-lg font-bold text-slate-900">Credit Card Reconciliation</h4>
                                             <span
-                                                class="self-start sm:self-auto inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Qucker Payment</span>
+                                                class="self-start sm:self-auto inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Quicker Validation</span>
                                         </div>
-                                        <p class="text-slate-600 text-sm leading-relaxed">Streamline the creation, tracking, and processing of vendor invoices.
+                                        <p class="text-slate-600 text-sm leading-relaxed">Validating credit card transactions agaist submitted documents.
                                         </p>
                                     </div>
                                 </div>
@@ -439,11 +337,11 @@
                                     <div class="flex-1 w-full">
                                         <div
                                             class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                                            <h4 class="text-lg font-bold text-slate-900">Payment Processing</h4>
+                                            <h4 class="text-lg font-bold text-slate-900">Invoice Creation</h4>
                                             <span
-                                                class="self-start sm:self-auto inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Easy Payment Approval</span>
+                                                class="self-start sm:self-auto inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Quicker Payment</span>
                                         </div>
-                                        <p class="text-slate-600 text-sm leading-relaxed">Facilitate secure and efficient payments to and from vendors.
+                                        <p class="text-slate-600 text-sm leading-relaxed">Streamline the creation, tracking, and processing of vendor invoices.
                                         </p>
                                     </div>
                                 </div>
@@ -457,13 +355,13 @@
                                     <div class="flex-1 w-full">
                                         <div
                                             class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                                            <h4 class="text-lg font-bold text-slate-900">Asset Management
+                                            <h4 class="text-lg font-bold text-slate-900">Payment Processing
                                             </h4>
                                             <span
-                                                class="self-start sm:self-auto inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Procurements
+                                                class="self-start sm:self-auto inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Gaming Payout
                                             </span>
                                         </div>
-                                        <p class="text-slate-600 text-sm leading-relaxed">Track and manage vendor-related assets independently.
+                                        <p class="text-slate-600 text-sm leading-relaxed">Facilitate secure and efficient payments to and from vendors.
                                         </p>
                                     </div>
                                 </div>
@@ -477,7 +375,7 @@
                                     <div class="flex-1 w-full">
                                         <div
                                             class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                                            <h4 class="text-lg font-bold text-slate-900">Mobile/Tab Support</h4>
+                                            <h4 class="text-lg font-bold text-slate-900">Mobile & Tablet Device Support</h4>
                                             <span
                                                 class="self-start sm:self-auto inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Responsiveness
                                                 </span>
@@ -494,7 +392,7 @@
                                 <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">Key Components
                                 </h2>
                             </div>
-                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-8">Key
+                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mt-16 mb-8">Key
                                 Features</h2>
 
                             <div class="space-y-16">
@@ -510,7 +408,7 @@
                                         <!-- 1 -->
                                         <div class="space-y-4">
                                             <div
-                                                class="rounded-xl overflow-hidden border-2 border-slate-200 bg-slate-100 relative group transition-colors">
+                                                class="rounded-xl overflow-hidden border-1 border-slate-200 bg-slate-100 relative group transition-colors">
 
                                                 <video
                                                     id="creditCardVideo"
@@ -563,168 +461,190 @@
                                     
                                 </div>
 
-                                <!-- Component 2: Combined Guest Information Form-->
+                                <!-- Component 2: Create Invoice-->
                                 <div class="bg-white p-6 rounded-lg border border-slate-200">
                                     <div class="mb-6">
-                                        <h3 class="text-xl font-bold text-slate-900 mb-2">Combined Guest Information,
-                                            Enrollment and Preference Form</h3>
-                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-6">Merged the
-                                            guest details form with a visual progress bar and integrated guest
-                                            preferences in a single, streamlined interface. This redesign eliminated
-                                            redundant steps and provided clear visibility into profile completion
-                                            status, encouraging Front desk associate (FDA) to add complete information
-                                            of guests.</p>
+                                        <h3 class="text-xl font-bold text-slate-900 mb-2">Invoice Creation</h3>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-6">Streamlined invoice creation with simpler steps which helps user create invoice faster by just selecting Venue, Customer and Line Items details.</p>
                                     </div>
 
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                        <!-- Before State -->
-                                        <div>
-                                            <div class="mb-4">
-                                                <span
-                                                    class="inline-block px-3 py-1 rounded-full bg-red-50 text-red-700 text-xs font-bold uppercase tracking-wide ring-1 ring-inset ring-red-600/20">Before</span>
-                                            </div>
-
-                                            <div
-                                                class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 relative">
-                                                <img src="assets/img/combined-ingo-before.png"
-                                                    alt="Fragmented legacy form interface"
-                                                    class="w-full h-full object-cover">
-                                            </div>
-                                            <p class="mt-4 text-slate-600 leading-relaxed text-sm">
-                                                Previously was using 3 different form to collect information
-                                            </p>
-                                        </div>
-
-                                        <!-- After State -->
-                                        <div>
-                                            <div class="mb-4">
-                                                <span
-                                                    class="inline-block px-3 py-1 rounded-full bg-green-50 text-green-700 text-xs font-bold uppercase tracking-wide ring-1 ring-inset ring-green-600/20">After</span>
-                                            </div>
-
-                                            <div class="rounded-xl overflow-hidden border border-slate-200 bg-white">
-                                                <img src="assets/img/combined-ingo-after.png"
-                                                    alt="Unified guest profile interface"
-                                                    class="w-full h-full object-cover">
-                                            </div>
-                                            <p class="mt-4 text-slate-600 leading-relaxed text-sm">
-                                                Unified single form for all 3 forms previously used.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <!-- Component 3: Guest Information Card -->
-                                <div class="bg-white p-6 rounded-lg border border-slate-200">
-                                    <div class="mb-6">
-                                        <h3 class="text-xl font-bold text-slate-900 mb-2">Guest Profile</h3>
-                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-6">Merged the
-                                            guest details form with a visual progress bar and integrated guest
-                                            preferences in a single, streamlined interface.</p>
-                                    </div>
-
-                                    <!-- Component 3: Guest Info Fixed version  -->
-                                    <div class="mt-8 relative w-full rounded-xl overflow-hidden select-none cursor-ew-resize group bg-slate-100"
-                                        id="slider-container">
-
-                                        <!-- After Image (sets container height) -->
-                                        <img src="assets/img/after-guest-info.png" alt="New Design"
-                                            class="block w-full h-auto pointer-events-none" draggable="false">
-
-                                        <!-- Overlay layer -->
-                                        <div class="absolute inset-0">
-
-                                            <div
-                                                class="absolute top-4 left-4 bg-green-50/90 backdrop-blur text-green-700 text-xs font-bold px-3 py-1 rounded-full shadow-sm z-10 pointer-events-none ring-1 ring-inset ring-green-600/30">
-                                                After
-                                            </div>
-
-                                            <!-- Before Image (Clipped) -->
-                                            <div class="absolute inset-0 w-full h-full pointer-events-none"
-                                                id="slider-before-container" style="clip-path: inset(0 0 0 50%);">
-                                                <img src="assets/img/before-guest-info.png" alt="Legacy Interface"
-                                                    class="w-full h-full object-cover" draggable="false">
-                                            </div>
-
-                                            <div class="absolute top-4 right-4 bg-red-50/90 backdrop-blur text-red-700 text-xs font-bold px-3 py-1 rounded-full shadow-sm z-20 pointer-events-none ring-1 ring-inset ring-red-600/30 transition-opacity duration-200"
-                                                id="slider-before-label">
-                                                Before
-                                            </div>
-
-                                            <!-- Handle -->
-                                            <div class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-30 shadow-[0_0_10px_rgba(0,0,0,0.3)]"
-                                                style="left: 50%" id="slider-handle">
-                                                <div
-                                                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-slate-600 ring-4 ring-black/5">
-                                                    <i class="fa-solid fa-arrows-left-right"></i>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Component 4: Advanced Search -->
-                                <div class="bg-white p-6 rounded-lg border border-slate-200 group">
-                                    <div class="mb-4">
-                                        <h3 class="text-xl font-bold text-slate-900 mb-1">Advanced Search</h3>
-                                        <p class="text-slate-600 max-w-3xl">The new design empowers users to quickly
-                                            locate bookings using specific filters such as first name, last name, member
-                                            ID, room number, confirmation number, reservation status, and a custom date
-                                            range.</p>
-                                    </div>
-                                    <p class="text-sm text-slate-600 leading-relaxed mb-4">
-                                        This improvement delivers:<br>
-
-                                        Precision – Eliminates irrelevant results by narrowing the scope to meaningful
-                                        attributes.<br>
-
-                                        Speed – Reduces time spent scanning large datasets, enabling faster
-                                        decision-making.<br>
-
-                                        Usability – Provides a clear, intuitive interface for complex queries without
-                                        overwhelming the user.<br>
-
-                                        The result is a streamlined, efficient search experience that supports hotel
-                                        staff in managing guest onboarding with confidence and ease.
-                                    </p>
-
+                                    <!-- Video Section -->
                                     <div class="grid grid-cols-1 gap-12">
-                                        <!-- Before State -->
+                                        <!-- 1 -->
                                         <div class="space-y-4">
-                                            <div class="flex items-center gap-2 mb-2">
-                                                <span
-                                                    class="px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wide">Before</span>
-                                                <!-- <h4 class="text-sm font-semibold text-slate-900">Fragmented Data</h4> -->
-                                            </div>
                                             <div
-                                                class="rounded-xl overflow-hidden border-2 border-slate-200 border-dashed bg-slate-100 relative h-auto group-hover:border-red-200 transition-colors">
-                                                <img loading="lazy" src="assets/img/advanced-search-old.png"
-                                                    alt="Old fragmented interface"
-                                                    class="w-full h-auto object-cover opacity-70 grayscale">
+                                                class="rounded-xl overflow-hidden border-1 border-slate-200 bg-slate-100 relative group transition-colors">
+
+                                                <video
+                                                    id="creditCardVideo"
+                                                    class="w-full h-auto object-cover"
+                                                    autoplay
+                                                    muted
+                                                    loop
+                                                    playsinline
+                                                    preload="metadata"
+                                                >
+                                                    <source src="assets/img/create-invoice.mp4" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+
+                                                <!-- Play / Pause Button -->
+                                                <button
+                                                    id="videoToggle"
+                                                    type="button"
+                                                    aria-label="Pause video"
+                                                    class="absolute bottom-4 right-4 w-10 h-10 rounded-full
+                                                        bg-black/70 hover:bg-black/90 text-white
+                                                        flex items-center justify-center
+                                                        transition-all duration-200
+                                                        backdrop-blur-sm">
+
+                                                    <!-- Pause icon -->
+                                                    <svg id="pauseIcon"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 24 24"
+                                                        fill="currentColor"
+                                                        class="w-5 h-5">
+                                                        <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/>
+                                                    </svg>
+
+                                                    <!-- Play icon -->
+                                                    <svg id="playIcon"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 24 24"
+                                                        fill="currentColor"
+                                                        class="w-5 h-5 hidden">
+                                                        <path d="M8 5v14l11-7L8 5z"/>
+                                                    </svg>
+                                                </button>
 
                                             </div>
-
-                                        </div>
-
-                                        <!-- After State -->
-                                        <div class="space-y-4">
-                                            <div class="flex items-center gap-2 mb-2">
-                                                <span
-                                                    class="px-2.5 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wide">After</span>
-                                                <!-- <h4 class="text-sm font-semibold text-slate-900">Unified Dashboard</h4> -->
-                                            </div>
-                                            <div
-                                                class="rounded-xl overflow-hidden border border-slate-200 border-dashed bg-white h-auto relative transition-all group-hover:border-green-200">
-                                                <img loading="lazy" src="assets/img/advanced-search-new.png"
-                                                    alt="New Booking Card Component"
-                                                    class="w-full h-full object-cover object-top">
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <!-- Component 3: Gaming Payout -->
+                                <div class="bg-white p-6 rounded-lg border border-slate-200">
+                                    <div class="mb-6">
+                                        <h3 class="text-xl font-bold text-slate-900 mb-2">Gaming Payout</h3>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-6">The on-floor attenders can initiate the gaming win amount to winner right from the Mobile and Tablet without relying to the desktop application which makes the process faster.</p>
+                                    </div>
+
+                                    
+                                    <!-- Video Section Desktop -->
+                                    <div class="grid grid-cols-1 gap-12 mb-12">
+                                        <!-- 1 -->
+                                        <div class="space-y-4">
+                                            <div
+                                                class="rounded-xl overflow-hidden border-1 border-slate-200 bg-slate-100 relative group transition-colors">
+
+                                                <video
+                                                    id="creditCardVideo"
+                                                    class="w-full h-auto object-cover"
+                                                    autoplay
+                                                    muted
+                                                    loop
+                                                    playsinline
+                                                    preload="metadata"
+                                                >
+                                                    <source src="assets/img/Gaming-Payout-desktop.mp4" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+
+                                                <!-- Play / Pause Button -->
+                                                <button
+                                                    id="videoToggle"
+                                                    type="button"
+                                                    aria-label="Pause video"
+                                                    class="absolute bottom-4 right-4 w-10 h-10 rounded-full
+                                                        bg-black/70 hover:bg-black/90 text-white
+                                                        flex items-center justify-center
+                                                        transition-all duration-200
+                                                        backdrop-blur-sm">
+
+                                                    <!-- Pause icon -->
+                                                    <svg id="pauseIcon"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 24 24"
+                                                        fill="currentColor"
+                                                        class="w-5 h-5">
+                                                        <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/>
+                                                    </svg>
+
+                                                    <!-- Play icon -->
+                                                    <svg id="playIcon"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 24 24"
+                                                        fill="currentColor"
+                                                        class="w-5 h-5 hidden">
+                                                        <path d="M8 5v14l11-7L8 5z"/>
+                                                    </svg>
+                                                </button>
+
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <!-- Video Section Mobile -->
+                                    <div class="grid grid-cols-1 gap-12">
+                                        <div class="space-y-4">
+
+                                            <!-- Video Container -->
+                                            <div
+                                            class="w-full max-w-[420px] mx-auto rounded-xl overflow-hidden border-1 border-slate-200 bg-slate-100 relative group transition-colors">
+
+                                                <video
+                                                    id="creditCardVideo"
+                                                    class="w-full h-auto object-cover"
+                                                    autoplay
+                                                    muted
+                                                    loop
+                                                    playsinline
+                                                    preload="metadata"
+                                                >
+                                                    <source src="assets/img/Gaming-Payout-Mobile.mp4" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+
+                                                <!-- Play / Pause Button -->
+                                                <button
+                                                    id="videoToggle"
+                                                    type="button"
+                                                    aria-label="Pause video"
+                                                    class="absolute bottom-4 right-4 w-10 h-10 rounded-full
+                                                        bg-black/70 hover:bg-black/90 text-white
+                                                        flex items-center justify-center
+                                                        transition-all duration-200
+                                                        backdrop-blur-sm">
+
+                                                    <!-- Pause icon -->
+                                                    <svg
+                                                        id="pauseIcon"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 24 24"
+                                                        fill="currentColor"
+                                                        class="w-5 h-5">
+                                                        <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/>
+                                                    </svg>
+
+                                                    <!-- Play icon -->
+                                                    <svg
+                                                        id="playIcon"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 24 24"
+                                                        fill="currentColor"
+                                                        class="w-5 h-5 hidden">
+                                                        <path d="M8 5v14l11-7L8 5z"/>
+                                                    </svg>
+                                                </button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Component 4: Coming Soon -->
+                                
                             </div>
                         </section>
 
@@ -761,33 +681,31 @@
                             </div>
                             <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-4">Outcome
                             </h2>
-                            <p class="mb-8">By streamlining workflows and consolidating features, the hotel chain
-                                reduced operational costs, improved staff productivity, and enhanced guest satisfaction
-                                scores. The integrated request management system alone saved an estimated $50,000
-                                annually in third-party software costs while improving response times by 65%.</p>
+                            <p class="mb-8">The redesign transformed complex, dependency-heavy workflows into a more streamlined and self-sufficient experience. By simplifying reconciliation, payment and gaming workflows, the solution reduced processing time, increased operational independence and enabled users to complete critical tasks faster.</p>
 
                             <div
-                                class="grid grid-cols-1 md:grid-cols-4 gap-8 p-8 bg-slate-50 border border-slate-200 rounded-lg">
+                                class="grid grid-cols-1 bg-white md:grid-cols-4 gap-8 p-8 border border-slate-200 rounded-lg">
                                 <div class="flex flex-col gap-2">
                                     <i class="fa-regular fa-clock w-5 h-5 text-slate-900 text-xl"></i>
-                                    <span class="text-4xl font-bold text-green-600 tracking-tight">40%</span>
-                                    <span class="text-sm text-slate-500 leading-snug">Reduction in check-in time</span>
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight">50%</span>
+                                    <span class="text-sm text-slate-500 leading-snug">Faster transaction reconciliation</span>
                                 </div>
                                 <div class="flex flex-col gap-2">
-                                    <i class="fa-solid fa-arrow-trend-down w-5 h-5 text-slate-900 text-xl"></i>
-                                    <span class="text-4xl font-bold text-green-600 tracking-tight">60%</span>
-                                    <span class="text-sm text-slate-500 leading-snug">Fewer form fields</span>
+                                    <i class="fa-solid fa-hand-holding-dollar w-5 h-5 text-slate-900 text-xl"></i>
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight"><10 Min</span>
+                                    <span class="text-sm text-slate-500 leading-snug">Gaming payout processing</span>
                                 </div>
                                 <div class="flex flex-col gap-2">
-                                    <i class="fa-regular fa-rectangle-list w-5 h-5 text-slate-900 text-xl"></i>
-                                    <span class="text-4xl font-bold text-green-600 tracking-tight">3x</span>
-                                    <span class="text-sm text-slate-500 leading-snug">faster booking retrieval</span>
+                                    <i class="fa-regular fa-face-kiss-wink-heart w-5 h-5 text-slate-900 text-xl"></i>
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight">100%</span>
+                                    <span class="text-sm text-slate-500 leading-snug">SME satisfaction</span>
                                 </div>
                                 <div class="flex flex-col gap-2">
-                                    <i class="fa-regular fa-address-card w-5 h-5 text-slate-900 text-xl"></i>
-                                    <span class="text-4xl font-bold text-green-600 tracking-tight">95%</span>
-                                    <span class="text-sm text-slate-500 leading-snug">Staff satisfaction</span>
+                                    <i class="fa-solid fa-computer w-5 h-5 text-slate-900 text-xl"></i>
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight">0</span>
+                                    <span class="text-sm text-slate-500 leading-snug">Dependency for key tasks</span>
                                 </div>
+                                
                             </div>
                         </section>
 
@@ -845,34 +763,31 @@
                             </a>
 
                             <!-- Card 2 -->
-                            <a href="#"
+                            <a href="hotel-check-in-app.html"
                                 class="group relative block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-200 h-full p-5">
                                 <div class="flex flex-col gap-4 h-full">
                                     <div
                                         class="self-start inline-block px-2 py-0.5 rounded-full bg-slate-100 text-green-600 text-[10px] font-bold uppercase tracking-wider">
-                                        CRM • MS 365
+                                        Hospitality • CRM • SaaS
                                     </div>
 
                                     <div class="flex gap-4">
                                         <div class="w-[140px] h-fit shrink-0 bg-slate-200 rounded-lg overflow-hidden">
-                                            <img src="assets/img/crm-thumb.png" alt="Generative AI Suite"
+                                            <img src="assets/img/hotel1.png" alt="Hotel Check-in App"
                                                 class="w-full h-full object-cover">
                                         </div>
 
                                         <div class="flex flex-col justify-between py-1 min-w-0">
                                             <div>
-                                                <h4 class="font-bold text-slate-900 text-[16px] leading-tight mb-2">CRM
-                                                    Application</h4>
+                                                <h4 class="font-bold text-slate-900 text-[16px] leading-tight mb-2">Hotel
+                                                    Check-in App</h4>
                                                 <p class="text-[12px] text-slate-500 leading-relaxed line-clamp-3">
-                                                    Designed a lightweight CRM layered on Microsoft 365 to streamline
-                                                    hospitality operations without relying on the core system. Optimized
-                                                    for small devices, it empowers waitstaff to access and update guest
-                                                    information in real time while serving, improving speed, autonomy,
-                                                    and on-floor efficiency.</p>
+                                                    Streamlining hotel guest check-in and membership enrollment to reduce
+                                                    wait times and improve operational efficiency.</p>
                                             </div>
                                             <div
-                                                class="mt-2 text-[14px] font-semibold text-gray-500 flex items-center gap-1 group-hover:gap-2 transition-all">
-                                                Coming Soon <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                                                class="mt-2 text-[14px] font-semibold text-green-600 flex items-center gap-1 group-hover:gap-2 transition-all">
+                                                View project <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -931,55 +846,6 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Before/After Slider Logic
-        const sliderContainer = document.getElementById('slider-container');
-        if (sliderContainer) {
-            const sliderHandle = document.getElementById('slider-handle');
-            const sliderBeforeContainer = document.getElementById('slider-before-container');
-            const sliderBeforeLabel = document.getElementById('slider-before-label');
-
-            let isDragging = false;
-
-            const updateSlider = (clientX) => {
-                const rect = sliderContainer.getBoundingClientRect();
-                const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-                const percentage = (x / rect.width) * 100;
-
-                sliderHandle.style.left = `${percentage}%`;
-                sliderBeforeContainer.style.clipPath = `inset(0 0 0 ${percentage}%)`;
-
-                if (percentage > 90) {
-                    sliderBeforeLabel.style.opacity = '0';
-                } else {
-                    sliderBeforeLabel.style.opacity = '1';
-                }
-            };
-
-            const startDrag = (e) => {
-                isDragging = true;
-            };
-
-            const stopDrag = () => {
-                isDragging = false;
-            };
-
-            const moveDrag = (e) => {
-                if (!isDragging) return;
-                const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-                updateSlider(clientX);
-            };
-
-            sliderContainer.addEventListener('mousedown', startDrag);
-            sliderContainer.addEventListener('touchstart', startDrag, { passive: true });
-
-            window.addEventListener('mouseup', stopDrag);
-            window.addEventListener('touchend', stopDrag);
-
-            window.addEventListener('mousemove', moveDrag);
-            window.addEventListener('touchmove', moveDrag, { passive: false });
-        }
-
         
             const video = document.getElementById('creditCardVideo');
             const toggleButton = document.getElementById('videoToggle');
