@@ -16,6 +16,11 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+
+        /* Temporarily hidden — remove class from markup to show again */
+        .site-connect-actions-hidden {
+            display: none !important;
+        }
     </style>
 </head>
 
@@ -42,7 +47,7 @@
                 </div>
 
                 <!-- Actions & Socials -->
-                <div class="flex items-center gap-5">
+                <div class="flex items-center gap-5 site-connect-actions-hidden">
                     <!-- Action Buttons -->
                     <div class="flex items-center gap-4">
                         <a href="mailto:ux.abdul@gmail.com?subject=Hi,"
@@ -84,7 +89,7 @@
                     </div>
                 </div>
 
-                <div class="mt-12 lg:mt-0 flex flex-col items-center w-full">
+                <div class="mt-12 lg:mt-0 flex flex-col items-center w-full site-connect-actions-hidden">
                     <div class="flex flex-col items-center gap-4 w-full">
                         <div class="flex flex-col gap-4 items-center w-full">
                             <!-- Connect Button -->
@@ -546,7 +551,7 @@
                         <section>
                             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                                 <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3">
-                                    <span class="text-4xl font-bold text-green-600 tracking-tight">2m</span>
+                                    <span class="text-4xl font-bold text-green-600 tracking-tight">2min</span>
                                     <p class="text-sm text-slate-600 leading-snug">Average time to complete checkout</p>
                                 </div>
                                 <div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3">
@@ -589,7 +594,7 @@
 
                                     <div class="flex gap-4">
                                         <div class="w-[140px] h-fit shrink-0 bg-slate-200 rounded-lg overflow-hidden">
-                                            <img src="assets/img/hotel1.png" alt="Hotel App"
+                                            <img src="assets/img/hotel1.jpg" alt="Hotel App"
                                                 class="w-full h-full object-cover">
                                         </div>
 
@@ -611,7 +616,7 @@
                             </a>
 
                             <!-- Card 2 -->
-                            <a href="#"
+                            <a href="crm-application.html"
                                 class="group relative block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-200 h-full p-5">
                                 <div class="flex flex-col gap-4 h-full">
                                     <div
@@ -637,9 +642,13 @@
                                                     and on-floor efficiency.</p>
                                             </div>
                                             <div
+                                                class="mt-2 text-[14px] font-semibold text-green-600 flex items-center gap-1 group-hover:gap-2 transition-all">
+                                                View project <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                                            </div>
+                                            <!-- <div
                                                 class="mt-2 text-[14px] font-semibold text-gray-500 flex items-center gap-1 group-hover:gap-2 transition-all">
                                                 Coming Soon <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

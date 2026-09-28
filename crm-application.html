@@ -26,6 +26,11 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Temporarily hidden — remove class from markup to show again */
+        .site-connect-actions-hidden {
+            display: none !important;
+        }
     </style>
 </head>
 
@@ -47,7 +52,7 @@
             </div>
 
             <!-- Actions & Socials -->
-            <div class="flex items-center gap-5">
+            <div class="flex items-center gap-5 site-connect-actions-hidden">
                 <!-- Action Buttons -->
                 <!-- Action Buttons -->
                 <div class="flex items-center gap-4">
@@ -91,7 +96,7 @@
 
                 </div>
 
-                <div id="sidebar-footer" class="mt-12 lg:mt-0">
+                <div id="sidebar-footer" class="mt-12 lg:mt-0 site-connect-actions-hidden">
                     <div class="flex flex-col items-center gap-4 w-full">
                         <div class="flex flex-col gap-4 items-center w-full">
                             <!-- Connect Button -->
@@ -712,7 +717,6 @@
                     </div>
                 </article>
 
-                <!-- See more of my work -->
                 <!-- See More of my work -->
                 <section class="mt-24 pt-12 border-t border-slate-200">
                     <div class="flex flex-col lg:flex-row gap-6 items-start">
@@ -773,7 +777,7 @@
 
                                     <div class="flex gap-4">
                                         <div class="w-[140px] h-fit shrink-0 bg-slate-200 rounded-lg overflow-hidden">
-                                            <img src="assets/img/hotel1.png" alt="Hotel Check-in App"
+                                            <img src="assets/img/hotel1.jpg" alt="Hotel Check-in App"
                                                 class="w-full h-full object-cover">
                                         </div>
 
