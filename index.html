@@ -8,7 +8,7 @@
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2316a34a%22 /><text x=%2250%22 y=%2250%22 font-family=%22Arial, sans-serif%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.35em%22>AH</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
@@ -57,6 +57,25 @@
             font-size: 1.18em;
             line-height: 1;
             color: #0f172a;
+        }
+
+        /* Keyboard focus: one consistent, high-contrast ring (WCAG 2.4.7 / 1.4.11) */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #15803d;
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        /* Respect reduced-motion preference (WCAG 2.3.3) */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto !important; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                transition-delay: 0s !important;
+            }
+            .reveal { opacity: 1; transform: none; }
         }
 
         /* Temporarily hidden — remove class from markup to show again */
@@ -264,14 +283,18 @@
                         </symbol>
     </svg>
 
+    <!-- Skip link (keyboard / screen-reader users) -->
+    <a href="#main-content"
+        class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100000] focus:rounded-full focus:bg-slate-900 focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white">Skip to main content</a>
+
     <!-- Background Gradient -->
-    <div id="cursor-gradient" class="pointer-events-none fixed inset-0 z-30 transition duration-300"></div>
+    <div id="cursor-gradient" aria-hidden="true" class="pointer-events-none fixed inset-0 z-30 transition duration-300"></div>
 
     <!-- Primary navigation -->
     <nav aria-label="Primary" class="fixed inset-x-0 top-0 z-40 pt-4 pb-2">
         <div class="mx-auto max-w-screen-xl px-6 md:px-12 lg:px-24">
             <div id="nav-pill"
-                class="flex items-center justify-between gap-6 rounded-[28px] border border-slate-200/50 bg-slate-50/75 px-5 py-3 shadow-sm backdrop-blur transition-[border-radius] duration-300 -ml-5 md:rounded-full md:px-8 md:py-3.5 md:-ml-8">
+                class="flex items-center justify-between gap-6 rounded-[28px] border border-slate-200/50 bg-slate-50/75 px-5 py-3 shadow-sm backdrop-blur transition-[border-radius] duration-300 md:rounded-full md:px-8 md:py-3.5 md:mr-0 md:-ml-8">
                 <a href="index.html"
                     class="shrink-0 text-base font-bold tracking-tight text-slate-900 transition-colors hover:text-green-700 md:text-lg"
                     aria-label="Abdul Hasib home">AH</a>
@@ -292,22 +315,22 @@
                             class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">Contact</a>
                     </li>
                     <li><a href="resume.html" target="_blank" rel="noopener noreferrer"
-                            class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">Resume</a>
+                            class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">Resume<span class="sr-only"> (opens in a new tab)</span></a>
                     </li>
                 </ul>
 
                 <!-- Mobile / small tablet hamburger toggle -->
                 <button type="button" id="nav-menu-toggle" aria-expanded="false" aria-controls="nav-menu-panel"
                     aria-label="Toggle navigation menu"
-                    class="flex h-8 w-8 shrink-0 items-center justify-center text-slate-900 transition-colors hover:text-green-700 md:hidden">
-                    <svg id="nav-menu-icon-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    class="-mr-2 flex h-11 w-11 shrink-0 items-center justify-center text-slate-900 transition-colors hover:text-green-700 md:hidden">
+                    <svg id="nav-menu-icon-open" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="h-5 w-5">
                         <line x1="4" y1="7" x2="20" y2="7"></line>
                         <line x1="4" y1="12" x2="20" y2="12"></line>
                         <line x1="4" y1="17" x2="20" y2="17"></line>
                     </svg>
-                    <svg id="nav-menu-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    <svg id="nav-menu-icon-close" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="hidden h-5 w-5">
                         <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -317,25 +340,25 @@
             </div>
 
             <!-- Mobile / small tablet dropdown panel -->
-            <div id="nav-menu-panel"
+            <div id="nav-menu-panel" inert
                 class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-out md:hidden">
                 <ul
                     class="-mt-px flex flex-col divide-y divide-slate-200/70 rounded-b-[28px] border border-t-0 border-slate-200/50 bg-slate-50/75 px-5 py-2 shadow-sm backdrop-blur">
                      <li><a href="#about"
-                            class="block py-3.5 text-xs font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">About</a>
+                            class="block py-3.5 text-sm font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">About</a>
                     </li>
                     <li><a href="#projects"
-                            class="block py-3.5 text-xs font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Work</a>
+                            class="block py-3.5 text-sm font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Work</a>
                     </li>
                     <!-- <li><a href="#experiments"
-                            class="block py-3.5 text-xs font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Experiments</a>
+                            class="block py-3.5 text-sm font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Experiments</a>
                     </li> -->
                    
                     <li><a href="#contact"
-                            class="block py-3.5 text-xs font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Contact</a>
+                            class="block py-3.5 text-sm font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Contact</a>
                     </li>
                     <li><a href="resume.html" target="_blank" rel="noopener noreferrer"
-                            class="block py-3.5 text-xs font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Resume</a>
+                            class="block py-3.5 text-sm font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Resume<span class="sr-only"> (opens in a new tab)</span></a>
                     </li>
                 </ul>
             </div>
@@ -351,93 +374,93 @@
                 <div id="sidebar-content" class="w-full">
                     <div id="sidebar-details" class="overflow-hidden max-h-[2200px] opacity-100 mt-0">
                         <div class="mt-16 reveal active" style="transition-delay: 0.2s">
-                            <h3 class="flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] text-slate-500 mb-4">Skills</h3>
-                            <div class="flex flex-wrap gap-2 pr-8">
+                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600 mb-4">Skills</h2>
+                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset">UI/UX,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">UI/UX,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset">Product
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Product
                                     Thinking,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset">Rapid
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Rapid
                                     Prototyping,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset">Usability
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Usability
                                     Testing,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset ring-white">Design
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-white">Design
                                     Systems,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset">Human-AI
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Human-AI
                                     Collaboration,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset">Conversational
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Conversational
                                     Design,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset">Responsible
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Responsible
                                     AI Design</span>
 
                             </div>
                         </div>
 
                         <div class="mt-8 reveal active" style="transition-delay: 0.3s">
-                            <h3 class="flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] text-slate-500 mb-4">Tools</h3>
-                            <div class="flex flex-wrap gap-2 pr-8">
+                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600 mb-4">Tools</h2>
+                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Figma,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Figma,</span>
                                     <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Figma Make,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Figma Make,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Adobe
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Adobe
                                     CC,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Jira,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Jira,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Miro,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Miro,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Axure,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Axure,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">ProtoPie,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">ProtoPie,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Claude,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Claude,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">ChatGPT</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">ChatGPT</span>
                                 
                             </div>
                         </div>
 
                         <div class="mt-8 reveal active" style="transition-delay: 0.4s">
-                            <h3 class="flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] text-slate-500 mb-4">Tech Skills</h3>
-                            <div class="flex flex-wrap gap-2 pr-8">
+                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600 mb-4">Tech Skills</h2>
+                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset ring-slate-500/10">HTML5,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">HTML5,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset ring-slate-500/10">CSS3,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">CSS3,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset ring-slate-500/10">JavaScript,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">JavaScript,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset ring-slate-500/10">React,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">React,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset ring-slate-500/10">Tailwind
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">Tailwind
                                     CSS,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-700 ring-inset ring-slate-500/10">Git</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">Git</span>
                             </div>
                         </div>
 
                         <div class="mt-8 mb-8 reveal active" style="transition-delay: 0.5s">
-                            <h3 class="flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] text-slate-500 mb-4">Hobbies</h3>
-                            <div class="flex flex-wrap gap-2 pr-8">
+                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600 mb-4">Hobbies</h2>
+                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Photography,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Photography,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Sketching,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Sketching,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Travel,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Travel,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Gaming,</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Gaming,</span>
                                 <span
-                                    class="inline-flex items-center rounded-md text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900">Music</span>
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Music</span>
                             </div>
                         </div>
                     </div>
@@ -447,7 +470,7 @@
                     <div class="flex flex-col items-start gap-4 transition-all duration-300 overflow-visible relative z-[99999]"
                         id="connect-container">
                         <div class="flex flex-col items-start gap-4 transition-all duration-300 overflow-visible relative z-[99999]"
-                            id="connect-container">
+                            id="connect-container-inner">
                             <div class="flex flex-wrap gap-3 overflow-visible relative z-[99999]"
                                 id="buttons-container">
 
@@ -456,7 +479,7 @@
                                     class="group relative z-10 hover:z-[999999] inline-flex items-center gap-2 rounded-full bg-[#4ade80] px-6 py-3 text-sm font-semibold text-slate-900 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/20"
                                     id="btn-connect">
 
-                                    <i class="fa-solid fa-envelope h-4 w-4 shrink-0"></i>
+                                    <i aria-hidden="true" class="fa-solid fa-envelope h-4 w-4 shrink-0"></i>
 
                                     <div class="btn-text-wrapper overflow-hidden">
                                         <span class="ml-1">Let's Connect</span>
@@ -471,7 +494,7 @@
                                 <a href="resume.html" target="_blank"
                                     class="group relative z-10 hover:z-[999999] inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-green-700 hover:text-slate-900 ring-1 ring-slate-200 transition-all duration-300 hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm"
                                     id="btn-resume"><i
-                                        class="fa-solid fa-file-alt h-4 w-4 shrink-0 text-current transition-colors"></i>
+                                        aria-hidden="true" class="fa-solid fa-file-alt h-4 w-4 shrink-0 text-current transition-colors"></i>
 
                                     <div class="btn-text-wrapper overflow-hidden">
                                         <span class="ml-1">View Resume</span>
@@ -489,58 +512,22 @@
                     </div>
 
 
-                <!-- Socials -->
-                <div class="flex text-slate-400 gap-5 mt-8 transition-all duration-300" id="socials-container">
-                    <a href="https://www.linkedin.com/in/uxabdul"
-                        class="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-[0px_0px_0px_0px_#e2e8f0,0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition hover:text-slate-900 group relative"
-                        aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in h-5 w-5 text-xl"></i>
-                        <span
-                            class="absolute left-1/2 top-full -translate-x-1/2 mt-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[9999]">LinkedIn</span>
-
-                    </a>
-                    <a href="https://www.instagram.com/ux.abdul"
-                        class="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-[0px_0px_0px_0px_#e2e8f0,0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition hover:text-slate-900 group relative"
-                        aria-label="Instagram"><i class="fa-brands fa-instagram h-5 w-5 text-xl"></i>
-                        <span
-                            class="absolute left-1/2 top-full -translate-x-1/2 mt-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[9999]">Instagram</span>
-
-                    </a>
-                    <a href="https://www.behance.net/ux_abdul"
-                        class="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-[0px_0px_0px_0px_#e2e8f0,0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition hover:text-slate-900 group relative"
-                        aria-label="Behance"><i class="fa-brands fa-behance h-5 w-5 text-xl"></i>
-                        <span
-                            class="absolute left-1/2 top-full -translate-x-1/2 mt-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[9999]">Behance</span>
-                    </a>
-                    <a href="https://ixdf.org/members/abdul-hasib" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-[0px_0px_0px_0px_#e2e8f0,0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition hover:text-slate-900 group relative"
-                        aria-label="IxDF - Interaction Design Foundation">
-
-                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <use href="#ixdf-glyph" />
-                        </svg>
-
-                        <span
-                            class="absolute left-1/2 top-full -translate-x-1/2 mt-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[9999]">
-                            IxDF
-                        </span>
-                    </a>
-                </div>
+               
             </div>
 
             </header>
 
             <!-- Main Content -->
-            <main id="main-content" data-expanded="false" class="lg:order-1 lg:w-3/4 lg:py-16">
+            <main id="main-content" tabindex="-1" data-expanded="false" class="lg:order-1 lg:w-3/4 lg:py-16">
 
-            <!-- About Section -->
+            <!-- About In tro Section -->
             <section id="about" class="mb-20 scroll-mt-28 md:mb-20 lg:mb-40 lg:scroll-mt-32" aria-label="About me">
                 <div
                     class="sticky top-[4.5rem] z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                    <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900 lg:sr-only">About</h2>
+                    <h2 class="text-base font-bold uppercase tracking-widest text-slate-900 lg:sr-only">About</h2>
                 </div>
                 <div class="reveal">
-                    <p class="mb-6 flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] text-slate-500">
+                    <p class="mb-6 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600">
                         <svg class="h-3.5 w-3.5 shrink-0 text-green-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M12 1C13 7.5 16.5 11 23 12C16.5 13 13 16.5 12 23C11 16.5 7.5 13 1 12C7.5 11 11 7.5 12 1Z" />
                         </svg>
@@ -549,10 +536,10 @@
 
                     <h1 class="hero-title mb-10 text-[2.75rem] text-slate-900 sm:text-[3.75rem] lg:text-[4.25rem] xl:text-[5rem]">I'm Abdul Hasib<span class="text-green-700">,</span></h1>
 
-                    <p class="hero-intro max-w-[10em] text-[1.4rem] font-normal leading-[1.25] text-slate-900 sm:text-2xl">Engineer turned product designer with <span class="hero-mark">10 years of experience</span> driving
-                        <span class="whitespace-nowrap">end-to-end</span> UX strategy, interaction design and <span class="whitespace-nowrap">high-fidelity</span> prototyping.</p>
+                    <p class="hero-intro max-w-[10em] text-[1.4rem] font-normal leading-[1.25] text-slate-900 sm:text-2xl">Product Designer with <span class="hero-mark">10 years of experience</span> driving end-to-end UX
+                        <span class="whitespace-nowrap">strategy, interaction design, </span> high-fidelity prototyping, with an engineering <span class="whitespace-nowrap">background and a </span><br><span class="whitespace-nowrap">strong analytical foundation.</span></p>
 
-                    <div class="mt-14 grid max-w-[40rem] gap-6 text-[13px] font-light leading-[1.85] text-slate-600 sm:grid-cols-2 sm:gap-x-10 lg:mt-16">
+                    <div class="mt-14 grid max-w-[40rem] gap-6 text-[15px] font-normal leading-[1.75] text-slate-700 sm:grid-cols-2 sm:gap-x-10 lg:mt-16">
                         <p>My passion lies in bridging the gap between complex technology and <em class="hero-accent">human-centric design.</em> I specialize in building design systems that scale and creating intuitive interfaces
                             for data-heavy applications.</p>
                         <p>Currently, I'm deep diving into shaping <em class="hero-accent">generative AI-powered experiences,</em> exploring how
@@ -571,7 +558,7 @@
                 aria-label="Selected projects">
                 <div
                     class="sticky top-[4.5rem] z-20 -mx-6 mb-8 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">
-                    <h2 class="text-lg font-bold uppercase tracking-widest text-slate-900">Work</h2>
+                    <h2 class="text-base font-bold uppercase tracking-widest text-slate-900 lg:text-lg">Work</h2>
                 </div>
 
                 <!-- Expand/Collapse Button (hidden — state is now driven by scroll position) -->
@@ -599,7 +586,7 @@
                         <div class="z-10 sm:col-span-4">
                             <div
                                 class="rounded-lg border-1 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
-                                <img loading="lazy" src="assets/img/doc-verification.png" alt="Online Shopping from Display Ad at Airport"
+                                <img loading="lazy" src="assets/img/doc-verification.png" alt="Screens from the AI-assisted document verification application, comparing documents side by side"
                                     class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
                             </div>
                         </div>
@@ -607,22 +594,22 @@
                         <!-- Content -->
                         <div class="z-10 sm:col-span-4">
                             <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-                                <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900" aria-label="Project 01">01</span>
+                                <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900"><span class="sr-only">Project </span>01</span>
                                 <span class="h-px w-10 shrink-0 bg-slate-300" aria-hidden="true"></span>
                                 <ul class="flex flex-wrap gap-2" aria-label="Technologies used">
                                 <li>
                                     <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         AI</div>
                                 </li>
                                 <li>
                                     <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         Ed Tech</div>
                                 </li>
                                 <li>
                                     <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         Validation</div>
                                 </li>
                             </ul>
@@ -633,13 +620,13 @@
                                 The experience was designed around a human-in-the-loop approach: AI handles repetitive comparison work, while humans retain control over the final decision.</p>
 
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
-                                <a href="ai-assisted-document-verification.html"
-                                    class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2.5 text-xs font-semibold text-green-700 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
+                                <a href="ai-assisted-document-verification.html" aria-label="View project: AI-assisted Document Verification Application"
+                                    class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-white px-3 text-[13px] font-semibold text-green-700 ring-1 sm:h-auto sm:w-auto sm:justify-normal sm:gap-1.5 sm:px-3.5 sm:py-2.5 sm:text-xs ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
                                     View Project <i
-                                        class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                        aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                 </a>
                                 <!-- <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    Prototype <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    Prototype <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                 </a> -->
                             </div>
                         </div>
@@ -656,7 +643,7 @@
                         <div class="z-10 sm:col-span-4">
                             <div
                                 class="rounded-lg border-1 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
-                                <img loading="lazy" src="assets/img/hotel1.jpg" alt="Online Shopping from Display Ad at Airport"
+                                <img loading="lazy" src="assets/img/hotel1.jpg" alt="Hotel check-in app screens showing the guest check-in and membership enrollment flow"
                                     class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
                             </div>
                         </div>
@@ -664,22 +651,22 @@
                         <!-- Content -->
                         <div class="z-10 sm:col-span-4">
                             <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-                                <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900" aria-label="Project 02">02</span>
+                                <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900"><span class="sr-only">Project </span>02</span>
                                 <span class="h-px w-10 shrink-0 bg-slate-300" aria-hidden="true"></span>
                                 <ul class="flex flex-wrap gap-2" aria-label="Technologies used">
                                 <li>
                                     <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         Hospitality</div>
                                 </li>
                                 <li>
                                     <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         CRM</div>
                                 </li>
                                 <li>
                                     <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         SaaS</div>
                                 </li>
                             </ul>
@@ -691,13 +678,13 @@
                                 improve operational efficiency.</p>
 
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
-                                <a href="hotel-check-in-app.html"
-                                    class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2.5 text-xs font-semibold text-green-700 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
+                                <a href="hotel-check-in-app.html" aria-label="View project: Hotel Check-in App - New Feature Integration"
+                                    class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-white px-3 text-[13px] font-semibold text-green-700 ring-1 sm:h-auto sm:w-auto sm:justify-normal sm:gap-1.5 sm:px-3.5 sm:py-2.5 sm:text-xs ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
                                     View Project <i
-                                        class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                        aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                 </a>
                                 <!-- <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    Prototype <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    Prototype <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                 </a> -->
                             </div>
                         </div>
@@ -713,23 +700,23 @@
                             <div
                                 class="rounded-lg border-1 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
                                 <img loading="lazy" src="assets/img/crm-thumb.png"
-                                    alt="Generative AI Creative Suite"
+                                    alt="Mobile CRM interface for hospitality staff showing guest information"
                                     class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
                             </div>
                         </div>
                         <div class="z-10 sm:col-span-4">
                             <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-                                <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900" aria-label="Project 03">03</span>
+                                <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900"><span class="sr-only">Project </span>03</span>
                                 <span class="h-px w-10 shrink-0 bg-slate-300" aria-hidden="true"></span>
                                 <ul class="flex flex-wrap gap-2" aria-label="Technologies used">
                                 <li>
                                     <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         CRM</div>
                                 </li>
                                 <li>
                                     <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         MS 365</div>
                                 </li>
                             </ul>
@@ -739,17 +726,17 @@
                             <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">
                                 Designed a lightweight CRM layered on Microsoft 365 to streamline hospitality operations without relying on the core system. Optimized for small devices, it empowers waitstaff to access and update guest information in real time.</p>
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
-                                <a href="crm-application.html"
-                                    class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2.5 text-xs font-semibold text-green-700 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
+                                <a href="crm-application.html" aria-label="View project: CRM Application for Hospitality Management Company"
+                                    class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-white px-3 text-[13px] font-semibold text-green-700 ring-1 sm:h-auto sm:w-auto sm:justify-normal sm:gap-1.5 sm:px-3.5 sm:py-2.5 sm:text-xs ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
                                     View Project <i
-                                        class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                        aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                 </a>
                                 <!-- <a href="#"
-                                    class="group inline-flex items-center gap-1.5 rounded-full bg-gray px-3.5 py-1.5 text-xs font-semibold text-gray-500 ring-1 ring-slate-200 transition-all active:scale-95 shadow-sm">
+                                    class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-600 ring-1 ring-slate-200 shadow-sm">
                                     Coming Soon..
                                 </a> -->
                                 <!-- <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    Demo <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    Demo <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                 </a> -->
                             </div>
                         </div>
@@ -766,7 +753,7 @@
                         <div class="z-10 sm:col-span-4">
                             <div
                                 class="rounded-lg border-1 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
-                                <img loading="lazy" src="assets/img/locked-light.png" alt="Online Shopping from Display Ad at Airport"
+                                <img loading="lazy" src="assets/img/locked-light.png" alt="Locked preview of the industrial work order and operations management system (available on request)"
                                     class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
                             </div>
                         </div>
@@ -774,17 +761,17 @@
                         <!-- Content -->
                         <div class="z-10 sm:col-span-4">
                             <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-                                <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900" aria-label="Project 04">04</span>
+                                <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900"><span class="sr-only">Project </span>04</span>
                                 <span class="h-px w-10 shrink-0 bg-slate-300" aria-hidden="true"></span>
                                 <ul class="flex flex-wrap gap-2" aria-label="Technologies used">
                                 <li>
                                     <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         Industrial Tech</div>
                                 </li>
                                 <li>
                                     <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         Enterprise software</div>
                                 </li>
                             </ul>
@@ -800,14 +787,14 @@
 
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                 <div
-                                    class="group inline-flex items-center gap-1.5 rounded-full bg-gray px-3.5 py-1.5 text-xs font-semibold text-gray-500 ring-1 ring-slate-200 transition-all active:scale-95 shadow-sm">
+                                    class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-600 ring-1 ring-slate-200 shadow-sm">
                                     Open for discussion in 1:1
                                 </div>
                                 <!-- <a href="hotel-check-in-app.html" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    View Project <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    View Project <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                 </a>
                                 <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    Prototype <i class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    Prototype <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                 </a> -->
                             </div>
                         </div>
@@ -823,23 +810,23 @@
                             <div
                                 class="rounded-lg border-1 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
                                 <img loading="lazy" src="assets/img/airport-shopping1.png"
-                                    alt="Online Shopping from Display Ad at Airport"
+                                    alt="Mobile checkout flow for buying a product seen on an airport display ad"
                                     class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
                             </div>
                         </div>
                         <div class="z-10 sm:col-span-4">
                             <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-                                <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900" aria-label="Project 05">05</span>
+                                <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900"><span class="sr-only">Project </span>05</span>
                                 <span class="h-px w-10 shrink-0 bg-slate-300" aria-hidden="true"></span>
                                 <ul class="flex flex-wrap gap-2" aria-label="Technologies used">
                                 <li>
                                     <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         Mobile Commerce</div>
                                 </li>
                                 <li>
                                     <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-regular leading-5 text-slate-600">
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         Shopping</div>
                                 </li>
                             </ul>
@@ -852,10 +839,10 @@
                                 on speed, clarity, and flexible delivery scheduling, the flow supports on-the-go
                                 shoppers and real-world travel contexts.</p>
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
-                                <a href="online-shopping-at-airport.html"
-                                    class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2.5 text-xs font-semibold text-green-700 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
+                                <a href="online-shopping-at-airport.html" aria-label="View project: Online Shopping from Display Ad at Airport"
+                                    class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-white px-3 text-[13px] font-semibold text-green-700 ring-1 sm:h-auto sm:w-auto sm:justify-normal sm:gap-1.5 sm:px-3.5 sm:py-2.5 sm:text-xs ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
                                     View Project <i
-                                        class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                        aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                 </a>
                             </div>
                         </div>
@@ -904,7 +891,7 @@
                                 <a href="#"
                                     class="inline-flex items-center gap-1 text-sm font-semibold text-green-600 hover:text-green-700 mt-1 group/link">
                                     View project <i
-                                        class="fa-solid fa-arrow-right text-xs transition-transform group-hover/link:translate-x-1"></i>
+                                        aria-hidden="true" class="fa-solid fa-arrow-right text-xs transition-transform group-hover/link:translate-x-1"></i>
                                 </a>
                             </div>
                         </div>
@@ -933,7 +920,7 @@
                                 <a href="#"
                                     class="inline-flex items-center gap-1 text-sm font-semibold text-green-600 hover:text-green-700 mt-1 group/link">
                                     View project <i
-                                        class="fa-solid fa-arrow-right text-xs transition-transform group-hover/link:translate-x-1"></i>
+                                        aria-hidden="true" class="fa-solid fa-arrow-right text-xs transition-transform group-hover/link:translate-x-1"></i>
                                 </a>
                             </div>
                         </div>
@@ -962,7 +949,7 @@
                                 <a href="#"
                                     class="inline-flex items-center gap-1 text-sm font-semibold text-green-600 hover:text-green-700 mt-1 group/link">
                                     View project <i
-                                        class="fa-solid fa-arrow-right text-xs transition-transform group-hover/link:translate-x-1"></i>
+                                        aria-hidden="true" class="fa-solid fa-arrow-right text-xs transition-transform group-hover/link:translate-x-1"></i>
                                 </a>
                             </div>
                         </div>
@@ -982,16 +969,16 @@
                     <div class="flex flex-col gap-8 border-b border-slate-200 pb-8 sm:flex-row sm:items-end sm:justify-between">
                         <h2 class="hero-title text-[2.75rem] text-slate-900 sm:text-5xl lg:text-[4rem]">Let's talk<span class="text-green-700">.</span></h2>
 
-                        <div class="flex flex-wrap items-center gap-x-3 gap-y-4 sm:gap-x-6 sm:pb-2">
+                        <div class="flex w-full flex-nowrap items-stretch gap-3 sm:w-auto sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-4 sm:pb-2">
                             <!-- Primary: opens the visitor's email composer -->
                             <a href="mailto:ux.abdul@gmail.com?subject=Hi,"
-                                class="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#4ade80] px-4 text-[13px] font-semibold text-slate-900 shadow-lg shadow-green-500/20 transition-all duration-300 hover:scale-105 active:scale-95 sm:px-6 sm:text-sm">
+                                class="group inline-flex h-12 min-w-0 flex-1 basis-0 items-center justify-center gap-2 rounded-full bg-[#4ade80] px-3 text-center text-[13px] sm:flex-none sm:basis-auto font-semibold text-slate-900 shadow-lg shadow-green-500/20 transition-all duration-300 hover:scale-105 active:scale-95 sm:px-6 sm:text-sm">
                                 <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                                 Send Email
                             </a>
                             <!-- Secondary: downloads the resume PDF -->
                             <a href="assets/Abdul-Hasib_Product-Designer.pdf" download="Abdul-Hasib_Product-Designer.pdf"
-                                class="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-4 text-[13px] font-semibold text-green-700 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:scale-105 hover:bg-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 hover:ring-[#4ade80] active:scale-95 sm:px-6 sm:text-sm">
+                                class="group inline-flex h-12 min-w-0 flex-1 basis-0 items-center justify-center gap-2 rounded-full bg-white px-3 text-center text-[13px] sm:flex-none sm:basis-auto font-semibold text-green-700 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:scale-105 hover:bg-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 hover:ring-[#4ade80] active:scale-95 sm:px-6 sm:text-sm">
                                 <svg class="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
                                 Download Resume
                             </a>
@@ -999,28 +986,28 @@
                     </div>
 
                     <div class="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
-                        <h3 class="text-[12px] font-semibold uppercase tracking-[0.14em] text-slate-500">Social</h3>
+                        <h3 class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-600">Social</h3>
 
                         <div class="flex flex-wrap items-center gap-x-8 gap-y-4 sm:justify-end sm:gap-x-10">
                             <a href="https://www.linkedin.com/in/uxabdul" target="_blank" rel="noopener noreferrer"
                                 class="group inline-flex items-center gap-3 text-[15px] font-normal text-slate-900 transition-colors hover:text-green-700">
-                                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-700 transition-colors group-hover:bg-green-100 group-hover:text-green-700"><i class="fa-brands fa-linkedin-in text-[13px]"></i></span>
-                                LinkedIn
+                                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-700 transition-colors group-hover:bg-green-100 group-hover:text-green-700"><i aria-hidden="true" class="fa-brands fa-linkedin-in text-[13px]"></i></span>
+                                LinkedIn<span class="sr-only"> (opens in a new tab)</span>
                             </a>
                             <a href="https://www.instagram.com/ux.abdul" target="_blank" rel="noopener noreferrer"
                                 class="group inline-flex items-center gap-3 text-[15px] font-normal text-slate-900 transition-colors hover:text-green-700">
-                                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-700 transition-colors group-hover:bg-green-100 group-hover:text-green-700"><i class="fa-brands fa-instagram text-[14px]"></i></span>
-                                Instagram
+                                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-700 transition-colors group-hover:bg-green-100 group-hover:text-green-700"><i aria-hidden="true" class="fa-brands fa-instagram text-[14px]"></i></span>
+                                Instagram<span class="sr-only"> (opens in a new tab)</span>
                             </a>
                             <a href="https://www.behance.net/ux_abdul" target="_blank" rel="noopener noreferrer"
                                 class="group inline-flex items-center gap-3 text-[15px] font-normal text-slate-900 transition-colors hover:text-green-700">
-                                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-700 transition-colors group-hover:bg-green-100 group-hover:text-green-700"><i class="fa-brands fa-behance text-[14px]"></i></span>
-                                Behance
+                                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-700 transition-colors group-hover:bg-green-100 group-hover:text-green-700"><i aria-hidden="true" class="fa-brands fa-behance text-[14px]"></i></span>
+                                Behance<span class="sr-only"> (opens in a new tab)</span>
                             </a>
                             <a href="https://ixdf.org/members/abdul-hasib" target="_blank" rel="noopener noreferrer"
                                 class="group inline-flex items-center gap-3 text-[15px] font-normal text-slate-900 transition-colors hover:text-green-700">
                                 <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-700 transition-colors group-hover:bg-green-100 group-hover:text-green-700"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#ixdf-glyph" /></svg></span>
-                                IxDF
+                                IxDF<span class="sr-only"> (opens in a new tab)</span>
                             </a>
                         </div>
                     </div>
@@ -1028,12 +1015,12 @@
 
                 <!-- Footer -->
                 <footer
-                    class="w-full border-t border-slate-200 pt-8 pb-16 text-sm text-slate-500 sm:pb-0 lg:pb-16 flex flex-col sm:flex-row justify-between items-start gap-6 reveal">
+                    class="w-full border-t border-slate-200 pt-8 pb-16 text-sm text-slate-600 sm:pb-0 lg:pb-16 flex flex-col sm:flex-row justify-between items-start gap-6 reveal">
                     <p class="max-w-md">Designed in <a href="#"
-                            class="font-medium text-slate-900 hover:text-green-600">Figma & Figma Make</a>, updated in <a href="#"
-                            class="font-medium text-slate-900 hover:text-green-600">VS Code</a> by me.<br>Built with <a
-                            href="#" class="font-medium text-slate-900 hover:text-green-600">HTML, Tailwind CSS</a> and
-                        <a href="#" class="font-medium text-slate-900 hover:text-green-600">JS</a>.</p>
+                            class="font-medium text-slate-900 underline underline-offset-2 hover:text-green-700">Figma & Figma Make</a>, updated in <a href="#"
+                            class="font-medium text-slate-900 underline underline-offset-2 hover:text-green-700">VS Code</a> by me.<br>Built with <a
+                            href="#" class="font-medium text-slate-900 underline underline-offset-2 hover:text-green-700">HTML, Tailwind CSS</a> and
+                        <a href="#" class="font-medium text-slate-900 underline underline-offset-2 hover:text-green-700">JS</a>.</p>
                     <p class="whitespace-nowrap">&copy; 2026 Abdul Hasib.</p>
                 </footer>
         </div>
@@ -1247,6 +1234,7 @@
         function openNavMenu() {
             isNavMenuOpen = true;
             navMenuToggle.setAttribute('aria-expanded', 'true');
+            navMenuPanel.removeAttribute('inert');
             navIconOpen.classList.add('hidden');
             navIconClose.classList.remove('hidden');
             navPill.classList.add('rounded-b-none');
@@ -1258,6 +1246,7 @@
         function closeNavMenu() {
             isNavMenuOpen = false;
             navMenuToggle.setAttribute('aria-expanded', 'false');
+            navMenuPanel.setAttribute('inert', '');
             navIconOpen.classList.remove('hidden');
             navIconClose.classList.add('hidden');
             navPill.classList.remove('rounded-b-none');
@@ -1278,6 +1267,14 @@
             document.addEventListener('click', (e) => {
                 if (isNavMenuOpen && !navMenuPanel.contains(e.target) && !navMenuToggle.contains(e.target)) {
                     closeNavMenu();
+                }
+            });
+
+            // Escape closes the menu and returns focus to the toggle
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isNavMenuOpen) {
+                    closeNavMenu();
+                    navMenuToggle.focus();
                 }
             });
 
