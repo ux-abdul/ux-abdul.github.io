@@ -67,6 +67,19 @@
             border-radius: 6px;
         }
 
+        /* AI sparkle icon: gentle twinkle (scale + quarter turn), pauses between beats */
+        .sparkle-anim {
+            transform-origin: 50% 50%;
+            animation: sparkle-twinkle 3.6s ease-in-out infinite;
+        }
+
+        @keyframes sparkle-twinkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            35%      { transform: scale(1.3) rotate(90deg); opacity: 0.85; }
+            55%      { transform: scale(1) rotate(90deg); opacity: 1; }
+            75%      { transform: scale(1.15) rotate(0deg); opacity: 0.9; }
+        }
+
         /* Respect reduced-motion preference (WCAG 2.3.3) */
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto !important; }
@@ -76,6 +89,7 @@
                 transition-delay: 0s !important;
             }
             .reveal { opacity: 1; transform: none; }
+            .sparkle-anim { animation: none !important; }
         }
 
         /* Temporarily hidden — remove class from markup to show again */
@@ -345,20 +359,20 @@
                 <ul
                     class="-mt-px flex flex-col divide-y divide-slate-200/70 rounded-b-[28px] border border-t-0 border-slate-200/50 bg-slate-50/75 px-5 py-2 shadow-sm backdrop-blur">
                      <li><a href="#about"
-                            class="block py-3.5 text-sm font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">About</a>
+                            class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">About</a>
                     </li>
                     <li><a href="#projects"
-                            class="block py-3.5 text-sm font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Work</a>
+                            class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Work</a>
                     </li>
                     <!-- <li><a href="#experiments"
-                            class="block py-3.5 text-sm font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Experiments</a>
+                            class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Experiments</a>
                     </li> -->
                    
                     <li><a href="#contact"
-                            class="block py-3.5 text-sm font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Contact</a>
+                            class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Contact</a>
                     </li>
                     <li><a href="resume.html" target="_blank" rel="noopener noreferrer"
-                            class="block py-3.5 text-sm font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+                            class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Resume<span class="sr-only"> (opens in a new tab)</span></a>
                     </li>
                 </ul>
             </div>
@@ -373,8 +387,8 @@
                 class="lg:order-2 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:overflow-y-auto lg:w-1/4 lg:flex-col lg:justify-between lg:py-16 z-30">
                 <div id="sidebar-content" class="w-full">
                     <div id="sidebar-details" class="overflow-hidden max-h-[2200px] opacity-100 mt-0">
-                        <div class="mt-16 reveal active" style="transition-delay: 0.2s">
-                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600 mb-4">Skills</h2>
+                        <div class="mt-0 md:mt-16 reveal active" style="transition-delay: 0.2s">
+                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Skills</h2>
                             <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
                                 <span
                                     class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">UI/UX,</span>
@@ -404,7 +418,27 @@
                         </div>
 
                         <div class="mt-8 reveal active" style="transition-delay: 0.3s">
-                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600 mb-4">Tools</h2>
+                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Domains</h2>
+                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">AI &amp; Generative AI,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">Enterprise SaaS,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">CRM,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">Hospitality &amp; Travel,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">E-commerce,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">Industrial Tech,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">EdTech</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 reveal active" style="transition-delay: 0.4s">
+                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Tools</h2>
                             <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
                                 <span
                                     class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Figma,</span>
@@ -429,8 +463,8 @@
                             </div>
                         </div>
 
-                        <div class="mt-8 reveal active" style="transition-delay: 0.4s">
-                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600 mb-4">Tech Skills</h2>
+                        <div class="mt-8 mb-[76px] md:mb-8 reveal active" style="transition-delay: 0.5s">
+                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Tech Skills</h2>
                             <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
                                 <span
                                     class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">HTML5,</span>
@@ -448,21 +482,7 @@
                             </div>
                         </div>
 
-                        <div class="mt-8 mb-8 reveal active" style="transition-delay: 0.5s">
-                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600 mb-4">Hobbies</h2>
-                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Photography,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Sketching,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Travel,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Gaming,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Music</span>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- CTA -->
@@ -521,14 +541,12 @@
             <main id="main-content" tabindex="-1" data-expanded="false" class="lg:order-1 lg:w-3/4 lg:py-16">
 
             <!-- About In tro Section -->
-            <section id="about" class="mb-20 scroll-mt-28 md:mb-20 lg:mb-40 lg:scroll-mt-32" aria-label="About me">
-                <div
-                    class="sticky top-[4.5rem] z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                    <h2 class="text-base font-bold uppercase tracking-widest text-slate-900 lg:sr-only">About</h2>
-                </div>
-                <div class="reveal">
+            <section id="about" class="mb-16 scroll-mt-28 md:mb-20 lg:mb-40 lg:scroll-mt-32" aria-label="About me">
+                <!-- "About" heading kept for screen readers / document outline, hidden visually at all sizes -->
+                <h2 class="sr-only">About</h2>
+                <div class="reveal mt-6 lg:mt-0">
                     <p class="mb-6 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600">
-                        <svg class="h-3.5 w-3.5 shrink-0 text-green-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <svg class="sparkle-anim h-3.5 w-3.5 shrink-0 text-green-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M12 1C13 7.5 16.5 11 23 12C16.5 13 13 16.5 12 23C11 16.5 7.5 13 1 12C7.5 11 11 7.5 12 1Z" />
                         </svg>
                         Lead Product Designer &middot; Hyderabad, India
@@ -554,11 +572,11 @@
             <div id="mobile-skills-tools-anchor" class="lg:hidden"></div>
 
             <!-- Projects Section -->
-            <section id="projects" class="mb-8 scroll-mt-28 md:mb-20 lg:mb-24 lg:scroll-mt-32"
+            <section id="projects" class="mb-0 scroll-mt-28 md:mb-20 lg:mb-24 lg:scroll-mt-32"
                 aria-label="Selected projects">
                 <div
                     class="sticky top-[4.5rem] z-20 -mx-6 mb-8 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">
-                    <h2 class="text-base font-bold uppercase tracking-widest text-slate-900 lg:text-lg">Work</h2>
+                    <h2 class="text-2xl font-bold uppercase tracking-widest text-slate-900 lg:text-lg">Work</h2>
                 </div>
 
                 <!-- Expand/Collapse Button (hidden — state is now driven by scroll position) -->
@@ -621,12 +639,11 @@
 
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                 <a href="ai-assisted-document-verification.html" aria-label="View project: AI-assisted Document Verification Application"
-                                    class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-white px-3 text-[13px] font-semibold text-green-700 ring-1 sm:h-auto sm:w-auto sm:justify-normal sm:gap-1.5 sm:px-3.5 sm:py-2.5 sm:text-xs ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    View Project <i
-                                        aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-[#4ade80] px-3 text-[13px] font-semibold text-slate-900 ring-1 ring-[#4ade80] shadow-lg shadow-green-500/20 sm:w-auto sm:bg-white sm:px-6 sm:text-sm sm:text-green-700 sm:ring-slate-200 sm:shadow-sm sm:shadow-black/5 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95">
+                                    View Project <svg class="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
                                 </a>
                                 <!-- <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    Prototype <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    Prototype <svg class="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
                                 </a> -->
                             </div>
                         </div>
@@ -679,12 +696,11 @@
 
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                 <a href="hotel-check-in-app.html" aria-label="View project: Hotel Check-in App - New Feature Integration"
-                                    class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-white px-3 text-[13px] font-semibold text-green-700 ring-1 sm:h-auto sm:w-auto sm:justify-normal sm:gap-1.5 sm:px-3.5 sm:py-2.5 sm:text-xs ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    View Project <i
-                                        aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-[#4ade80] px-3 text-[13px] font-semibold text-slate-900 ring-1 ring-[#4ade80] shadow-lg shadow-green-500/20 sm:w-auto sm:bg-white sm:px-6 sm:text-sm sm:text-green-700 sm:ring-slate-200 sm:shadow-sm sm:shadow-black/5 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95">
+                                    View Project <svg class="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
                                 </a>
                                 <!-- <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    Prototype <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    Prototype <svg class="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
                                 </a> -->
                             </div>
                         </div>
@@ -727,16 +743,15 @@
                                 Designed a lightweight CRM layered on Microsoft 365 to streamline hospitality operations without relying on the core system. Optimized for small devices, it empowers waitstaff to access and update guest information in real time.</p>
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                 <a href="crm-application.html" aria-label="View project: CRM Application for Hospitality Management Company"
-                                    class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-white px-3 text-[13px] font-semibold text-green-700 ring-1 sm:h-auto sm:w-auto sm:justify-normal sm:gap-1.5 sm:px-3.5 sm:py-2.5 sm:text-xs ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    View Project <i
-                                        aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-[#4ade80] px-3 text-[13px] font-semibold text-slate-900 ring-1 ring-[#4ade80] shadow-lg shadow-green-500/20 sm:w-auto sm:bg-white sm:px-6 sm:text-sm sm:text-green-700 sm:ring-slate-200 sm:shadow-sm sm:shadow-black/5 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95">
+                                    View Project <svg class="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
                                 </a>
                                 <!-- <a href="#"
                                     class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-600 ring-1 ring-slate-200 shadow-sm">
                                     Coming Soon..
                                 </a> -->
                                 <!-- <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    Demo <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    Demo <svg class="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
                                 </a> -->
                             </div>
                         </div>
@@ -786,15 +801,15 @@
 
 
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
-                                <div
-                                    class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-600 ring-1 ring-slate-200 shadow-sm">
-                                    Open for discussion in 1:1
-                                </div>
+                                <p class="flex min-h-12 items-center gap-2 text-sm font-normal leading-snug text-slate-600 sm:min-h-0">
+                                    <i aria-hidden="true" class="fa-solid fa-lock text-xs text-green-700"></i>
+                                    <span>Open for discussion in 1:1</span>
+                                </p>
                                 <!-- <a href="hotel-check-in-app.html" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    View Project <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    View Project <svg class="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
                                 </a>
                                 <a href="#" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    Prototype <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    Prototype <svg class="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
                                 </a> -->
                             </div>
                         </div>
@@ -840,9 +855,8 @@
                                 shoppers and real-world travel contexts.</p>
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                 <a href="online-shopping-at-airport.html" aria-label="View project: Online Shopping from Display Ad at Airport"
-                                    class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-white px-3 text-[13px] font-semibold text-green-700 ring-1 sm:h-auto sm:w-auto sm:justify-normal sm:gap-1.5 sm:px-3.5 sm:py-2.5 sm:text-xs ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
-                                    View Project <i
-                                        aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square h-3 w-3 text-[10px] ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                                    class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-[#4ade80] px-3 text-[13px] font-semibold text-slate-900 ring-1 ring-[#4ade80] shadow-lg shadow-green-500/20 sm:w-auto sm:bg-white sm:px-6 sm:text-sm sm:text-green-700 sm:ring-slate-200 sm:shadow-sm sm:shadow-black/5 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95">
+                                    View Project <svg class="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
                                 </a>
                             </div>
                         </div>
@@ -986,26 +1000,26 @@
                     </div>
 
                     <div class="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
-                        <h3 class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-600">Social</h3>
+                        <h3 class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-900">Social</h3>
 
-                        <div class="flex flex-wrap items-center gap-x-8 gap-y-4 sm:justify-end sm:gap-x-10">
+                        <div class="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:justify-end sm:gap-x-10 sm:gap-y-4">
                             <a href="https://www.linkedin.com/in/uxabdul" target="_blank" rel="noopener noreferrer"
-                                class="group inline-flex items-center gap-3 text-[15px] font-normal text-slate-900 transition-colors hover:text-green-700">
+                                class="group inline-flex h-12 min-w-0 items-center justify-start gap-3 bg-white pl-4 pr-3 text-[15px] font-normal text-slate-900 transition-colors hover:text-green-700 sm:h-auto sm:bg-transparent sm:p-0">
                                 <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-700 transition-colors group-hover:bg-green-100 group-hover:text-green-700"><i aria-hidden="true" class="fa-brands fa-linkedin-in text-[13px]"></i></span>
                                 LinkedIn<span class="sr-only"> (opens in a new tab)</span>
                             </a>
                             <a href="https://www.instagram.com/ux.abdul" target="_blank" rel="noopener noreferrer"
-                                class="group inline-flex items-center gap-3 text-[15px] font-normal text-slate-900 transition-colors hover:text-green-700">
+                                class="group inline-flex h-12 min-w-0 items-center justify-start gap-3 bg-white pl-4 pr-3 text-[15px] font-normal text-slate-900 transition-colors hover:text-green-700 sm:h-auto sm:bg-transparent sm:p-0">
                                 <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-700 transition-colors group-hover:bg-green-100 group-hover:text-green-700"><i aria-hidden="true" class="fa-brands fa-instagram text-[14px]"></i></span>
                                 Instagram<span class="sr-only"> (opens in a new tab)</span>
                             </a>
                             <a href="https://www.behance.net/ux_abdul" target="_blank" rel="noopener noreferrer"
-                                class="group inline-flex items-center gap-3 text-[15px] font-normal text-slate-900 transition-colors hover:text-green-700">
+                                class="group inline-flex h-12 min-w-0 items-center justify-start gap-3 bg-white pl-4 pr-3 text-[15px] font-normal text-slate-900 transition-colors hover:text-green-700 sm:h-auto sm:bg-transparent sm:p-0">
                                 <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-700 transition-colors group-hover:bg-green-100 group-hover:text-green-700"><i aria-hidden="true" class="fa-brands fa-behance text-[14px]"></i></span>
                                 Behance<span class="sr-only"> (opens in a new tab)</span>
                             </a>
                             <a href="https://ixdf.org/members/abdul-hasib" target="_blank" rel="noopener noreferrer"
-                                class="group inline-flex items-center gap-3 text-[15px] font-normal text-slate-900 transition-colors hover:text-green-700">
+                                class="group inline-flex h-12 min-w-0 items-center justify-start gap-3 bg-white pl-4 pr-3 text-[15px] font-normal text-slate-900 transition-colors hover:text-green-700 sm:h-auto sm:bg-transparent sm:p-0">
                                 <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-700 transition-colors group-hover:bg-green-100 group-hover:text-green-700"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#ixdf-glyph" /></svg></span>
                                 IxDF<span class="sr-only"> (opens in a new tab)</span>
                             </a>
