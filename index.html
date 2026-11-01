@@ -1092,7 +1092,7 @@
             setMainExpanded(true);
 
             // Sidebar collapses to accommodate
-            sidebar.classList.remove('lg:w-1/4');
+            sidebar.classList.remove('lg:w-28%');
             sidebar.classList.add('lg:w-[120px]', 'items-center');
 
             sidebarDetails.style.maxHeight = '0px';
@@ -1117,7 +1117,7 @@
             btnResume.classList.add('w-10', 'h-10', 'justify-center', 'p-0');
 
             // Main expands
-            mainContent.classList.remove('lg:w-3/4');
+            mainContent.classList.remove('lg:w-72%');
             mainContent.classList.add('lg:w-[calc(100%-168px)]');
 
             projectDescriptions.forEach(el => el.classList.remove('line-clamp-4'));
@@ -1130,7 +1130,7 @@
 
             // Sidebar expands back
             sidebar.classList.remove('lg:w-[120px]', 'items-center');
-            sidebar.classList.add('lg:w-1/4');
+            sidebar.classList.add('lg:w-28%');
 
             sidebarDetails.style.maxHeight = '2200px';
             sidebarDetails.style.marginTop = '0px';
@@ -1155,7 +1155,7 @@
 
             // Main normal
             mainContent.classList.remove('lg:w-[calc(100%-168px)]');
-            mainContent.classList.add('lg:w-3/4');
+            mainContent.classList.add('lg:w-72%');
 
             projectDescriptions.forEach(el => el.classList.add('line-clamp-4'));
 
