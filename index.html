@@ -111,7 +111,7 @@
         /* Smooth transition for width and other properties */
         #sidebar,
         #main-content {
-            transition-property: width, transform, opacity, padding, flex-grow, flex-basis;
+            transition-property: width, margin, transform, opacity, padding, flex-grow, flex-basis;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-duration: 500ms;
         }
@@ -387,7 +387,7 @@
                 class="lg:order-2 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:overflow-y-auto lg:w-[28%] lg:flex-col lg:justify-between lg:py-16 z-30">
                 <div id="sidebar-content" class="w-full">
                     <div id="sidebar-details" class="overflow-hidden max-h-[2200px] opacity-100 mt-0">
-                        <div class="mt-0 md:mt-16 reveal active" style="transition-delay: 0.2s">
+                        <div class="mt-0 md:mt-8 reveal active" style="transition-delay: 0.2s">
                             <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Skills</h2>
                             <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
                                 <span
@@ -409,7 +409,8 @@
                                     Collaboration,</span>
                                 <span
                                     class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Conversational
-                                    Design</span>
+                                    Design,</span>
+                                
 
                             </div>
                         </div>
@@ -417,6 +418,8 @@
                         <div class="mt-8 reveal active" style="transition-delay: 0.3s">
                             <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Domains</h2>
                             <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">AI &amp; Generative AI,</span>
                                 <span
                                     class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">Enterprise SaaS,</span>
                                 <span
@@ -465,10 +468,10 @@
                                     class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">HTML5,</span>
                                 <span
                                     class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">CSS3,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">JavaScript,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">React,</span>
+                                <!-- <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">JavaScript,</span> -->
+                                <!-- <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">React,</span> -->
                                 <span
                                     class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">Tailwind
                                     CSS,</span>
@@ -681,6 +684,11 @@
                                         class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         SaaS</div>
                                 </li>
+                                <li>
+                                    <div
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
+                                        E-Commerce</div>
+                                </li>
                             </ul>
                             </div>
 
@@ -729,6 +737,11 @@
                                     <div
                                         class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         MS 365</div>
+                                </li>
+                                <li>
+                                    <div
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
+                                        Fintech</div>
                                 </li>
                             </ul>
                             </div>
@@ -783,6 +796,11 @@
                                     <div
                                         class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
                                         Enterprise software</div>
+                                </li>
+                                <li>
+                                    <div
+                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
+                                        B2B</div>
                                 </li>
                             </ul>
                             </div>
@@ -994,7 +1012,7 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
+                    <div class="flex flex-col gap-6 py-14 sm:flex-row sm:items-center sm:justify-between sm:py-16">
                         <h3 class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-900">Social</h3>
 
                         <div class="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:justify-end sm:gap-x-10 sm:gap-y-4">
@@ -1092,33 +1110,36 @@
             setMainExpanded(true);
 
             // Sidebar collapses to accommodate
-            sidebar.classList.remove('lg:w-28%');
-            sidebar.classList.add('lg:w-[120px]', 'items-center');
+            sidebar.classList.remove('lg:w-[28%]');
+            sidebar.classList.add('lg:w-0', 'lg:-ml-16', 'items-center');
+            sidebar.style.overflow = 'hidden';
+            sidebar.style.pointerEvents = 'none';
+            sidebar.setAttribute('aria-hidden', 'true');
 
             sidebarDetails.style.maxHeight = '0px';
             sidebarDetails.style.marginTop = '0px';
             sidebarDetails.style.opacity = '0';
 
-            buttonsContainer.classList.remove('flex-wrap');
-            buttonsContainer.classList.add('flex-col', 'items-center', 'w-full');
+            buttonsContainer?.classList.remove('flex-wrap');
+            buttonsContainer?.classList.add('flex-col', 'items-center', 'w-full');
 
-            connectContainer.classList.remove('items-start');
-            connectContainer.classList.add('items-center');
+            connectContainer?.classList.remove('items-start');
+            connectContainer?.classList.add('items-center');
 
-            socialsContainer.classList.remove('gap-5', 'mt-8');
-            socialsContainer.classList.add('flex-col', 'gap-6', 'items-center', 'mt-6');
+            socialsContainer?.classList.remove('gap-5', 'mt-8');
+            socialsContainer?.classList.add('flex-col', 'gap-6', 'items-center', 'mt-6');
 
             document.querySelectorAll('.btn-text-wrapper').forEach(el => el.classList.add('collapsed'));
 
-            btnConnect.classList.remove('px-6', 'py-3', 'gap-2');
-            btnConnect.classList.add('w-10', 'h-10', 'justify-center', 'p-0');
+            btnConnect?.classList.remove('px-6', 'py-3', 'gap-2');
+            btnConnect?.classList.add('w-10', 'h-10', 'justify-center', 'p-0');
 
-            btnResume.classList.remove('px-6', 'py-3', 'gap-2');
-            btnResume.classList.add('w-10', 'h-10', 'justify-center', 'p-0');
+            btnResume?.classList.remove('px-6', 'py-3', 'gap-2');
+            btnResume?.classList.add('w-10', 'h-10', 'justify-center', 'p-0');
 
             // Main expands
-            mainContent.classList.remove('lg:w-72%');
-            mainContent.classList.add('lg:w-[calc(100%-168px)]');
+            mainContent.classList.remove('lg:w-[72%]');
+            mainContent.classList.add('lg:w-full');
 
             projectDescriptions.forEach(el => el.classList.remove('line-clamp-4'));
 
@@ -1129,33 +1150,36 @@
             setMainExpanded(false);
 
             // Sidebar expands back
-            sidebar.classList.remove('lg:w-[120px]', 'items-center');
-            sidebar.classList.add('lg:w-28%');
+            sidebar.classList.remove('lg:w-0', 'lg:-ml-16', 'items-center');
+            sidebar.classList.add('lg:w-[28%]');
+            sidebar.style.overflow = '';
+            sidebar.style.pointerEvents = '';
+            sidebar.removeAttribute('aria-hidden');
 
             sidebarDetails.style.maxHeight = '2200px';
             sidebarDetails.style.marginTop = '0px';
             sidebarDetails.style.opacity = '1';
 
-            buttonsContainer.classList.remove('flex-col', 'items-center', 'w-full');
-            buttonsContainer.classList.add('flex-wrap');
+            buttonsContainer?.classList.remove('flex-col', 'items-center', 'w-full');
+            buttonsContainer?.classList.add('flex-wrap');
 
-            connectContainer.classList.remove('items-center');
-            connectContainer.classList.add('items-start');
+            connectContainer?.classList.remove('items-center');
+            connectContainer?.classList.add('items-start');
 
-            socialsContainer.classList.remove('flex-col', 'gap-6', 'items-center', 'mt-6');
-            socialsContainer.classList.add('gap-5', 'mt-8');
+            socialsContainer?.classList.remove('flex-col', 'gap-6', 'items-center', 'mt-6');
+            socialsContainer?.classList.add('gap-5', 'mt-8');
 
             document.querySelectorAll('.btn-text-wrapper').forEach(el => el.classList.remove('collapsed'));
 
-            btnConnect.classList.remove('w-10', 'h-10', 'justify-center', 'p-0');
-            btnConnect.classList.add('px-6', 'py-3', 'gap-2');
+            btnConnect?.classList.remove('w-10', 'h-10', 'justify-center', 'p-0');
+            btnConnect?.classList.add('px-6', 'py-3', 'gap-2');
 
-            btnResume.classList.remove('w-10', 'h-10', 'justify-center', 'p-0');
-            btnResume.classList.add('px-6', 'py-3', 'gap-2');
+            btnResume?.classList.remove('w-10', 'h-10', 'justify-center', 'p-0');
+            btnResume?.classList.add('px-6', 'py-3', 'gap-2');
 
             // Main normal
-            mainContent.classList.remove('lg:w-[calc(100%-168px)]');
-            mainContent.classList.add('lg:w-72%');
+            mainContent.classList.remove('lg:w-full');
+            mainContent.classList.add('lg:w-[72%]');
 
             projectDescriptions.forEach(el => el.classList.add('line-clamp-4'));
 
