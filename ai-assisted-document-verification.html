@@ -27,7 +27,7 @@
             transform: translateY(0);
         }
 
-        /* Section navigator (left sidebar) * /
+        /* Section navigator (left sidebar) */
         .section-nav-link {
             display: block;
             margin-left: -1px;
@@ -181,12 +181,12 @@
                             <p class="text-sm font-medium text-slate-900">Sprint-based (2-week cycles)</p>
                         </div>
                         <div>
-                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Platform</h3>
-                            <p class="text-sm font-medium text-slate-900">Web</p>
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Technology</h3>
+                            <p class="text-sm font-medium text-slate-900">React, Gen AI</p>
                         </div>
                         <div>
                             <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Platform</h3>
-                            <p class="text-sm font-medium text-slate-900">Web / Desktop</p>
+                            <p class="text-sm font-medium text-slate-900">Web - Desktop</p>
                         </div>
                     </div>
 
@@ -472,7 +472,7 @@
                             </ul>
                         </section> -->
 
-                        <section id="outcome" class="reveal scroll-mt-24">
+                        <section id="outcome" class="reveal scroll-mt-24 lg:min-h-[60vh]">
                             <div
                                 class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
                                 <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">Outcome</h2>
@@ -592,15 +592,7 @@
 
     <script>
         // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Mouse Spotlight Effect
-        const spotlight = document.getElementById('spotlight');
-        window.addEventListener('mousemove', (e) => {
-            const x = e.clientX;
-            const y = e.clientY;
-            spotlight.style.background = `radial-gradient(600px at ${x}px ${y}px, rgba(59, 130, 246, 0.15), transparent 80%)`;
-        });
+        if (window.lucide) lucide.createIcons();
 
         // Mouse Gradient
         const cursorGradient = document.getElementById('cursor-gradient');
