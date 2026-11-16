@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Assistant: An AI Tool for Lift-Truck Field Engineers - Abdul Hasib</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2316a34a%22 /><text x=%2250%22 y=%2250%22 font-family=%22Arial, sans-serif%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.35em%22>AH</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.5s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .section-nav-link { display: block; margin-left: -1px; padding: 6px 0 6px 16px; border-left: 2px solid transparent; font-size: 0.875rem; line-height: 1.25rem; font-weight: 500; color: #64748b; transition: color 0.2s ease, border-color 0.2s ease; }
+        .section-nav-link:hover { color: #0f172a; border-left-color: #cbd5e1; }
+        .section-nav-link:focus-visible { outline: 2px solid #16a34a; outline-offset: 2px; border-radius: 2px; }
+        .section-nav-link.is-active { color: #15803d; font-weight: 600; border-left-color: #16a34a; }
+        .site-connect-actions-hidden { display: none !important; }
+    </style>
+</head>
+
+<body class="relative min-h-screen bg-slate-50 selection:bg-green-300 selection:text-green-900">
+
+    <div id="cursor-gradient" class="pointer-events-none fixed inset-0 z-30 transition duration-300"></div>
+
+    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+
+        <!-- Mobile Header -->
+        <div class="lg:hidden mb-8 flex items-center justify-between w-full">
+            <div class="relative flex items-center justify-center">
+                <a href="index.html" aria-label="Back to Home"
+                    class="group inline-flex items-center gap-2 text-sm font-semibold text-green-600 transition hover:text-green-700">
+                    <i class="fa-solid fa-arrow-left h-4 w-4 transition-transform group-hover:-translate-x-1"></i>
+                    Back
+                </a>
+            </div>
+            <div class="flex items-center gap-5 site-connect-actions-hidden"></div>
+        </div>
+
+        <div class="lg:flex lg:justify-between lg:gap-4">
+
+            <!-- Sidebar -->
+            <header id="sidebar"
+                class="hidden lg:sticky lg:top-0 lg:self-start lg:flex lg:h-screen lg:max-h-screen lg:w-[176px] lg:flex-col lg:justify-between lg:py-24 z-50 items-start transition-all duration-500">
+                <div id="sidebar-content" class="w-full">
+                    <div class="relative min-h-[3rem] flex items-center justify-start transition-all duration-300" id="name-container">
+                        <a href="index.html" aria-label="Back to Home"
+                            class="group inline-flex items-center gap-2 text-sm font-semibold text-green-600 transition hover:text-green-700">
+                            <i class="fa-solid fa-arrow-left h-4 w-4 transition-transform group-hover:-translate-x-1"></i>
+                            Back
+                        </a>
+                    </div>
+                </div>
+
+                <nav id="section-nav" aria-label="Page sections" class="w-full">
+                    <ul class="flex flex-col border-l border-slate-200">
+                        <li><a href="#overview" data-section="overview" class="section-nav-link is-active" aria-current="true">Overview</a></li>
+                        <li><a href="#challenge" data-section="challenge" class="section-nav-link">Challenge</a></li>
+                        <li><a href="#solution" data-section="solution" class="section-nav-link">The Solution</a></li>
+                        <li><a href="#key-components" data-section="key-components" class="section-nav-link">Key Components</a></li>
+                        <li><a href="#outcome" data-section="outcome" class="section-nav-link">Outcome</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Main Content -->
+            <main class="lg:pt-24 lg:flex-1 lg:pl-10 lg:py-24 transition-all duration-500 ease-in-out">
+
+                <article>
+                    <!-- Header -->
+                    <header id="overview" class="mb-10 reveal scroll-mt-24">
+                        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-6">Service Assistant: An AI Tool for Lift-Truck Field Engineers</h1>
+                        <p class="text-xl leading-relaxed text-slate-600 max-w-2xl">We designed Service Assistant, an AI tool that gives service engineers cited answers from thousands of pages of manuals in seconds.</p>
+                        <div class="mt-8 flex flex-wrap gap-2">
+                            <span class="flex items-center rounded-full bg-green-400/10 px-3 py-1 text-xs font-medium leading-5 text-green-700 border border-green-400/20">AI</span>
+                            <span class="flex items-center rounded-full bg-green-400/10 px-3 py-1 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Industrial Tech</span>
+                            <span class="flex items-center rounded-full bg-green-400/10 px-3 py-1 text-xs font-medium leading-5 text-green-700 border border-green-400/20">Field Service</span>
+                        </div>
+                    </header>
+
+                    <!-- Hero Image -->
+                    <div class="mb-12 rounded-xl overflow-hidden border-2 border-slate-200/50 bg-white shadow-sm reveal">
+                        <img loading="lazy" src="assets/img/service-assitant-hero.png" alt="Service Assistant interface" class="w-full h-auto object-cover">
+                    </div>
+
+                    <!-- Metadata Grid -->
+                    <div class="mb-16 grid grid-cols-2 gap-8 sm:grid-cols-4 border-y border-slate-200 py-8 reveal">
+                        <div>
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Role</h3>
+                            <p class="text-sm font-medium text-slate-900">Product / UX Designer</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Client</h3>
+                            <p class="text-sm font-medium text-slate-900">Global lift-truck manufacturer</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Technologies</h3>
+                            <p class="text-sm font-medium text-slate-900">React, Enterprise AI Solutions</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Platform</h3>
+                            <p class="text-sm font-medium text-slate-900">Web - Phone, Tablet and Desktop</p>
+                        </div>
+                    </div>
+
+                    <!-- Users -->
+                    <div class="mb-16">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Users</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">Service Technicians</span>
+                            <span class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">Field Engineers</span>
+                            <span class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">Fleet Dealer Staff</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-24 text-slate-600 leading-relaxed">
+
+                        <!-- Challenge -->
+                        <section id="challenge" class="reveal scroll-mt-24">
+                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
+                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">The Challenge</h2>
+                            </div>
+                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-4">The Challenge</h2>
+                            <p class="mb-4">The client builds the lift trucks that move loads in warehouses, factories and ports, sold under two well-known brands. Its dealer network services a wide range of series and models across the Americas and the rest of the world, and every truck comes with its own service manuals, repair procedures and parts specifications.</p>
+                            <p class="mb-4">Service Assistant lets a technician describe a fault in plain English, the way they would explain it to a senior colleague. It searches the indexed manuals and past repair tickets, then returns a structured answer with the exact source page attached. The knowledge engineers needed already existed, but it was buried.</p>
+
+                            <div class="mt-8 space-y-6">
+                                <div class="pl-5 border-l-4 border-[#fb2c36]">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Too many manuals, too little signal</h3>
+                                    <p class="text-sm text-slate-600">Each series and model has its own documentation, split further by brand and region. A keyword search returns dozens of near-matches, and the engineer has to decide which one applies.</p>
+                                </div>
+                                <div class="pl-5 border-l-4 border-[#ff6900]">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Slow paths to an answer</h3>
+                                    <p class="text-sm text-slate-600">The fallback was paging through binders and PDFs or waiting on a helpdesk callback, while a truck sits idle at a customer site.</p>
+                                </div>
+                                <div class="pl-5 border-l-4 border-[#f0b100]">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Hard-won knowledge stayed in people's heads</h3>
+                                    <p class="text-sm text-slate-600">How a similar fault was fixed last time lived in old tickets and in senior technicians' experience, not in anything a newer engineer could search.</p>
+                                </div>
+                                <div class="pl-5 border-l-4 border-[#ad46ff]">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Trust and safety</h3>
+                                    <p class="text-sm text-slate-600">A wrong torque value or a skipped battery disconnect can injure someone. Any AI answer had to be verifiable against the factory manual, and safety notices could never be buried.</p>
+                                </div>
+                                <div class="pl-5 border-l-4 border-blue-400">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Real working conditions</h3>
+                                    <p class="text-sm text-slate-600">Engineers work on the shop floor or in a port yard, often on a phone, sometimes with dirty or full hands. The interface had to work in that context, not just at a desk.</p>
+                                </div>
+                                <div class="pl-5 border-l-4 border-green-500">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Users new to AI tools</h3>
+                                    <p class="text-sm text-slate-600">The audience had no prior experience with an assistant like this, so the experience had to be self-explanatory with no training beyond a short guide.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Solution -->
+                        <section id="solution" class="reveal scroll-mt-24">
+                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
+                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">The Solution</h2>
+                            </div>
+                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-8">The Solution</h2>
+                            <div class="mb-8">
+                                <p class="text-slate-600">We built a conversational assistant that answers like an experienced senior technician but shows its sources like a manual. The design rested on four principles.</p>
+                                <div class="mt-8 space-y-6">
+                                    <div class="pl-5 border-l-4 border-blue-400">
+                                        <h3 class="text-base font-semibold text-slate-900 mb-1">Ask in your own words</h3>
+                                        <p class="text-sm text-slate-600">Engineers type, or speak, a full description of the symptom and the truck's series number. Service Assistant remembers that truck for the rest of the session, so follow-ups need no repeated context.</p>
+                                    </div>
+                                    <div class="pl-5 border-l-4 border-cyan-400">
+                                        <h3 class="text-base font-semibold text-slate-900 mb-1">Every answer has the same shape</h3>
+                                        <p class="text-sm text-slate-600">Safety warnings first, then the verbatim factory procedure, then an expert Tier-3 style analysis, then citations, then matching historical tickets. Engineers learn where to look once and never hunt again.</p>
+                                    </div>
+                                    <div class="pl-5 border-l-4 border-emerald-400">
+                                        <h3 class="text-base font-semibold text-slate-900 mb-1">Show the source, always</h3>
+                                        <p class="text-sm text-slate-600">Each answer lists the exact manual pages it came from and which brand, region or collection it was scoped to. The engineer can open the page and check before touching the truck.</p>
+                                    </div>
+                                    <div class="pl-5 border-l-4 border-green-500">
+                                        <h3 class="text-base font-semibold text-slate-900 mb-1">Narrow the search when needed</h3>
+                                        <p class="text-sm text-slate-600">A Knowledge Scope panel lets engineers filter by series, model, brand, region and source, and save combinations as presets. Left alone, Service Assistant searches everything.</p>
+                                    </div>
+                                </div>
+                                <p class="mt-8 text-sm text-slate-600">Behind the scenes, quality checks validate procedures against the source manual and flag answers that are not grounded in an indexed document, before anything reaches the engineer.</p>
+                            </div>
+                        </section>
+
+                        <!-- Key Components -->
+                        <section id="key-components" class="reveal scroll-mt-24">
+                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
+                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">Key Components</h2>
+                            </div>
+                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-4">Key Components</h2>
+                            <p class="mb-8">The interface is built from seven parts, each mapped to a specific problem engineers had.</p>
+
+                            <div class="space-y-16">
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 group">
+                                    <div class="mb-6">
+                                        <h3 class="text-xl font-bold text-slate-900 mb-2">Conversational input</h3>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-2">Text field with photo/file attach and voice input; series number carried through the session.</p>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed">Keyword searches often missed the actual symptom, so engineers had to guess the right terms. Engineers can now describe the problem as they would to a colleague. Voice and photo input help when their hands are busy or dirty on the shop floor.</p>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50"><img loading="lazy" src="assets/img/search-input.png" alt="Conversational input" class="w-full h-full object-cover"></div>
+                                </div>
+
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 group">
+                                    <div class="mb-6">
+                                        <h3 class="text-xl font-bold text-slate-900 mb-2">Structured answer</h3>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-2">Fixed order: safety warning, factory procedure, Tier-3 expert analysis, citations, historical tickets.</p>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed">Long, unstructured answers made engineers hunt for the part they needed. Every response now follows the same order, so they know exactly where to look. This saves time and builds familiarity with every use.</p>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50"><img loading="lazy" src="assets/img/answear-structure.png" alt="Structured answer" class="w-full h-full object-cover"></div>
+                                </div>
+
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 group">
+                                    <div class="mb-6">
+                                        <h3 class="text-xl font-bold text-slate-900 mb-2">Safety-first banner</h3>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-2">Fluid pressure, high-temperature and battery-disconnect warnings always shown before any steps.</p>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed">Under time pressure, safety notes buried in a manual were easy to skip. Showing warnings first, before any repair steps, means they are always seen. This lowers the risk of injury or equipment damage.</p>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50"><img loading="lazy" src="assets/img/safety-first-banner.png" alt="Safety-first banner" class="w-full h-full object-cover"></div>
+                                </div>
+
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 group">
+                                    <div class="mb-6">
+                                        <h3 class="text-xl font-bold text-slate-900 mb-2">Citations and scoped sources</h3>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-2">Exact manual page numbers plus the brand, region or collection the answer came from.</p>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed">Engineers had no easy way to check whether an AI answer was correct. Each answer now points to the exact manual page it came from. They can verify it in seconds, which builds trust in the tool.</p>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50"><img loading="lazy" src="assets/img/citation.png" alt="Citations and scoped sources" class="w-full h-full object-cover"></div>
+                                </div>
+
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 group">
+                                    <div class="mb-6">
+                                        <h3 class="text-xl font-bold text-slate-900 mb-2">Historical tickets (PDRO)</h3>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-2">Similar past cases summarised as Problem, Diagnosis, Resolution, Outcome.</p>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed">Knowledge of how past faults were fixed lived in old tickets or in senior technicians' heads. Short summaries of similar past cases make that experience available to everyone. Newer engineers can learn from proven fixes instead of starting from scratch.</p>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50"><img loading="lazy" src="assets/img/historicals-tickets.png" alt="Historical tickets" class="w-full h-full object-cover"></div>
+                                </div>
+
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 group">
+                                    <div class="mb-6">
+                                        <h3 class="text-xl font-bold text-slate-900 mb-2">Knowledge Scope filters</h3>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-2">Series, model, brand, region and source filters, with saveable presets.</p>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed">With so many truck series and models, searches often returned results for the wrong machine. Filters narrow the search to the exact truck, brand or region. Saved presets mean engineers set this up once and reuse it.</p>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50"><img loading="lazy" src="assets/img/knowledge-scope.png" alt="Knowledge Scope filters" class="w-full h-full object-cover"></div>
+                                </div>
+
+                                <div class="bg-white p-6 rounded-lg border border-slate-200 group">
+                                    <div class="mb-6">
+                                        <h3 class="text-xl font-bold text-slate-900 mb-2">Chat history</h3>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed mb-2">Searchable past sessions grouped by date, reopened where they left off; New Chat resets truck context.</p>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed">Engineers lost track of past troubleshooting when moving between jobs. Saved, searchable history lets them pick up right where they left off. Starting a new chat clears the old truck details, so they don't mix into the next job.</p>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50"><img loading="lazy" src="assets/img/chat-history.png" alt="Chat history" class="w-full h-full object-cover"></div>
+                                </div>
+
+                                <!-- <div class="bg-white p-6 rounded-lg border border-slate-200 group">
+                                    <div class="mb-6">
+                                        <h3 class="text-xl font-bold text-slate-900 mb-2">Quality checks (Control Panel)</h3>
+                                        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed">A Control Panel exposes the quality checks running on each answer: Answer Grader, Hallucination Check and Procedure Check. A green dot shows which are active. Administrators configure them, so engineers can see they are protected without having to manage anything.</p>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50"><img loading="lazy" src="https://placehold.co/1400x800/f1f5f9/64748b?text=Control+Panel" alt="Control Panel" class="w-full h-full object-cover"></div>
+                                </div> -->
+                            </div>
+                        </section>
+
+                        <!-- Outcome -->
+                        <section id="outcome" class="reveal scroll-mt-24 lg:min-h-[60vh]">
+                            <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
+                                <h2 class="text-sm font-bold uppercase tracking-widest text-slate-900">Outcome</h2>
+                            </div>
+                            <h2 class="hidden lg:block text-2xl font-bold tracking-tight text-slate-900 mb-4">Outcome</h2>
+                            <p class="mb-8">Service Assistant turned a search through binders and helpdesk queues into a single conversation with a cited answer. Engineers now get the right procedure for the right truck in seconds, and can check the manual page before they act.</p>
+
+                            <div class="space-y-6 mb-12">
+                                <div class="pl-5 border-l-4 border-blue-400">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Faster diagnosis</h3>
+                                    <p class="text-sm text-slate-600">Answers that used to take paging through manuals or waiting on a callback now arrive in seconds, inside the same chat where the engineer can refine the question.</p>
+                                </div>
+                                <div class="pl-5 border-l-4 border-cyan-400">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Answers engineers can trust</h3>
+                                    <p class="text-sm text-slate-600">Every response cites its source page and scope, and procedures are checked against the manual before display, so the AI supports judgement instead of replacing it.</p>
+                                </div>
+                                <div class="pl-5 border-l-4 border-emerald-400">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Safety built into the flow</h3>
+                                    <p class="text-sm text-slate-600">Warnings are always the first thing an engineer sees, never an afterthought at the end of a procedure.</p>
+                                </div>
+                                <div class="pl-5 border-l-4 border-green-400">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Shared field knowledge</h3>
+                                    <p class="text-sm text-slate-600">PDRO ticket summaries give newer technicians access to how experienced colleagues solved the same fault.</p>
+                                </div>
+                                <div class="pl-5 border-l-4 border-green-600">
+                                    <h3 class="text-base font-semibold text-slate-900 mb-1">Zero-install adoption</h3>
+                                    <p class="text-sm text-slate-600">A browser link, no app and no separate login, so dealers across both regions could start using it on day one.</p>
+                                </div>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Impact metrics</h3>
+                            <p class="text-sm text-slate-600 mb-6">The service assistant improves procedure lookup speed, reduces time spent searching documentation, increases first-time fix rates, lowers Tier-3 escalations and ensures every answer includes a verifiable manual citation.</p>
+
+                            <div class="bg-white rounded-lg border border-slate-200 overflow-x-auto">
+                                <table class="w-full min-w-[560px] text-left text-sm">
+                                    <thead>
+                                        <tr class="border-b border-slate-200 text-xs font-bold uppercase tracking-widest text-slate-500">
+                                            <th class="p-4">Metric</th>
+                                            <th class="p-4">Industry baseline</th>
+                                            <th class="p-4">With Service Assistant</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-200 align-top">
+                                        <tr>
+                                            <td class="p-4 font-medium text-slate-900">Time to find the right procedure</td>
+                                            <td class="p-4">10–20 min per lookup</td>
+                                            <td class="p-4 font-bold text-green-600">Under 2 min, including source check</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4 font-medium text-slate-900">Share of troubleshooting time spent searching docs</td>
+                                            <td class="p-4">~30%</td>
+                                            <td class="p-4 font-bold text-green-600">~15%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4 font-medium text-slate-900">First-time fix rate</td>
+                                            <td class="p-4">~75% dealer-network average</td>
+                                            <td class="p-4 font-bold text-green-600">82–85%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4 font-medium text-slate-900">Escalations to helpdesk / Tier-3</td>
+                                            <td class="p-4">Current volume</td>
+                                            <td class="p-4 font-bold text-green-600">20–30% fewer</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4 font-medium text-slate-900">Answers with a verifiable manual citation</td>
+                                            <td class="p-4">Engineer cross-checks manually</td>
+                                            <td class="p-4 font-bold text-green-600">100%, by design</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="mt-4 text-xs text-slate-500">Sources: Service Council / Aberdeen via ServiceMax · Dealer FTFR benchmark · McKinsey via IFMA · Fluid Topics · Lookup time, AI vs manual · Brynjolfsson, Li &amp; Raymond, Generative AI at Work (NBER)</p>
+                        </section>
+
+                    </div>
+                </article>
+
+                <!-- See More of my work -->
+                <section class="mt-24 pt-12 border-t border-slate-200">
+                    <div class="flex flex-col lg:flex-row gap-6 items-start">
+                        <div class="lg:w-auto lg:shrink-0 lg:pr-8 pt-4">
+                            <h3 class="text-[28px] font-bold text-slate-900 leading-[36px] mb-2">See more</h3>
+                            <p class="text-[18px] text-slate-500 leading-[28px] mb-6">of my work</p>
+                            <i data-lucide="arrow-right" class="h-6 w-6 text-slate-900 rotate-90 lg:rotate-0"></i>
+                        </div>
+
+                        <div class="flex-1 grid gap-6 md:grid-cols-2 w-full">
+                            <a href="ai-assisted-document-verification.html"
+                                class="group relative block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-200 h-full p-5">
+                                <div class="flex flex-col gap-4 h-full">
+                                    <div class="self-start inline-block px-2 py-0.5 rounded-full bg-slate-100 text-green-600 text-[10px] font-bold uppercase tracking-wider">AI • EdTech • Validation</div>
+                                    <div class="flex gap-4">
+                                        <div class="w-[140px] h-fit shrink-0 bg-slate-200 rounded-lg overflow-hidden">
+                                            <img src="assets/img/doc-verification.png" alt="AI-assisted document verification" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="flex flex-col justify-between py-1 min-w-0">
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 text-[16px] leading-tight mb-2">AI-assisted Document Verification</h4>
+                                                <p class="text-[12px] text-slate-500 leading-relaxed line-clamp-3">A human-in-the-loop workflow: AI handles repetitive comparison work, while humans retain control over the final decision.</p>
+                                            </div>
+                                            <div class="mt-2 text-[14px] font-semibold text-green-600 flex items-center gap-1 group-hover:gap-2 transition-all">
+                                                View project <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="crm-application.html"
+                                class="group relative block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-200 h-full p-5">
+                                <div class="flex flex-col gap-4 h-full">
+                                    <div class="self-start inline-block px-2 py-0.5 rounded-full bg-slate-100 text-green-600 text-[10px] font-bold uppercase tracking-wider">CRM • MS 365</div>
+                                    <div class="flex gap-4">
+                                        <div class="w-[140px] h-fit shrink-0 bg-slate-200 rounded-lg overflow-hidden">
+                                            <img src="assets/img/crm-thumb.png" alt="CRM Application" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="flex flex-col justify-between py-1 min-w-0">
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 text-[16px] leading-tight mb-2">CRM Application</h4>
+                                                <p class="text-[12px] text-slate-500 leading-relaxed line-clamp-3">Designed a lightweight CRM layered on Microsoft 365 to streamline hospitality operations. Optimized for small devices, it empowers waitstaff to access and update guest information in real time.</p>
+                                            </div>
+                                            <div class="mt-2 text-[14px] font-semibold text-green-600 flex items-center gap-1 group-hover:gap-2 transition-all">
+                                                View project <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="mt-12 w-full pb-16 text-sm text-slate-500 sm:pb-0 flex flex-col sm:flex-row justify-between items-start gap-6 reveal">
+                    <p class="max-w-md">Designed in <a href="#" class="font-medium text-slate-900 hover:text-green-600">Figma</a> and coded in <a href="#" class="font-medium text-slate-900 hover:text-green-600">VS Code</a> by me. Built with <a href="#" class="font-medium text-slate-900 hover:text-green-600">HTML, Tailwind CSS</a> and <a href="#" class="font-medium text-slate-900 hover:text-green-600">JS</a>.</p>
+                    <p class="whitespace-nowrap">&copy; 2026 Abdul Hasib.</p>
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        if (window.lucide) lucide.createIcons();
+
+        const cursorGradient = document.getElementById('cursor-gradient');
+        window.addEventListener('mousemove', (e) => {
+            cursorGradient.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(74, 222, 128, 0.15), transparent 80%)`;
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Section navigator: scroll-spy + click to navigate
+        (function () {
+            const allLinks = Array.from(document.querySelectorAll('.section-nav-link'));
+            if (!allLinks.length) return;
+            const items = [];
+            allLinks.forEach(link => {
+                const target = document.getElementById(link.dataset.section);
+                if (target) items.push({ link, target });
+                else link.parentElement.hidden = true;
+            });
+            if (!items.length) return;
+
+            let locked = false, lockTimer = null, ticking = false;
+
+            function setActive(id) {
+                items.forEach(({ link }) => {
+                    const on = link.dataset.section === id;
+                    link.classList.toggle('is-active', on);
+                    if (on) link.setAttribute('aria-current', 'true');
+                    else link.removeAttribute('aria-current');
+                });
+            }
+            function updateActive() {
+                const line = Math.min(window.innerHeight * 0.3, 140);
+                let current = items[0].target.id;
+                items.forEach(({ target }) => { if (target.getBoundingClientRect().top <= line) current = target.id; });
+                if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = items[items.length - 1].target.id;
+                setActive(current);
+            }
+            function unlock() { locked = false; updateActive(); }
+
+            window.addEventListener('scroll', () => {
+                if (locked) { clearTimeout(lockTimer); lockTimer = setTimeout(unlock, 120); return; }
+                if (!ticking) { ticking = true; requestAnimationFrame(() => { updateActive(); ticking = false; }); }
+            }, { passive: true });
+            window.addEventListener('resize', updateActive);
+
+            items.forEach(({ link, target }) => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = link.dataset.section;
+                    setActive(id);
+                    locked = true;
+                    clearTimeout(lockTimer);
+                    lockTimer = setTimeout(unlock, 150);
+                    if (id === 'overview') window.scrollTo({ top: 0, behavior: 'smooth' });
+                    else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.replaceState(null, '', '#' + id);
+                });
+            });
+            updateActive();
+        })();
+    </script>
+</body>
+
+</html>
