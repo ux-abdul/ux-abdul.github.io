@@ -1,179 +1,45 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N77745W5');</script>
-    <!-- End Google Tag Manager -->
-    <title>Abdul Hasib - Lead Product UX/UI Designer based in India Hyderabad</title>
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2316a34a%22 /><text x=%2250%22 y=%2250%22 font-family=%22Arial, sans-serif%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.35em%22>AH</text></svg>">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-          /* Page background: mint glow anchored to the top, fading into the slate-50 page colour.
-           Image file: assets/img/background.png (its bottom edge matches #f8fafc, so there is no seam). */
-        body {
-            background-image: url('assets/img/background.png');
-            background-repeat: no-repeat;
-            background-position: top center;
-            background-size: max(100%, 1200px) auto;
-        }
-
-
-        /* ===== Hero (About) first fold ===== */
-        .hero-title,
-        .hero-intro {
-            font-family: 'Inter Tight', 'Inter', sans-serif;
-        }
-
-        .hero-title {
-            font-weight: 500;
-            letter-spacing: -0.045em;
-            line-height: 0.98;
-        }
-
-        .hero-intro {
-            letter-spacing: -0.02em;
-        }
-
-        /* Marker-style highlight under "10 years of experience" */
-        .hero-mark {
-            font-weight: 600;
-            background-image: linear-gradient(transparent 58%, rgba(74, 222, 128, 0.30) 58%);
-            -webkit-box-decoration-break: clone;
-            box-decoration-break: clone;
-        }
-
-        /* Serif italic accents inside the body copy */
-        .hero-accent {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-style: italic;
-            font-size: 1.18em;
-            line-height: 1;
-            color: #0f172a;
-        }
-
-        /* Keyboard focus: one consistent, high-contrast ring (WCAG 2.4.7 / 1.4.11) */
-        a:focus-visible,
-        button:focus-visible {
-            outline: 2px solid #15803d;
-            outline-offset: 3px;
-            border-radius: 6px;
-        }
-
-        /* AI sparkle icon: gentle twinkle (scale + quarter turn), pauses between beats */
-        .sparkle-anim {
-            transform-origin: 50% 50%;
-            animation: sparkle-twinkle 3.6s ease-in-out infinite;
-        }
-
-        @keyframes sparkle-twinkle {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
-            35%      { transform: scale(1.3) rotate(90deg); opacity: 0.85; }
-            55%      { transform: scale(1) rotate(90deg); opacity: 1; }
-            75%      { transform: scale(1.15) rotate(0deg); opacity: 0.9; }
-        }
-
-        /* Respect reduced-motion preference (WCAG 2.3.3) */
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto !important; }
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-                transition-delay: 0s !important;
-            }
-            .reveal { opacity: 1; transform: none; }
-            .sparkle-anim { animation: none !important; }
-        }
-
-        /* Temporarily hidden — remove class from markup to show again */
-        .site-connect-actions-hidden {
-            display: none !important;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Smooth transition for width and other properties */
-        #sidebar,
-        #main-content {
-            transition-property: width, margin, transform, opacity, padding, flex-grow, flex-basis;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 500ms;
-        }
-
-        #cursor-gradient {
-            width: 1200px; height: 1200px; will-change: transform;
-            background: radial-gradient(circle 600px at 50% 50%, rgba(74, 222, 128, 0.15), transparent 80%);
-        }
-
-        /* ===== My Journey: fanned, overlapping experience cards ===== */
-        .journey-stage { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0.5rem 0 1.5rem; -webkit-overflow-scrolling: touch; }
-        .journey-card { flex: 0 0 min(82vw, 18rem); scroll-snap-align: start; }
-        @media (min-width: 1024px) {
-            .journey-stage { overflow: visible; scroll-snap-type: none; justify-content: center; gap: 0; padding: 3.5rem 0 4.5rem; }
-            .journey-card {
-                flex: 0 0 18rem; margin-left: -3.5rem; min-height: 19rem;
-                transform: translateY(var(--y, 0)) rotate(var(--r, 0deg));
-                transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
-            }
-            .journey-card:first-child { margin-left: 0; }
-            .journey-card:hover, .journey-card:focus-visible {
-                transform: translateY(-14px) rotate(0deg) scale(1.04);
-                z-index: 20 !important;
-                box-shadow: 0 24px 40px -12px rgba(15, 23, 42, 0.25);
-            }
-        }
-        @media (prefers-reduced-motion: reduce) { .journey-card { transition: none; } }
-
-        /* Accordion transition */
-        #sidebar-details {
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-in-out;
-        }
-
-        /* Button Text Transition */
-        .btn-text-wrapper {
-            transition: max-width 0.4s ease, opacity 0.3s ease;
-            max-width: 150px;
-            opacity: 1;
-            white-space: nowrap;
-        }
-
-        .btn-text-wrapper.collapsed {
-            max-width: 0px;
-            opacity: 0;
-        }
-    </style>
-</head>
-
-<body class="relative min-h-screen bg-slate-50 selection:bg-green-300 selection:text-green-900">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N77745W5"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N77745W5');</script>
+<title>Abdul Hasib – Lead Product UX/UI Designer based in Hyderabad, India</title><meta name="description" content="Lead Product UX/UI Designer with 10 years of experience designing AI, enterprise and data-heavy products.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230e0e0e%22 /><text x=%2250%22 y=%2250%22 font-family=%22Arial, sans-serif%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22%23c6f432%22 text-anchor=%22middle%22 dy=%22.35em%22>AH</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{colors:{ink:'#0e0e0e',cream:'#f4efe6',lime:'#c6f432'},fontFamily:{display:['Bricolage Grotesque','Inter','sans-serif']}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.reveal.on{opacity:1;transform:none}
+body{margin:0}
+.theme-bold{background:#f4efe6;color:#0e0e0e;font-family:Inter,sans-serif;overflow-x:clip}
+.theme-editorial{background:#faf8f4;color:#1a1a1a;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+.theme-dark{background:#0a0b0d;color:#e6e8eb;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+.theme-soft{background:#f6f7fb;color:#0f172a;font-family:Manrope,sans-serif;-webkit-font-smoothing:antialiased}
+.theme-bold ::selection{background:#c6f432;color:#0e0e0e}.theme-editorial ::selection{background:#b4412f;color:#fff}.theme-dark ::selection{background:#4ade80;color:#000}.theme-soft ::selection{background:#c7d2fe}
+.theme-bold a:focus-visible,.theme-bold button:focus-visible{outline:3px solid #0e0e0e;outline-offset:3px;border-radius:8px}.theme-bold .dark-sec a:focus-visible{outline-color:#c6f432}
+.theme-editorial a:focus-visible{outline:3px solid #b4412f;outline-offset:3px}.theme-dark a:focus-visible{outline:3px solid #4ade80;outline-offset:3px}.theme-soft a:focus-visible{outline:3px solid #4f46e5;outline-offset:3px;border-radius:8px}
+#stage header.fixed,#stage nav.fixed{top:2.5rem!important}#stage [id]{scroll-margin-top:7.5rem}
+.font-display{font-family:'Bricolage Grotesque','Inter',sans-serif;letter-spacing:-0.03em}.font-serif{font-family:'Fraunces',Georgia,serif;letter-spacing:-0.02em}.font-mono{font-family:'JetBrains Mono',monospace}
+.btn-ink{transition:transform .2s ease,background .2s ease,color .2s ease}.btn-ink:hover{transform:translate(-2px,-2px) rotate(-1deg);background:#f4efe6;color:#0e0e0e;box-shadow:4px 4px 0 #0e0e0e}
+.frame{transform:rotate(var(--rot));transition:transform .45s cubic-bezier(.2,.8,.2,1)}.proj:hover .frame{transform:rotate(0) scale(1.03)}
+.job{transition:background .25s ease}.job:hover{background:#c6f432}
+.chip{transition:background .2s,color .2s,transform .2s}.chip:hover{background:#c6f432;color:#0e0e0e;transform:rotate(-3deg) scale(1.05)}
+.marquee{display:flex;width:max-content;animation:mq 28s linear infinite}@keyframes mq{to{transform:translateX(-50%)}}
+.spin{animation:spin 22s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.word{display:inline-block;transition:transform .35s ease,opacity .35s ease}.word.out{transform:translateY(-.4em);opacity:0}
+.hl{background:linear-gradient(transparent 62%,#c6f432 62%)}
+#style-bar{position:fixed;left:0;right:0;top:0;z-index:60;height:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:0 1rem;background:#111;color:#fff;font:600 12px/1 system-ui,sans-serif;border-bottom:1px solid #2a2a2a}
+#style-bar .seg{display:flex;gap:2px;padding:2px;border-radius:999px;background:#262626}
+#style-bar button{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:999px;padding:6px 11px;background:transparent;color:#bbb;font:inherit;cursor:pointer;white-space:nowrap}
+#style-bar button:hover{color:#fff}#style-bar button[aria-pressed=true]{background:#fff;color:#111}
+#style-bar button:focus-visible{outline:2px solid #c6f432;outline-offset:2px}
+#style-bar svg{width:14px;height:14px;flex:none}
+@media (max-width:640px){#style-bar .lab,#style-bar .brand{display:none}#style-bar{justify-content:flex-end;padding:0 .4rem}#style-bar button{padding:6px 8px;font-size:11px}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation:none!important;transition:none!important}}
+</style></head>
+<body class="theme-version relative min-h-screen bg-slate-50 selection:bg-green-300 selection:text-green-900"><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N77745W5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="style-bar" role="region" aria-label="Choose portfolio style"><span class="brand">Abdul Hasib · Portfolio</span><div style="display:flex;align-items:center;gap:10px"><span class="lab" style="color:#aaa">Style</span><div class="seg" id="seg">
+<button type="button" data-style="version" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Default</button>
+<button type="button" data-style="dark" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Dark</button>
+<button type="button" data-style="bold" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>Bold</button></div></div></div>
+<a href="#work" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-14 focus:z-[100] focus:rounded-full focus:bg-black focus:px-5 focus:py-3 focus:text-sm focus:text-white">Skip to work</a>
+<div id="stage">
     <!-- Shared icon sprite (IxDF logo) — referenced via <use href="#ixdf-glyph"> -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
         <symbol id="ixdf-glyph" viewBox="0 0 24 24" fill="none">
@@ -351,12 +217,10 @@
 
                 <!-- Desktop / tablet links -->
                 <ul class="hidden min-w-0 flex-nowrap items-center justify-end gap-4 overflow-x-auto sm:gap-6 md:flex md:gap-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                     <li><a href="#about"
-                            class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">About</a>
-                    </li>
+                     
                     <li><a href="#projects"
                             class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">Work</a>
-                    </li>
+                    </li><li><a href="#pov" class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">Point of view</a></li>
                     <!-- <li><a href="#experiments"
                             class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">Experiments</a>
                     </li> -->
@@ -364,12 +228,9 @@
                     <li><a href="#journey"
                             class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">Journey</a>
                     </li>
-                    <li><a href="#contact"
-                            class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">Contact</a>
-                    </li>
                     <li><a href="resume.html" target="_blank" rel="noopener noreferrer"
                             class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">Resume<span class="sr-only"> (opens in a new tab)</span></a>
-                    </li>
+                    </li><li><a href="#contact" class="inline-flex h-9 items-center whitespace-nowrap rounded-full bg-[#4ade80] px-4 text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-all hover:scale-105 active:scale-95 sm:text-xs">Let’s talk</a></li>
                 </ul>
 
                 <!-- Mobile / small tablet hamburger toggle -->
@@ -397,12 +258,10 @@
                 class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-out md:hidden">
                 <ul
                     class="-mt-px flex flex-col divide-y divide-slate-200/70 rounded-b-[28px] border border-t-0 border-slate-200/50 bg-slate-50/90 px-5 py-2 shadow-sm  ">
-                     <li><a href="#about"
-                            class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">About</a>
-                    </li>
+                     
                     <li><a href="#projects"
                             class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Work</a>
-                    </li>
+                    </li><li><a href="#pov" class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Point of view</a></li>
                     <!-- <li><a href="#experiments"
                             class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Experiments</a>
                     </li> -->
@@ -410,12 +269,9 @@
                     <li><a href="#journey"
                             class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Journey</a>
                     </li>
-                    <li><a href="#contact"
-                            class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Contact</a>
-                    </li>
                     <li><a href="resume.html" target="_blank" rel="noopener noreferrer"
                             class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Resume<span class="sr-only"> (opens in a new tab)</span></a>
-                    </li>
+                    </li><li><a href="#contact" class="my-3 flex min-h-[3.25rem] items-center justify-center rounded-full bg-[#4ade80] text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:bg-[#22c55e]">Let’s talk</a></li>
                 </ul>
             </div>
         </div>
@@ -428,108 +284,7 @@
             <header id="sidebar"
                 class="lg:order-2 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:overflow-y-auto lg:w-[28%] lg:flex-col lg:justify-between lg:py-16 z-30">
                 <div id="sidebar-content" class="w-full">
-                    <div id="sidebar-details" class="overflow-hidden max-h-[2200px] opacity-100 mt-0">
-                        <div class="mt-0 md:mt-8 reveal active" style="transition-delay: 0.2s">
-                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Skills</h2>
-                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">UI/UX,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Product
-                                    Thinking,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Rapid
-                                    Prototyping,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Usability
-                                    Testing,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-white">Design
-                                    Systems,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Human-AI
-                                    Collaboration,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Conversational
-                                    Design,</span>
-                                
-
-                            </div>
-                        </div>
-
-                        <div class="mt-8 reveal active" style="transition-delay: 0.3s">
-                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Domains</h2>
-                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">AI &amp; Gen AI,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">Enterprise SaaS,</span>
-                                    <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">B2B,</span>
-                                    <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">B2C,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">CRM,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">Hospitality &amp; Travel,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">E-Commerce,</span>
-                                    <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">FinTech,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">IndustrialTech,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">EdTech</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-8 reveal active" style="transition-delay: 0.4s">
-                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Tools</h2>
-                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Figma,</span>
-                                    <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Figma Make,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Adobe
-                                    CC,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Jira,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Miro,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Axure,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">ProtoPie,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Claude,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">ChatGPT</span>
-                                
-                            </div>
-                        </div>
-
-                        <div class="mt-8 mb-[76px] md:mb-8 reveal active" style="transition-delay: 0.5s">
-                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Tech Skills</h2>
-                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">HTML5,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">CSS3,</span>
-                                <!-- <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">JavaScript,</span> -->
-                                <!-- <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">React,</span> -->
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">Tailwind
-                                    CSS,</span>
-                                <span
-                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">Git</span>
-                            </div>
-                        </div>
-
-                        
-                    </div>
+                    <div id="sidebar-details" hidden></div>
                 </div>
                 <!-- CTA -->
                 <div id="sidebar-footer" class="mt-12 lg:mt-0 reveal active site-connect-actions-hidden" style="transition-delay: 0.6s">
@@ -567,7 +322,7 @@
                                     </div>
 
                                     <!-- <span class="absolute left-1/2 top-full -translate-x-1/2 mt-3 px-4 py-1.5 bg-green-50 text-green-800 border border-green-200 text-sm font-medium rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[999999]">
-                                Download Resume
+                                Download resume
                             </span> -->
                                 </a>
 
@@ -595,23 +350,18 @@
                         <svg class="sparkle-anim h-3.5 w-3.5 shrink-0 text-green-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M12 1C13 7.5 16.5 11 23 12C16.5 13 13 16.5 12 23C11 16.5 7.5 13 1 12C7.5 11 11 7.5 12 1Z" />
                         </svg>
-                        Lead Product Designer &middot; Hyderabad, India
+                        Lead Product UX/UI Designer &middot; Hyderabad, India
                     </p>
 
-                    <h1 class="hero-title mb-10 text-[2.75rem] text-slate-900 sm:text-[3.75rem] lg:text-[4.25rem] xl:text-[5rem]">I'm Abdul Hasib<span class="text-green-700">,</span></h1>
+                    <h1 class="hero-title mb-8 text-[2.25rem] text-slate-900 sm:text-[3rem] lg:text-[3.25rem] xl:text-[3.75rem]">I design products people can <span class="block"><span id="word" class="hero-mark word">trust</span><span class="text-green-700">.</span></span></h1>
 
-                    <p class="hero-intro max-w-[10em] text-[1.4rem] font-normal leading-[1.25] text-slate-900 sm:text-2xl">Product Designer with <span class="hero-mark">10 years of experience</span> driving end-to-end UX
-                        <span class="whitespace-nowrap">strategy, interaction design, </span> high-fidelity prototyping, with an engineering <span class="whitespace-nowrap">background and a </span><br><span class="whitespace-nowrap">strong analytical foundation.</span></p>
+                    <p class="hero-intro max-w-[48rem] text-[1.2rem] font-normal leading-[1.55] text-slate-800 sm:text-[1.45rem]">I’m <strong>Abdul Hasib</strong>. For 10 years I’ve turned dense, data-heavy workflows into clear, human-centred experiences. Right now I’m shaping generative AI tools that augment people’s work while keeping them in control.</p>
 
-                    <div class="mt-14 grid max-w-[40rem] gap-6 text-[15px] font-normal leading-[1.75] text-slate-700 sm:grid-cols-2 sm:gap-x-10 lg:mt-16">
-                        <p>My passion lies in bridging the gap between complex technology and <em class="hero-accent">human-centric design.</em> I specialize in building design systems that scale and creating intuitive interfaces
-                            for data-heavy applications.</p>
-                        <p>Currently, I'm deep diving into shaping <em class="hero-accent">generative AI-powered experiences,</em> exploring how
-                            Large Language Models can augment creative workflows while maintaining user agency and
-                            trust.</p>
-                    </div>
+                    <div class="mt-10 flex flex-wrap gap-3"><a href="#projects" class="inline-flex h-12 items-center rounded-full bg-[#4ade80] px-6 text-sm font-semibold text-slate-900 shadow-lg shadow-green-500/20 transition-all hover:scale-105 active:scale-95">See the work</a><a href="assets/Abdul-Hasib_Product-Designer.pdf" download="Abdul-Hasib_Product-Designer.pdf" class="inline-flex h-12 items-center rounded-full bg-white px-6 text-sm font-semibold text-green-700 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:text-slate-900 active:scale-95">Download resume</a></div>
                 </div>
             </section>
+
+            <section id="impact" class="mb-16 scroll-mt-28 reveal lg:mb-24" aria-label="Impact in numbers"><h2 class="mb-6 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900">A decade, in numbers</h2><div class="grid gap-4 grid-cols-2 lg:grid-cols-4"><div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3"><span class="text-4xl font-bold text-green-600 tracking-tight">10+</span><p class="text-sm text-slate-600 leading-snug">years designing complex, data-heavy products</p></div><div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3"><span class="text-4xl font-bold text-green-600 tracking-tight">4</span><p class="text-sm text-slate-600 leading-snug">companies, from a 0-to-1 startup to large enterprise teams</p></div><div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3"><span class="text-4xl font-bold text-green-600 tracking-tight">10</span><p class="text-sm text-slate-600 leading-snug">domains, from FinTech and hospitality to AI and industrial tech</p></div><div class="bg-white p-6 rounded-lg border border-slate-200 flex flex-col gap-3"><span class="text-4xl font-bold text-green-600 tracking-tight">5</span><p class="text-sm text-slate-600 leading-snug">regions served: India, the UAE, the USA, Europe and Australia</p></div></div></section>
 
             <!-- Skills & Tools land here on mobile/tablet (below About); JS moves the
                     #sidebar-details block here below lg, and back into the sidebar at lg+ -->
@@ -622,8 +372,8 @@
                 aria-label="Selected projects">
                 <div
                     class="sticky top-[4.5rem] z-20 -mx-6 mb-8 w-screen bg-slate-50/90 px-6 py-5   md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">
-                    <h2 class="text-2xl font-bold uppercase tracking-widest text-slate-900 lg:text-lg">Work</h2>
-                </div>
+                    <h2 class="text-2xl font-bold uppercase tracking-widest text-slate-900 lg:text-lg">Selected work</h2>
+                </div><p class="-mt-2 mb-8 max-w-xl text-[15px] leading-[1.75] text-slate-700">AI, enterprise and consumer products, from 0-to-1 builds to legacy redesigns.</p>
 
                 <!-- Expand/Collapse Button (hidden — state is now driven by scroll position) -->
                 <div class="mb-8 hidden items-center reveal">
@@ -660,28 +410,11 @@
                             <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
                                 <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900"><span class="sr-only">Project </span>01</span>
                                 <span class="h-px w-10 shrink-0 bg-slate-300" aria-hidden="true"></span>
-                                <ul class="flex flex-wrap gap-2" aria-label="Technologies used">
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        AI</div>
-                                </li>
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        IndustrialTech</div>
-                                </li>
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        Field Service</div>
-                                </li>
-                            </ul>
+                                <ul class="flex flex-wrap gap-2" aria-label="Technologies used"><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">AI</div></li><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">Field service</div></li><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">Conversational</div></li></ul>
                             </div>
 
                             <h3 class="font-bold leading-snug tracking-tight text-slate-900 text-xl sm:text-[1.375rem]">Service Assistant: An AI Tool for Lift-Truck Field Engineers</h3>
-                            <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">
-                                We designed Service Assistant, an AI tool that gives service engineers cited answers from thousands of pages of manuals in seconds.</p>
+                            <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">An AI tool that gives service engineers cited answers from thousands of pages of manuals in seconds.</p>
 
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                 <a href="service-assistant.html" aria-label="View project: AI-assisted Document Verification Application"
@@ -716,28 +449,11 @@
                             <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
                                 <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900"><span class="sr-only">Project </span>02</span>
                                 <span class="h-px w-10 shrink-0 bg-slate-300" aria-hidden="true"></span>
-                                <ul class="flex flex-wrap gap-2" aria-label="Technologies used">
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        AI</div>
-                                </li>
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        EdTech</div>
-                                </li>
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        Validation</div>
-                                </li>
-                            </ul>
+                                <ul class="flex flex-wrap gap-2" aria-label="Technologies used"><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">AI</div></li><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">EdTech</div></li><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">Validation</div></li></ul>
                             </div>
 
-                            <h3 class="font-bold leading-snug tracking-tight text-slate-900 text-xl sm:text-[1.375rem]">AI-assisted Document Verification Application</h3>
-                            <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">
-                                The experience was designed around a human-in-the-loop approach: AI handles repetitive comparison work, while humans retain control over the final decision.</p>
+                            <h3 class="font-bold leading-snug tracking-tight text-slate-900 text-xl sm:text-[1.375rem]">AI-assisted Document Verification</h3>
+                            <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">A human-in-the-loop experience: AI handles the repetitive comparison work, while people keep control of the final decision.</p>
 
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                 <a href="ai-assisted-document-verification.html" aria-label="View project: AI-assisted Document Verification Application"
@@ -772,34 +488,11 @@
                             <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
                                 <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900"><span class="sr-only">Project </span>03</span>
                                 <span class="h-px w-10 shrink-0 bg-slate-300" aria-hidden="true"></span>
-                                <ul class="flex flex-wrap gap-2" aria-label="Technologies used">
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        Hospitality</div>
-                                </li>
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        CRM</div>
-                                </li>
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        SaaS</div>
-                                </li>
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        E-Commerce</div>
-                                </li>
-                            </ul>
+                                <ul class="flex flex-wrap gap-2" aria-label="Technologies used"><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">Hospitality</div></li><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">CRM</div></li><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">SaaS</div></li></ul>
                             </div>
 
-                            <h3 class="font-bold leading-snug tracking-tight text-slate-900 text-xl sm:text-[1.375rem]">Hotel Check-in App - New Feature Integration</h3>
-                            <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">
-                                Streamlining hotel guest check-in and membership enrollment to reduce wait times and
-                                improve operational efficiency.</p>
+                            <h3 class="font-bold leading-snug tracking-tight text-slate-900 text-xl sm:text-[1.375rem]">Hotel Check-in App: New Feature Integration</h3>
+                            <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">Streamlining guest check-in and membership enrollment to cut wait times and improve operational efficiency.</p>
 
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                 <a href="hotel-check-in-app.html" aria-label="View project: Hotel Check-in App - New Feature Integration"
@@ -831,28 +524,10 @@
                             <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
                                 <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900"><span class="sr-only">Project </span>04</span>
                                 <span class="h-px w-10 shrink-0 bg-slate-300" aria-hidden="true"></span>
-                                <ul class="flex flex-wrap gap-2" aria-label="Technologies used">
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        CRM</div>
-                                </li>
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        MS 365</div>
-                                </li>
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        Fintech</div>
-                                </li>
-                            </ul>
+                                <ul class="flex flex-wrap gap-2" aria-label="Technologies used"><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">CRM</div></li><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">MS 365</div></li><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">FinTech</div></li></ul>
                             </div>
-                            <h3 class="font-bold leading-snug tracking-tight text-slate-900 text-xl sm:text-[1.375rem]">CRM Application For
-                                Hospitality Management Company</h3>
-                            <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">
-                                Designed a lightweight CRM layered on Microsoft 365 to streamline hospitality operations without relying on the core system. Optimized for small devices, it empowers waitstaff to access and update guest information in real time.</p>
+                            <h3 class="font-bold leading-snug tracking-tight text-slate-900 text-xl sm:text-[1.375rem]">CRM for a Hospitality Management Company</h3>
+                            <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">A lightweight CRM layered on Microsoft 365, optimized for small devices so waitstaff can update guest information in real time.</p>
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                 <a href="crm-application.html" aria-label="View project: CRM Application for Hospitality Management Company"
                                     class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-[#4ade80] px-3 text-[13px] font-semibold text-slate-900 ring-1 ring-[#4ade80] shadow-lg shadow-green-500/20 sm:w-auto sm:bg-white sm:px-6 sm:text-sm sm:text-green-700 sm:ring-slate-200 sm:shadow-sm sm:shadow-black/5 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95">
@@ -890,37 +565,18 @@
                             <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
                                 <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900"><span class="sr-only">Project </span>05</span>
                                 <span class="h-px w-10 shrink-0 bg-slate-300" aria-hidden="true"></span>
-                                <ul class="flex flex-wrap gap-2" aria-label="Technologies used">
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        IndustrialTech</div>
-                                </li>
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        Enterprise software</div>
-                                </li>
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        B2B</div>
-                                </li>
-                            </ul>
+                                <ul class="flex flex-wrap gap-2" aria-label="Technologies used"><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">IndustrialTech</div></li><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">Enterprise</div></li><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">B2B</div></li></ul>
                             </div>
 
-                            <h3 class="font-bold leading-snug tracking-tight text-slate-900 text-xl sm:text-[1.375rem]">Industrial Work Order &
-                                Operations Management System</h3>
+                            <h3 class="font-bold leading-snug tracking-tight text-slate-900 text-xl sm:text-[1.375rem]">Industrial Work Order &amp; Operations Management</h3>
                             <!-- <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-2">Redesigned a legacy enterprise application to unify fragmented workflows into a single scalable platform, with configurable modules supporting multiple facilities, operations, and customer-specific requirements.</p> -->
-                            <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">
-                                Our client is a leading industrial manufacturing company with operations across multiple locations in the USA. With a large and distributed operational setup, coordinating work orders, tracking operations, and maintaining consistency.
-                            </p>
+                            <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">A leading industrial manufacturer with sites across the USA needed consistent work orders and operations tracking at scale.</p>
 
 
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                 <p class="flex min-h-12 items-center gap-2 text-sm font-normal leading-snug text-slate-600 sm:min-h-0">
                                     <i aria-hidden="true" class="fa-solid fa-lock text-xs text-green-700"></i>
-                                    <span>Open for discussion in 1:1</span>
+                                    <span>Open for discussion 1:1</span>
                                 </p>
                                 <!-- <a href="hotel-check-in-app.html" class="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-900 ring-1 ring-slate-200 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:shadow-lg hover:shadow-green-500/20 active:scale-95 shadow-sm">
                                     View Project <svg class="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
@@ -950,26 +606,10 @@
                             <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
                                 <span class="text-xs font-medium tabular-nums tracking-wider text-slate-900"><span class="sr-only">Project </span>06</span>
                                 <span class="h-px w-10 shrink-0 bg-slate-300" aria-hidden="true"></span>
-                                <ul class="flex flex-wrap gap-2" aria-label="Technologies used">
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        Mobile Commerce</div>
-                                </li>
-                                <li>
-                                    <div
-                                        class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">
-                                        Shopping</div>
-                                </li>
-                            </ul>
+                                <ul class="flex flex-wrap gap-2" aria-label="Technologies used"><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">Mobile commerce</div></li><li><div class="flex items-center rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-normal leading-5 text-slate-600">Shopping</div></li></ul>
                             </div>
-                            <h3 class="font-bold leading-snug tracking-tight text-slate-900 text-xl sm:text-[1.375rem]">Online Shopping from Display
-                                Ad at Airport</h3>
-                            <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">
-                                Designed a seamless checkout experience triggered from an airport display ad,
-                                enabling first-time users to move from inspiration to purchase in moments. Focused
-                                on speed, clarity, and flexible delivery scheduling, the flow supports on-the-go
-                                shoppers and real-world travel contexts.</p>
+                            <h3 class="font-bold leading-snug tracking-tight text-slate-900 text-xl sm:text-[1.375rem]">Online Shopping from a Display Ad at Airport</h3>
+                            <p class="mt-3 text-sm leading-relaxed text-slate-600 project-description line-clamp-4">A seamless checkout triggered from an airport display ad, taking first-time users from inspiration to purchase in moments.</p>
                             <div class="mt-6 flex flex-wrap gap-3 relative z-20">
                                 <a href="online-shopping-at-airport.html" aria-label="View project: Online Shopping from Display Ad at Airport"
                                     class="group inline-flex h-12 w-[calc((100vw-4.5rem)/2)] items-center justify-center gap-2 rounded-full bg-[#4ade80] px-3 text-[13px] font-semibold text-slate-900 ring-1 ring-[#4ade80] shadow-lg shadow-green-500/20 sm:w-auto sm:bg-white sm:px-6 sm:text-sm sm:text-green-700 sm:ring-slate-200 sm:shadow-sm sm:shadow-black/5 transition-all hover:scale-105 hover:bg-[#4ade80] hover:ring-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 active:scale-95">
@@ -1088,6 +728,8 @@
                 </div> -->
             </section>
 
+            <section id="pov" class="mb-16 scroll-mt-28 reveal lg:mb-24 lg:scroll-mt-32" aria-label="Point of view"><p class="text-xs font-semibold uppercase tracking-[0.14em] text-green-700">Point of view</p><h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Three things every AI product designer should keep in mind</h2><p class="mt-3 max-w-2xl text-[15px] leading-[1.75] text-slate-700">AI features earn their place when people understand them, can steer them, and can recover when they’re wrong. These are the three things I keep coming back to.</p><div class="mt-8 grid gap-4 md:grid-cols-3"><div class="bg-white p-6 rounded-lg border border-slate-200 flex gap-5 items-start"><div class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-emerald-400 to-green-600 text-white flex items-center justify-center font-bold text-lg">01</div><div><h3 class="text-lg font-bold text-slate-900">Earn trust, don’t assume it</h3><p class="mt-2 text-sm leading-relaxed text-slate-600">Models are sometimes wrong, so show your work. Sources, confidence and reasoning let people verify an answer before they act on it.</p></div></div><div class="bg-white p-6 rounded-lg border border-slate-200 flex gap-5 items-start"><div class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-emerald-400 to-green-600 text-white flex items-center justify-center font-bold text-lg">02</div><div><h3 class="text-lg font-bold text-slate-900">Keep people in control</h3><p class="mt-2 text-sm leading-relaxed text-slate-600">Let AI take the repetitive, high-volume work, but keep people in charge of consequential decisions, with clear ways to review, correct and override.</p></div></div><div class="bg-white p-6 rounded-lg border border-slate-200 flex gap-5 items-start"><div class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-emerald-400 to-green-600 text-white flex items-center justify-center font-bold text-lg">03</div><div><h3 class="text-lg font-bold text-slate-900">Design for when AI is wrong</h3><p class="mt-2 text-sm leading-relaxed text-slate-600">AI will get things wrong. Flag uncertainty, make mismatches obvious, and make errors easy to correct and recover from.</p></div></div></div></section>
+
             <section id="journey" class="mt-20 scroll-mt-28 mb-16 md:mt-28 lg:mt-0 lg:mb-24 lg:scroll-mt-32 reveal" aria-label="My journey">
                 <div class="mx-auto max-w-2xl text-center">
                     <h2 class="hero-title text-[2.75rem] text-slate-900 sm:text-5xl lg:text-[4rem]">My journey<span class="text-green-700">.</span></h2>
@@ -1099,21 +741,21 @@
                         <img src="assets/img/evoke_logo.svg" alt="Evoke Technologies" loading="lazy" decoding="async" class="h-7 w-auto max-w-full object-contain object-left">
                         <p class="mt-5 text-xs text-slate-500">Dec 2022 – Present</p>
                         <h3 class="mt-3 text-lg font-bold leading-snug tracking-tight text-slate-900">Lead UX Designer</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-slate-600">Leading UX for an AI document verification system that cut manual processing time by 80%, a hotel check-in flow that shortened wait times by 40%, and an industrial work order platform.</p>
+                        <p class="mt-2 text-sm leading-relaxed text-slate-600">AI document verification that cut manual processing by 80%, a hotel check-in flow that shortened waits by 40%, and an industrial work order platform.</p>
                     </article>
                     <article tabindex="0" role="listitem" style="--r:2deg;--y:-6px;z-index:3"
                         class="journey-card relative rounded-2xl border border-slate-200 bg-white p-5 shadow-md shadow-slate-900/5 outline-none">
                         <img src="assets/img/OpenText_logo.svg" alt="OpenText Technologies" loading="lazy" decoding="async" class="h-7 w-auto max-w-full object-contain object-left">
                         <p class="mt-5 text-xs text-slate-500">Jan 2020 – Dec 2022</p>
                         <h3 class="mt-3 text-lg font-bold leading-snug tracking-tight text-slate-900">Senior UX Designer</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-slate-600">Designed enterprise business process workflows and an invoice-to-payment system, and pushed for WCAG accessibility across the platform.</p>
+                        <p class="mt-2 text-sm leading-relaxed text-slate-600">Enterprise business process workflows and an invoice-to-payment system, with WCAG accessibility championed across the platform.</p>
                     </article>
                     <article tabindex="0" role="listitem" style="--r:-3deg;--y:12px;z-index:2"
                         class="journey-card relative rounded-2xl border border-slate-200 bg-white p-5 shadow-md shadow-slate-900/5 outline-none">
                         <img src="assets/img/tcs_new_logo.svg" alt="Tata Consultancy Services" loading="lazy" decoding="async" class="h-7 w-auto max-w-full object-contain object-left">
                         <p class="mt-5 text-xs text-slate-500">May 2018 – Jan 2020</p>
                         <h3 class="mt-3 text-lg font-bold leading-snug tracking-tight text-slate-900">Senior UX Designer</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-slate-600">Designed an automotive platform for dealers and customers, from vehicle discovery and purchase to service booking and dealer dashboards.</p>
+                        <p class="mt-2 text-sm leading-relaxed text-slate-600">An automotive platform for dealers and customers, from vehicle discovery and purchase to service booking and dealer dashboards.</p>
                     </article>
                     <article tabindex="0" role="listitem" style="--r:3deg;--y:-4px;z-index:1"
                         class="journey-card relative rounded-2xl border border-slate-200 bg-white p-5 shadow-md shadow-slate-900/5 outline-none">
@@ -1125,6 +767,103 @@
                 </div>
             </section>
 
+            <section id="toolbox" class="mb-16 scroll-mt-28 reveal lg:mb-24 lg:scroll-mt-32" aria-label="Toolbox"><div id="toolbox-details" class="grid gap-x-12 sm:grid-cols-2"><h2 class="hero-title text-[2.75rem] text-slate-900 sm:col-span-2 sm:text-5xl lg:text-[4rem]">Toolbox<span class="text-green-700">.</span></h2>
+                        <div class="mt-0 md:mt-8 reveal active" style="transition-delay: 0.2s">
+                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Craft</h2>
+                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">UI/UX,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Product thinking,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Rapid prototyping,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Usability testing,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-white">Design systems,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Human-AI collaboration,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset">Conversational design,</span>
+                                
+
+                            </div>
+                        </div>
+
+                        <div class="mt-8 reveal active" style="transition-delay: 0.3s">
+                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Domains</h2>
+                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">AI &amp; Gen AI,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">Enterprise SaaS,</span>
+                                    <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">B2B,</span>
+                                    <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">B2C,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">CRM,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">Hospitality &amp; travel,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">E-commerce,</span>
+                                    <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">FinTech,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">IndustrialTech,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700">EdTech</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 reveal active" style="transition-delay: 0.4s">
+                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Tools</h2>
+                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Figma,</span>
+                                    <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Figma Make,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Adobe
+                                    CC,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Jira,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Miro,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Axure,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">ProtoPie,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">Claude,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 transition hover:border-slate-400 hover:text-slate-900">ChatGPT</span>
+                                
+                            </div>
+                        </div>
+
+                        <div class="mt-8 mb-[76px] md:mb-8 reveal active" style="transition-delay: 0.5s">
+                            <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 mb-4">Build</h2>
+                            <div class="flex flex-wrap gap-x-2 gap-y-0 pr-8">
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">HTML5,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">CSS3,</span>
+                                <!-- <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">JavaScript,</span> -->
+                                <!-- <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">React,</span> -->
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">Tailwind
+                                    CSS,</span>
+                                <span
+                                    class="inline-flex items-center rounded-md text-[15px] font-normal leading-[1.75] text-slate-700 ring-inset ring-slate-500/10">Git</span>
+                            </div>
+                        </div>
+
+                        
+                    </div></section>
+
             </main>
         </div>
 
@@ -1133,20 +872,20 @@
                 <!-- Let's talk (Contact) -->
                 <section id="contact" class="mt-24 scroll-mt-28 reveal lg:mt-16 lg:scroll-mt-32" aria-label="Contact">
                     <div class="flex flex-col gap-8 border-b border-slate-200 pb-8 sm:flex-row sm:items-end sm:justify-between">
-                        <h2 class="hero-title text-[2.75rem] text-slate-900 sm:text-5xl lg:text-[4rem]">Let's talk<span class="text-green-700">.</span></h2>
+                        <div><h2 class="hero-title text-[2.75rem] text-slate-900 sm:text-5xl lg:text-[4rem]">Let’s talk<span class="text-green-700">.</span></h2><p class="mt-4 max-w-xl text-[15px] leading-[1.75] text-slate-700">Hiring for a lead design role, or have a messy, complex product that needs to feel obvious? I’d love to hear about it.</p></div>
 
                         <div class="flex w-full flex-nowrap items-stretch gap-3 sm:w-auto sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-4 sm:pb-2">
                             <!-- Primary: opens the visitor's email composer -->
                             <a href="mailto:ux.abdul@gmail.com?subject=Hi,"
                                 class="group inline-flex h-12 min-w-0 flex-1 basis-0 items-center justify-center gap-2 rounded-full bg-[#4ade80] px-3 text-center text-[13px] sm:flex-none sm:basis-auto font-semibold text-slate-900 shadow-lg shadow-green-500/20 transition-all duration-300 hover:scale-105 active:scale-95 sm:px-6 sm:text-sm">
                                 <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                                Send Email
+                                Send email
                             </a>
                             <!-- Secondary: downloads the resume PDF -->
                             <a href="assets/Abdul-Hasib_Product-Designer.pdf" download="Abdul-Hasib_Product-Designer.pdf"
                                 class="group inline-flex h-12 min-w-0 flex-1 basis-0 items-center justify-center gap-2 rounded-full bg-white px-3 text-center text-[13px] sm:flex-none sm:basis-auto font-semibold text-green-700 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:scale-105 hover:bg-[#4ade80] hover:text-slate-900 hover:shadow-lg hover:shadow-green-500/20 hover:ring-[#4ade80] active:scale-95 sm:px-6 sm:text-sm">
                                 <svg class="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-                                Download Resume
+                                Download resume
                             </a>
                         </div>
                     </div>
@@ -1191,370 +930,427 @@
                 </footer>
         </div>
     </div>
+</div>
+<template id="tpl-bold"><header class="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
+  <nav aria-label="Primary" class="mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full border-2 border-ink bg-cream px-4 py-2.5 shadow-[4px_4px_0_#0e0e0e] sm:px-6">
+    <a href="index.html" aria-label="Abdul Hasib home" class="font-display text-xl font-extrabold">AH<span class="text-[#6fa800]">.</span></a>
+    <ul class="flex items-center gap-4 text-[11px] font-bold uppercase tracking-widest sm:gap-7 sm:text-xs">
+      <li><a href="#work" class="hover:underline decoration-2 underline-offset-4">Work</a></li>
+      <li class="hidden md:block"><a href="#pov" class="hover:underline decoration-2 underline-offset-4">Point of view</a></li>
+      <li><a href="#journey" class="hover:underline decoration-2 underline-offset-4">Journey</a></li>
+      <li class="hidden sm:block"><a href="resume.html" target="_blank" rel="noopener noreferrer" class="hover:underline decoration-2 underline-offset-4">Resume<span class="sr-only"> (opens in a new tab)</span></a></li>
+      <li><a href="#contact" class="btn-ink inline-flex h-9 items-center rounded-full bg-lime px-4 text-ink ring-2 ring-ink">Let’s talk</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <script>
-        // Mouse Gradient
-        const cursorGradient = document.getElementById('cursor-gradient');
-        let gradX = 0, gradY = 0, gradTicking = false;
-        window.addEventListener('mousemove', (e) => {
-            gradX = e.clientX; gradY = e.clientY;
-            if (gradTicking) return;
-            gradTicking = true;
-            requestAnimationFrame(() => {
-                cursorGradient.style.opacity = '1';
-                cursorGradient.style.transform = `translate3d(${gradX - 600}px, ${gradY - 600}px, 0)`;
-                gradTicking = false;
-            });
-        }, { passive: true });
+<main id="main">
+<!-- HERO -->
+<section class="relative overflow-hidden px-5 pb-16 pt-32 sm:px-8 sm:pt-40">
+  <div class="mx-auto max-w-6xl">
+    <p class="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-lime px-4 py-1.5 text-xs font-bold uppercase tracking-widest">Lead Product UX/UI Designer · Hyderabad, India</p>
+    <h1 class="font-display mt-8 font-extrabold leading-[0.95]" style="font-size:calc(min(100vw - 4rem, 68rem) * 0.088)"><span class="block">I design products</span><span class="block whitespace-nowrap">people can <span class="hl"><span id="word" class="word">trust</span></span>.</span></h1>
+    <div class="mt-10 grid gap-8 lg:grid-cols-12 lg:items-end">
+      <p class="text-lg leading-relaxed sm:text-xl lg:col-span-7">I’m <strong>Abdul Hasib</strong>. For 10 years I’ve turned dense, data-heavy workflows into clear, human-centred experiences. Right now I’m shaping generative AI tools that augment people’s work while keeping them in control.</p>
+      <div class="flex flex-wrap items-center gap-4 lg:col-span-5 lg:justify-end">
+        <a href="#work" class="btn-ink inline-flex h-14 items-center gap-2 rounded-full bg-ink px-8 text-base font-bold text-cream">See the work</a>
+        <a href="assets/Abdul-Hasib_Product-Designer.pdf" download="Abdul-Hasib_Product-Designer.pdf" class="inline-flex h-14 items-center rounded-full border-2 border-ink px-8 text-base font-bold transition-colors hover:bg-lime">Download resume</a>
+      </div>
+    </div>
+  </div>
+  <svg class="spin pointer-events-none absolute right-6 top-24 hidden h-36 w-36 lg:block" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><circle cx="60" cy="60" r="58" fill="#c6f432" stroke="#0e0e0e" stroke-width="2"/><text font-size="10.5" font-weight="800" letter-spacing="2.2" fill="#0e0e0e"><textPath href="#c">AI ✦ DESIGN SYSTEMS ✦ UX LEAD ✦ </textPath></text></svg>
+</section>
 
-        // ===== Main Expand/Collapse =====
-        const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('main-content');
+<!-- MARQUEE -->
+<div class="overflow-hidden py-3" aria-hidden="true"><div class="-mx-2 -rotate-1 overflow-hidden border-y-2 border-ink bg-lime py-4">
+  <div class="marquee font-display text-2xl font-extrabold uppercase sm:text-3xl"><div class="flex shrink-0 whitespace-nowrap"><span class="px-6">AI & Gen AI</span><span aria-hidden="true">✦</span><span class="px-6">Design systems</span><span aria-hidden="true">✦</span><span class="px-6">Enterprise SaaS</span><span aria-hidden="true">✦</span><span class="px-6">Human-AI collaboration</span><span aria-hidden="true">✦</span><span class="px-6">FinTech</span><span aria-hidden="true">✦</span><span class="px-6">Hospitality</span><span aria-hidden="true">✦</span><span class="px-6">Conversational design</span><span aria-hidden="true">✦</span><span class="px-6">IndustrialTech</span><span aria-hidden="true">✦</span></div><div class="flex shrink-0 whitespace-nowrap"><span class="px-6">AI & Gen AI</span><span aria-hidden="true">✦</span><span class="px-6">Design systems</span><span aria-hidden="true">✦</span><span class="px-6">Enterprise SaaS</span><span aria-hidden="true">✦</span><span class="px-6">Human-AI collaboration</span><span aria-hidden="true">✦</span><span class="px-6">FinTech</span><span aria-hidden="true">✦</span><span class="px-6">Hospitality</span><span aria-hidden="true">✦</span><span class="px-6">Conversational design</span><span aria-hidden="true">✦</span><span class="px-6">IndustrialTech</span><span aria-hidden="true">✦</span></div></div>
+</div></div>
 
-        const toggleBtn = document.getElementById('toggle-sidebar');
-        const toggleIcon = document.getElementById('toggle-icon');
-        const toggleText = document.getElementById('toggle-text');
+<!-- IMPACT -->
+<section class="px-5 py-20 sm:px-8 sm:py-28" aria-label="Impact in numbers">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="text-xs font-bold uppercase tracking-[0.2em]">A decade, in numbers</h2>
+    <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4"><div class="reveal"><p class="font-display text-6xl font-extrabold leading-none sm:text-7xl">10+</p><p class="mt-3 max-w-[14rem] text-sm font-medium leading-snug">years designing complex, data-heavy products</p></div><div class="reveal"><p class="font-display text-6xl font-extrabold leading-none sm:text-7xl">4</p><p class="mt-3 max-w-[14rem] text-sm font-medium leading-snug">companies, from a 0-to-1 startup to large enterprise teams</p></div><div class="reveal"><p class="font-display text-6xl font-extrabold leading-none sm:text-7xl">10</p><p class="mt-3 max-w-[14rem] text-sm font-medium leading-snug">domains, from FinTech and hospitality to AI and industrial tech</p></div><div class="reveal"><p class="font-display text-6xl font-extrabold leading-none sm:text-7xl">5</p><p class="mt-3 max-w-[14rem] text-sm font-medium leading-snug">regions served: India, the UAE, the USA, Europe and Australia</p></div></div>
+  </div>
+</section>
 
-        const sidebarDetails = document.getElementById('sidebar-details');
+<!-- WORK -->
+<section id="work" class="scroll-mt-24 px-5 pb-24 sm:px-8" aria-label="Selected work">
+  <div class="mx-auto max-w-6xl">
+    <div class="mb-10 flex items-end justify-between gap-6">
+      <h2 class="font-display text-5xl font-extrabold leading-none sm:text-7xl">Selected work<span class="text-[#6fa800]">.</span></h2>
+      <p class="hidden max-w-xs text-sm sm:block">AI, enterprise and consumer products, from 0-to-1 builds to legacy redesigns.</p>
+    </div>
+    
+      <article class="proj reveal lg:sticky mb-6 overflow-hidden rounded-[2rem] border-2 border-ink" style="top:calc(8rem + 0.0rem);background:#c6f432;color:#0e0e0e">
+        <div class="grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-2 lg:gap-12">
+          <div>
+            <p class="font-display text-6xl font-extrabold leading-none opacity-90 sm:text-7xl" aria-hidden="true">01</p>
+            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tags"><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">AI</li><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">Field service</li><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">Conversational</li></ul>
+            <h3 class="mt-5 font-display text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-[2.6rem]">Service Assistant: An AI Tool for Lift-Truck Field Engineers</h3>
+            <p class="mt-4 max-w-md text-base leading-relaxed opacity-90">An AI tool that gives service engineers cited answers from thousands of pages of manuals in seconds.</p>
+            <a href="service-assistant.html" class="btn-ink mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-ink px-6 text-sm font-bold text-cream" aria-label="View project: Service Assistant: An AI Tool for Lift-Truck Field Engineers">View project <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+          </div>
+          <div class="frame" style="--rot:-2deg">
+            <img src="assets/img/service-assitant-thumb.png" alt="Screens from the Service Assistant AI tool for field engineers" decoding="async" class="aspect-[4/3] w-full rounded-2xl border-2 border-ink bg-white object-cover shadow-[8px_8px_0_#0e0e0e]">
+          </div>
+        </div>
+      </article>
+      <article class="proj reveal lg:sticky mb-6 overflow-hidden rounded-[2rem] border-2 border-ink" style="top:calc(8rem + 0.9rem);background:#a5b4fc;color:#0e0e0e">
+        <div class="grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-2 lg:gap-12">
+          <div>
+            <p class="font-display text-6xl font-extrabold leading-none opacity-90 sm:text-7xl" aria-hidden="true">02</p>
+            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tags"><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">AI</li><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">EdTech</li><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">Validation</li></ul>
+            <h3 class="mt-5 font-display text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-[2.6rem]">AI-assisted Document Verification</h3>
+            <p class="mt-4 max-w-md text-base leading-relaxed opacity-90">A human-in-the-loop experience: AI handles the repetitive comparison work, while people keep control of the final decision.</p>
+            <a href="ai-assisted-document-verification.html" class="btn-ink mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-ink px-6 text-sm font-bold text-cream" aria-label="View project: AI-assisted Document Verification">View project <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+          </div>
+          <div class="frame" style="--rot:2deg">
+            <img src="assets/img/doc-verification.png" alt="Document verification screens comparing documents side by side" decoding="async" class="aspect-[4/3] w-full rounded-2xl border-2 border-ink bg-white object-cover shadow-[8px_8px_0_#0e0e0e]">
+          </div>
+        </div>
+      </article>
+      <article class="proj reveal lg:sticky mb-6 overflow-hidden rounded-[2rem] border-2 border-ink" style="top:calc(8rem + 1.8rem);background:#ff8a5b;color:#0e0e0e">
+        <div class="grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-2 lg:gap-12">
+          <div>
+            <p class="font-display text-6xl font-extrabold leading-none opacity-90 sm:text-7xl" aria-hidden="true">03</p>
+            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tags"><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">Hospitality</li><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">CRM</li><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">SaaS</li></ul>
+            <h3 class="mt-5 font-display text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-[2.6rem]">Hotel Check-in App: New Feature Integration</h3>
+            <p class="mt-4 max-w-md text-base leading-relaxed opacity-90">Streamlining guest check-in and membership enrollment to cut wait times and improve operational efficiency.</p>
+            <a href="hotel-check-in-app.html" class="btn-ink mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-ink px-6 text-sm font-bold text-cream" aria-label="View project: Hotel Check-in App: New Feature Integration">View project <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+          </div>
+          <div class="frame" style="--rot:-2deg">
+            <img src="assets/img/hotel1.jpg" alt="Hotel check-in app screens showing the guest check-in flow" loading="lazy" decoding="async" class="aspect-[4/3] w-full rounded-2xl border-2 border-ink bg-white object-cover shadow-[8px_8px_0_#0e0e0e]">
+          </div>
+        </div>
+      </article>
+      <article class="proj reveal lg:sticky mb-6 overflow-hidden rounded-[2rem] border-2 border-ink" style="top:calc(8rem + 2.7rem);background:#ffb4d6;color:#0e0e0e">
+        <div class="grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-2 lg:gap-12">
+          <div>
+            <p class="font-display text-6xl font-extrabold leading-none opacity-90 sm:text-7xl" aria-hidden="true">04</p>
+            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tags"><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">CRM</li><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">MS 365</li><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">FinTech</li></ul>
+            <h3 class="mt-5 font-display text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-[2.6rem]">CRM for a Hospitality Management Company</h3>
+            <p class="mt-4 max-w-md text-base leading-relaxed opacity-90">A lightweight CRM layered on Microsoft 365, optimized for small devices so waitstaff can update guest information in real time.</p>
+            <a href="crm-application.html" class="btn-ink mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-ink px-6 text-sm font-bold text-cream" aria-label="View project: CRM for a Hospitality Management Company">View project <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+          </div>
+          <div class="frame" style="--rot:2deg">
+            <img src="assets/img/crm-thumb.png" alt="Mobile CRM interface for hospitality staff" loading="lazy" decoding="async" class="aspect-[4/3] w-full rounded-2xl border-2 border-ink bg-white object-cover shadow-[8px_8px_0_#0e0e0e]">
+          </div>
+        </div>
+      </article>
+      <article class="proj reveal lg:sticky mb-6 overflow-hidden rounded-[2rem] border-2 border-ink" style="top:calc(8rem + 3.6rem);background:#0e0e0e;color:#f4efe6">
+        <div class="grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-2 lg:gap-12">
+          <div>
+            <p class="font-display text-6xl font-extrabold leading-none opacity-90 sm:text-7xl" aria-hidden="true">05</p>
+            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tags"><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">IndustrialTech</li><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">Enterprise</li><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">B2B</li></ul>
+            <h3 class="mt-5 font-display text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-[2.6rem]">Industrial Work Order & Operations Management</h3>
+            <p class="mt-4 max-w-md text-base leading-relaxed opacity-90">A leading industrial manufacturer with sites across the USA needed consistent work orders and operations tracking at scale.</p>
+            <p class="mt-8 inline-flex h-12 items-center gap-2 rounded-full border-2 border-current px-6 text-sm font-bold"><span aria-hidden="true">🔒</span> Open for discussion 1:1</p>
+          </div>
+          <div class="frame" style="--rot:-2deg">
+            <img src="assets/img/locked-light.png" alt="Locked preview of the industrial work order system" loading="lazy" decoding="async" class="aspect-[4/3] w-full rounded-2xl border-2 border-ink bg-white object-cover shadow-[8px_8px_0_#0e0e0e]">
+          </div>
+        </div>
+      </article>
+      <article class="proj reveal lg:sticky mb-6 overflow-hidden rounded-[2rem] border-2 border-ink" style="top:calc(8rem + 4.5rem);background:#7dd3fc;color:#0e0e0e">
+        <div class="grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-2 lg:gap-12">
+          <div>
+            <p class="font-display text-6xl font-extrabold leading-none opacity-90 sm:text-7xl" aria-hidden="true">06</p>
+            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tags"><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">Mobile commerce</li><li class="rounded-full border-2 border-current px-3 py-1 text-[11px] font-bold uppercase tracking-wider">Shopping</li></ul>
+            <h3 class="mt-5 font-display text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-[2.6rem]">Online Shopping from a Display Ad at Airport</h3>
+            <p class="mt-4 max-w-md text-base leading-relaxed opacity-90">A seamless checkout triggered from an airport display ad, taking first-time users from inspiration to purchase in moments.</p>
+            <a href="online-shopping-at-airport.html" class="btn-ink mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-ink px-6 text-sm font-bold text-cream" aria-label="View project: Online Shopping from a Display Ad at Airport">View project <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+          </div>
+          <div class="frame" style="--rot:2deg">
+            <img src="assets/img/airport-shopping1.png" alt="Mobile checkout flow for buying a product seen on an airport display ad" loading="lazy" decoding="async" class="aspect-[4/3] w-full rounded-2xl border-2 border-ink bg-white object-cover shadow-[8px_8px_0_#0e0e0e]">
+          </div>
+        </div>
+      </article>
+  </div>
+</section>
 
-        const buttonsContainer = document.getElementById('buttons-container');
-        const connectContainer = document.getElementById('connect-container');
-        const socialsContainer = document.getElementById('socials-container');
+<!-- POINT OF VIEW -->
+<section id="pov" class="dark-sec scroll-mt-24 bg-ink px-5 py-24 text-cream sm:px-8 sm:py-32">
+  <div class="mx-auto max-w-6xl">
+    <p class="text-xs font-bold uppercase tracking-[0.2em] text-lime">Point of view</p>
+    <h2 class="font-display mt-4 max-w-4xl text-4xl font-extrabold leading-[1.02] sm:text-6xl">Three things every AI product designer should keep in mind<span class="text-lime">.</span></h2>
+    <p class="mt-5 max-w-2xl text-lg leading-relaxed text-cream/80">AI features earn their place when people understand them, can steer them, and can recover when they’re wrong. These are the three things I keep coming back to.</p>
+    <div class="mt-12 grid gap-6 md:grid-cols-3"><div class="reveal rounded-[1.75rem] border-2 border-ink bg-cream p-7 text-ink"><p class="font-display text-5xl font-extrabold text-ink/20" aria-hidden="true">01</p><h3 class="mt-4 font-display text-2xl font-extrabold">Earn trust, don’t assume it</h3><p class="mt-3 leading-relaxed">Models are sometimes wrong, so show your work. Sources, confidence and reasoning let people verify an answer before they act on it.</p></div><div class="reveal rounded-[1.75rem] border-2 border-ink bg-cream p-7 text-ink"><p class="font-display text-5xl font-extrabold text-ink/20" aria-hidden="true">02</p><h3 class="mt-4 font-display text-2xl font-extrabold">Keep people in control</h3><p class="mt-3 leading-relaxed">Let AI take the repetitive, high-volume work, but keep people in charge of consequential decisions, with clear ways to review, correct and override.</p></div><div class="reveal rounded-[1.75rem] border-2 border-ink bg-cream p-7 text-ink"><p class="font-display text-5xl font-extrabold text-ink/20" aria-hidden="true">03</p><h3 class="mt-4 font-display text-2xl font-extrabold">Design for when AI is wrong</h3><p class="mt-3 leading-relaxed">AI will get things wrong. Flag uncertainty, make mismatches obvious, and make errors easy to correct and recover from.</p></div></div>
+  </div>
+</section>
 
-        const btnConnect = document.getElementById('btn-connect');
-        const btnResume = document.getElementById('btn-resume');
+<!-- JOURNEY -->
+<section id="journey" class="scroll-mt-24 px-5 py-24 sm:px-8 sm:py-32" aria-label="My journey">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="font-display text-5xl font-extrabold leading-none sm:text-7xl">My journey<span class="text-[#6fa800]">.</span></h2>
+    <p class="mt-5 max-w-2xl text-lg leading-relaxed">Ten years across startups and enterprise products, from a 0-to-1 fintech app to AI-assisted workflows. The thread through all of it: <strong>removing friction from the systems people rely on every day.</strong></p>
+    <ol class="mt-12 border-b-2 border-ink">
+        <li class="job reveal grid gap-4 border-t-2 border-ink px-2 py-8 sm:grid-cols-12 sm:gap-8 sm:px-6">
+          <p class="font-display text-xl font-extrabold sm:col-span-3">Dec 2022 – Present</p>
+          <div class="sm:col-span-4"><span class="inline-flex h-11 items-center rounded-xl bg-white px-3"><img src="assets/img/evoke_logo.svg" alt="Evoke Technologies" loading="lazy" decoding="async" class="h-6 w-auto max-w-[9rem] object-contain"></span><h3 class="mt-3 text-lg font-bold">Lead UX Designer</h3></div>
+          <p class="text-base leading-relaxed sm:col-span-5">AI document verification that cut manual processing by 80%, a hotel check-in flow that shortened waits by 40%, and an industrial work order platform.</p>
+        </li>
+        <li class="job reveal grid gap-4 border-t-2 border-ink px-2 py-8 sm:grid-cols-12 sm:gap-8 sm:px-6">
+          <p class="font-display text-xl font-extrabold sm:col-span-3">Jan 2020 – Dec 2022</p>
+          <div class="sm:col-span-4"><span class="inline-flex h-11 items-center rounded-xl bg-white px-3"><img src="assets/img/OpenText_logo.svg" alt="OpenText Technologies" loading="lazy" decoding="async" class="h-6 w-auto max-w-[9rem] object-contain"></span><h3 class="mt-3 text-lg font-bold">Senior UX Designer</h3></div>
+          <p class="text-base leading-relaxed sm:col-span-5">Enterprise business process workflows and an invoice-to-payment system, with WCAG accessibility championed across the platform.</p>
+        </li>
+        <li class="job reveal grid gap-4 border-t-2 border-ink px-2 py-8 sm:grid-cols-12 sm:gap-8 sm:px-6">
+          <p class="font-display text-xl font-extrabold sm:col-span-3">May 2018 – Jan 2020</p>
+          <div class="sm:col-span-4"><span class="inline-flex h-11 items-center rounded-xl bg-white px-3"><img src="assets/img/tcs_new_logo.svg" alt="Tata Consultancy Services" loading="lazy" decoding="async" class="h-6 w-auto max-w-[9rem] object-contain"></span><h3 class="mt-3 text-lg font-bold">Senior UX Designer</h3></div>
+          <p class="text-base leading-relaxed sm:col-span-5">An automotive platform for dealers and customers, from vehicle discovery and purchase to service booking and dealer dashboards.</p>
+        </li>
+        <li class="job reveal grid gap-4 border-t-2 border-ink px-2 py-8 sm:grid-cols-12 sm:gap-8 sm:px-6">
+          <p class="font-display text-xl font-extrabold sm:col-span-3">May 2016 – May 2018</p>
+          <div class="sm:col-span-4"><span class="inline-flex h-11 items-center rounded-xl bg-white px-3"><img src="assets/img/iesoft_logo.svg" alt="IESoft Technologies" loading="lazy" decoding="async" class="h-6 w-auto max-w-[9rem] object-contain"></span><h3 class="mt-3 text-lg font-bold">UX Designer</h3></div>
+          <p class="text-base leading-relaxed sm:col-span-5">Founding designer on a 0-to-1 financial services platform in Dubai, recognised as a Top 10 Financial Startup in the UAE (2017).</p>
+        </li>
+    </ol>
+  </div>
+</section>
 
-        const projectDescriptions = document.querySelectorAll('.project-description');
+<!-- TOOLBOX -->
+<section class="dark-sec bg-ink px-5 py-24 text-cream sm:px-8" aria-label="Toolbox">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="font-display text-4xl font-extrabold sm:text-6xl">Toolbox<span class="text-lime">.</span></h2>
+    <div class="mt-12 grid gap-10 md:grid-cols-2"><div><h3 class="text-xs font-bold uppercase tracking-[0.2em] text-lime">Craft</h3><ul class="mt-4 flex flex-wrap gap-2"><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">UI/UX</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Product thinking</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Rapid prototyping</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Usability testing</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Design systems</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Human-AI collaboration</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Conversational design</li></ul></div><div><h3 class="text-xs font-bold uppercase tracking-[0.2em] text-lime">Domains</h3><ul class="mt-4 flex flex-wrap gap-2"><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">AI & Gen AI</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Enterprise SaaS</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">B2B</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">B2C</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">CRM</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Hospitality & travel</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">E-commerce</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">FinTech</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">IndustrialTech</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">EdTech</li></ul></div><div><h3 class="text-xs font-bold uppercase tracking-[0.2em] text-lime">Tools</h3><ul class="mt-4 flex flex-wrap gap-2"><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Figma</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Figma Make</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Adobe CC</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Jira</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Miro</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Axure</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">ProtoPie</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Claude</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">ChatGPT</li></ul></div><div><h3 class="text-xs font-bold uppercase tracking-[0.2em] text-lime">Build</h3><ul class="mt-4 flex flex-wrap gap-2"><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">HTML5</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">CSS3</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Tailwind CSS</li><li class="chip rounded-full border border-cream/30 px-4 py-2 text-sm">Git</li></ul></div></div>
+  </div>
+</section>
 
-        function isMainExpanded() {
-            return mainContent.dataset.expanded === "true";
+<!-- CONTACT -->
+<section id="contact" class="scroll-mt-24 px-5 py-20 sm:px-8 sm:py-28" aria-label="Contact">
+  <div class="reveal mx-auto max-w-6xl rounded-[2.5rem] border-2 border-ink bg-lime p-8 sm:p-14">
+    <h2 class="font-display text-5xl font-extrabold leading-[0.95] sm:text-8xl">Let’s talk<span aria-hidden="true">.</span></h2>
+    <p class="mt-6 max-w-xl text-lg font-medium">Hiring for a lead design role, or have a messy, complex product that needs to feel obvious? I’d love to hear about it.</p>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href="mailto:ux.abdul@gmail.com?subject=Hi," class="btn-ink inline-flex h-14 items-center rounded-full bg-ink px-8 text-base font-bold text-cream">Send email</a>
+      <a href="assets/Abdul-Hasib_Product-Designer.pdf" download="Abdul-Hasib_Product-Designer.pdf" class="inline-flex h-14 items-center rounded-full border-2 border-ink px-8 text-base font-bold transition-colors hover:bg-cream">Download resume</a>
+    </div>
+    <ul class="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t-2 border-ink pt-6 text-sm font-bold uppercase tracking-widest">
+      <li><a class="hover:underline underline-offset-4 decoration-2" href="https://www.linkedin.com/in/uxabdul" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
+      <li><a class="hover:underline underline-offset-4 decoration-2" href="https://www.instagram.com/ux.abdul" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (opens in a new tab)</span></a></li>
+      <li><a class="hover:underline underline-offset-4 decoration-2" href="https://www.behance.net/ux_abdul" target="_blank" rel="noopener noreferrer">Behance<span class="sr-only"> (opens in a new tab)</span></a></li>
+      <li><a class="hover:underline underline-offset-4 decoration-2" href="https://ixdf.org/members/abdul-hasib" target="_blank" rel="noopener noreferrer">IxDF<span class="sr-only"> (opens in a new tab)</span></a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="px-5 pb-10 text-sm sm:px-8">
+  <div class="mx-auto flex max-w-6xl flex-col justify-between gap-3 border-t-2 border-ink pt-6 sm:flex-row">
+    <p>Designed in Figma &amp; Figma Make, updated in VS Code by me. Built with HTML, Tailwind CSS and JS.</p>
+    <p class="whitespace-nowrap">&copy; 2026 Abdul Hasib.</p>
+  </div>
+</footer></template>
+<template id="tpl-dark"><div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.035)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]"></div>
+<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0a0b0d]/90"><nav aria-label="Primary" class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-8"><a href="index.html" class="font-mono text-sm" aria-label="Abdul Hasib home"><span class="text-[#4ade80]">~/</span>abdul-hasib</a><ul class="flex items-center gap-5 font-mono text-xs sm:gap-8"><li><a href="#work" class="hover:text-[#4ade80]">Work</a></li><li class="hidden md:block"><a href="#pov" class="hover:text-[#4ade80]">Point of view</a></li><li><a href="#journey" class="hover:text-[#4ade80]">Journey</a></li><li class="hidden sm:block"><a href="resume.html" target="_blank" rel="noopener noreferrer" class="hover:text-[#4ade80]">Resume<span class="sr-only"> (opens in a new tab)</span></a></li><li><a href="#contact" class="rounded-md border border-[#4ade80]/50 px-3 py-1.5 text-[#4ade80] hover:bg-[#4ade80] hover:text-black">Let’s talk</a></li></ul></nav></header>
+<main><div class="relative overflow-x-clip"><section class="relative mx-auto max-w-6xl px-5 pb-20 pt-36 sm:px-8 sm:pt-44"><div aria-hidden="true" class="absolute left-1/2 top-20 -z-10 h-72 w-[40rem] -translate-x-1/2 rounded-full bg-[#4ade80]/20 blur-[120px]"></div>
+<p class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 font-mono text-xs text-neutral-300"><span class="h-2 w-2 animate-pulse rounded-full bg-[#4ade80]"></span>Lead Product UX/UI Designer · Hyderabad, India</p>
+<h1 class="mt-8 font-semibold leading-[1.02] tracking-tight" style="font-size:calc(min(100vw - 4rem, 68rem) * 0.08)"><span class="block">I design products</span><span class="block whitespace-nowrap">people can <span id="word" class="word bg-gradient-to-r from-[#4ade80] to-[#22d3ee] bg-clip-text text-transparent">trust</span>.</span></h1>
+<p class="mt-8 max-w-2xl text-lg leading-relaxed text-neutral-400">I’m <strong>Abdul Hasib</strong>. For 10 years I’ve turned dense, data-heavy workflows into clear, human-centred experiences. Right now I’m shaping generative AI tools that augment people’s work while keeping them in control.</p>
+<div class="mt-10 flex flex-wrap gap-4"><a href="#work" class="rounded-lg bg-[#4ade80] px-6 py-3.5 text-sm font-semibold text-black hover:bg-[#86efac]">See the work</a><a href="assets/Abdul-Hasib_Product-Designer.pdf" download class="rounded-lg border border-white/15 px-6 py-3.5 text-sm font-semibold hover:border-[#4ade80]">Download resume</a></div></section></div>
+<section class="mx-auto max-w-6xl px-5 pb-24 sm:px-8" aria-label="Impact"><h2 class="mb-6 font-mono text-xs uppercase tracking-widest text-[#4ade80]">A decade, in numbers</h2><div class="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-4"><div class="reveal bg-[#0a0b0d] p-6"><p class="bg-gradient-to-br from-white to-[#4ade80] bg-clip-text font-mono text-5xl font-semibold text-transparent">10+</p><p class="mt-3 text-sm text-neutral-400">years designing complex, data-heavy products</p></div><div class="reveal bg-[#0a0b0d] p-6"><p class="bg-gradient-to-br from-white to-[#4ade80] bg-clip-text font-mono text-5xl font-semibold text-transparent">4</p><p class="mt-3 text-sm text-neutral-400">companies, from a 0-to-1 startup to large enterprise teams</p></div><div class="reveal bg-[#0a0b0d] p-6"><p class="bg-gradient-to-br from-white to-[#4ade80] bg-clip-text font-mono text-5xl font-semibold text-transparent">10</p><p class="mt-3 text-sm text-neutral-400">domains, from FinTech and hospitality to AI and industrial tech</p></div><div class="reveal bg-[#0a0b0d] p-6"><p class="bg-gradient-to-br from-white to-[#4ade80] bg-clip-text font-mono text-5xl font-semibold text-transparent">5</p><p class="mt-3 text-sm text-neutral-400">regions served: India, the UAE, the USA, Europe and Australia</p></div></div></section>
+<section id="work" class="mx-auto max-w-6xl scroll-mt-20 px-5 pb-24 sm:px-8"><h2 class="text-4xl font-semibold tracking-tight sm:text-6xl">Selected work</h2><p class="mt-4 max-w-xl text-neutral-400">AI, enterprise and consumer products, from 0-to-1 builds to legacy redesigns.</p><div class="mt-10 grid gap-6 md:grid-cols-2"><article class="reveal group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-[#4ade80]/60 hover:shadow-[0_0_40px_-10px_rgba(74,222,128,.35)]"><div class="relative overflow-hidden border-b border-white/10 bg-[#111317]"><img src="assets/img/service-assitant-thumb.png" alt="Screens from the Service Assistant AI tool for field engineers" decoding="async" class="aspect-[16/10] w-full object-cover object-top opacity-90 transition duration-500 group-hover:scale-[1.04] group-hover:opacity-100"></div>
+<div class="p-6"><p class="font-mono text-[11px] uppercase tracking-widest text-neutral-500">01 / AI · Field service · Conversational</p><h3 class="mt-3 text-xl font-semibold leading-snug">Service Assistant: An AI Tool for Lift-Truck Field Engineers</h3><p class="mt-3 text-sm leading-relaxed text-neutral-400">An AI tool that gives service engineers cited answers from thousands of pages of manuals in seconds.</p><a href="service-assistant.html" class="mt-5 inline-flex items-center gap-2 font-mono text-xs text-[#4ade80] hover:underline" aria-label="View project: Service Assistant: An AI Tool for Lift-Truck Field Engineers">View project <span aria-hidden="true">→</span></a></div></article><article class="reveal group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-[#4ade80]/60 hover:shadow-[0_0_40px_-10px_rgba(74,222,128,.35)]"><div class="relative overflow-hidden border-b border-white/10 bg-[#111317]"><img src="assets/img/doc-verification.png" alt="Document verification screens comparing documents side by side" decoding="async" class="aspect-[16/10] w-full object-cover object-top opacity-90 transition duration-500 group-hover:scale-[1.04] group-hover:opacity-100"></div>
+<div class="p-6"><p class="font-mono text-[11px] uppercase tracking-widest text-neutral-500">02 / AI · EdTech · Validation</p><h3 class="mt-3 text-xl font-semibold leading-snug">AI-assisted Document Verification</h3><p class="mt-3 text-sm leading-relaxed text-neutral-400">A human-in-the-loop experience: AI handles the repetitive comparison work, while people keep control of the final decision.</p><a href="ai-assisted-document-verification.html" class="mt-5 inline-flex items-center gap-2 font-mono text-xs text-[#4ade80] hover:underline" aria-label="View project: AI-assisted Document Verification">View project <span aria-hidden="true">→</span></a></div></article><article class="reveal group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-[#4ade80]/60 hover:shadow-[0_0_40px_-10px_rgba(74,222,128,.35)]"><div class="relative overflow-hidden border-b border-white/10 bg-[#111317]"><img src="assets/img/hotel1.jpg" alt="Hotel check-in app screens showing the guest check-in flow" loading="lazy" decoding="async" class="aspect-[16/10] w-full object-cover object-top opacity-90 transition duration-500 group-hover:scale-[1.04] group-hover:opacity-100"></div>
+<div class="p-6"><p class="font-mono text-[11px] uppercase tracking-widest text-neutral-500">03 / Hospitality · CRM · SaaS</p><h3 class="mt-3 text-xl font-semibold leading-snug">Hotel Check-in App: New Feature Integration</h3><p class="mt-3 text-sm leading-relaxed text-neutral-400">Streamlining guest check-in and membership enrollment to cut wait times and improve operational efficiency.</p><a href="hotel-check-in-app.html" class="mt-5 inline-flex items-center gap-2 font-mono text-xs text-[#4ade80] hover:underline" aria-label="View project: Hotel Check-in App: New Feature Integration">View project <span aria-hidden="true">→</span></a></div></article><article class="reveal group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-[#4ade80]/60 hover:shadow-[0_0_40px_-10px_rgba(74,222,128,.35)]"><div class="relative overflow-hidden border-b border-white/10 bg-[#111317]"><img src="assets/img/crm-thumb.png" alt="Mobile CRM interface for hospitality staff" loading="lazy" decoding="async" class="aspect-[16/10] w-full object-cover object-top opacity-90 transition duration-500 group-hover:scale-[1.04] group-hover:opacity-100"></div>
+<div class="p-6"><p class="font-mono text-[11px] uppercase tracking-widest text-neutral-500">04 / CRM · MS 365 · FinTech</p><h3 class="mt-3 text-xl font-semibold leading-snug">CRM for a Hospitality Management Company</h3><p class="mt-3 text-sm leading-relaxed text-neutral-400">A lightweight CRM layered on Microsoft 365, optimized for small devices so waitstaff can update guest information in real time.</p><a href="crm-application.html" class="mt-5 inline-flex items-center gap-2 font-mono text-xs text-[#4ade80] hover:underline" aria-label="View project: CRM for a Hospitality Management Company">View project <span aria-hidden="true">→</span></a></div></article><article class="reveal group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-[#4ade80]/60 hover:shadow-[0_0_40px_-10px_rgba(74,222,128,.35)]"><div class="relative overflow-hidden border-b border-white/10 bg-[#111317]"><img src="assets/img/locked-light.png" alt="Locked preview of the industrial work order system" loading="lazy" decoding="async" class="aspect-[16/10] w-full object-cover object-top opacity-90 transition duration-500 group-hover:scale-[1.04] group-hover:opacity-100"></div>
+<div class="p-6"><p class="font-mono text-[11px] uppercase tracking-widest text-neutral-500">05 / IndustrialTech · Enterprise · B2B</p><h3 class="mt-3 text-xl font-semibold leading-snug">Industrial Work Order & Operations Management</h3><p class="mt-3 text-sm leading-relaxed text-neutral-400">A leading industrial manufacturer with sites across the USA needed consistent work orders and operations tracking at scale.</p><p class="mt-5 font-mono text-xs text-neutral-400">🔒 Open for discussion 1:1</p></div></article><article class="reveal group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-[#4ade80]/60 hover:shadow-[0_0_40px_-10px_rgba(74,222,128,.35)]"><div class="relative overflow-hidden border-b border-white/10 bg-[#111317]"><img src="assets/img/airport-shopping1.png" alt="Mobile checkout flow for buying a product seen on an airport display ad" loading="lazy" decoding="async" class="aspect-[16/10] w-full object-cover object-top opacity-90 transition duration-500 group-hover:scale-[1.04] group-hover:opacity-100"></div>
+<div class="p-6"><p class="font-mono text-[11px] uppercase tracking-widest text-neutral-500">06 / Mobile commerce · Shopping</p><h3 class="mt-3 text-xl font-semibold leading-snug">Online Shopping from a Display Ad at Airport</h3><p class="mt-3 text-sm leading-relaxed text-neutral-400">A seamless checkout triggered from an airport display ad, taking first-time users from inspiration to purchase in moments.</p><a href="online-shopping-at-airport.html" class="mt-5 inline-flex items-center gap-2 font-mono text-xs text-[#4ade80] hover:underline" aria-label="View project: Online Shopping from a Display Ad at Airport">View project <span aria-hidden="true">→</span></a></div></article></div></section>
+<section id="pov" class="mx-auto max-w-6xl scroll-mt-20 px-5 pb-24 sm:px-8"><p class="font-mono text-xs uppercase tracking-widest text-[#4ade80]">Point of view</p><h2 class="mt-3 text-4xl font-semibold tracking-tight sm:text-6xl">Three things every AI product designer should keep in mind</h2><p class="mt-5 max-w-2xl text-neutral-400">AI features earn their place when people understand them, can steer them, and can recover when they’re wrong. These are the three things I keep coming back to.</p><div class="mt-10 grid gap-6 md:grid-cols-3"><div class="reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7"><p class="font-mono text-xs text-[#4ade80]">RULE_01</p><h3 class="mt-4 text-xl font-semibold">Earn trust, don’t assume it</h3><p class="mt-3 text-sm leading-relaxed text-neutral-400">Models are sometimes wrong, so show your work. Sources, confidence and reasoning let people verify an answer before they act on it.</p></div><div class="reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7"><p class="font-mono text-xs text-[#4ade80]">RULE_02</p><h3 class="mt-4 text-xl font-semibold">Keep people in control</h3><p class="mt-3 text-sm leading-relaxed text-neutral-400">Let AI take the repetitive, high-volume work, but keep people in charge of consequential decisions, with clear ways to review, correct and override.</p></div><div class="reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7"><p class="font-mono text-xs text-[#4ade80]">RULE_03</p><h3 class="mt-4 text-xl font-semibold">Design for when AI is wrong</h3><p class="mt-3 text-sm leading-relaxed text-neutral-400">AI will get things wrong. Flag uncertainty, make mismatches obvious, and make errors easy to correct and recover from.</p></div></div></section>
+<section id="journey" class="mx-auto max-w-6xl scroll-mt-20 px-5 pb-24 sm:px-8"><h2 class="text-4xl font-semibold tracking-tight sm:text-6xl">My journey</h2><p class="mt-5 max-w-2xl text-neutral-400 [&_strong]:font-semibold [&_strong]:text-white">Ten years across startups and enterprise products, from a 0-to-1 fintech app to AI-assisted workflows. The thread through all of it: <strong>removing friction from the systems people rely on every day.</strong></p><ol class="mt-12 border-l border-white/15"><li class="reveal relative pb-10 pl-8 last:pb-0"><span class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-[#4ade80] shadow-[0_0_12px_#4ade80]" aria-hidden="true"></span><p class="font-mono text-xs text-[#4ade80]">Dec 2022 – Present</p><div class="mt-3"><span class="inline-flex h-10 items-center rounded-lg bg-white px-3 ring-1 ring-black/10"><img src="assets/img/evoke_logo.svg" alt="Evoke Technologies" loading="lazy" decoding="async" class="h-6 w-auto max-w-[9rem] object-contain"></span></div><h3 class="mt-3 text-lg font-semibold">Lead UX Designer</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-400">AI document verification that cut manual processing by 80%, a hotel check-in flow that shortened waits by 40%, and an industrial work order platform.</p></li><li class="reveal relative pb-10 pl-8 last:pb-0"><span class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-[#4ade80] shadow-[0_0_12px_#4ade80]" aria-hidden="true"></span><p class="font-mono text-xs text-[#4ade80]">Jan 2020 – Dec 2022</p><div class="mt-3"><span class="inline-flex h-10 items-center rounded-lg bg-white px-3 ring-1 ring-black/10"><img src="assets/img/OpenText_logo.svg" alt="OpenText Technologies" loading="lazy" decoding="async" class="h-6 w-auto max-w-[9rem] object-contain"></span></div><h3 class="mt-3 text-lg font-semibold">Senior UX Designer</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-400">Enterprise business process workflows and an invoice-to-payment system, with WCAG accessibility championed across the platform.</p></li><li class="reveal relative pb-10 pl-8 last:pb-0"><span class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-[#4ade80] shadow-[0_0_12px_#4ade80]" aria-hidden="true"></span><p class="font-mono text-xs text-[#4ade80]">May 2018 – Jan 2020</p><div class="mt-3"><span class="inline-flex h-10 items-center rounded-lg bg-white px-3 ring-1 ring-black/10"><img src="assets/img/tcs_new_logo.svg" alt="Tata Consultancy Services" loading="lazy" decoding="async" class="h-6 w-auto max-w-[9rem] object-contain"></span></div><h3 class="mt-3 text-lg font-semibold">Senior UX Designer</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-400">An automotive platform for dealers and customers, from vehicle discovery and purchase to service booking and dealer dashboards.</p></li><li class="reveal relative pb-10 pl-8 last:pb-0"><span class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-[#4ade80] shadow-[0_0_12px_#4ade80]" aria-hidden="true"></span><p class="font-mono text-xs text-[#4ade80]">May 2016 – May 2018</p><div class="mt-3"><span class="inline-flex h-10 items-center rounded-lg bg-white px-3 ring-1 ring-black/10"><img src="assets/img/iesoft_logo.svg" alt="IESoft Technologies" loading="lazy" decoding="async" class="h-6 w-auto max-w-[9rem] object-contain"></span></div><h3 class="mt-3 text-lg font-semibold">UX Designer</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-400">Founding designer on a 0-to-1 financial services platform in Dubai, recognised as a Top 10 Financial Startup in the UAE (2017).</p></li></ol></section>
+<section class="mx-auto max-w-6xl px-5 pb-24 sm:px-8" aria-label="Toolbox"><h2 class="text-4xl font-semibold tracking-tight">Toolbox</h2><div class="mt-10 grid gap-10 md:grid-cols-2"><div><h3 class="font-mono text-xs uppercase tracking-widest text-[#4ade80]">Craft</h3><ul class="mt-4 flex flex-wrap gap-2"><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">UI/UX</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Product thinking</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Rapid prototyping</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Usability testing</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Design systems</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Human-AI collaboration</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Conversational design</li></ul></div><div><h3 class="font-mono text-xs uppercase tracking-widest text-[#4ade80]">Domains</h3><ul class="mt-4 flex flex-wrap gap-2"><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">AI & Gen AI</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Enterprise SaaS</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">B2B</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">B2C</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">CRM</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Hospitality & travel</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">E-commerce</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">FinTech</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">IndustrialTech</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">EdTech</li></ul></div><div><h3 class="font-mono text-xs uppercase tracking-widest text-[#4ade80]">Tools</h3><ul class="mt-4 flex flex-wrap gap-2"><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Figma</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Figma Make</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Adobe CC</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Jira</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Miro</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Axure</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">ProtoPie</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Claude</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">ChatGPT</li></ul></div><div><h3 class="font-mono text-xs uppercase tracking-widest text-[#4ade80]">Build</h3><ul class="mt-4 flex flex-wrap gap-2"><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">HTML5</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">CSS3</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Tailwind CSS</li><li class="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-neutral-300 hover:border-[#4ade80]/60 hover:text-white">Git</li></ul></div></div></section>
+<section id="contact" class="mx-auto max-w-6xl scroll-mt-20 px-5 pb-20 sm:px-8"><div class="rounded-3xl border border-[#4ade80]/30 bg-gradient-to-br from-[#4ade80]/10 to-transparent p-8 sm:p-14"><h2 class="text-5xl font-semibold tracking-tight sm:text-8xl">Let’s talk.</h2><p class="mt-5 max-w-xl text-neutral-400">Hiring for a lead design role, or have a messy, complex product that needs to feel obvious? I’d love to hear about it.</p><div class="mt-8 flex flex-wrap gap-4"><a href="mailto:ux.abdul@gmail.com?subject=Hi," class="rounded-lg bg-[#4ade80] px-6 py-3.5 text-sm font-semibold text-black hover:bg-[#86efac]">Send email</a><a href="assets/Abdul-Hasib_Product-Designer.pdf" download class="rounded-lg border border-white/15 px-6 py-3.5 text-sm font-semibold hover:border-[#4ade80]">Download resume</a></div><ul class="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/10 pt-6 font-mono text-xs"><li><a class="text-neutral-400 hover:text-[#4ade80]" href="https://www.linkedin.com/in/uxabdul" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li><li><a class="text-neutral-400 hover:text-[#4ade80]" href="https://www.instagram.com/ux.abdul" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (opens in a new tab)</span></a></li><li><a class="text-neutral-400 hover:text-[#4ade80]" href="https://www.behance.net/ux_abdul" target="_blank" rel="noopener noreferrer">Behance<span class="sr-only"> (opens in a new tab)</span></a></li><li><a class="text-neutral-400 hover:text-[#4ade80]" href="https://ixdf.org/members/abdul-hasib" target="_blank" rel="noopener noreferrer">IxDF<span class="sr-only"> (opens in a new tab)</span></a></li></ul></div></section></main>
+<footer class="px-5 pb-10 font-mono text-xs text-neutral-500 sm:px-8"><div class="mx-auto flex max-w-6xl flex-col justify-between gap-2 border-t border-white/10 pt-6 sm:flex-row"><p>Designed in Figma &amp; Figma Make, updated in VS Code by me. Built with HTML, Tailwind CSS and JS.</p><p>&copy; 2026 Abdul Hasib.</p></div></footer></template>
+<template id="css-version">        body {
+            font-family: 'Inter', sans-serif;
         }
-        function setMainExpanded(val) {
-            mainContent.dataset.expanded = val ? "true" : "false";
+
+          /* Page background: mint glow anchored to the top, fading into the slate-50 page colour.
+           Image file: assets/img/background.png (its bottom edge matches #f8fafc, so there is no seam). */
+        body {
+            background-image: url('assets/img/background.png');
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: max(100%, 1200px) auto;
         }
 
-        function renderMainToggleButton() {
-            if (isMainExpanded()) {
-                // Expanded => show Collapse + right arrow (in)
-                toggleText.innerText = "Collapse";
-                toggleIcon.innerHTML = `
-                    <g stroke="#15803d" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5.83278 2.46842L9.53158 5.83278L6.16722 9.53158" />
-                        <path d="M2.46842 6.16722L9.53158 5.83278" />
-                    </g>`;
-            } else {
-                // Default => show Expand + left arrow (out)
-                toggleText.innerText = "Expand";
-                toggleIcon.innerHTML = `
-                    <g stroke="#15803d" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6.14853 9.53275L2.46781 6.14863L5.85193 2.4679" />
-                        <path d="M9.53265 5.85202L2.46781 6.14863" />
-                    </g>`;
+
+        /* ===== Hero (About) first fold ===== */
+        .hero-title,
+        .hero-intro {
+            font-family: 'Inter Tight', 'Inter', sans-serif;
+        }
+
+        .hero-title {
+            font-weight: 500;
+            letter-spacing: -0.045em;
+            line-height: 0.98;
+        }
+
+        .hero-intro {
+            letter-spacing: -0.02em;
+        }
+
+        /* Marker-style highlight under "10 years of experience" */
+        .hero-mark {
+            font-weight: 600;
+            background-image: linear-gradient(transparent 58%, rgba(74, 222, 128, 0.30) 58%);
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+        }
+
+        /* Serif italic accents inside the body copy */
+        .hero-accent {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-size: 1.18em;
+            line-height: 1;
+            color: #0f172a;
+        }
+
+        /* Keyboard focus: one consistent, high-contrast ring (WCAG 2.4.7 / 1.4.11) */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #15803d;
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        /* AI sparkle icon: gentle twinkle (scale + quarter turn), pauses between beats */
+        .sparkle-anim {
+            transform-origin: 50% 50%;
+            animation: sparkle-twinkle 3.6s ease-in-out infinite;
+        }
+
+        @keyframes sparkle-twinkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            35%      { transform: scale(1.3) rotate(90deg); opacity: 0.85; }
+            55%      { transform: scale(1) rotate(90deg); opacity: 1; }
+            75%      { transform: scale(1.15) rotate(0deg); opacity: 0.9; }
+        }
+
+        /* Respect reduced-motion preference (WCAG 2.3.3) */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto !important; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                transition-delay: 0s !important;
+            }
+            .reveal { opacity: 1; transform: none; }
+            .sparkle-anim { animation: none !important; }
+        }
+
+        /* Temporarily hidden — remove class from markup to show again */
+        .site-connect-actions-hidden {
+            display: none !important;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth transition for width and other properties */
+        #sidebar,
+        #main-content {
+            transition-property: width, margin, transform, opacity, padding, flex-grow, flex-basis;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 500ms;
+        }
+
+        #cursor-gradient {
+            width: 1200px; height: 1200px; will-change: transform;
+            background: radial-gradient(circle 600px at 50% 50%, rgba(74, 222, 128, 0.15), transparent 80%);
+        }
+
+        /* ===== My Journey: fanned, overlapping experience cards ===== */
+        .journey-stage { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0.5rem 0 1.5rem; -webkit-overflow-scrolling: touch; }
+        .journey-card { flex: 0 0 min(82vw, 18rem); scroll-snap-align: start; }
+        @media (min-width: 1024px) {
+            .journey-stage { overflow: visible; scroll-snap-type: none; justify-content: center; gap: 0; padding: 3.5rem 0 4.5rem; }
+            .journey-card {
+                flex: 0 0 18rem; margin-left: -3.5rem; min-height: 19rem;
+                transform: translateY(var(--y, 0)) rotate(var(--r, 0deg));
+                transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+            }
+            .journey-card:first-child { margin-left: 0; }
+            .journey-card:hover, .journey-card:focus-visible {
+                transform: translateY(-14px) rotate(0deg) scale(1.04);
+                z-index: 20 !important;
+                box-shadow: 0 24px 40px -12px rgba(15, 23, 42, 0.25);
             }
         }
+        @media (prefers-reduced-motion: reduce) { .journey-card { transition: none; } }
 
-        function expandMainContent() {
-            setMainExpanded(true);
-
-            // Sidebar collapses to accommodate
-            sidebar.classList.remove('lg:w-[28%]');
-            sidebar.classList.add('lg:w-0', 'lg:-ml-16', 'items-center');
-            sidebar.style.overflow = 'hidden';
-            sidebar.style.pointerEvents = 'none';
-            sidebar.setAttribute('aria-hidden', 'true');
-
-            sidebarDetails.style.maxHeight = '0px';
-            sidebarDetails.style.marginTop = '0px';
-            sidebarDetails.style.opacity = '0';
-
-            buttonsContainer?.classList.remove('flex-wrap');
-            buttonsContainer?.classList.add('flex-col', 'items-center', 'w-full');
-
-            connectContainer?.classList.remove('items-start');
-            connectContainer?.classList.add('items-center');
-
-            socialsContainer?.classList.remove('gap-5', 'mt-8');
-            socialsContainer?.classList.add('flex-col', 'gap-6', 'items-center', 'mt-6');
-
-            document.querySelectorAll('.btn-text-wrapper').forEach(el => el.classList.add('collapsed'));
-
-            btnConnect?.classList.remove('px-6', 'py-3', 'gap-2');
-            btnConnect?.classList.add('w-10', 'h-10', 'justify-center', 'p-0');
-
-            btnResume?.classList.remove('px-6', 'py-3', 'gap-2');
-            btnResume?.classList.add('w-10', 'h-10', 'justify-center', 'p-0');
-
-            // Main expands
-            mainContent.classList.remove('lg:w-[72%]');
-            mainContent.classList.add('lg:w-full');
-
-            projectDescriptions.forEach(el => el.classList.remove('line-clamp-4'));
-
-            renderMainToggleButton();
+        /* Accordion transition */
+        #sidebar-details {
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-in-out;
         }
 
-        function collapseMainContent() {
-            setMainExpanded(false);
-
-            // Sidebar expands back
-            sidebar.classList.remove('lg:w-0', 'lg:-ml-16', 'items-center');
-            sidebar.classList.add('lg:w-[28%]');
-            sidebar.style.overflow = '';
-            sidebar.style.pointerEvents = '';
-            sidebar.removeAttribute('aria-hidden');
-
-            sidebarDetails.style.maxHeight = '2200px';
-            sidebarDetails.style.marginTop = '0px';
-            sidebarDetails.style.opacity = '1';
-
-            buttonsContainer?.classList.remove('flex-col', 'items-center', 'w-full');
-            buttonsContainer?.classList.add('flex-wrap');
-
-            connectContainer?.classList.remove('items-center');
-            connectContainer?.classList.add('items-start');
-
-            socialsContainer?.classList.remove('flex-col', 'gap-6', 'items-center', 'mt-6');
-            socialsContainer?.classList.add('gap-5', 'mt-8');
-
-            document.querySelectorAll('.btn-text-wrapper').forEach(el => el.classList.remove('collapsed'));
-
-            btnConnect?.classList.remove('w-10', 'h-10', 'justify-center', 'p-0');
-            btnConnect?.classList.add('px-6', 'py-3', 'gap-2');
-
-            btnResume?.classList.remove('w-10', 'h-10', 'justify-center', 'p-0');
-            btnResume?.classList.add('px-6', 'py-3', 'gap-2');
-
-            // Main normal
-            mainContent.classList.remove('lg:w-full');
-            mainContent.classList.add('lg:w-[72%]');
-
-            projectDescriptions.forEach(el => el.classList.add('line-clamp-4'));
-
-            renderMainToggleButton();
+        /* Button Text Transition */
+        .btn-text-wrapper {
+            transition: max-width 0.4s ease, opacity 0.3s ease;
+            max-width: 150px;
+            opacity: 1;
+            white-space: nowrap;
         }
 
-        toggleBtn.addEventListener('click', () => {
-            if (isMainExpanded()) {
-                collapseMainContent();
-            } else {
-                expandMainContent();
-            }
-        });
-
-        // ===== Scroll-driven expand/collapse =====
-        // Right-side content (Skills/Tools/buttons/socials) is only shown while the
-        // About section is in view (including on initial page load). As soon as the
-        // Projects section scrolls up near the top of the viewport, the project list
-        // expands and the right-side content hides. Scrolling back up to About brings
-        // it back. Only active at the lg breakpoint, where the two-column layout exists.
-        const aboutSection = document.getElementById('about');
-        const projectsSection = document.getElementById('projects');
-        const SIDEBAR_TRIGGER_OFFSET = 150; // px from top of viewport
-
-        function isDesktopLayout() {
-            return window.matchMedia('(min-width: 1024px)').matches;
+        .btn-text-wrapper.collapsed {
+            max-width: 0px;
+            opacity: 0;
         }
 
-        function updateSidebarScrollState() {
-            if (!projectsSection) return;
-
-            if (!isDesktopLayout()) {
-                if (isMainExpanded()) collapseMainContent();
-                return;
-            }
-
-            const projectsTop = projectsSection.getBoundingClientRect().top;
-            const pastProjects = projectsTop <= SIDEBAR_TRIGGER_OFFSET;
-
-            const backAtAbout = projectsTop > SIDEBAR_TRIGGER_OFFSET + 120;
-            if (pastProjects && !isMainExpanded()) {
-                expandMainContent();
-            } else if (backAtAbout && isMainExpanded()) {
-                collapseMainContent();
-            }
-        }
-
-        let scrollTicking = false;
-        window.addEventListener('scroll', () => {
-            if (scrollTicking) return;
-            scrollTicking = true;
-            requestAnimationFrame(() => { updateSidebarScrollState(); scrollTicking = false; });
-        }, { passive: true });
-        window.addEventListener('resize', updateSidebarScrollState);
-
-        // ===== Relocate Skills/Tools for mobile/tablet vs desktop =====
-        // Below lg: the Skills/Tools block (#sidebar-details) moves to sit right after
-        // the About section, above Projects. At lg+: it lives in the sidebar as usual.
-        const sidebarContentEl = document.getElementById('sidebar-content');
-        const mobileSkillsToolsAnchor = document.getElementById('mobile-skills-tools-anchor');
-
-        function relocateSkillsTools() {
-            if (!sidebarDetails || !sidebarContentEl || !mobileSkillsToolsAnchor) return;
-            if (isDesktopLayout()) {
-                if (sidebarDetails.parentElement !== sidebarContentEl) {
-                    sidebarContentEl.appendChild(sidebarDetails);
-                }
-            } else {
-                if (sidebarDetails.parentElement !== mobileSkillsToolsAnchor) {
-                    mobileSkillsToolsAnchor.appendChild(sidebarDetails);
-                }
-            }
-        }
-
-        relocateSkillsTools();
-        window.addEventListener('resize', relocateSkillsTools);
-
-        // init
-        renderMainToggleButton();
-        updateSidebarScrollState();
-
-        // ===== Mobile / small-tablet nav menu =====
-        const navPill = document.getElementById('nav-pill');
-        const navMenuToggle = document.getElementById('nav-menu-toggle');
-        const navMenuPanel = document.getElementById('nav-menu-panel');
-        const navIconOpen = document.getElementById('nav-menu-icon-open');
-        const navIconClose = document.getElementById('nav-menu-icon-close');
-
-        let isNavMenuOpen = false;
-
-        function openNavMenu() {
-            isNavMenuOpen = true;
-            navMenuToggle.setAttribute('aria-expanded', 'true');
-            navMenuPanel.removeAttribute('inert');
-            navIconOpen.classList.add('hidden');
-            navIconClose.classList.remove('hidden');
-            navPill.classList.add('rounded-b-none');
-            navMenuPanel.style.maxHeight = navMenuPanel.scrollHeight + 'px';
-            navMenuPanel.classList.remove('opacity-0');
-            navMenuPanel.classList.add('opacity-100');
-        }
-
-        function closeNavMenu() {
-            isNavMenuOpen = false;
-            navMenuToggle.setAttribute('aria-expanded', 'false');
-            navMenuPanel.setAttribute('inert', '');
-            navIconOpen.classList.remove('hidden');
-            navIconClose.classList.add('hidden');
-            navPill.classList.remove('rounded-b-none');
-            navMenuPanel.style.maxHeight = '0px';
-            navMenuPanel.classList.remove('opacity-100');
-            navMenuPanel.classList.add('opacity-0');
-        }
-
-        if (navMenuToggle) {
-            navMenuToggle.addEventListener('click', () => {
-                isNavMenuOpen ? closeNavMenu() : openNavMenu();
-            });
-
-            navMenuPanel.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', closeNavMenu);
-            });
-
-            document.addEventListener('click', (e) => {
-                if (isNavMenuOpen && !navMenuPanel.contains(e.target) && !navMenuToggle.contains(e.target)) {
-                    closeNavMenu();
-                }
-            });
-
-            // Escape closes the menu and returns focus to the toggle
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && isNavMenuOpen) {
-                    closeNavMenu();
-                    navMenuToggle.focus();
-                }
-            });
-
-            // Close and reset on resize up to md breakpoint
-            window.addEventListener('resize', () => {
-                if (window.innerWidth >= 768 && isNavMenuOpen) {
-                    closeNavMenu();
-                }
-            });
-        }
-
-        // Scroll Reveal
-        const observerOptions = {
-            threshold: 0,
-            rootMargin: "0px 0px 150px 0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // ===== Archive Toggle (Arrow chars) =====
-        const btnToggleArchive = document.getElementById('btn-toggle-archive');
-        const btnArchiveText = document.getElementById('btn-archive-text');
-        const archiveArrow = document.getElementById('archive-arrow');
-        const archiveList = document.getElementById('archive-list');
-
-        let isArchiveVisible = false;
-
-        // The archive block is currently commented out in the markup; skip safely if absent.
-        if (btnToggleArchive && archiveList && btnArchiveText && archiveArrow) btnToggleArchive.addEventListener('click', () => {
-            isArchiveVisible = !isArchiveVisible;
-            if (isArchiveVisible) {
-                // Show Archive
-                archiveList.style.maxHeight = archiveList.scrollHeight + "px";
-                archiveList.classList.remove('opacity-0');
-                archiveList.classList.add('opacity-100');
-
-                btnArchiveText.innerText = 'Hide Full Project Archive';
-                archiveArrow.innerText = '↑';
-            } else {
-                // Hide Archive
-                archiveList.style.maxHeight = "0px";
-                archiveList.classList.remove('opacity-100');
-                archiveList.classList.add('opacity-0');
-
-                btnArchiveText.innerText = 'View Full Project Archive';
-                archiveArrow.innerText = '↓';
-            }
-        });
-
-        // ===== Contact link: smooth-scroll to "Let's talk." =====
-        // The page gets taller while scrolling (main column expands, project text un-clamps),
-        // so a plain anchor jump stops short. Re-aim once the scroll comes to rest.
-        function scrollToContact(attempt = 0) {
-            const target = document.getElementById('contact');
-            if (!target) return;
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-            let last = -1, stable = 0, ticks = 0;
-            const timer = setInterval(() => {
-                ticks++;
-                stable = (window.scrollY === last) ? stable + 1 : 0;
-                last = window.scrollY;
-                if (stable >= 2 || ticks > 40) {
-                    clearInterval(timer);
-                    const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
-                    const off = target.getBoundingClientRect().top - margin;
-                    const atBottom = window.scrollY >= document.documentElement.scrollHeight - window.innerHeight - 2;
-                    if (Math.abs(off) > 2 && !atBottom && attempt < 3) scrollToContact(attempt + 1);
-                }
-            }, 120);
-        }
-
-        document.querySelectorAll('a[href="#contact"]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (!document.getElementById('contact')) return;
-                e.preventDefault();
-                try { history.pushState(null, '', '#contact'); } catch (err) { /* ignore (e.g. file://) */ }
-                scrollToContact();
-            });
-        });
-
-        if (location.hash === '#contact') {
-            window.addEventListener('load', () => setTimeout(scrollToContact, 400));
-        }
-    </script>
-</body>
-
-</html>
+#sidebar{display:none!important}#main-content{width:100%!important;flex:1 1 100%}</template>
+<script>(function(){
+var FONTS={"bold": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap", "dark": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap", "version": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@1&display=swap"},DEF='version',stage=document.getElementById('stage'),loaded={},io,timer,defHTML=stage.innerHTML,ids=['version','dark','bold'],LEGJS="        // Mouse Gradient\n        const cursorGradient = document.getElementById('cursor-gradient');\n        let gradX = 0, gradY = 0, gradTicking = false;\n        window.addEventListener('mousemove', (e) => {\n            gradX = e.clientX; gradY = e.clientY;\n            if (gradTicking) return;\n            gradTicking = true;\n            requestAnimationFrame(() => {\n                cursorGradient.style.opacity = '1';\n                cursorGradient.style.transform = `translate3d(${gradX - 600}px, ${gradY - 600}px, 0)`;\n                gradTicking = false;\n            });\n        }, { passive: true });\n\n        // ===== Main Expand/Collapse =====\n        const sidebar = document.getElementById('sidebar');\n        const mainContent = document.getElementById('main-content');\n\n        const toggleBtn = document.getElementById('toggle-sidebar');\n        const toggleIcon = document.getElementById('toggle-icon');\n        const toggleText = document.getElementById('toggle-text');\n\n        const sidebarDetails = document.getElementById('sidebar-details');\n\n        const buttonsContainer = document.getElementById('buttons-container');\n        const connectContainer = document.getElementById('connect-container');\n        const socialsContainer = document.getElementById('socials-container');\n\n        const btnConnect = document.getElementById('btn-connect');\n        const btnResume = document.getElementById('btn-resume');\n\n        const projectDescriptions = document.querySelectorAll('.project-description');\n\n        function isMainExpanded() {\n            return mainContent.dataset.expanded === \"true\";\n        }\n        function setMainExpanded(val) {\n            mainContent.dataset.expanded = val ? \"true\" : \"false\";\n        }\n\n        function renderMainToggleButton() {\n            if (isMainExpanded()) {\n                // Expanded => show Collapse + right arrow (in)\n                toggleText.innerText = \"Collapse\";\n                toggleIcon.innerHTML = `\n                    <g stroke=\"#15803d\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n                        <path d=\"M5.83278 2.46842L9.53158 5.83278L6.16722 9.53158\" />\n                        <path d=\"M2.46842 6.16722L9.53158 5.83278\" />\n                    <\\/g>`;\n            } else {\n                // Default => show Expand + left arrow (out)\n                toggleText.innerText = \"Expand\";\n                toggleIcon.innerHTML = `\n                    <g stroke=\"#15803d\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n                        <path d=\"M6.14853 9.53275L2.46781 6.14863L5.85193 2.4679\" />\n                        <path d=\"M9.53265 5.85202L2.46781 6.14863\" />\n                    <\\/g>`;\n            }\n        }\n\n        function expandMainContent() {\n            setMainExpanded(true);\n\n            // Sidebar collapses to accommodate\n            sidebar.classList.remove('lg:w-[28%]');\n            sidebar.classList.add('lg:w-0', 'lg:-ml-16', 'items-center');\n            sidebar.style.overflow = 'hidden';\n            sidebar.style.pointerEvents = 'none';\n            sidebar.setAttribute('aria-hidden', 'true');\n\n            sidebarDetails.style.maxHeight = '0px';\n            sidebarDetails.style.marginTop = '0px';\n            sidebarDetails.style.opacity = '0';\n\n            buttonsContainer?.classList.remove('flex-wrap');\n            buttonsContainer?.classList.add('flex-col', 'items-center', 'w-full');\n\n            connectContainer?.classList.remove('items-start');\n            connectContainer?.classList.add('items-center');\n\n            socialsContainer?.classList.remove('gap-5', 'mt-8');\n            socialsContainer?.classList.add('flex-col', 'gap-6', 'items-center', 'mt-6');\n\n            document.querySelectorAll('.btn-text-wrapper').forEach(el => el.classList.add('collapsed'));\n\n            btnConnect?.classList.remove('px-6', 'py-3', 'gap-2');\n            btnConnect?.classList.add('w-10', 'h-10', 'justify-center', 'p-0');\n\n            btnResume?.classList.remove('px-6', 'py-3', 'gap-2');\n            btnResume?.classList.add('w-10', 'h-10', 'justify-center', 'p-0');\n\n            // Main expands\n            mainContent.classList.remove('lg:w-[72%]');\n            mainContent.classList.add('lg:w-full');\n\n            projectDescriptions.forEach(el => el.classList.remove('line-clamp-4'));\n\n            renderMainToggleButton();\n        }\n\n        function collapseMainContent() {\n            setMainExpanded(false);\n\n            // Sidebar expands back\n            sidebar.classList.remove('lg:w-0', 'lg:-ml-16', 'items-center');\n            sidebar.classList.add('lg:w-[28%]');\n            sidebar.style.overflow = '';\n            sidebar.style.pointerEvents = '';\n            sidebar.removeAttribute('aria-hidden');\n\n            sidebarDetails.style.maxHeight = '2200px';\n            sidebarDetails.style.marginTop = '0px';\n            sidebarDetails.style.opacity = '1';\n\n            buttonsContainer?.classList.remove('flex-col', 'items-center', 'w-full');\n            buttonsContainer?.classList.add('flex-wrap');\n\n            connectContainer?.classList.remove('items-center');\n            connectContainer?.classList.add('items-start');\n\n            socialsContainer?.classList.remove('flex-col', 'gap-6', 'items-center', 'mt-6');\n            socialsContainer?.classList.add('gap-5', 'mt-8');\n\n            document.querySelectorAll('.btn-text-wrapper').forEach(el => el.classList.remove('collapsed'));\n\n            btnConnect?.classList.remove('w-10', 'h-10', 'justify-center', 'p-0');\n            btnConnect?.classList.add('px-6', 'py-3', 'gap-2');\n\n            btnResume?.classList.remove('w-10', 'h-10', 'justify-center', 'p-0');\n            btnResume?.classList.add('px-6', 'py-3', 'gap-2');\n\n            // Main normal\n            mainContent.classList.remove('lg:w-full');\n            mainContent.classList.add('lg:w-[72%]');\n\n            projectDescriptions.forEach(el => el.classList.add('line-clamp-4'));\n\n            renderMainToggleButton();\n        }\n\n        toggleBtn.addEventListener('click', () => {\n            if (isMainExpanded()) {\n                collapseMainContent();\n            } else {\n                expandMainContent();\n            }\n        });\n\n        // ===== Scroll-driven expand/collapse =====\n        // Right-side content (Skills/Tools/buttons/socials) is only shown while the\n        // About section is in view (including on initial page load). As soon as the\n        // Projects section scrolls up near the top of the viewport, the project list\n        // expands and the right-side content hides. Scrolling back up to About brings\n        // it back. Only active at the lg breakpoint, where the two-column layout exists.\n        const aboutSection = document.getElementById('about');\n        const projectsSection = document.getElementById('projects');\n        const SIDEBAR_TRIGGER_OFFSET = 150; // px from top of viewport\n\n        function isDesktopLayout() {\n            return window.matchMedia('(min-width: 1024px)').matches;\n        }\n\n        function updateSidebarScrollState() {\n            if (!projectsSection) return;\n\n            if (!isDesktopLayout()) {\n                if (isMainExpanded()) collapseMainContent();\n                return;\n            }\n\n            const projectsTop = projectsSection.getBoundingClientRect().top;\n            const pastProjects = projectsTop <= SIDEBAR_TRIGGER_OFFSET;\n\n            const backAtAbout = projectsTop > SIDEBAR_TRIGGER_OFFSET + 120;\n            if (pastProjects && !isMainExpanded()) {\n                expandMainContent();\n            } else if (backAtAbout && isMainExpanded()) {\n                collapseMainContent();\n            }\n        }\n\n        let scrollTicking = false;\n        window.addEventListener('scroll', () => {\n            if (scrollTicking) return;\n            scrollTicking = true;\n            requestAnimationFrame(() => { updateSidebarScrollState(); scrollTicking = false; });\n        }, { passive: true });\n        window.addEventListener('resize', updateSidebarScrollState);\n\n        // ===== Relocate Skills/Tools for mobile/tablet vs desktop =====\n        // Below lg: the Skills/Tools block (#sidebar-details) moves to sit right after\n        // the About section, above Projects. At lg+: it lives in the sidebar as usual.\n        const sidebarContentEl = document.getElementById('sidebar-content');\n        const mobileSkillsToolsAnchor = document.getElementById('mobile-skills-tools-anchor');\n\n        function relocateSkillsTools() {\n            if (!sidebarDetails || !sidebarContentEl || !mobileSkillsToolsAnchor) return;\n            if (isDesktopLayout()) {\n                if (sidebarDetails.parentElement !== sidebarContentEl) {\n                    sidebarContentEl.appendChild(sidebarDetails);\n                }\n            } else {\n                if (sidebarDetails.parentElement !== mobileSkillsToolsAnchor) {\n                    mobileSkillsToolsAnchor.appendChild(sidebarDetails);\n                }\n            }\n        }\n\n        relocateSkillsTools();\n        window.addEventListener('resize', relocateSkillsTools);\n\n        // init\n        renderMainToggleButton();\n        updateSidebarScrollState();\n\n        // ===== Mobile / small-tablet nav menu =====\n        const navPill = document.getElementById('nav-pill');\n        const navMenuToggle = document.getElementById('nav-menu-toggle');\n        const navMenuPanel = document.getElementById('nav-menu-panel');\n        const navIconOpen = document.getElementById('nav-menu-icon-open');\n        const navIconClose = document.getElementById('nav-menu-icon-close');\n\n        let isNavMenuOpen = false;\n\n        function openNavMenu() {\n            isNavMenuOpen = true;\n            navMenuToggle.setAttribute('aria-expanded', 'true');\n            navMenuPanel.removeAttribute('inert');\n            navIconOpen.classList.add('hidden');\n            navIconClose.classList.remove('hidden');\n            navPill.classList.add('rounded-b-none');\n            navMenuPanel.style.maxHeight = navMenuPanel.scrollHeight + 'px';\n            navMenuPanel.classList.remove('opacity-0');\n            navMenuPanel.classList.add('opacity-100');\n        }\n\n        function closeNavMenu() {\n            isNavMenuOpen = false;\n            navMenuToggle.setAttribute('aria-expanded', 'false');\n            navMenuPanel.setAttribute('inert', '');\n            navIconOpen.classList.remove('hidden');\n            navIconClose.classList.add('hidden');\n            navPill.classList.remove('rounded-b-none');\n            navMenuPanel.style.maxHeight = '0px';\n            navMenuPanel.classList.remove('opacity-100');\n            navMenuPanel.classList.add('opacity-0');\n        }\n\n        if (navMenuToggle) {\n            navMenuToggle.addEventListener('click', () => {\n                isNavMenuOpen ? closeNavMenu() : openNavMenu();\n            });\n\n            navMenuPanel.querySelectorAll('a').forEach(link => {\n                link.addEventListener('click', closeNavMenu);\n            });\n\n            document.addEventListener('click', (e) => {\n                if (isNavMenuOpen && !navMenuPanel.contains(e.target) && !navMenuToggle.contains(e.target)) {\n                    closeNavMenu();\n                }\n            });\n\n            // Escape closes the menu and returns focus to the toggle\n            document.addEventListener('keydown', (e) => {\n                if (e.key === 'Escape' && isNavMenuOpen) {\n                    closeNavMenu();\n                    navMenuToggle.focus();\n                }\n            });\n\n            // Close and reset on resize up to md breakpoint\n            window.addEventListener('resize', () => {\n                if (window.innerWidth >= 768 && isNavMenuOpen) {\n                    closeNavMenu();\n                }\n            });\n        }\n\n        // Scroll Reveal\n        const observerOptions = {\n            threshold: 0,\n            rootMargin: \"0px 0px 150px 0px\"\n        };\n\n        const observer = new IntersectionObserver((entries) => {\n            entries.forEach(entry => {\n                if (entry.isIntersecting) {\n                    entry.target.classList.add('active');\n                    observer.unobserve(entry.target);\n                }\n            });\n        }, observerOptions);\n\n        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));\n\n        // ===== Archive Toggle (Arrow chars) =====\n        const btnToggleArchive = document.getElementById('btn-toggle-archive');\n        const btnArchiveText = document.getElementById('btn-archive-text');\n        const archiveArrow = document.getElementById('archive-arrow');\n        const archiveList = document.getElementById('archive-list');\n\n        let isArchiveVisible = false;\n\n        // The archive block is currently commented out in the markup; skip safely if absent.\n        if (btnToggleArchive && archiveList && btnArchiveText && archiveArrow) btnToggleArchive.addEventListener('click', () => {\n            isArchiveVisible = !isArchiveVisible;\n            if (isArchiveVisible) {\n                // Show Archive\n                archiveList.style.maxHeight = archiveList.scrollHeight + \"px\";\n                archiveList.classList.remove('opacity-0');\n                archiveList.classList.add('opacity-100');\n\n                btnArchiveText.innerText = 'Hide Full Project Archive';\n                archiveArrow.innerText = '\u2191';\n            } else {\n                // Hide Archive\n                archiveList.style.maxHeight = \"0px\";\n                archiveList.classList.remove('opacity-100');\n                archiveList.classList.add('opacity-0');\n\n                btnArchiveText.innerText = 'View Full Project Archive';\n                archiveArrow.innerText = '\u2193';\n            }\n        });\n\n        // ===== Contact link: smooth-scroll to \"Let's talk.\" =====\n        // The page gets taller while scrolling (main column expands, project text un-clamps),\n        // so a plain anchor jump stops short. Re-aim once the scroll comes to rest.\n        function scrollToContact(attempt = 0) {\n            const target = document.getElementById('contact');\n            if (!target) return;\n            target.scrollIntoView({ behavior: 'smooth', block: 'start' });\n\n            let last = -1, stable = 0, ticks = 0;\n            const timer = setInterval(() => {\n                ticks++;\n                stable = (window.scrollY === last) ? stable + 1 : 0;\n                last = window.scrollY;\n                if (stable >= 2 || ticks > 40) {\n                    clearInterval(timer);\n                    const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;\n                    const off = target.getBoundingClientRect().top - margin;\n                    const atBottom = window.scrollY >= document.documentElement.scrollHeight - window.innerHeight - 2;\n                    if (Math.abs(off) > 2 && !atBottom && attempt < 3) scrollToContact(attempt + 1);\n                }\n            }, 120);\n        }\n\n        document.querySelectorAll('a[href=\"#contact\"]').forEach(link => {\n            link.addEventListener('click', (e) => {\n                if (!document.getElementById('contact')) return;\n                e.preventDefault();\n                try { history.pushState(null, '', '#contact'); } catch (err) { /* ignore (e.g. file://) */ }\n                scrollToContact();\n            });\n        });\n\n        if (location.hash === '#contact') {\n            window.addEventListener('load', () => setTimeout(scrollToContact, 400));\n        }\n",legClean=null,legStyle=null;
+function font(id){if(loaded[id])return;loaded[id]=1;var l=document.createElement('link');l.rel='stylesheet';l.href=FONTS[id];document.head.appendChild(l)}
+function leave(){
+  if(legClean){legClean();legClean=null}
+  if(legStyle){legStyle.remove();legStyle=null}
+}
+function legacy(){
+  var rec=[],wa=window.addEventListener,da=document.addEventListener;
+  window.addEventListener=function(t,f,o){rec.push([window,t,f,o]);return wa.call(window,t,f,o)};
+  document.addEventListener=function(t,f,o){rec.push([document,t,f,o]);return da.call(document,t,f,o)};
+  try{new Function(LEGJS)()}catch(e){console.error(e)}finally{window.addEventListener=wa;document.addEventListener=da}
+  legClean=function(){rec.forEach(function(r){r[0].removeEventListener(r[1],r[2],r[3])});window.scrollTo(0,0)};
+}
+function init(){
+  clearInterval(timer);if(io)io.disconnect();
+  io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{rootMargin:'0px 0px 120px 0px'});
+  stage.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+}
+function word(){
+  clearInterval(timer);
+  var w=document.getElementById('word');
+  if(w&&!matchMedia('(prefers-reduced-motion: reduce)').matches){var a=['trust','verify','understand','rely on'],i=0;timer=setInterval(function(){w.classList.add('out');setTimeout(function(){i=(i+1)%a.length;w.textContent=a[i];w.classList.remove('out')},350)},2400)}
+}
+function apply(id,first){
+  if(ids.indexOf(id)<0)id=DEF;
+  font(id);
+  leave();
+  stage.innerHTML=id===DEF?defHTML:document.getElementById('tpl-'+id).innerHTML;
+  document.body.className='theme-'+id+(id==='version'?' relative min-h-screen bg-slate-50 selection:bg-green-300 selection:text-green-900':'');
+  if(id==='version'){
+    legStyle=document.createElement('style');legStyle.textContent=document.getElementById('css-version').content.textContent;document.head.appendChild(legStyle);
+    if(!loaded.fa){loaded.fa=1;var fs=document.createElement('script');fs.src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js';document.head.appendChild(fs)}
+    legacy();
+  }
+  document.querySelectorAll('#seg button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.style===id)});
+    try{var u=new URL(location.href);if(id===DEF)u.searchParams.delete('style');else u.searchParams.set('style',id);history.replaceState(null,'',u)}catch(e){}
+  if(id!=='version')init();else{if(io)io.disconnect()}
+  word();
+  if(!first)window.scrollTo(0,0);
+}
+document.getElementById('seg').addEventListener('click',function(e){var b=e.target.closest('button');if(b)apply(b.dataset.style)});
+var q=new URLSearchParams(location.search).get('style');
+apply(q||DEF,true);
+})();</script></body></html>
