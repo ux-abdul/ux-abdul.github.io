@@ -108,7 +108,7 @@
         .reveal {
             opacity: 0;
             transform: translateY(20px);
-            transition: all 0.5s ease-out;
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
 
         .reveal.active {
@@ -123,6 +123,30 @@
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-duration: 500ms;
         }
+
+        #cursor-gradient {
+            width: 1200px; height: 1200px; will-change: transform;
+            background: radial-gradient(circle 600px at 50% 50%, rgba(74, 222, 128, 0.15), transparent 80%);
+        }
+
+        /* ===== My Journey: fanned, overlapping experience cards ===== */
+        .journey-stage { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0.5rem 0 1.5rem; -webkit-overflow-scrolling: touch; }
+        .journey-card { flex: 0 0 min(82vw, 18rem); scroll-snap-align: start; }
+        @media (min-width: 1024px) {
+            .journey-stage { overflow: visible; scroll-snap-type: none; justify-content: center; gap: 0; padding: 3.5rem 0 4.5rem; }
+            .journey-card {
+                flex: 0 0 18rem; margin-left: -3.5rem; min-height: 19rem;
+                transform: translateY(var(--y, 0)) rotate(var(--r, 0deg));
+                transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+            }
+            .journey-card:first-child { margin-left: 0; }
+            .journey-card:hover, .journey-card:focus-visible {
+                transform: translateY(-14px) rotate(0deg) scale(1.04);
+                z-index: 20 !important;
+                box-shadow: 0 24px 40px -12px rgba(15, 23, 42, 0.25);
+            }
+        }
+        @media (prefers-reduced-motion: reduce) { .journey-card { transition: none; } }
 
         /* Accordion transition */
         #sidebar-details {
@@ -314,13 +338,13 @@
         class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100000] focus:rounded-full focus:bg-slate-900 focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white">Skip to main content</a>
 
     <!-- Background Gradient -->
-    <div id="cursor-gradient" aria-hidden="true" class="pointer-events-none fixed inset-0 z-30 transition duration-300"></div>
+    <div id="cursor-gradient" aria-hidden="true" class="pointer-events-none fixed left-0 top-0 z-30 opacity-0"></div>
 
     <!-- Primary navigation -->
     <nav aria-label="Primary" class="fixed inset-x-0 top-0 z-40 pt-4 pb-2">
         <div class="mx-auto max-w-screen-xl px-6 md:px-12 lg:px-24">
             <div id="nav-pill"
-                class="flex items-center justify-between gap-6 rounded-[28px] border border-slate-200/50 bg-slate-50/75 px-5 py-3 shadow-sm backdrop-blur transition-[border-radius] duration-300 md:rounded-full md:px-8 md:py-3.5 md:mr-0 md:-ml-8">
+                class="flex items-center justify-between gap-6 rounded-[28px] border border-slate-200/50 bg-slate-50/90 px-5 py-3 shadow-sm   transition-[border-radius] duration-300 md:rounded-full md:px-8 md:py-3.5 md:mr-0 md:-ml-8">
                 <a href="index.html"
                     class="shrink-0 text-base font-bold tracking-tight text-slate-900 transition-colors hover:text-green-700 md:text-lg"
                     aria-label="Abdul Hasib home">AH</a>
@@ -337,6 +361,9 @@
                             class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">Experiments</a>
                     </li> -->
                    
+                    <li><a href="#journey"
+                            class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">Journey</a>
+                    </li>
                     <li><a href="#contact"
                             class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700 sm:text-xs">Contact</a>
                     </li>
@@ -369,7 +396,7 @@
             <div id="nav-menu-panel" inert
                 class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-out md:hidden">
                 <ul
-                    class="-mt-px flex flex-col divide-y divide-slate-200/70 rounded-b-[28px] border border-t-0 border-slate-200/50 bg-slate-50/75 px-5 py-2 shadow-sm backdrop-blur">
+                    class="-mt-px flex flex-col divide-y divide-slate-200/70 rounded-b-[28px] border border-t-0 border-slate-200/50 bg-slate-50/90 px-5 py-2 shadow-sm  ">
                      <li><a href="#about"
                             class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">About</a>
                     </li>
@@ -380,6 +407,9 @@
                             class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Experiments</a>
                     </li> -->
                    
+                    <li><a href="#journey"
+                            class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Journey</a>
+                    </li>
                     <li><a href="#contact"
                             class="flex min-h-[5rem] items-center text-base font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-green-700">Contact</a>
                     </li>
@@ -591,7 +621,7 @@
             <section id="projects" class="mb-0 scroll-mt-28 md:mb-20 lg:mb-24 lg:scroll-mt-32"
                 aria-label="Selected projects">
                 <div
-                    class="sticky top-[4.5rem] z-20 -mx-6 mb-8 w-screen bg-slate-50/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">
+                    class="sticky top-[4.5rem] z-20 -mx-6 mb-8 w-screen bg-slate-50/90 px-6 py-5   md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">
                     <h2 class="text-2xl font-bold uppercase tracking-widest text-slate-900 lg:text-lg">Work</h2>
                 </div>
 
@@ -611,7 +641,7 @@
                 <div>
                     <!-- Project Document Verification-->
                     <div
-                        class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-12 mb-24 last:mb-0 items-start sm:items-center reveal">
+                        class="group relative grid gap-4 pb-1 sm:grid-cols-8 sm:gap-6 md:gap-12 mb-24 last:mb-0 items-start sm:items-center reveal">
                         <div
                             class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100">
                         </div>
@@ -620,7 +650,7 @@
                         <div class="z-10 sm:col-span-4">
                             <div
                                 class="rounded-lg border-1 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
-                                <img loading="lazy" src="assets/img/service-assitant-thumb.png" alt="Screens from the AI-assisted document verification application, comparing documents side by side"
+                                <img decoding="async" src="assets/img/service-assitant-thumb.png" alt="Screens from the AI-assisted document verification application, comparing documents side by side"
                                     class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
                             </div>
                         </div>
@@ -667,7 +697,7 @@
 
                     <!-- Project 2 Document Verification-->
                     <div
-                        class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-12 mb-24 last:mb-0 items-start sm:items-center reveal">
+                        class="group relative grid gap-4 pb-1 sm:grid-cols-8 sm:gap-6 md:gap-12 mb-24 last:mb-0 items-start sm:items-center reveal">
                         <div
                             class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100">
                         </div>
@@ -676,7 +706,7 @@
                         <div class="z-10 sm:col-span-4">
                             <div
                                 class="rounded-lg border-1 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
-                                <img loading="lazy" src="assets/img/doc-verification.png" alt="Screens from the AI-assisted document verification application, comparing documents side by side"
+                                <img decoding="async" src="assets/img/doc-verification.png" alt="Screens from the AI-assisted document verification application, comparing documents side by side"
                                     class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
                             </div>
                         </div>
@@ -723,7 +753,7 @@
                     
                     <!-- Project 3 Hotel Check-in-->
                     <div
-                        class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-12 mb-24 last:mb-0 items-start sm:items-center reveal">
+                        class="group relative grid gap-4 pb-1 sm:grid-cols-8 sm:gap-6 md:gap-12 mb-24 last:mb-0 items-start sm:items-center reveal">
                         <div
                             class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100">
                         </div>
@@ -732,7 +762,7 @@
                         <div class="z-10 sm:col-span-4">
                             <div
                                 class="rounded-lg border-1 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
-                                <img loading="lazy" src="assets/img/hotel1.jpg" alt="Hotel check-in app screens showing the guest check-in and membership enrollment flow"
+                                <img decoding="async" src="assets/img/hotel1.jpg" alt="Hotel check-in app screens showing the guest check-in and membership enrollment flow"
                                     class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
                             </div>
                         </div>
@@ -785,14 +815,14 @@
 
                     <!-- Project 4 CRM Application-->
                     <div
-                        class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-12 mb-24 last:mb-0 items-start sm:items-center reveal">
+                        class="group relative grid gap-4 pb-1 sm:grid-cols-8 sm:gap-6 md:gap-12 mb-24 last:mb-0 items-start sm:items-center reveal">
                         <div
                             class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100">
                         </div>
                         <div class="z-10 sm:col-span-4">
                             <div
                                 class="rounded-lg border-1 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
-                                <img loading="lazy" src="assets/img/crm-thumb.png"
+                                <img decoding="async" src="assets/img/crm-thumb.png"
                                     alt="Mobile CRM interface for hospitality staff showing guest information"
                                     class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
                             </div>
@@ -841,7 +871,7 @@
 
                     <!-- Project 5 Locked -->
                     <div
-                        class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-12 mb-24 last:mb-0 items-start sm:items-center reveal">
+                        class="group relative grid gap-4 pb-1 sm:grid-cols-8 sm:gap-6 md:gap-12 mb-24 last:mb-0 items-start sm:items-center reveal">
                         <div
                             class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100">
                         </div>
@@ -850,7 +880,7 @@
                         <div class="z-10 sm:col-span-4">
                             <div
                                 class="rounded-lg border-1 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
-                                <img loading="lazy" src="assets/img/locked-light.png" alt="Locked preview of the industrial work order and operations management system (available on request)"
+                                <img decoding="async" src="assets/img/locked-light.png" alt="Locked preview of the industrial work order and operations management system (available on request)"
                                     class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
                             </div>
                         </div>
@@ -904,14 +934,14 @@
 
                     <!-- Project 6 Shopping from Display Ad -->
                     <div
-                        class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-12 mb-24 last:mb-0 items-start sm:items-center reveal">
+                        class="group relative grid gap-4 pb-1 sm:grid-cols-8 sm:gap-6 md:gap-12 mb-24 last:mb-0 items-start sm:items-center reveal">
                         <div
                             class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100">
                         </div>
                         <div class="z-10 sm:col-span-4">
                             <div
                                 class="rounded-lg border-1 border-slate-200/50 overflow-hidden hover:border-slate-300 transition-colors bg-white">
-                                <img loading="lazy" src="assets/img/airport-shopping1.png"
+                                <img decoding="async" src="assets/img/airport-shopping1.png"
                                     alt="Mobile checkout flow for buying a product seen on an airport display ad"
                                     class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-500">
                             </div>
@@ -980,7 +1010,7 @@
                         <div class="flex gap-4 items-start">
                             <div
                                 class="shrink-0 w-20 h-20 bg-slate-200 rounded-lg overflow-hidden shadow-sm ring-1 ring-slate-900/5">
-                                <img loading="lazy"
+                                <img loading="lazy" decoding="async"
                                     src="https://images.unsplash.com/photo-1661246627162-feb0269e0c07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
                                     alt="Pet Care App" class="w-full h-full object-cover">
                             </div>
@@ -1009,7 +1039,7 @@
                         <div class="flex gap-4 items-start">
                             <div
                                 class="shrink-0 w-20 h-20 bg-slate-200 rounded-lg overflow-hidden shadow-sm ring-1 ring-slate-900/5">
-                                <img loading="lazy"
+                                <img loading="lazy" decoding="async"
                                     src="https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
                                     alt="Food Ordering App" class="w-full h-full object-cover">
                             </div>
@@ -1038,7 +1068,7 @@
                         <div class="flex gap-4 items-start">
                             <div
                                 class="shrink-0 w-20 h-20 bg-slate-200 rounded-lg overflow-hidden shadow-sm ring-1 ring-slate-900/5">
-                                <img loading="lazy"
+                                <img loading="lazy" decoding="async"
                                     src="https://images.unsplash.com/photo-1663153204638-bfce85406499?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
                                     alt="AI Shopping Agent" class="w-full h-full object-cover">
                             </div>
@@ -1058,7 +1088,42 @@
                 </div> -->
             </section>
 
-            <section id="experiments" class="scroll-mt-28 lg:scroll-mt-32" aria-label="Experiments"></section>
+            <section id="journey" class="mt-20 scroll-mt-28 mb-16 md:mt-28 lg:mt-0 lg:mb-24 lg:scroll-mt-32 reveal" aria-label="My journey">
+                <div class="mx-auto max-w-2xl text-center">
+                    <h2 class="hero-title text-[2.75rem] text-slate-900 sm:text-5xl lg:text-[4rem]">My journey<span class="text-green-700">.</span></h2>
+                    <p class="mt-5 text-[15px] leading-[1.75] text-slate-700">Ten years across startups and enterprise products, from a 0-to-1 fintech app to AI-assisted workflows. The thread through all of it: <strong class="font-semibold text-slate-900">removing friction from the systems people rely on every day.</strong></p>
+                </div>
+                <div class="journey-stage mt-10" role="list" aria-label="Career timeline, newest first">
+                    <article tabindex="0" role="listitem" style="--r:-5deg;--y:10px;z-index:4"
+                        class="journey-card relative rounded-2xl border border-slate-200 bg-white p-5 shadow-md shadow-slate-900/5 outline-none">
+                        <img src="assets/img/evoke_logo.svg" alt="Evoke Technologies" loading="lazy" decoding="async" class="h-7 w-auto max-w-full object-contain object-left">
+                        <p class="mt-5 text-xs text-slate-500">Dec 2022 – Present</p>
+                        <h3 class="mt-3 text-lg font-bold leading-snug tracking-tight text-slate-900">Lead UX Designer</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-slate-600">Leading UX for an AI document verification system that cut manual processing time by 80%, a hotel check-in flow that shortened wait times by 40%, and an industrial work order platform.</p>
+                    </article>
+                    <article tabindex="0" role="listitem" style="--r:2deg;--y:-6px;z-index:3"
+                        class="journey-card relative rounded-2xl border border-slate-200 bg-white p-5 shadow-md shadow-slate-900/5 outline-none">
+                        <img src="assets/img/OpenText_logo.svg" alt="OpenText Technologies" loading="lazy" decoding="async" class="h-7 w-auto max-w-full object-contain object-left">
+                        <p class="mt-5 text-xs text-slate-500">Jan 2020 – Dec 2022</p>
+                        <h3 class="mt-3 text-lg font-bold leading-snug tracking-tight text-slate-900">Senior UX Designer</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-slate-600">Designed enterprise business process workflows and an invoice-to-payment system, and pushed for WCAG accessibility across the platform.</p>
+                    </article>
+                    <article tabindex="0" role="listitem" style="--r:-3deg;--y:12px;z-index:2"
+                        class="journey-card relative rounded-2xl border border-slate-200 bg-white p-5 shadow-md shadow-slate-900/5 outline-none">
+                        <img src="assets/img/tcs_new_logo.svg" alt="Tata Consultancy Services" loading="lazy" decoding="async" class="h-7 w-auto max-w-full object-contain object-left">
+                        <p class="mt-5 text-xs text-slate-500">May 2018 – Jan 2020</p>
+                        <h3 class="mt-3 text-lg font-bold leading-snug tracking-tight text-slate-900">Senior UX Designer</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-slate-600">Designed an automotive platform for dealers and customers, from vehicle discovery and purchase to service booking and dealer dashboards.</p>
+                    </article>
+                    <article tabindex="0" role="listitem" style="--r:3deg;--y:-4px;z-index:1"
+                        class="journey-card relative rounded-2xl border border-slate-200 bg-white p-5 shadow-md shadow-slate-900/5 outline-none">
+                        <img src="assets/img/iesoft_logo.svg" alt="IESoft Technologies" loading="lazy" decoding="async" class="h-7 w-auto max-w-full object-contain object-left">
+                        <p class="mt-5 text-xs text-slate-500">May 2016 – May 2018</p>
+                        <h3 class="mt-3 text-lg font-bold leading-snug tracking-tight text-slate-900">UX Designer</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-slate-600">Founding designer on a 0-to-1 financial services platform in Dubai, recognised as a Top 10 Financial Startup in the UAE (2017).</p>
+                    </article>
+                </div>
+            </section>
 
             </main>
         </div>
@@ -1130,9 +1195,17 @@
     <script>
         // Mouse Gradient
         const cursorGradient = document.getElementById('cursor-gradient');
+        let gradX = 0, gradY = 0, gradTicking = false;
         window.addEventListener('mousemove', (e) => {
-            cursorGradient.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(74, 222, 128, 0.15), transparent 80%)`;
-        });
+            gradX = e.clientX; gradY = e.clientY;
+            if (gradTicking) return;
+            gradTicking = true;
+            requestAnimationFrame(() => {
+                cursorGradient.style.opacity = '1';
+                cursorGradient.style.transform = `translate3d(${gradX - 600}px, ${gradY - 600}px, 0)`;
+                gradTicking = false;
+            });
+        }, { passive: true });
 
         // ===== Main Expand/Collapse =====
         const sidebar = document.getElementById('sidebar');
@@ -1293,14 +1366,20 @@
             const projectsTop = projectsSection.getBoundingClientRect().top;
             const pastProjects = projectsTop <= SIDEBAR_TRIGGER_OFFSET;
 
+            const backAtAbout = projectsTop > SIDEBAR_TRIGGER_OFFSET + 120;
             if (pastProjects && !isMainExpanded()) {
                 expandMainContent();
-            } else if (!pastProjects && isMainExpanded()) {
+            } else if (backAtAbout && isMainExpanded()) {
                 collapseMainContent();
             }
         }
 
-        window.addEventListener('scroll', updateSidebarScrollState, { passive: true });
+        let scrollTicking = false;
+        window.addEventListener('scroll', () => {
+            if (scrollTicking) return;
+            scrollTicking = true;
+            requestAnimationFrame(() => { updateSidebarScrollState(); scrollTicking = false; });
+        }, { passive: true });
         window.addEventListener('resize', updateSidebarScrollState);
 
         // ===== Relocate Skills/Tools for mobile/tablet vs desktop =====
@@ -1395,14 +1474,15 @@
 
         // Scroll Reveal
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
+            threshold: 0,
+            rootMargin: "0px 0px 150px 0px"
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
