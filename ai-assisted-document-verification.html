@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Style from the index page (?style=dark|bold). No parameter = Default, unchanged. -->
+    <script>(function(){var s=new URLSearchParams(location.search).get('style');if(s!=='dark'&&s!=='bold')return;var d=document.documentElement;d.classList.add('theme-'+s);d.dataset.style=s;var l=document.createElement('link');l.rel='stylesheet';l.href=s==='dark'?'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap':'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap';document.head.appendChild(l)})();</script>
     <title>AI-assisted Document Verification - Abdul Hasib</title>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2316a34a%22 /><text x=%2250%22 y=%2250%22 font-family=%22Arial, sans-serif%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.35em%22>AH</text></svg>">
@@ -62,6 +64,99 @@
             display: none !important;
         }
     </style>
+    <!-- Dark & Bold styles (only active when the page is opened with ?style=dark or ?style=bold) -->
+    <style>
+        html.theme-dark{--bg:#0a0b0d;--bg-a:rgba(10,11,13,.9);--fg:#f5f5f5;--fg2:#d4d4d4;--muted:#a3a3a3;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.03);--sub:#111317;--accent:#4ade80}
+        html.theme-bold{--bg:#f4efe6;--bg-a:rgba(244,239,230,.92);--fg:#0e0e0e;--fg2:#0e0e0e;--muted:rgba(14,14,14,.78);--line:#0e0e0e;--card:#fff;--sub:#fff;--accent:#0e0e0e}
+
+        /* Shared remap of the Default colours */
+        html[data-style] body,html[data-style] body.bg-slate-50{background:var(--bg);color:var(--fg2)}
+        html[data-style] .text-slate-900{color:var(--fg)}
+        html[data-style] .text-slate-600,html[data-style] .text-slate-500,html[data-style] .text-gray-700{color:var(--muted)}
+        html[data-style] .text-green-600,html[data-style] .text-green-700{color:var(--accent)}
+        html[data-style] .border-slate-200,html[data-style] .border-slate-200\/50,html[data-style] .divide-slate-200>*{border-color:var(--line)}
+        html[data-style] .bg-white{background:var(--card)}
+        html[data-style] .bg-slate-50,html[data-style] .bg-slate-100,html[data-style] .bg-slate-200,html[data-style] .bg-gray-100{background:var(--sub)}
+        html[data-style] .bg-slate-50\/75{background:var(--bg-a);backdrop-filter:none}
+        html[data-style] .hover\:text-green-600:hover,html[data-style] .hover\:text-green-700:hover{color:var(--accent)}
+        html[data-style] .section-nav-link{color:var(--muted)}
+        html[data-style] .section-nav-link:hover{color:var(--fg);border-left-color:var(--muted)}
+        html[data-style] .section-nav-link.is-active{color:var(--fg);border-left-color:var(--accent)}
+
+        /* ---------- Dark ---------- */
+        html.theme-dark{color-scheme:dark;-webkit-font-smoothing:antialiased}
+        html.theme-dark *::selection{background:#4ade80;color:#000}
+        html.theme-dark .font-mono,html.theme-dark .text-xs.uppercase:not([class*="rounded-full"]),html.theme-dark a[aria-label="Back to Home"]{font-family:'JetBrains Mono',monospace}
+        html.theme-dark h1{font-weight:600;letter-spacing:-0.025em}
+        html.theme-dark h2,html.theme-dark h3{font-weight:600}
+        html.theme-dark .text-xs.uppercase:not([class*="rounded-full"]){color:#4ade80;font-weight:500}
+        html.theme-dark .bg-green-400\/10{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:#d4d4d4;border-radius:6px;font-family:'JetBrains Mono',monospace}
+        html.theme-dark .bg-gray-100{background:rgba(255,255,255,.03);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);color:#d4d4d4;font-family:'JetBrains Mono',monospace;font-size:12px}
+        html.theme-dark .bg-white.border,html.theme-dark .bg-white.border-2{border-radius:1rem;transition:border-color .3s,box-shadow .3s}
+        html.theme-dark .bg-white.p-6:hover,html.theme-dark a.bg-white:hover{border-color:rgba(74,222,128,.6);box-shadow:0 0 40px -10px rgba(74,222,128,.35)}
+        html.theme-dark .shadow-sm{box-shadow:none}
+        html.theme-dark td.text-green-600{font-family:'JetBrains Mono',monospace;font-weight:500}
+        html.theme-dark a[aria-label="Back to Home"]{color:#4ade80;font-weight:500}
+        html.theme-dark footer a{color:#e6e8eb}
+
+        /* ---------- Bold ---------- */
+        html.theme-bold *::selection{background:#c6f432;color:#0e0e0e}
+        html.theme-bold #cursor-gradient{display:none}
+        html.theme-bold .font-display,html.theme-bold h1,html.theme-bold h2:not(.text-sm),html.theme-bold h3.text-xl,html.theme-bold h3.text-\[28px\]{font-family:'Bricolage Grotesque','Inter',sans-serif;font-weight:800;letter-spacing:-0.03em}
+        html.theme-bold h1{font-size:clamp(2.5rem,5.2vw,4.25rem);line-height:.98}
+        html.theme-bold h2.text-2xl{font-size:clamp(2rem,4vw,3rem);line-height:1}
+        html.theme-bold .text-xl.leading-relaxed{color:#0e0e0e;font-weight:500}
+        html.theme-bold .text-xs.uppercase:not([class*="rounded-full"]){color:#0e0e0e;opacity:.65;letter-spacing:.18em}
+        html.theme-bold .bg-green-400\/10{background:#c6f432;border:2px solid #0e0e0e;color:#0e0e0e;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:11px}
+        html.theme-bold .bg-gray-100{background:transparent;border:2px solid #0e0e0e;border-radius:999px;color:#0e0e0e;font-weight:700;transition:background .2s,transform .2s}
+        html.theme-bold .bg-gray-100:hover{background:#c6f432;transform:rotate(-2deg)}
+        html.theme-bold .border-y{border-top-width:2px;border-bottom-width:2px}
+        html.theme-bold .border-t.pt-12{border-top-width:2px}
+        /* hero image */
+        html.theme-bold .mb-12.rounded-xl{border:2px solid #0e0e0e;border-radius:1.5rem;box-shadow:8px 8px 0 #0e0e0e;background:#fff}
+        /* coloured callouts become cards that keep their colour stripe */
+        html.theme-bold .pl-5.border-l-4{background:#fff;border-top:2px solid #0e0e0e;border-right:2px solid #0e0e0e;border-bottom:2px solid #0e0e0e;border-left-width:10px;border-radius:1rem;padding:1rem 1.25rem;box-shadow:4px 4px 0 #0e0e0e}
+        /* component cards, table, see-more cards */
+        html.theme-bold .bg-white.border{border:2px solid #0e0e0e;border-radius:1.75rem;box-shadow:6px 6px 0 #0e0e0e}
+        html.theme-bold .rounded-xl.overflow-hidden.border{border:2px solid #0e0e0e;border-radius:1rem}
+        html.theme-bold .divide-slate-200>*{border-top-width:2px}
+        html.theme-bold thead tr{border-bottom-width:2px}
+        html.theme-bold td.text-green-600{background:#c6f432;color:#0e0e0e;font-weight:800}
+        html.theme-bold a.bg-white{transition:transform .2s,box-shadow .2s}
+        html.theme-bold a.bg-white:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 #0e0e0e}
+        html.theme-bold a.bg-white .bg-slate-100{background:#c6f432;border:2px solid #0e0e0e;color:#0e0e0e}
+        html.theme-bold a.bg-white .text-\[14px\].text-green-600{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+        html.theme-bold .section-nav-link.is-active{font-weight:800;border-left-width:3px}
+        html.theme-bold #section-nav ul{border-left-width:2px;border-color:#0e0e0e}
+        html.theme-bold a[aria-label="Back to Home"]{border:2px solid #0e0e0e;border-radius:999px;padding:.45rem 1rem;background:#c6f432;color:#0e0e0e;font-weight:700;box-shadow:3px 3px 0 #0e0e0e}
+        html.theme-bold footer{border-top:2px solid #0e0e0e;padding-top:1.5rem}
+        html.theme-bold footer a{color:#0e0e0e;text-decoration:underline;text-underline-offset:3px}
+        html.theme-bold a:focus-visible{outline:3px solid #0e0e0e;outline-offset:3px;border-radius:8px}
+        html.theme-dark a:focus-visible{outline:3px solid #4ade80;outline-offset:3px}
+
+        /* Extra elements used across the case studies */
+        html[data-style] .text-slate-800{color:var(--fg)}
+        html[data-style] .text-slate-400,html[data-style] .text-gray-500{color:var(--muted)}
+        html[data-style] .border-slate-100{border-color:var(--line)}
+        html[data-style] .ring-slate-100{--tw-ring-color:var(--line)}
+        html[data-style] .hover\:bg-slate-50:hover{background:var(--sub)}
+        html.theme-dark .bg-green-50,html.theme-dark .bg-green-50\/50,html.theme-dark .bg-green-100,html.theme-dark .bg-green-50\/90{background:rgba(74,222,128,.12)}
+        html.theme-dark .bg-red-50,html.theme-dark .bg-red-100,html.theme-dark .bg-red-50\/90{background:rgba(248,113,113,.12)}
+        html.theme-dark .bg-blue-50{background:rgba(96,165,250,.12)}
+        html.theme-dark .text-red-700{color:#f87171}html.theme-dark .text-blue-700{color:#60a5fa}
+        html.theme-dark .ring-green-600\/20,html.theme-dark .ring-green-600\/30{--tw-ring-color:rgba(74,222,128,.3)}
+        html.theme-dark .ring-red-600\/20,html.theme-dark .ring-red-600\/30{--tw-ring-color:rgba(248,113,113,.3)}
+        html.theme-dark .ring-blue-600\/20{--tw-ring-color:rgba(96,165,250,.3)}
+        html.theme-bold .rounded-full.ring-inset{box-shadow:none;border:2px solid #0e0e0e;color:#0e0e0e}
+        html.theme-bold .bg-green-50,html.theme-bold .bg-green-100{background:#c6f432}
+        html.theme-bold .bg-red-50,html.theme-bold .bg-red-100{background:#ffb4b4}
+        html.theme-bold .bg-blue-50{background:#a5d8ff}
+        html.theme-bold .text-red-700,html.theme-bold .text-blue-700{color:#0e0e0e}
+        html.theme-bold .text-slate-800{font-family:'Bricolage Grotesque','Inter',sans-serif;font-weight:800}
+        html.theme-bold .bg-gradient-to-br.rounded-xl{border:2px solid #0e0e0e;box-shadow:3px 3px 0 #0e0e0e}
+        html.theme-dark .bg-teal-50\/50{background:rgba(45,212,191,.08)}
+        html.theme-bold .rounded-xl.overflow-hidden.border-1{border:2px solid #0e0e0e;border-radius:1rem}
+    </style>
 </head>
 
 <body class="relative min-h-screen bg-slate-50 selection:bg-green-300 selection:text-green-900">
@@ -78,7 +173,7 @@
                 <a href="index.html" aria-label="Back to Home"
                         class="group inline-flex items-center gap-2 text-sm font-semibold text-green-600 transition hover:text-green-700">
                         <i class="fa-solid fa-arrow-left h-4 w-4 transition-transform group-hover:-translate-x-1"></i>
-                        Back
+                        Back to Home
                     </a>
             </div>
 
@@ -122,7 +217,7 @@
                         <a href="index.html" aria-label="Back to Home"
                         class="group inline-flex items-center gap-2 text-sm font-semibold text-green-600 transition hover:text-green-700">
                         <i class="fa-solid fa-arrow-left h-4 w-4 transition-transform group-hover:-translate-x-1"></i>
-                        Back
+                        Back to Home
                     </a>
                     </div>
 
@@ -745,6 +840,23 @@
             });
 
             updateActive();
+        })();
+    </script>
+    <!-- Dark & Bold: background grid (Dark) and keep the style on every link -->
+    <script>
+        (function () {
+            var s = document.documentElement.dataset.style;
+            if (!s) return;
+            if (s === 'dark') document.body.insertAdjacentHTML('afterbegin', '<div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.035)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]"></div>');
+
+            // Carry ?style= to the index and to other pages; "Back" returns to the work section
+            document.querySelectorAll('a[href]').forEach(function (a) {
+                var m = a.getAttribute('href').match(/^([\w-]+\.html)(#[\w-]*)?$/);
+                if (!m) return;
+                var hash = m[2] || '';
+                if (m[1] === 'index.html' && !hash && a.getAttribute('aria-label') === 'Back to Home') hash = '#work';
+                a.setAttribute('href', m[1] + '?style=' + s + hash);
+            });
         })();
     </script>
 </body>
